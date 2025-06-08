@@ -16,6 +16,7 @@ export default function Changelog() {
           'align-content-end',
           'align-content-start',
           'arrow-right-to-bracket-clock',
+          'bluesky',
           'clock-pause',
           'clock-slash',
           'list-bar-chart',
@@ -28,6 +29,7 @@ export default function Changelog() {
           'signal-strong',
           'signal-weak'
         ]}
+        updatedIcons={['facebook-messenger']}
       />
       <Release name="Amicons 1.0 alpha 9" version="1.0.0-alpha.9" date="19 December 2024" added={[<>Amicons now supports React 19.</>]} />
       <Release
