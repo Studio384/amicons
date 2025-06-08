@@ -9,7 +9,6 @@ import PageInstallation from './app/Docs/pages/Installation';
 import PageRotate from './app/Docs/pages/Rotate';
 import PageSpin from './app/Docs/pages/Spin';
 import Error from './app/Error';
-import Home from './app/Home';
 import Icon from './app/Icon';
 import Icons from './app/Icons';
 import Layout from './design/layout/Layout';
@@ -21,7 +20,7 @@ const router = createHashRouter([
     children: [
       {
         path: '/',
-        element: <Home />
+        element: <Icons />
       },
       {
         path: '/icons',
