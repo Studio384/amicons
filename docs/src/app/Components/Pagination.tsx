@@ -1,6 +1,6 @@
 import { Button, Divider, IconButton, Stack } from '@mui/joy';
 import { PaginationProps } from '@mui/material';
-import usePagination from '@mui/material/usePagination/usePagination';
+import usePagination from '@mui/material/usePagination';
 
 import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from '@studio384/amicons';
 

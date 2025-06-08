@@ -7,6 +7,28 @@ import Release from './_Release';
 export default function Changelog() {
   return (
     <Stack gap={5}>
+      <Release
+        name="Amicons 1.0 alpha 10"
+        version="1.0.0-alpha.10"
+        date="5 June 2025"
+        newIcons={[
+          'align-content-center',
+          'align-content-end',
+          'align-content-start',
+          'arrow-right-to-bracket-clock',
+          'clock-pause',
+          'clock-slash',
+          'list-bar-chart',
+          'record-stop',
+          'record',
+          'signal-fair',
+          'signal-good',
+          'signal-moderate',
+          'signal-slash',
+          'signal-strong',
+          'signal-weak'
+        ]}
+      />
       <Release name="Amicons 1.0 alpha 9" version="1.0.0-alpha.9" date="19 December 2024" added={[<>Amicons now supports React 19.</>]} />
       <Release
         name="Amicons 1.0 alpha 8"

@@ -14,6 +14,9 @@ import {
   aiAGum,
   aiAlarmClock,
   aiAlignCenter,
+  aiAlignContentCenter,
+  aiAlignContentEnd,
+  aiAlignContentStart,
   aiAlignJustify,
   aiAlignLeft,
   aiAlignRight,
@@ -44,6 +47,7 @@ import {
   aiArrowRightFromSmartphone,
   aiArrowRightProhibited,
   aiArrowRightToBracket,
+  aiArrowRightToBracketClock,
   aiArrowRightToFile,
   aiArrowRightToLine,
   aiArrowRotateLeft,
@@ -126,7 +130,9 @@ import {
   aiCity,
   aiClipboard,
   aiClock,
+  aiClockPause,
   aiClockRotateLeft,
+  aiClockSlash,
   aiCloud,
   aiCloudDrizzle,
   aiCloudFog,
@@ -271,6 +277,7 @@ import {
   aiLine,
   aiLinkedin,
   aiList,
+  aiListBarChart,
   aiListChecks,
   aiListChecksXmark,
   aiListClock,
@@ -360,6 +367,8 @@ import {
   aiR,
   aiReact,
   aiReceipt,
+  aiRecord,
+  aiRecordStop,
   aiRectangleP,
   aiRedo,
   aiRepeat,
@@ -381,6 +390,12 @@ import {
   aiShuffle,
   aiSidebarLeft,
   aiSidebarRight,
+  aiSignalFair,
+  aiSignalGood,
+  aiSignalModerate,
+  aiSignalSlash,
+  aiSignalStrong,
+  aiSignalWeak,
   aiSignature,
   aiSimCard,
   aiSippy,
@@ -595,6 +610,27 @@ const icons = [
     icon: aiAlignCenter
   },
   {
+    component: 'aiAlignContentCenter',
+    categories: ['charts', 'editor'],
+    tags: [],
+    slug: 'align-content-center',
+    icon: aiAlignContentCenter
+  },
+  {
+    component: 'aiAlignContentEnd',
+    categories: ['charts', 'editor'],
+    tags: [],
+    slug: 'align-content-end',
+    icon: aiAlignContentEnd
+  },
+  {
+    component: 'aiAlignContentStart',
+    categories: ['charts', 'editor'],
+    tags: [],
+    slug: 'align-content-start',
+    icon: aiAlignContentStart
+  },
+  {
     component: 'aiAlignJustify',
     categories: ['editor'],
     tags: [],
@@ -789,6 +825,13 @@ const icons = [
     tags: ['direction'],
     slug: 'arrow-right-prohibited',
     icon: aiArrowRightProhibited
+  },
+  {
+    component: 'aiArrowRightToBracketClock',
+    categories: ['arrows'],
+    tags: ['direction', 'enter', 'signin'],
+    slug: 'arrow-right-to-bracket-clock',
+    icon: aiArrowRightToBracketClock
   },
   {
     component: 'aiArrowRightToBracket',
@@ -1372,11 +1415,25 @@ const icons = [
     icon: aiClipboard
   },
   {
+    component: 'aiClockPause',
+    categories: ['time'],
+    tags: [],
+    slug: 'clock-pause',
+    icon: aiClockPause
+  },
+  {
     component: 'aiClockRotateLeft',
     categories: ['time', 'arrows'],
     tags: ['history'],
     slug: 'clock-rotate-left',
     icon: aiClockRotateLeft
+  },
+  {
+    component: 'aiClockSlash',
+    categories: ['time', 'toggle'],
+    tags: [],
+    slug: 'clock-slash',
+    icon: aiClockSlash
   },
   {
     component: 'aiClock',
@@ -2387,6 +2444,13 @@ const icons = [
     icon: aiLinkedin
   },
   {
+    component: 'aiListBarChart',
+    categories: ['editor', 'charts'],
+    tags: [],
+    slug: 'list-bar-chart',
+    icon: aiListBarChart
+  },
+  {
     component: 'aiListChecksXmark',
     categories: ['editor'],
     tags: [],
@@ -3017,6 +3081,20 @@ const icons = [
     icon: aiReceipt
   },
   {
+    component: 'aiRecordStop',
+    categories: ['media'],
+    tags: ['recorder', 'video', 'recording'],
+    slug: 'record-stop',
+    icon: aiRecordStop
+  },
+  {
+    component: 'aiRecord',
+    categories: ['media'],
+    tags: ['recorder', 'video', 'recording'],
+    slug: 'record',
+    icon: aiRecord
+  },
+  {
     component: 'aiRectangleP',
     categories: ['letters-numbers'],
     tags: [],
@@ -3162,6 +3240,48 @@ const icons = [
     tags: [],
     slug: 'sidebar-right',
     icon: aiSidebarRight
+  },
+  {
+    component: 'aiSignalFair',
+    categories: ['connectivity'],
+    tags: ['network'],
+    slug: 'signal-fair',
+    icon: aiSignalFair
+  },
+  {
+    component: 'aiSignalGood',
+    categories: ['connectivity'],
+    tags: ['network'],
+    slug: 'signal-good',
+    icon: aiSignalGood
+  },
+  {
+    component: 'aiSignalModerate',
+    categories: ['connectivity'],
+    tags: ['network'],
+    slug: 'signal-moderate',
+    icon: aiSignalModerate
+  },
+  {
+    component: 'aiSignalSlash',
+    categories: ['connectivity', 'toggle'],
+    tags: ['network'],
+    slug: 'signal-slash',
+    icon: aiSignalSlash
+  },
+  {
+    component: 'aiSignalStrong',
+    categories: ['connectivity', 'toggle'],
+    tags: ['network'],
+    slug: 'signal-strong',
+    icon: aiSignalStrong
+  },
+  {
+    component: 'aiSignalWeak',
+    categories: ['connectivity'],
+    tags: ['network'],
+    slug: 'signal-weak',
+    icon: aiSignalWeak
   },
   {
     component: 'aiSignature',
