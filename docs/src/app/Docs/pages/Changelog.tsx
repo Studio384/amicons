@@ -10,7 +10,7 @@ export default function Changelog() {
       <Release
         name="Amicons 1.0 alpha 10"
         version="1.0.0-alpha.10"
-        date="5 June 2025"
+        date="11 June 2025"
         newIcons={[
           'align-content-center',
           'align-content-end',
@@ -30,6 +30,7 @@ export default function Changelog() {
           'signal-weak'
         ]}
         updatedIcons={['facebook-messenger']}
+        added={[<>Amicons is now a fully native ESM package.</>]}
       />
       <Release name="Amicons 1.0 alpha 9" version="1.0.0-alpha.9" date="19 December 2024" added={[<>Amicons now supports React 19.</>]} />
       <Release
