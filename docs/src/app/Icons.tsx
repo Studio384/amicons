@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router';
 
 import {
   Box,
@@ -41,7 +41,7 @@ export default function Icons() {
 
   const searchableList = useMemo(() => {
     if (searchCategories.length >= 1) {
-      return icons.filter((icon) => searchCategories.every((_searchCategory) => icon.categories.includes(_searchCategory)));
+      return icons.filter((icon) => searchCategories.every((_searchCategory) => icon.categories.includes(_searchCategory as never)));
     }
 
     return icons;
@@ -130,7 +130,7 @@ export default function Icons() {
               }}
             >
               {categories.map((_category) => {
-                const categoryIcons = searchableList.filter((icon) => icon.categories.includes(_category.slug));
+                const categoryIcons = searchableList.filter((icon) => icon.categories.includes(_category.slug as never));
 
                 if (categoryIcons.length === 0) {
                   return;

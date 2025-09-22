@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { createSearchParams, useNavigate, useParams } from 'react-router-dom';
+import { createSearchParams, useNavigate, useParams } from 'react-router';
 
 import { Alert, Avatar, Box, Button, Card, Chip, Container, IconButton, Input, Link, Stack, Typography } from '@mui/joy';
 
@@ -27,7 +27,7 @@ export default function Icon() {
   }, [slug]);
 
   const reactImport = slug
-    ? `ai${slug
+    ? `vi${slug
         .split('-')
         .map((word) => {
           return word[0].toUpperCase() + word.substring(1);
@@ -37,13 +37,13 @@ export default function Icon() {
 
   const categoryIcons = useMemo(() => {
     if (firstCategory) {
-      return icons.filter((icon) => icon.categories.includes(firstCategory));
+      return icons.filter((icon) => icon.categories.includes(firstCategory as never));
     }
 
     return icons;
   }, [firstCategory]);
 
-  const aiIcon: ILibraryIcon = useMemo(() => icons.find((icon) => icon.component === reactImport)!, [reactImport]);
+  const viIcon: ILibraryIcon = useMemo(() => icons.find((icon) => icon.component === reactImport)!, [reactImport]);
 
   return (
     <>
@@ -91,7 +91,7 @@ export default function Icon() {
               )}
             </Stack>
           </Stack>
-          <LargeIconGrid icon={aiIcon?.icon} />
+          <LargeIconGrid icon={viIcon?.icon} />
         </Stack>
       </Header>
       <Container>
@@ -131,14 +131,17 @@ export default function Icon() {
                   color="primary"
                   sx={{ fontSize: 'xl4', display: 'flex', justifyContent: 'center', alignItems: 'center', order: 1, boxShadow: 'none' }}
                 >
-                  <Amicon icon={aiIcon?.icon} />
+                  <Stack justifyContent="center" alignItems="center" gap={1}>
+                    <Amicon icon={viIcon?.icon} bounce />
+                    <Typography sx={{ color: 'primary.200', lineHeight: 1 }}>Bounce</Typography>
+                  </Stack>
                 </Card>
                 <Card
                   variant="outlined"
                   color="primary"
                   sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gridColumn: 'span 2', order: 2, boxShadow: 'none' }}
                 >
-                  <Typography fontSize="xl4" color="primary" startDecorator={<Amicon icon={aiIcon?.icon} />} noWrap sx={{ maxWidth: 1 }}>
+                  <Typography fontSize="xl4" color="primary" startDecorator={<Amicon icon={viIcon?.icon} />} noWrap sx={{ maxWidth: 1 }}>
                     {icon?.title}
                   </Typography>
                 </Card>
@@ -158,11 +161,11 @@ export default function Icon() {
                 >
                   <Stack direction="row" gap={10}>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} spin />
+                      <Amicon icon={viIcon?.icon} spin />
                       <Typography sx={{ color: 'primary.800', lineHeight: 1 }}>Spin</Typography>
                     </Stack>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} spin="pulse" />
+                      <Amicon icon={viIcon?.icon} spin="pulse" />
                       <Typography sx={{ color: 'primary.800', lineHeight: 1 }}>Pulse</Typography>
                     </Stack>
                   </Stack>
@@ -172,7 +175,7 @@ export default function Icon() {
                   color="primary"
                   sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: { xs: 4, md: 2, lg: 4 }, boxShadow: 'none' }}
                 >
-                  <Input startDecorator={<Amicon icon={aiIcon?.icon} />} placeholder={icon?.title} sx={{ maxWidth: 1 }} />
+                  <Input startDecorator={<Amicon icon={viIcon?.icon} />} placeholder={icon?.title} sx={{ maxWidth: 1 }} />
                 </Card>
                 <Card
                   variant="outlined"
@@ -180,7 +183,7 @@ export default function Icon() {
                   sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: { xs: 6, sm: 10, lg: 5 }, boxShadow: 'none' }}
                 >
                   <Avatar color="primary" size="lg" variant="solid">
-                    <Amicon icon={aiIcon?.icon} />
+                    <Amicon icon={viIcon?.icon} />
                   </Avatar>
                 </Card>
                 <Card
@@ -198,22 +201,22 @@ export default function Icon() {
                 >
                   <Stack direction="row" gap={10}>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} rotate={90} />
+                      <Amicon icon={viIcon?.icon} rotate={90} />
                       <Typography sx={{ lineHeight: 1 }}>90°</Typography>
                     </Stack>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} rotate={180} />
+                      <Amicon icon={viIcon?.icon} rotate={180} />
                       <Typography sx={{ lineHeight: 1 }}>180°</Typography>
                     </Stack>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} rotate={270} />
+                      <Amicon icon={viIcon?.icon} rotate={270} />
                       <Typography sx={{ lineHeight: 1 }}>270°</Typography>
                     </Stack>
                   </Stack>
                 </Card>
                 <Card variant="outlined" color="primary" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: 8, boxShadow: 'none' }}>
                   <Avatar color="primary" size="lg" variant="outlined" sx={{ borderRadius: 'md', bgcolor: 'primary.200', borderColor: 'primary.400' }}>
-                    <Amicon icon={aiIcon?.icon} />
+                    <Amicon icon={viIcon?.icon} />
                   </Avatar>
                 </Card>
                 <Card
@@ -222,7 +225,7 @@ export default function Icon() {
                   sx={{ fontSize: 'xl4', display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'primary.700', order: 9, boxShadow: 'none' }}
                 >
                   <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={aiIcon?.icon} beat />
+                    <Amicon icon={viIcon?.icon} beat />
                     <Typography sx={{ color: 'primary.200', lineHeight: 1 }}>Beat</Typography>
                   </Stack>
                 </Card>
@@ -241,15 +244,15 @@ export default function Icon() {
                 >
                   <Stack direction="row" gap={10}>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} flip />
+                      <Amicon icon={viIcon?.icon} flip />
                       <Typography sx={{ color: 'common.white', lineHeight: 1 }}>Flip</Typography>
                     </Stack>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} flip="x" />
+                      <Amicon icon={viIcon?.icon} flip="x" />
                       <Typography sx={{ color: 'common.white', lineHeight: 1 }}>X</Typography>
                     </Stack>
                     <Stack justifyContent="center" alignItems="center" gap={1}>
-                      <Amicon icon={aiIcon?.icon} flip="y" />
+                      <Amicon icon={viIcon?.icon} flip="y" />
                       <Typography sx={{ color: 'common.white', lineHeight: 1 }}>Y</Typography>
                     </Stack>
                   </Stack>
@@ -259,7 +262,7 @@ export default function Icon() {
                   color="primary"
                   sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: { xs: 1, sm: 11 }, boxShadow: 'none' }}
                 >
-                  <Button size="lg" startDecorator={<Amicon icon={aiIcon?.icon} />}>
+                  <Button size="lg" startDecorator={<Amicon icon={viIcon?.icon} />}>
                     Button
                   </Button>
                 </Card>
@@ -272,7 +275,7 @@ export default function Icon() {
                     variant="outlined"
                     color="primary"
                     sx={{ bgcolor: 'primary.100' }}
-                    startDecorator={<Amicon icon={aiIcon?.icon} />}
+                    startDecorator={<Amicon icon={viIcon?.icon} />}
                     endDecorator={
                       <IconButton size="sm" variant="solid" color="primary">
                         <Amicon icon={aiXmark} />

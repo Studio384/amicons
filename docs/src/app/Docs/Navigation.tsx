@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router';
 
 import { List, ListItem, ListItemButton, ListItemContent, ListSubheader, Typography } from '@mui/joy';
 

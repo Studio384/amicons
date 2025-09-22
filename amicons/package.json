@@ -6,10 +6,18 @@
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./amicons.css": "./dist/amicons.css"
+  },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "npm run build:esm && npm run build:cjs && npm run style",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
+    "style": "copyfiles -u 1 src/amicons.css dist/",
     "icons": "npm run icons:clean && npm run icons:ts",
     "icons:clean": "svgo -f ./icons -o ./icons",
     "icons:ts": "svg-to-ts-constants",
@@ -38,22 +46,23 @@
   },
   "homepage": "https://studio384.github.io/amicons",
   "peerDependencies": {
-    "@emotion/css": "^11.x",
     "react": ">=16.x"
   },
   "dependencies": {
-    "html-react-parser": "5.2.5"
+    "clsx": "^2.1.1",
+    "html-react-parser": "^5.2"
   },
   "devDependencies": {
-    "@types/react": "19.1.8",
+    "@types/react": "^19.0.1",
+    "copyfiles": "^2.4.1",
     "nodemon": "3.1.10",
     "npm-run-all": "4.1.5",
     "picocolors": "1.1.1",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "svg-to-ts": "12.0.0",
-    "svgo": "^4.0.0-rc.5",
-    "typescript": "5.8.3"
+    "svgo": "4.0.0",
+    "typescript": "5.9.2"
   },
   "browserslist": {
     "production": [

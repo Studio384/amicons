@@ -2,14 +2,18 @@
 
 "use strict";
 
-const fs = require("fs").promises;
-const path = require("path");
-const picocolors = require("picocolors");
+import { promises as fs } from "fs";
+import { join, basename, extname, dirname } from "path";
+import picocolors from "picocolors";
+import { fileURLToPath } from "url";
 
-const version = require("../package.json").version;
+import pkg from "../package.json" with { type: "json" };
 
-const iconsDir = path.join(__dirname, "../icons/");
-const pagesDir = path.join(__dirname, "../../docs/public/data/icons/");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const iconsDir = join(__dirname, "../icons/");
+const pagesDir = join(__dirname, "../../docs/public/data/icons/");
 
 const VERBOSE = process.argv.includes("--verbose");
 
@@ -20,16 +24,16 @@ function capitalizeFirstLetter(string) {
 }
 
 async function main(file) {
-  const iconBasename = path.basename(file, path.extname(file));
+  const iconBasename = basename(file, extname(file));
   const iconTitle = capitalizeFirstLetter(iconBasename);
-  const pageName = path.join(pagesDir, `${iconBasename}.json`);
+  const pageName = join(pagesDir, `${iconBasename}.json`);
 
   const pageTemplate = `{
   "title": "${iconTitle}",
   "categories": [],
   "tags": [],
-  "created": "${version.substr(0, version.indexOf("-"))}",
-  "updated": "${version.substr(0, version.indexOf("-"))}"
+  "created": "${pkg.version.substring(0, pkg.version.indexOf("-"))}",
+  "updated": "${pkg.version.substring(0, pkg.version.indexOf("-"))}"
 }`;
 
   try {

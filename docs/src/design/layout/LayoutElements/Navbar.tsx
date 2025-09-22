@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router';
 
 import { Box, Button, Container, IconButton, Link, Sheet, Stack } from '@mui/joy';
 
