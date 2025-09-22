@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import '@studio384/amicons/amicons.css';
 
 import App from './App';
+import './style.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
