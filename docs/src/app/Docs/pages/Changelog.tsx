@@ -10,7 +10,7 @@ export default function Changelog() {
       <Release
         name="Amicons 1.0 alpha 10"
         version="1.0.0-alpha.10"
-        date="11 June 2025"
+        date="17 October 2025"
         newIcons={[
           'align-content-center',
           'align-content-end',
