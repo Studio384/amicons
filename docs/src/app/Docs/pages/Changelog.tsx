@@ -21,8 +21,12 @@ export default function Changelog() {
           'bluesky',
           'clock-pause',
           'clock-slash',
+          'cursor',
+          'diamonds',
           'id-card-slash',
+          'input',
           'list-bar-chart',
+          'macos-finder',
           'record-stop',
           'record',
           'signal-fair',
@@ -30,10 +34,35 @@ export default function Changelog() {
           'signal-moderate',
           'signal-slash',
           'signal-strong',
-          'signal-weak'
+          'signal-weak',
+          'square-check'
         ]}
-        updatedIcons={['facebook-messenger']}
-        added={[<>Amicons is now a fully native ESM package.</>]}
+        updatedIcons={[
+          'arrow-down-to-line',
+          'arrow-left-from-bracket',
+          'arrow-up-right-from-square',
+          'devices',
+          'facebook-messenger',
+          'fanvil',
+          'fingerprint',
+          'keyboard',
+          'message-pen',
+          'record-stop',
+          'safari',
+          'signal-strong',
+          'triangle-exclamation',
+          'yealink'
+        ]}
+        added={[
+          <>Amicons is now properly exported as both a CJS and ESM package.</>,
+          <>
+            Adds the bounce animation to our default style, and added the <Code>bounce</Code> prop to our React component.
+          </>,
+          <>
+            We've removed the dependency on <Code>@emotion/css</Code>!
+          </>
+        ]}
+        fixed={[<>Fixes the SVG and export for fingerprint, record-stop, safari, signal-strong, and triangle-exclamation containing the icon twice.</>]}
       />
       <Release name="Amicons 1.0 alpha 9" version="1.0.0-alpha.9" date="19 December 2024" added={[<>Amicons now supports React 19.</>]} />
       <Release
