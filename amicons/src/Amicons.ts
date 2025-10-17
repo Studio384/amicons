@@ -426,6 +426,20 @@ export const aiArrowsRotateRight: {
   name: 'arrows_rotate_right',
   data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M11.25 5.5h2.206l-.005-.01A6 6 0 0 0 4.32 3.261c-.327.255-.8.259-1.092-.034s-.295-.771.025-1.033A7.47 7.47 0 0 1 8 .5a7.5 7.5 0 0 1 6.5 3.756V2.25a.75.75 0 0 1 1.5 0v4a.75.75 0 0 1-.75.75h-4a.75.75 0 0 1 0-1.5m-6.49 5H2.554l.004.01a6 6 0 0 0 9.132 2.229c.327-.255.8-.259 1.093.034s.295.771-.026 1.033A7.47 7.47 0 0 1 8.01 15.5a7.5 7.5 0 0 1-6.5-3.756v2.006a.75.75 0 0 1-1.5 0v-4A.75.75 0 0 1 .76 9h4a.75.75 0 1 1 0 1.5"/></svg>`,
 };
+export const aiArrowsUpRightAndDownLeftFromCenter: {
+  name: 'arrows_up_right_and_down_left_from_center';
+  data: string;
+} = {
+  name: 'arrows_up_right_and_down_left_from_center',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M5.72 9.22a.75.75 0 1 1 1.06 1.06L2.56 14.5h2.69a.75.75 0 0 1 0 1.5H.75a.75.75 0 0 1-.75-.75v-4.5a.75.75 0 0 1 1.5 0v2.69zM15.25 0a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0V2.56l-4.22 4.22a.75.75 0 1 1-1.06-1.06l4.22-4.22h-2.69a.75.75 0 0 1 0-1.5z"/></svg>`,
+};
+export const aiArrowsUpRightAndDownLeftToCenter: {
+  name: 'arrows_up_right_and_down_left_to_center';
+  data: string;
+} = {
+  name: 'arrows_up_right_and_down_left_to_center',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M6.25 9a.75.75 0 0 1 .75.75v4.5a.75.75 0 0 1-1.5 0v-2.69l-4.22 4.22a.75.75 0 1 1-1.06-1.06l4.22-4.22H1.75a.75.75 0 0 1 0-1.5zM14.72.22a.75.75 0 1 1 1.06 1.06L11.56 5.5h2.69a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 9 6.25v-4.5a.75.75 0 0 1 1.5 0v2.69z"/></svg>`,
+};
 export const aiAsterisk: {
   name: 'asterisk';
   data: string;
@@ -1798,6 +1812,13 @@ export const aiIcons: {
   name: 'icons',
   data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M12.5 0a.75.75 0 0 1 .67.415l2.75 5.5A.75.75 0 0 1 15.25 7h-5.5a.75.75 0 0 1-.67-1.085l2.75-5.5A.75.75 0 0 1 12.5 0m1.537 5.5L12.5 2.427 10.963 5.5zM1.28.22A.75.75 0 1 0 .22 1.28L2.44 3.5.22 5.72a.75.75 0 1 0 1.06 1.06L3.5 4.56l2.22 2.22a.75.75 0 0 0 1.06-1.06L4.56 3.5l2.22-2.22A.75.75 0 0 0 5.72.22L3.5 2.44zM.75 9a.75.75 0 0 0-.75.75v5.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-5.5A.75.75 0 0 0 6.25 9zm.75 5.5v-4h4v4zm14.5-2a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.5 0a2 2 0 1 0-4 0 2 2 0 0 0 4 0"/></svg>`,
 };
+export const aiIdCardSlash: {
+  name: 'id_card_slash';
+  data: string;
+} = {
+  name: 'id_card_slash',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M.22.22a.75.75 0 0 1 1.06 0l14.5 14.5a.75.75 0 1 1-1.06 1.06L12.94 14H2.75A2.75 2.75 0 0 1 0 11.25v-6.5c0-1 .536-1.873 1.335-2.354L.22 1.28a.75.75 0 0 1 0-1.06M1.5 5v6.25c0 .69.56 1.25 1.25 1.25h.128q-.076-.094-.147-.193c-.307-.436-.32-1.11.186-1.279a9.75 9.75 0 0 1 6.166 0c.506.17.493.843.185 1.279q-.07.099-.147.193h2.319L7.532 8.593A1.748 1.748 0 0 1 4.25 7.75c0-.66.366-1.235.906-1.533L3.94 5zm11.75-3A2.75 2.75 0 0 1 16 4.75v6.5c0 .487-.129.942-.35 1.339l-1.165-1.164a1 1 0 0 0 .015-.175V5H8.06l-3-3z"/><path d="M11.75 8.5a.75.75 0 0 1 .729.918L11.56 8.5zm1-2.5a.75.75 0 0 1 0 1.5h-2.19L9.253 6.191A.75.75 0 0 1 9.75 6z"/></svg>`,
+};
 export const aiIdCard: {
   name: 'id_card';
   data: string;
@@ -1880,7 +1901,7 @@ export const aiKeyboard: {
   data: string;
 } = {
   name: 'keyboard',
-  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M3.75 5.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0M5 6.5A.75.75 0 1 0 5 5a.75.75 0 0 0 0 1.5m2.75-.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0M9 6.5A.75.75 0 1 0 9 5a.75.75 0 0 0 0 1.5m2.75-.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0M13 6.5A.75.75 0 1 0 13 5a.75.75 0 0 0 0 1.5M4.75 7.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0M6 8.5A.75.75 0 1 0 6 7a.75.75 0 0 0 0 1.5m2.75-.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0M10 8.5A.75.75 0 1 0 10 7a.75.75 0 0 0 0 1.5m2.75-.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0M5.25 9.5a.75.75 0 0 0 0 1.5h5.5a.75.75 0 0 0 0-1.5z"/><path d="M0 5.25A2.75 2.75 0 0 1 2.75 2.5h10.5A2.75 2.75 0 0 1 16 5.25v5.5a2.75 2.75 0 0 1-2.75 2.75H2.75A2.75 2.75 0 0 1 0 10.75zM2.75 4c-.69 0-1.25.56-1.25 1.25v5.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-5.5c0-.69-.56-1.25-1.25-1.25z"/></svg>`,
+  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M10.75 9.5a.75.75 0 0 1 0 1.5h-5.5a.75.75 0 0 1 0-1.5zM4 7a.75.75 0 1 1 0 1.5A.75.75 0 0 1 4 7m2.5 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M9 7a.75.75 0 1 1 0 1.5A.75.75 0 0 1 9 7m2.5 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M3 5a.75.75 0 1 1 0 1.5A.75.75 0 0 1 3 5m2.5 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M8 5a.75.75 0 1 1 0 1.5A.75.75 0 0 1 8 5m2.5 0a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M13 5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5"/><path d="M13.25 2.5A2.75 2.75 0 0 1 16 5.25v5.5a2.75 2.75 0 0 1-2.75 2.75H2.75A2.75 2.75 0 0 1 0 10.75v-5.5A2.75 2.75 0 0 1 2.75 2.5zM2.75 4c-.69 0-1.25.56-1.25 1.25v5.5c0 .69.56 1.25 1.25 1.25h10.5c.69 0 1.25-.56 1.25-1.25v-5.5c0-.69-.56-1.25-1.25-1.25z"/></svg>`,
 };
 export const aiKite: {
   name: 'kite';
@@ -3610,6 +3631,8 @@ export type Amicons =
   | 'arrow_up'
   | 'arrows_down_left_right_up_center'
   | 'arrows_rotate_right'
+  | 'arrows_up_right_and_down_left_from_center'
+  | 'arrows_up_right_and_down_left_to_center'
   | 'asterisk'
   | 'at'
   | 'azure'
@@ -3806,6 +3829,7 @@ export type Amicons =
   | 'house'
   | 'i'
   | 'icons'
+  | 'id_card_slash'
   | 'id_card'
   | 'image'
   | 'input'
@@ -4124,6 +4148,8 @@ export const amiconSet = [
   aiArrowUp,
   aiArrowsDownLeftRightUpCenter,
   aiArrowsRotateRight,
+  aiArrowsUpRightAndDownLeftFromCenter,
+  aiArrowsUpRightAndDownLeftToCenter,
   aiAsterisk,
   aiAt,
   aiAzure,
@@ -4320,6 +4346,7 @@ export const amiconSet = [
   aiHouse,
   aiI,
   aiIcons,
+  aiIdCardSlash,
   aiIdCard,
   aiImage,
   aiInput,
