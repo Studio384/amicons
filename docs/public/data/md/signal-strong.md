@@ -1,0 +1,7 @@
+---
+title: Signal strong
+categories: [connectivity, toggle]
+tags: [network]
+created: 1.0.0
+updated: 1.0.0
+---

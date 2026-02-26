@@ -24,6 +24,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "pages": "node build/generate-pages.js --verbose",
     "lib": "node build/generate-library.js",
+    "md": "node build/generate-markdown.js",
     "prod": "npm run icons && npm run pages && npm run lib && npm run build"
   },
   "repository": {
