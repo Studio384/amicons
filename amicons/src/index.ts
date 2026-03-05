@@ -1,4 +1,4 @@
 export * from "./Amicons.js";
-import Amicon from "./Amicon.jsx";
+import Amicon from "./Amicon.js";
 
 export default Amicon;

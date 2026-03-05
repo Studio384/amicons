@@ -8,6 +8,14 @@ export default function Changelog() {
   return (
     <Stack gap={5}>
       <Release
+        name="Amicons 1.0 alpha 11"
+        version="1.0.0-alpha.11"
+        date="5 March 2026"
+        newIcons={['calendar-arrow-to-day']}
+        updatedIcons={['gauge', 'teams']}
+        changed={[<>This update includes general maintenance work.</>]}
+      />
+      <Release
         name="Amicons 1.0 alpha 10"
         version="1.0.0-alpha.10"
         date="17 October 2025"
