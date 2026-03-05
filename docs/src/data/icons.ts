@@ -431,15 +431,15 @@ const icons = [
   },
   {
     component: 'aiArrowsUpRightAndDownLeftFromCenter',
-    categories: [],
-    tags: [],
+    categories: ["arrows"],
+    tags: ["full screen","expand"],
     slug: 'arrows-up-right-and-down-left-from-center',
     icon: aiArrowsUpRightAndDownLeftFromCenter
   },
   {
     component: 'aiArrowsUpRightAndDownLeftToCenter',
-    categories: [],
-    tags: [],
+    categories: ["arrows"],
+    tags: ["full screen","compress"],
     slug: 'arrows-up-right-and-down-left-to-center',
     icon: aiArrowsUpRightAndDownLeftToCenter
   },
@@ -1817,8 +1817,8 @@ const icons = [
   },
   {
     component: 'aiIdCardSlash',
-    categories: [],
-    tags: [],
+    categories: ["business","security","people"],
+    tags: ["identification"],
     slug: 'id-card-slash',
     icon: aiIdCardSlash
   },
