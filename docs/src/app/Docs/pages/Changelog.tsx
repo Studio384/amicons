@@ -114,8 +114,6 @@ export default function Changelog() {
           'glass',
           'grip-dots-h',
           'magnifying-glass-min',
-          'magnifying-glass-min',
-          'magnifying-glass-plus',
           'magnifying-glass-plus',
           'microphone-slash',
           'moped',
