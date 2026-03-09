@@ -3,28 +3,26 @@
   "version": "1.0.0-alpha.11",
   "description": "The iconography.",
   "type": "module",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./amicons.css": "./dist/amicons.css"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs && npm run style",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "style": "copyfiles -u 1 src/amicons.css dist/",
+    "build": "tsup && node scripts/copy-css.js",
+    "build:watch": "tsup --watch",
     "icons": "npm run icons:clean && npm run icons:ts",
     "icons:clean": "svgo -f ./icons -o ./icons",
     "icons:ts": "svg-to-ts-constants",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pages": "node build/generate-pages.js --verbose",
-    "lib": "node build/generate-library.js",
-    "md": "node build/generate-markdown.js",
+    "pages": "node scripts/generate-pages.js --verbose",
+    "lib": "node scripts/generate-library.js",
+    "md": "node scripts/generate-markdown.js",
     "prod": "npm run icons && npm run pages && npm run lib && npm run build"
   },
   "repository": {
@@ -54,7 +52,6 @@
   },
   "devDependencies": {
     "@types/react": "^19.0.1",
-    "copyfiles": "^2.4.1",
     "nodemon": "3.1.14",
     "npm-run-all": "4.1.5",
     "picocolors": "1.1.1",
@@ -62,6 +59,7 @@
     "react-dom": "^19.0.0",
     "svg-to-ts": "12.0.0",
     "svgo": "4.0.1",
+    "tsup": "^8.0.0",
     "typescript": "5.9.3"
   },
   "browserslist": {
