@@ -1,5 +1,4 @@
 import { IAmicon } from ".";
-import HTMLReactParser from "html-react-parser";
 import { ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 
@@ -39,9 +38,8 @@ export default function AmiconIcon({
         ["vi-fade"]: fade,
         ["vi-bounce"]: bounce,
       })}
+      dangerouslySetInnerHTML={{ __html: icon.data }}
       {...props}
-    >
-      {HTMLReactParser(icon.data)}
-    </span>
+    />
   );
 }

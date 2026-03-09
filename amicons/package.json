@@ -50,8 +50,7 @@
     "react": ">=16.x"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "html-react-parser": "^5.2"
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@types/react": "^19.0.1",

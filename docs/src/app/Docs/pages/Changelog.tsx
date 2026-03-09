@@ -8,6 +8,16 @@ export default function Changelog() {
   return (
     <Stack gap={5}>
       <Release
+        name="Amicons 1.0 alpha 12"
+        version="1.0.0-alpha.12"
+        date="March 2026"
+        changed={[
+          <>
+            Amicons now only has 1 dependency as we've dropper <Code>html-react-parser</Code>.
+          </>
+        ]}
+      />
+      <Release
         name="Amicons 1.0 alpha 11"
         version="1.0.0-alpha.11"
         date="5 March 2026"
