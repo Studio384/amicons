@@ -16,13 +16,14 @@ export default function Changelog() {
             Rotate now allows you to set any numeric value rather than just <Code>0</Code>, <Code>90</Code>, <Code>180</Code>, or <Code>270</Code>.
           </>,
           <>
-            Amicons now only has 1 dependency as we've dropper <Code>html-react-parser</Code>.
+            Amicons now only has 1 dependency as we've dropped <Code>html-react-parser</Code>.
           </>,
-          <>Major enhancements to our build process. We now include code maps.</>
+          <>Major enhancements to our build process. We now include source maps.</>
         ]}
         fixed={[
           <>Fixes a bug where variables and classes used the wrong prefix.</>,
-          <>Fixes a bug where markdown generation would report a successful run before finishing..</>
+          <>Fixes a bug where markdown generation would report a successful run before finishing.</>,
+          <>Various enhancements to library generation.</>
         ]}
       />
       <Release
@@ -345,7 +346,7 @@ export default function Changelog() {
           'table-row-insert-top',
           'table-row-min'
         ]}
-        updatedIcons={['chart-pie', 'circle-dashed', 'table-clcok', 'table-header-column', 'table-header-row', 'table', 'tag-geear', 'tag-plus', 'tag']}
+        updatedIcons={['chart-pie', 'circle-dashed', 'table-clock', 'table-header-column', 'table-header-row', 'table', 'tag-geear', 'tag-plus', 'tag']}
       />
       <Release name="Amaranth 1.0 alpha 2" version="1.0.0-alpha.2" date="22 August 2023" changed={[<>Migrations from ChangeWindows to Studio 384</>]} />
     </Stack>
