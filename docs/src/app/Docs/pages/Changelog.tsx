@@ -346,7 +346,7 @@ export default function Changelog() {
           'table-row-insert-top',
           'table-row-min'
         ]}
-        updatedIcons={['chart-pie', 'circle-dashed', 'table-clock', 'table-header-column', 'table-header-row', 'table', 'tag-geear', 'tag-plus', 'tag']}
+        updatedIcons={['chart-pie', 'circle-dashed', 'table-clock', 'table-header-column', 'table-header-row', 'table', 'tag-gear', 'tag-plus', 'tag']}
       />
       <Release name="Amaranth 1.0 alpha 2" version="1.0.0-alpha.2" date="22 August 2023" changed={[<>Migrations from ChangeWindows to Studio 384</>]} />
     </Stack>
