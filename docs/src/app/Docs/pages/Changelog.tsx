@@ -1,7 +1,5 @@
 import { Stack } from '@mui/joy';
 
-import Code from '@/design/components/Code';
-
 import Release from './_Release';
 
 export default function Changelog() {
@@ -12,24 +10,18 @@ export default function Changelog() {
         version="1.0.0-alpha.12"
         date="March 2026"
         added={[
-          <>
-            When the <Code>Amicon</Code> component isn't passed an icon, or the icon isn't valid, it will now show the <Code>aiCircleQuestion</Code> icon. The{' '}
-            <Code>fade</Code> property will be enabled to draw attention to it.
-          </>
+          "When the `Amicon` component isn't passed an icon, or the icon isn't valid, it will now show the `aiCircleQuestion` icon. The `fade` property will be enabled to draw attention to it."
         ]}
         changed={[
-          <>
-            Rotate now allows you to set any numeric value rather than just <Code>0</Code>, <Code>90</Code>, <Code>180</Code>, or <Code>270</Code>.
-          </>,
-          <>
-            Amicons now only has 1 dependency as we've dropped <Code>html-react-parser</Code>.
-          </>,
-          <>Major enhancements to our build process. We now include source maps.</>
+          'Rotate now allows you to set any numeric value rather than just `0`, `90`, `180`, or `270`.',
+          "Amicons now only has 1 dependency as we've dropped `html-react-parser`.",
+          'Major enhancements to our build process. We now include source maps.',
+          'Major improvements to our documentation, including simpeler changelog markup.'
         ]}
         fixed={[
-          <>Fixes a bug where variables and classes used the wrong prefix.</>,
-          <>Fixes a bug where markdown generation would report a successful run before finishing.</>,
-          <>Various enhancements to library generation.</>
+          'Fixes a bug where variables and classes used the wrong prefix.',
+          'Fixes a bug where markdown generation would report a successful run before finishing.',
+          'Various enhancements to library generation.'
         ]}
       />
       <Release
@@ -38,7 +30,7 @@ export default function Changelog() {
         date="5 March 2026"
         newIcons={['calendar-arrow-to-day']}
         updatedIcons={['gauge', 'teams']}
-        changed={[<>This update includes general maintenance work.</>]}
+        changed={['This update includes general maintenance work.']}
       />
       <Release
         name="Amicons 1.0 alpha 10"
@@ -87,26 +79,18 @@ export default function Changelog() {
           'yealink'
         ]}
         added={[
-          <>Amicons is now properly exported as both a CJS and ESM package.</>,
-          <>
-            Adds the bounce animation to our default style, and added the <Code>bounce</Code> prop to our React component.
-          </>,
-          <>
-            We've removed the dependency on <Code>@emotion/css</Code>!
-          </>
+          'Amicons is now properly exported as both a CJS and ESM package.',
+          'Adds the bounce animation to our default style, and added the `bounce` prop to our React component.',
+          "We've removed the dependency on `@emotion/css`!"
         ]}
-        fixed={[<>Fixes the SVG and export for fingerprint, record-stop, safari, signal-strong, and triangle-exclamation containing the icon twice.</>]}
+        fixed={['Fixes the SVG and export for fingerprint, record-stop, safari, signal-strong, and triangle-exclamation containing the icon twice.']}
       />
-      <Release name="Amicons 1.0 alpha 9" version="1.0.0-alpha.9" date="19 December 2024" added={[<>Amicons now supports React 19.</>]} />
+      <Release name="Amicons 1.0 alpha 9" version="1.0.0-alpha.9" date="19 December 2024" added={['Amicons now supports React 19.']} />
       <Release
         name="Amicons 1.0 alpha 8"
         version="1.0.0-alpha.8"
         date="17 November 2024"
-        changed={[
-          <>
-            Changes the import from <Code>@studio384/amaranth</Code> to <Code>@studio384/amicons</Code>.
-          </>
-        ]}
+        changed={['Changes the import from `@studio384/amaranth` to `@studio384/amicons`.']}
         newIcons={[
           'angles-x',
           'apple',
@@ -143,45 +127,21 @@ export default function Changelog() {
         date="12 March 2024"
         version="1.0.0-alpha.7"
         added={[
-          <>
-            Introduces a brand new documentation website with improved icon previews, component documentation with interactive playground, this changelog, and
-            much more. And best of all; it's now available online instead of needing to be compiled by you.
-          </>,
-          <>
-            The <Code>AmaranthIcon</Code> component has been renamed to <Code>Amicon</Code>.
-          </>,
-          <>
-            The <Code>Amicon</Code> component now supports the <Code>beat</Code> and <Code>fade</Code> property.
-          </>
+          "Introduces a brand new documentation website with improved icon previews, component documentation with interactive playground, this changelog, and much more. And best of all; it's now available online instead of needing to be compiled by you.",
+          'The `AmaranthIcon` component has been renamed to `Amicon`.',
+          'The `Amicon` component now supports the `beat` and `fade` property.'
         ]}
         changed={[
-          <>
-            We're updating our branding from Amaranth to Amicons, with a brand new logo and mascot to boot. While the <Code>Amaranth</Code> and{' '}
-            <Code>Amicons</Code> icons have existed at the same time in the previous version, we consider the removal of the <Code>Amaranth</Code> icon a
-            rename.
-          </>,
-          <>
-            The default values for all properties of our <Code>Amicon</Code> component are now being set to <Code>Undefined</Code> rather than a default truthy
-            value.
-          </>,
-          <>
-            The various CSS variables have been renamed to be more consistent with new variables introduced in this update. See the documentation for more info.
-          </>,
-          <>
-            You can now pass properties to the <Code>Amicon</Code> component.
-          </>,
-          <>Various updates to the categorization of icons in the documentation.</>
+          "We're updating our branding from Amaranth to Amicons, with a brand new logo and mascot to boot. While the `Amaranth` and `Amicons` icons have existed at the same time in the previous version, we consider the removal of the `Amaranth` icon a rename.",
+          'The default values for all properties of our `Amicon` component are now being set to `Undefined` rather than a default truthy value.',
+          'The various CSS variables have been renamed to be more consistent with new variables introduced in this update. See the documentation for more info.',
+          'You can now pass properties to the `Amicon` component.',
+          'Various updates to the categorization of icons in the documentation.'
         ]}
         fixed={[
-          <>
-            Fixed the <Code>expand</Code> icon including excessive shapes.
-          </>,
-          <>
-            Fixed the misalignment in the <Code>heading-2</Code> icon to better map the icon to a pixel grid.
-          </>,
-          <>
-            Fixes various issues with the CSS variables in the <Code>Amicon</Code> component.
-          </>
+          'Fixed the `expand` icon including excessive shapes.',
+          'Fixed the misalignment in the `heading-2` icon to better map the icon to a pixel grid.',
+          'Fixes various issues with the CSS variables in the `Amicon` component.'
         ]}
         newIcons={[
           '0',
@@ -338,7 +298,7 @@ export default function Changelog() {
         name="Amaranth 1.0 alpha 3"
         version="1.0.0-alpha.3"
         date="23 August 2023"
-        removed={[<>The repository no longer provides font files or CSS files.</>]}
+        removed={['The repository no longer provides font files or CSS files.']}
         newIcons={[
           'table-cell-merge',
           'table-column-insert-left',
@@ -352,7 +312,7 @@ export default function Changelog() {
         ]}
         updatedIcons={['chart-pie', 'circle-dashed', 'table-clock', 'table-header-column', 'table-header-row', 'table', 'tag-gear', 'tag-plus', 'tag']}
       />
-      <Release name="Amaranth 1.0 alpha 2" version="1.0.0-alpha.2" date="22 August 2023" changed={[<>Migrations from ChangeWindows to Studio 384</>]} />
+      <Release name="Amaranth 1.0 alpha 2" version="1.0.0-alpha.2" date="22 August 2023" changed={['Migrations from ChangeWindows to Studio 384']} />
     </Stack>
   );
 }
