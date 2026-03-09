@@ -3,7 +3,6 @@
 "use strict";
 
 import { promises as fs } from "fs";
-import { readFileSync } from "fs";
 import { join, basename, extname, dirname } from "path";
 import picocolors from "picocolors";
 import { fileURLToPath } from "url";
@@ -25,29 +24,27 @@ function getReactImportName(string) {
 
 async function main(file) {
   const iconFilePath = join(iconsDir, file);
-  const iconFile = readFileSync(iconFilePath);
-
   let iconJson = {};
 
   try {
+    const iconFile = await fs.readFile(iconFilePath, "utf8");
     iconJson = JSON.parse(iconFile);
   } catch (e) {
-    console.log(iconFilePath);
+    console.error(`Failed to parse ${iconFilePath}:`, e.message);
   }
 
   const iconBasename = basename(file, extname(file));
   const iconTitle = getReactImportName(iconBasename);
 
-  const jsonTemplate = `
-  {
+  const jsonTemplate = `  {
     component: '${iconTitle}',
-    categories: ${JSON.stringify(iconJson.categories)},
-    tags: ${JSON.stringify(iconJson.tags)},
+    categories: ${JSON.stringify(iconJson.categories || [])},
+    tags: ${JSON.stringify(iconJson.tags || [])},
     slug: '${iconBasename}',
     icon: ${iconTitle}
   }`;
 
-  return [`${iconTitle}`, jsonTemplate, iconJson.categories];
+  return [iconTitle, jsonTemplate, iconJson.categories || []];
 }
 
 (async () => {
@@ -61,33 +58,25 @@ async function main(file) {
 
     const names = [];
     const configs = [];
-    let categories = new Set();
+    const categoriesSet = new Set();
 
     // Read content from each icon
-    await Promise.all(
-      files.map(async (file) => {
-        const [name, config, cats] = await Promise.resolve(main(file));
+    const results = await Promise.all(files.map((file) => main(file)));
 
-        names.push(name);
-        configs.push(config);
+    results.forEach(([name, config, cats]) => {
+      names.push(name);
+      configs.push(config);
+      cats.forEach((cat) => categoriesSet.add(cat));
+    });
 
-        cats.map((cat) => {
-          categories.add(cat);
-        });
-      }),
-    );
+    const categories = Array.from(categoriesSet).sort();
 
-    categories = Array.from(categories).sort();
+    const importsLine = names.join(", ");
+    const configsLine = configs.join(",\n");
 
-    const template = `
-import { ${names.map((icon) => `${icon}`)} } from '@studio384/amicons';
+    const template = `import { ${importsLine} } from '@studio384/amicons';\n\nconst icons = [\n${configsLine}\n];\n\nexport default icons;`;
 
-const icons = [${configs.map((page) => `${page}`)}
-];
-
-export default icons;`;
-
-    await fs.writeFile(join(pagesDir, `icons.ts`), template);
+    await fs.writeFile(join(pagesDir, "icons.ts"), template);
 
     const categoriesTemplate = `
 import { aiCircleDashed } from '@studio384/amicons';
