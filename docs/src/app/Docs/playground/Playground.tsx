@@ -162,7 +162,7 @@ export default function Playground({ config }: IPlaygroundProps) {
                 return (
                   <FormControl key={property.name}>
                     <FormLabel>{property.label}</FormLabel>
-                    <Stack direction="row" gap={0.5}>
+                    <Stack direction="row" gap={0.5} flexWrap="wrap">
                       {property.values.map((value, key) => (
                         <Chip
                           key={key}
