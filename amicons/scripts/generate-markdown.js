@@ -22,9 +22,10 @@ const pagesDir = join(__dirname, "../../docs/public/data/md/");
 
     const files = await fs.readdir(iconsDir);
 
-    files
-      .filter((file) => file.endsWith(".json"))
-      .forEach(async (file) => {
+    const jsonFiles = files.filter((file) => file.endsWith(".json"));
+
+    await Promise.all(
+      jsonFiles.map(async (file) => {
         const filePath = join(iconsDir, file);
         const raw = await fs.readFile(filePath, "utf8");
         const data = JSON.parse(raw);
@@ -38,9 +39,10 @@ updated: ${data.updated}
 ---`;
         const baseName = basename(file, ".json");
         const outPath = join(pagesDir, `${baseName}.md`);
-        fs.writeFile(outPath, markdown, "utf8");
+        await fs.writeFile(outPath, markdown, "utf8");
         console.log(`Created: ${outPath}`);
-      });
+      }),
+    );
 
     const filesLength = files.length;
 

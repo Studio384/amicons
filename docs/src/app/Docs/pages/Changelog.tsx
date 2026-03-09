@@ -17,9 +17,13 @@ export default function Changelog() {
           </>,
           <>
             Amicons now only has 1 dependency as we've dropper <Code>html-react-parser</Code>.
-          </>
+          </>,
+          <>Major enhancements to our build process. We now include code maps.</>
         ]}
-        fixed={[<>Fixes a bug where variables and classes used the wrong prefix.</>]}
+        fixed={[
+          <>Fixes a bug where variables and classes used the wrong prefix.</>,
+          <>Fixes a bug where markdown generation would report a successful run before finishing..</>
+        ]}
       />
       <Release
         name="Amicons 1.0 alpha 11"
