@@ -11,6 +11,12 @@ export default function Changelog() {
         name="Amicons 1.0 alpha 12"
         version="1.0.0-alpha.12"
         date="March 2026"
+        added={[
+          <>
+            When the <Code>Amicon</Code> component isn't passed an icon, or the icon isn't valid, it will now show the <Code>aiCircleQuestion</Code> icon. The{' '}
+            <Code>fade</Code> property will be enabled to draw attention to it.
+          </>
+        ]}
         changed={[
           <>
             Rotate now allows you to set any numeric value rather than just <Code>0</Code>, <Code>90</Code>, <Code>180</Code>, or <Code>270</Code>.
