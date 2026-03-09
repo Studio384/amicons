@@ -15,7 +15,7 @@ export default function PageRotate() {
         label: 'Rotate',
         type: 'chip',
         name: 'rotate',
-        values: [0, 90, 180, 270, false],
+        values: [0, 45, 90, 135, 180, 225, 270, 315, false],
         default: 90
       }
     ],
@@ -37,7 +37,7 @@ export default function PageRotate() {
     <Stack gap={2}>
       <Typography level="h2">Rotate</Typography>
       <Typography>
-        With the <Code>rotate</Code> property you can change the default rotation of your icon.
+        With the <Code>rotate</Code> property you can change the default rotation of your icon. You can pass any numeric degree value for full flexibility.
       </Typography>
 
       <Playground config={playgroundConfig} />

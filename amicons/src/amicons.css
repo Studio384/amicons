@@ -13,7 +13,7 @@
     transform: scale(1);
   }
   45% {
-    transform: scale(var(--vi-animation-scale, 1.4));
+    transform: scale(var(--ai-animation-scale, 1.4));
   }
 }
 
@@ -23,7 +23,7 @@
     opacity: 1;
   }
   50% {
-    opacity: var(--vi-animation-opacity, 0.4);
+    opacity: var(--ai-animation-opacity, 0.4);
   }
 }
 
@@ -40,7 +40,7 @@
 }
 
 /* Base icon styling */
-.vi-icon {
+.ai-icon {
   height: 1em;
   width: 1em;
   min-width: 1em;
@@ -52,63 +52,49 @@
   vertical-align: 0;
   flex-shrink: 0;
   transition: inherit;
+  transform: rotate(var(--ai-rotate, 0deg));
 }
 
 /* Transform classes */
-.vi-rotate {
-  transition: transform var(--vi-transition-duration, 0.2s)
-    var(--vi-transition-timing-function, ease-in-out);
-}
-
-.vi-rotate-90 {
-  transform: rotate(90deg);
-}
-.vi-rotate-180 {
-  transform: rotate(180deg);
-}
-.vi-rotate-270 {
-  transform: rotate(270deg);
-}
-
-.vi-flip {
+.ai-flip {
   transform: scale(-1);
 }
-.vi-flip-x {
+.ai-flip-x {
   transform: scaleX(-1);
 }
-.vi-flip-y {
+.ai-flip-y {
   transform: scaleY(-1);
 }
 
 /* Animation classes */
-.vi-spin {
+.ai-spin {
   animation-name: spin-animation;
-  animation-timing-function: var(--vi-animation-timing-function, linear);
-  animation-duration: var(--vi-animation-duration, 2s);
-  animation-iteration-count: var(--vi-animation-iteration-count, infinite);
+  animation-timing-function: var(--ai-animation-timing-function, linear);
+  animation-duration: var(--ai-animation-duration, 2s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
 }
 
-.vi-spin-pulse {
-  --vi-animation-timing-function: steps(var(--vi-animation-pulse-steps, 8));
-  --vi-animation-duration: 1s;
+.ai-spin-pulse {
+  --ai-animation-timing-function: steps(var(--ai-animation-pulse-steps, 8));
+  --ai-animation-duration: 1s;
 }
 
-.vi-beat {
+.ai-beat {
   animation-name: beat-animation;
-  animation-timing-function: var(--vi-animation-timing-function, ease-in-out);
-  animation-duration: var(--vi-animation-duration, 1s);
-  animation-iteration-count: var(--vi-animation-iteration-count, infinite);
+  animation-timing-function: var(--ai-animation-timing-function, ease-in-out);
+  animation-duration: var(--ai-animation-duration, 1s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
 }
 
-.vi-fade {
+.ai-fade {
   animation-name: fade-animation;
-  animation-timing-function: var(--vi-animation-timing-function, ease-in-out);
-  animation-duration: var(--vi-animation-duration, 1.5s);
-  animation-iteration-count: var(--vi-animation-iteration-count, infinite);
+  animation-timing-function: var(--ai-animation-timing-function, ease-in-out);
+  animation-duration: var(--ai-animation-duration, 1.5s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
 }
 
-.vi-bounce {
+.ai-bounce {
   animation-name: bounce-animation;
-  animation-duration: var(--vi-animation-duration, 1s);
-  animation-iteration-count: var(--vi-animation-iteration-count, infinite);
+  animation-duration: var(--ai-animation-duration, 1s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
 }

@@ -13,9 +13,13 @@ export default function Changelog() {
         date="March 2026"
         changed={[
           <>
+            Rotate now allows you to set any numeric value rather than just <Code>0</Code>, <Code>90</Code>, <Code>180</Code>, or <Code>270</Code>.
+          </>,
+          <>
             Amicons now only has 1 dependency as we've dropper <Code>html-react-parser</Code>.
           </>
         ]}
+        fixed={[<>Fixes a bug where variables and classes used the wrong prefix.</>]}
       />
       <Release
         name="Amicons 1.0 alpha 11"

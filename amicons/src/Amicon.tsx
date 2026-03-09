@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 interface AmiconProps {
   icon: IAmicon;
-  rotate?: 0 | 90 | 180 | 270 | false;
+  rotate?: number | false;
   flip?: true | "x" | "y" | false;
   spin?: boolean | "pulse";
   beat?: boolean;
@@ -21,23 +21,27 @@ export default function AmiconIcon({
   fade = undefined,
   bounce = undefined,
   className,
+  style,
   ...props
 }: AmiconProps & ComponentPropsWithoutRef<"span">) {
+  const rotateStyle =
+    rotate !== undefined && rotate !== false
+      ? ({ "--ai-rotate": `${rotate}deg` } as React.CSSProperties)
+      : {};
+
   return (
     <span
-      className={clsx(className, "vi-icon", {
-        ["vi-rotate-90"]: rotate === 90,
-        ["vi-rotate-180"]: rotate === 180,
-        ["vi-rotate-270"]: rotate === 270,
-        ["vi-flip-x"]: flip === "x",
-        ["vi-flip-y"]: flip === "y",
-        ["vi-flip"]: flip === true,
-        ["vi-spin"]: spin === true,
-        ["vi-spin vi-spin-pulse"]: spin === "pulse",
-        ["vi-beat"]: beat,
-        ["vi-fade"]: fade,
-        ["vi-bounce"]: bounce,
+      className={clsx(className, "ai-icon", {
+        ["ai-flip-x"]: flip === "x",
+        ["ai-flip-y"]: flip === "y",
+        ["ai-flip"]: flip === true,
+        ["ai-spin"]: spin === true,
+        ["ai-spin ai-spin-pulse"]: spin === "pulse",
+        ["ai-beat"]: beat,
+        ["ai-fade"]: fade,
+        ["ai-bounce"]: bounce,
       })}
+      style={{ ...rotateStyle, ...style }}
       dangerouslySetInnerHTML={{ __html: icon.data }}
       {...props}
     />
