@@ -15,13 +15,16 @@ export default function Changelog() {
         changed={[
           'Rotate now allows you to set any numeric value rather than just `0`, `90`, `180`, or `270`.',
           "Amicons now only has 1 dependency as we've dropped `html-react-parser`.",
-          'Major enhancements to our build process. We now include source maps.',
-          'Major improvements to our documentation, including simpeler changelog markup.'
+          'Major enhancements to our build process and library generation. We now include source maps.'
         ]}
         fixed={[
           'Fixes a bug where variables and classes used the wrong prefix.',
-          'Fixes a bug where markdown generation would report a successful run before finishing.',
-          'Various enhancements to library generation.',
+          'Fixes a bug where markdown generation would report a successful run before finishing.'
+        ]}
+        docs={[
+          'The category filter now keeps showing empty categories for easier navigation.',
+          'Various categories have been updated and categories have been regrouped to make more sense.',
+          'Major improvements to our documentation, including simpeler changelog markup.',
           'Fixes the bounce documentation not showing up in the documentation.'
         ]}
       />

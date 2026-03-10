@@ -6,7 +6,7 @@ import icons from '@/data/icons';
 import Code from '@/design/components/Code';
 import { ILibraryIcon } from '@/types';
 
-import Amicon, { aiAmicons, aiArrowRight, aiBug, aiPen, aiPlus, aiTrashCan, IAmicon } from '@studio384/amicons';
+import Amicon, { aiAmicons, aiArrowRight, aiBook, aiBug, aiPen, aiPlus, aiTrashCan, IAmicon } from '@studio384/amicons';
 
 import IconCard from '../../Components/IconCard';
 
@@ -37,6 +37,7 @@ type ReleaseProps = {
   changed?: string[];
   fixed?: string[];
   removed?: string[];
+  docs?: string[];
   newIcons?: string[];
   updatedIcons?: string[];
   renamedIcons?: { old: string; new: string }[];
@@ -44,7 +45,20 @@ type ReleaseProps = {
 };
 
 // Release component
-export default function Release({ name, date, version, added, changed, fixed, removed, newIcons, updatedIcons, renamedIcons, removedIcons }: ReleaseProps) {
+export default function Release({
+  name,
+  date,
+  version,
+  added,
+  changed,
+  fixed,
+  removed,
+  docs,
+  newIcons,
+  updatedIcons,
+  renamedIcons,
+  removedIcons
+}: ReleaseProps) {
   const newList = useMemo(() => icons.filter((icon) => newIcons?.includes(icon.slug)), [newIcons]);
   const updateList = useMemo(() => icons.filter((icon) => updatedIcons?.includes(icon.slug)), [updatedIcons]);
 
@@ -68,6 +82,7 @@ export default function Release({ name, date, version, added, changed, fixed, re
         {changed && <ChangeSection title="Changed" icon={aiPen} items={changed} />}
         {fixed && <ChangeSection title="Fixed" icon={aiBug} items={fixed} />}
         {removed && <ChangeSection title="Removed" icon={aiTrashCan} items={removed} />}
+        {docs && <ChangeSection title="Documentation" icon={aiBook} items={docs} />}
         {newIcons && (
           <Stack gap={2}>
             <Typography level="h3">New icons &middot; {newIcons?.length}</Typography>
