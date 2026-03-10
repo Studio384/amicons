@@ -144,7 +144,7 @@ export default function Footer() {
           <Grid xs={12} sx={{ pt: { xs: 3, md: 5 } }}>
             <Stack direction="row" gap={1} justifyContent="space-between" alignItems="center">
               <Typography fontSize="sm">
-                &copy; 2021-2024 &middot;{' '}
+                &copy; 2021-2026 &middot;{' '}
                 <Link href="https://studio384.be" color="primary" sx={{ fontFamily: 'Century Gothic, Segoe UI Variable Display, Segoe UI', fontWeight: 'lg' }}>
                   Studio 384
                 </Link>
