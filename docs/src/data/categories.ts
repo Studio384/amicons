@@ -8,6 +8,8 @@ import {
   aiBold,
   aiBook,
   aiBox,
+  aiBroom,
+  aiCamera,
   aiCampfire,
   aiChartPie,
   aiClock,
@@ -21,6 +23,7 @@ import {
   aiFlask,
   aiGamepad,
   aiHeart,
+  aiHouse,
   aiKite,
   aiLightbulb,
   aiLock,
@@ -146,6 +149,11 @@ const categories = [
     icon: aiHeart
   },
   {
+    slug: 'household',
+    title: 'Household',
+    icon: aiBroom
+  },
+  {
     slug: 'human',
     title: 'Human',
     icon: aiEye
@@ -194,6 +202,11 @@ const categories = [
     slug: 'people',
     title: 'People',
     icon: aiPerson
+  },
+  {
+    slug: 'photos',
+    title: 'Photos',
+    icon: aiCamera
   },
   {
     slug: 'play',

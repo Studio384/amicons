@@ -94,7 +94,7 @@ const icons = [
   },
   {
     component: 'aiAlarmClock',
-    categories: ["alert","time"],
+    categories: ["alerts","time"],
     tags: ["alerts"],
     slug: 'alarm-clock',
     icon: aiAlarmClock
@@ -549,7 +549,7 @@ const icons = [
   },
   {
     component: 'aiBatterySlash',
-    categories: ["energy","alert"],
+    categories: ["energy","alerts"],
     tags: ["battery-none"],
     slug: 'battery-slash',
     icon: aiBatterySlash
@@ -1144,7 +1144,7 @@ const icons = [
   },
   {
     component: 'aiCrop',
-    categories: ["design","editing"],
+    categories: ["design","photos"],
     tags: [],
     slug: 'crop',
     icon: aiCrop

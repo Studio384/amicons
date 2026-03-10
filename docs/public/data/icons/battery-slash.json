@@ -1,6 +1,6 @@
 {
   "title": "Battery slash",
-  "categories": ["energy", "alert"],
+  "categories": ["energy", "alerts"],
   "tags": ["battery-none"],
   "created": "1.0.0",
   "updated": "1.0.0"
