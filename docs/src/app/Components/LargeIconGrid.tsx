@@ -1,43 +1,23 @@
-import { Box, Sheet } from '@mui/joy';
-import { SxProps } from '@mui/joy/styles/types';
-
 import Amicon, { IAmicon } from '@studio384/amicons';
+import clsx from 'clsx';
 
-export default function LargeIconGrid({ icon, sx }: { icon: IAmicon; sx?: SxProps }) {
+export default function LargeIconGrid({ icon }: { icon: IAmicon }) {
   return (
-    <Box
-      sx={[
-        {
-          p: 'calc(var(--Amicon-scale, 16px) * 2)',
-          background: 'rgba(var(--joy-palette-background-channel) / .5)',
-          borderRadius: 'xl',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(var(--joy-palette-background-channel) / .5)'
-        },
-        ...(Array.isArray(sx) ? sx : [sx])
-      ]}
-    >
-      <Sheet
-        variant="outlined"
-        sx={{
-          // Icon display
-          color: 'text.primary',
-          borderColor: 'var(--joy-palette-primary-200)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: 'calc(var(--Amicon-scale, 16px) * 16)',
-          height: 'calc(var(--Amicon-scale, 16px) * 16)',
-          borderRadius: 'sm',
-          backgroundColor: 'transparent',
-          backgroundSize: 'var(--Amicon-scale, 16px) var(--Amicon-scale, 16px)',
-          backgroundPosition: '-1px -1px',
-          backgroundImage:
-            'linear-gradient(to right, var(--joy-palette-primary-200) 1px, transparent 1px), linear-gradient(to bottom, var(--joy-palette-primary-200) 1px, transparent 1px)'
-        }}
+    <div className="rounded-2xl border border-white/60 bg-white/40 p-8 backdrop-blur-xl">
+      <div
+        className={clsx(
+          'flex items-center justify-center rounded-md border',
+          // Grid background
+          'bg-size-[var(--Amicon-scale,16px)_var(--Amicon-scale,16px)] bg-position-[-1px_-1px]',
+          'bg-[linear-gradient(to_right,var(--color-violet-300)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-violet-300)_1px,transparent_1px)]',
+          // Sizing
+          'h-[calc(var(--Amicon-scale,16px)*16)] w-[calc(var(--Amicon-scale,16px)*16)]',
+          // Border color
+          'border-violet-400'
+        )}
       >
-        <Amicon icon={icon} style={{ fontSize: 'calc(var(--Amicon-scale, 16px) * 16)' }} />
-      </Sheet>
-    </Box>
+        <Amicon icon={icon} className="text-[calc(var(--Amicon-scale,16px)*16)] text-neutral-800" />
+      </div>
+    </div>
   );
 }
