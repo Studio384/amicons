@@ -1,6 +1,6 @@
 {
   "title": "File",
-  "categories": ["files", "business", "coding", "writing"],
+  "categories": ["files", "office-tools", "code-editing", "writing"],
   "tags": ["document", "paper"],
   "created": "1.0.0",
   "updated": "1.0.0"

@@ -73,7 +73,7 @@ const icons = [
   },
   {
     component: 'aiAGum',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'a-gum',
     icon: aiAGum
@@ -87,7 +87,7 @@ const icons = [
   },
   {
     component: 'aiAddressBook',
-    categories: ["business","communication","people"],
+    categories: ["office-tools","communication","people"],
     tags: [],
     slug: 'address-book',
     icon: aiAddressBook
@@ -101,49 +101,49 @@ const icons = [
   },
   {
     component: 'aiAlignCenter',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'align-center',
     icon: aiAlignCenter
   },
   {
     component: 'aiAlignContentCenter',
-    categories: ["charts","editor"],
+    categories: ["charts","layout-design"],
     tags: [],
     slug: 'align-content-center',
     icon: aiAlignContentCenter
   },
   {
     component: 'aiAlignContentEnd',
-    categories: ["charts","editor"],
+    categories: ["charts","layout-design"],
     tags: [],
     slug: 'align-content-end',
     icon: aiAlignContentEnd
   },
   {
     component: 'aiAlignContentStart',
-    categories: ["charts","editor"],
+    categories: ["charts","layout-design"],
     tags: [],
     slug: 'align-content-start',
     icon: aiAlignContentStart
   },
   {
     component: 'aiAlignJustify',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'align-justify',
     icon: aiAlignJustify
   },
   {
     component: 'aiAlignLeft',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'align-left',
     icon: aiAlignLeft
   },
   {
     component: 'aiAlignRight',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'align-right',
     icon: aiAlignRight
@@ -304,7 +304,7 @@ const icons = [
   },
   {
     component: 'aiArrowRightFromFile',
-    categories: ["files","business","arrows"],
+    categories: ["files","office-tools","arrows"],
     tags: ["import"],
     slug: 'arrow-right-from-file',
     icon: aiArrowRightFromFile
@@ -339,7 +339,7 @@ const icons = [
   },
   {
     component: 'aiArrowRightToFile',
-    categories: ["files","business","arrows"],
+    categories: ["files","office-tools","arrows"],
     tags: ["import"],
     slug: 'arrow-right-to-file',
     icon: aiArrowRightToFile
@@ -360,14 +360,14 @@ const icons = [
   },
   {
     component: 'aiArrowRotateLeft',
-    categories: ["arrows","spinners","editor","media"],
+    categories: ["arrows","spinners","text-formatting","media"],
     tags: ["refresh","reload"],
     slug: 'arrow-rotate-left',
     icon: aiArrowRotateLeft
   },
   {
     component: 'aiArrowRotateRight',
-    categories: ["arrows","spinners","editor","media"],
+    categories: ["arrows","spinners","text-formatting","media"],
     tags: ["refresh","reload"],
     slug: 'arrow-rotate-right',
     icon: aiArrowRotateRight
@@ -423,7 +423,7 @@ const icons = [
   },
   {
     component: 'aiArrowsRotateRight',
-    categories: ["arrows","spinners","editor","media"],
+    categories: ["arrows","spinners","text-formatting","media"],
     tags: ["refresh","reload"],
     slug: 'arrows-rotate-right',
     icon: aiArrowsRotateRight
@@ -479,21 +479,21 @@ const icons = [
   },
   {
     component: 'aiBarsStaggered',
-    categories: ["business","coding"],
+    categories: ["office-tools","code-editing"],
     tags: ["list"],
     slug: 'bars-staggered',
     icon: aiBarsStaggered
   },
   {
     component: 'aiBarsUneven',
-    categories: ["coding","editor"],
+    categories: ["code-editing","text-formatting"],
     tags: ["menu","navigation","justify","aligment","hamburger"],
     slug: 'bars-uneven',
     icon: aiBarsUneven
   },
   {
     component: 'aiBars',
-    categories: ["coding","editor"],
+    categories: ["code-editing","text-formatting"],
     tags: ["menu","navigation","justify","aligment","hamburger"],
     slug: 'bars',
     icon: aiBars
@@ -577,14 +577,14 @@ const icons = [
   },
   {
     component: 'aiBicycle',
-    categories: ["transportation","maps","nature","play"],
+    categories: ["transportation","maps","nature","entertainment"],
     tags: ["riding","biking"],
     slug: 'bicycle',
     icon: aiBicycle
   },
   {
     component: 'aiBlf',
-    categories: ["communication","business"],
+    categories: ["communication","office-tools"],
     tags: ["line key"],
     slug: 'blf',
     icon: aiBlf
@@ -598,7 +598,7 @@ const icons = [
   },
   {
     component: 'aiBold',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'bold',
     icon: aiBold
@@ -619,49 +619,49 @@ const icons = [
   },
   {
     component: 'aiBook',
-    categories: ["business","writing","education"],
+    categories: ["office-tools","writing","education"],
     tags: ["read","magazine"],
     slug: 'book',
     icon: aiBook
   },
   {
     component: 'aiBoxOpenFull',
-    categories: ["shopping","logistics"],
+    categories: ["shopping","shopping"],
     tags: ["package","cardboard","moving"],
     slug: 'box-open-full',
     icon: aiBoxOpenFull
   },
   {
     component: 'aiBox',
-    categories: ["logistics"],
+    categories: ["shopping"],
     tags: ["cardboard","package"],
     slug: 'box',
     icon: aiBox
   },
   {
     component: 'aiBracketsCurly',
-    categories: ["coding","punctuation-symbols"],
+    categories: ["code-editing","punctuation-symbols"],
     tags: [],
     slug: 'brackets-curly',
     icon: aiBracketsCurly
   },
   {
     component: 'aiBroom',
-    categories: ["design","household"],
+    categories: ["design","home-living"],
     tags: ["clean","cleanup"],
     slug: 'broom',
     icon: aiBroom
   },
   {
     component: 'aiBug',
-    categories: ["coding","nature","security"],
+    categories: ["code-editing","nature","security"],
     tags: ["insect"],
     slug: 'bug',
     icon: aiBug
   },
   {
     component: 'aiBuilding',
-    categories: ["business","maps"],
+    categories: ["office-tools","maps"],
     tags: ["company","enterprise","organization","office"],
     slug: 'building',
     icon: aiBuilding
@@ -682,70 +682,70 @@ const icons = [
   },
   {
     component: 'aiCalculator',
-    categories: ["business","devices","mathematics"],
+    categories: ["office-tools","devices","mathematics"],
     tags: [],
     slug: 'calculator',
     icon: aiCalculator
   },
   {
     component: 'aiCalendarArrowToDay',
-    categories: ["arrows","business","time"],
+    categories: ["arrows","office-tools","time"],
     tags: ["holidays","date","time"],
     slug: 'calendar-arrow-to-day',
     icon: aiCalendarArrowToDay
   },
   {
     component: 'aiCalendarClock',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["holidays","date","time"],
     slug: 'calendar-clock',
     icon: aiCalendarClock
   },
   {
     component: 'aiCalendarDay',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["date","day"],
     slug: 'calendar-day',
     icon: aiCalendarDay
   },
   {
     component: 'aiCalendarRangeClock',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["holidays","date","time"],
     slug: 'calendar-range-clock',
     icon: aiCalendarRangeClock
   },
   {
     component: 'aiCalendarRange',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["holidays","date"],
     slug: 'calendar-range',
     icon: aiCalendarRange
   },
   {
     component: 'aiCalendarStars',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["holidays"],
     slug: 'calendar-stars',
     icon: aiCalendarStars
   },
   {
     component: 'aiCalendarWeek',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["date","week"],
     slug: 'calendar-week',
     icon: aiCalendarWeek
   },
   {
     component: 'aiCalendar',
-    categories: ["business","time"],
+    categories: ["office-tools","time"],
     tags: ["month"],
     slug: 'calendar',
     icon: aiCalendar
   },
   {
     component: 'aiCamera',
-    categories: ["devices","photos","social"],
+    categories: ["devices","media","social"],
     tags: [],
     slug: 'camera',
     icon: aiCamera
@@ -773,14 +773,14 @@ const icons = [
   },
   {
     component: 'aiChainSlash',
-    categories: ["editor"],
+    categories: ["code-editing"],
     tags: ["link"],
     slug: 'chain-slash',
     icon: aiChainSlash
   },
   {
     component: 'aiChain',
-    categories: ["editor"],
+    categories: ["code-editing"],
     tags: ["link"],
     slug: 'chain',
     icon: aiChain
@@ -801,7 +801,7 @@ const icons = [
   },
   {
     component: 'aiChartPie',
-    categories: ["business","charts","money"],
+    categories: ["finance","charts"],
     tags: ["data","graph","analytics"],
     slug: 'chart-pie',
     icon: aiChartPie
@@ -857,7 +857,7 @@ const icons = [
   },
   {
     component: 'aiCircleDashed',
-    categories: ["design","editor","shapes"],
+    categories: ["design","shapes"],
     tags: [],
     slug: 'circle-dashed',
     icon: aiCircleDashed
@@ -927,14 +927,14 @@ const icons = [
   },
   {
     component: 'aiCity',
-    categories: ["business","maps"],
+    categories: ["office-tools","maps"],
     tags: [],
     slug: 'city',
     icon: aiCity
   },
   {
     component: 'aiClipboard',
-    categories: ["business","writing"],
+    categories: ["office-tools","writing"],
     tags: ["copy"],
     slug: 'clipboard',
     icon: aiClipboard
@@ -1039,42 +1039,42 @@ const icons = [
   },
   {
     component: 'aiCodeBranchUp',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: ["code","git"],
     slug: 'code-branch-up',
     icon: aiCodeBranchUp
   },
   {
     component: 'aiCodeBranch',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: ["code","git"],
     slug: 'code-branch',
     icon: aiCodeBranch
   },
   {
     component: 'aiCode',
-    categories: ["coding","editor"],
+    categories: ["code-editing","text-formatting"],
     tags: ["different","unequal"],
     slug: 'code',
     icon: aiCode
   },
   {
     component: 'aiCodeblock',
-    categories: ["coding","editor"],
+    categories: ["code-editing","text-formatting"],
     tags: [],
     slug: 'codeblock',
     icon: aiCodeblock
   },
   {
     component: 'aiCoin',
-    categories: ["money","shopping"],
+    categories: ["finance","shopping"],
     tags: ["penny","euro"],
     slug: 'coin',
     icon: aiCoin
   },
   {
     component: 'aiCommand',
-    categories: ["editor","coding"],
+    categories: ["text-formatting","code-editing"],
     tags: ["apple"],
     slug: 'command',
     icon: aiCommand
@@ -1116,35 +1116,35 @@ const icons = [
   },
   {
     component: 'aiComputerMouseScrollWheel',
-    categories: ["coding","devices","writing"],
+    categories: ["code-editing","devices","writing"],
     tags: ["input"],
     slug: 'computer-mouse-scroll-wheel',
     icon: aiComputerMouseScrollWheel
   },
   {
     component: 'aiComputerMouse',
-    categories: ["coding","devices","writing"],
+    categories: ["code-editing","devices","writing"],
     tags: ["input"],
     slug: 'computer-mouse',
     icon: aiComputerMouse
   },
   {
     component: 'aiCopy',
-    categories: ["business","design","files"],
+    categories: ["office-tools","design","files"],
     tags: [],
     slug: 'copy',
     icon: aiCopy
   },
   {
     component: 'aiCreditCard',
-    categories: ["money","shopping"],
+    categories: ["finance","shopping"],
     tags: [],
     slug: 'credit-card',
     icon: aiCreditCard
   },
   {
     component: 'aiCrop',
-    categories: ["design","photos"],
+    categories: ["design","media"],
     tags: [],
     slug: 'crop',
     icon: aiCrop
@@ -1165,14 +1165,14 @@ const icons = [
   },
   {
     component: 'aiDevices',
-    categories: ["coding","devices"],
+    categories: ["code-editing","devices"],
     tags: ["laptop","smartphone","mobile"],
     slug: 'devices',
     icon: aiDevices
   },
   {
     component: 'aiDiagram',
-    categories: ["business","charts","money"],
+    categories: ["finance","charts"],
     tags: ["data","graph","analytics"],
     slug: 'diagram',
     icon: aiDiagram
@@ -1186,49 +1186,49 @@ const icons = [
   },
   {
     component: 'aiDiceFive',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: ["random","chance"],
     slug: 'dice-five',
     icon: aiDiceFive
   },
   {
     component: 'aiDiceFour',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: ["random","chance"],
     slug: 'dice-four',
     icon: aiDiceFour
   },
   {
     component: 'aiDiceOne',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: ["random","chance"],
     slug: 'dice-one',
     icon: aiDiceOne
   },
   {
     component: 'aiDiceSix',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: ["random","chance"],
     slug: 'dice-six',
     icon: aiDiceSix
   },
   {
     component: 'aiDiceThree',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: ["random","chance"],
     slug: 'dice-three',
     icon: aiDiceThree
   },
   {
     component: 'aiDiceTwo',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: ["random","chance"],
     slug: 'dice-two',
     icon: aiDiceTwo
   },
   {
     component: 'aiDice',
-    categories: ["gaming","maps"],
+    categories: ["entertainment","maps"],
     tags: ["random","chance"],
     slug: 'dice',
     icon: aiDice
@@ -1291,28 +1291,28 @@ const icons = [
   },
   {
     component: 'aiEllipsisH',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: ["three dots","meatballs","more","overflow"],
     slug: 'ellipsis-h',
     icon: aiEllipsisH
   },
   {
     component: 'aiEllipsisV',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: ["three dots","meatballs","more","overflow"],
     slug: 'ellipsis-v',
     icon: aiEllipsisV
   },
   {
     component: 'aiEnvelopeOpen',
-    categories: ["business","communication","social","writing"],
+    categories: ["office-tools","communication","social","writing"],
     tags: ["email","message","mail","letter"],
     slug: 'envelope-open',
     icon: aiEnvelopeOpen
   },
   {
     component: 'aiEnvelope',
-    categories: ["business","communication","social","writing"],
+    categories: ["office-tools","communication","social","writing"],
     tags: ["email","message","mail","letter"],
     slug: 'envelope',
     icon: aiEnvelope
@@ -1326,7 +1326,7 @@ const icons = [
   },
   {
     component: 'aiEuro',
-    categories: ["money"],
+    categories: ["finance"],
     tags: [],
     slug: 'euro',
     icon: aiEuro
@@ -1347,14 +1347,14 @@ const icons = [
   },
   {
     component: 'aiEyeSlash',
-    categories: ["accessibility","design","human"],
+    categories: ["accessibility","design","people"],
     tags: [],
     slug: 'eye-slash',
     icon: aiEyeSlash
   },
   {
     component: 'aiEye',
-    categories: ["accessibility","design","human"],
+    categories: ["accessibility","design","people"],
     tags: [],
     slug: 'eye',
     icon: aiEye
@@ -1403,7 +1403,7 @@ const icons = [
   },
   {
     component: 'aiFax',
-    categories: ["business","communication","devices"],
+    categories: ["office-tools","communication","devices"],
     tags: [],
     slug: 'fax',
     icon: aiFax
@@ -1452,21 +1452,21 @@ const icons = [
   },
   {
     component: 'aiFile',
-    categories: ["files","business","coding","writing"],
+    categories: ["files","office-tools","code-editing","writing"],
     tags: ["document","paper"],
     slug: 'file',
     icon: aiFile
   },
   {
     component: 'aiFilesList',
-    categories: ["files","business","coding","writing"],
+    categories: ["files","office-tools","code-editing","writing"],
     tags: ["document","paper","log"],
     slug: 'files-list',
     icon: aiFilesList
   },
   {
     component: 'aiFiles',
-    categories: ["files","business","coding","writing"],
+    categories: ["files","office-tools","code-editing","writing"],
     tags: ["document","paper"],
     slug: 'files',
     icon: aiFiles
@@ -1480,28 +1480,28 @@ const icons = [
   },
   {
     component: 'aiFilterPlus',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: ["sort"],
     slug: 'filter-plus',
     icon: aiFilterPlus
   },
   {
     component: 'aiFilterXmark',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: ["sort"],
     slug: 'filter-xmark',
     icon: aiFilterXmark
   },
   {
     component: 'aiFilter',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: ["sort"],
     slug: 'filter',
     icon: aiFilter
   },
   {
     component: 'aiFingerprint',
-    categories: ["accessibility","human","security"],
+    categories: ["accessibility","people","security"],
     tags: ["biometrics"],
     slug: 'fingerprint',
     icon: aiFingerprint
@@ -1536,42 +1536,42 @@ const icons = [
   },
   {
     component: 'aiFloppyDisk',
-    categories: ["editor","business","design","devices","files"],
+    categories: ["text-formatting","office-tools","design","devices","files"],
     tags: ["save"],
     slug: 'floppy-disk',
     icon: aiFloppyDisk
   },
   {
     component: 'aiFolderImage',
-    categories: ["files","business"],
+    categories: ["files","office-tools"],
     tags: ["images","map"],
     slug: 'folder-image',
     icon: aiFolderImage
   },
   {
     component: 'aiFolderMin',
-    categories: ["business","files"],
+    categories: ["office-tools","files"],
     tags: [],
     slug: 'folder-min',
     icon: aiFolderMin
   },
   {
     component: 'aiFolderOpen',
-    categories: ["business","files","writing"],
+    categories: ["office-tools","files","writing"],
     tags: [],
     slug: 'folder-open',
     icon: aiFolderOpen
   },
   {
     component: 'aiFolderPlus',
-    categories: ["business","files"],
+    categories: ["office-tools","files"],
     tags: [],
     slug: 'folder-plus',
     icon: aiFolderPlus
   },
   {
     component: 'aiFolder',
-    categories: ["files","coding","business"],
+    categories: ["files","code-editing","office-tools"],
     tags: ["map"],
     slug: 'folder',
     icon: aiFolder
@@ -1599,7 +1599,7 @@ const icons = [
   },
   {
     component: 'aiGamepad',
-    categories: ["devices","gaming"],
+    categories: ["devices","entertainment"],
     tags: ["controller"],
     slug: 'gamepad',
     icon: aiGamepad
@@ -1613,7 +1613,7 @@ const icons = [
   },
   {
     component: 'aiGear',
-    categories: ["coding","spinners"],
+    categories: ["code-editing","spinners"],
     tags: ["settings","options","preferences","tools"],
     slug: 'gear',
     icon: aiGear
@@ -1641,7 +1641,7 @@ const icons = [
   },
   {
     component: 'aiGlobe',
-    categories: ["science","business","communication","maps"],
+    categories: ["science","office-tools","communication","maps"],
     tags: ["planet"],
     slug: 'globe',
     icon: aiGlobe
@@ -1655,35 +1655,35 @@ const icons = [
   },
   {
     component: 'aiGrid',
-    categories: ["design","editor"],
+    categories: ["design","layout-design"],
     tags: ["dashboard"],
     slug: 'grid',
     icon: aiGrid
   },
   {
     component: 'aiGripDotsH',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: ["handles","drag"],
     slug: 'grip-dots-h',
     icon: aiGripDotsH
   },
   {
     component: 'aiGripDotsV',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: ["handles","drag"],
     slug: 'grip-dots-v',
     icon: aiGripDotsV
   },
   {
     component: 'aiGripDots',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: ["handles","drag"],
     slug: 'grip-dots',
     icon: aiGripDots
   },
   {
     component: 'aiGripLines',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: ["handles","drag"],
     slug: 'grip-lines',
     icon: aiGripLines
@@ -1697,42 +1697,42 @@ const icons = [
   },
   {
     component: 'aiHeading1',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'heading-1',
     icon: aiHeading1
   },
   {
     component: 'aiHeading2',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'heading-2',
     icon: aiHeading2
   },
   {
     component: 'aiHeading3',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'heading-3',
     icon: aiHeading3
   },
   {
     component: 'aiHeading4',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'heading-4',
     icon: aiHeading4
   },
   {
     component: 'aiHeading5',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'heading-5',
     icon: aiHeading5
   },
   {
     component: 'aiHeading6',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'heading-6',
     icon: aiHeading6
@@ -1760,14 +1760,14 @@ const icons = [
   },
   {
     component: 'aiHeart',
-    categories: ["health","human","shapes"],
+    categories: ["health","people","shapes"],
     tags: ["love","favorite"],
     slug: 'heart',
     icon: aiHeart
   },
   {
     component: 'aiHorizontalLine',
-    categories: ["editor","punctuation-symbols"],
+    categories: ["layout-design","punctuation-symbols"],
     tags: ["rule"],
     slug: 'horizontal-line',
     icon: aiHorizontalLine
@@ -1823,14 +1823,14 @@ const icons = [
   },
   {
     component: 'aiIdCardSlash',
-    categories: ["business","security","people"],
+    categories: ["office-tools","security","people"],
     tags: ["identification"],
     slug: 'id-card-slash',
     icon: aiIdCardSlash
   },
   {
     component: 'aiIdCard',
-    categories: ["business","security","people"],
+    categories: ["office-tools","security","people"],
     tags: ["identification"],
     slug: 'id-card',
     icon: aiIdCard
@@ -1858,7 +1858,7 @@ const icons = [
   },
   {
     component: 'aiItalic',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'italic',
     icon: aiItalic
@@ -1872,7 +1872,7 @@ const icons = [
   },
   {
     component: 'aiJesterHat',
-    categories: ["human"],
+    categories: ["people"],
     tags: [],
     slug: 'jester-hat',
     icon: aiJesterHat
@@ -1907,14 +1907,14 @@ const icons = [
   },
   {
     component: 'aiKeyboard',
-    categories: ["coding","devices","writing"],
+    categories: ["code-editing","devices","writing"],
     tags: ["input"],
     slug: 'keyboard',
     icon: aiKeyboard
   },
   {
     component: 'aiKite',
-    categories: ["play","nature"],
+    categories: ["entertainment","nature"],
     tags: ["wind"],
     slug: 'kite',
     icon: aiKite
@@ -1977,7 +1977,7 @@ const icons = [
   },
   {
     component: 'aiLine',
-    categories: ["shapes","editor"],
+    categories: ["shapes","layout-design"],
     tags: [],
     slug: 'line',
     icon: aiLine
@@ -1991,49 +1991,49 @@ const icons = [
   },
   {
     component: 'aiListBarChart',
-    categories: ["editor","charts"],
+    categories: ["layout-design","charts"],
     tags: [],
     slug: 'list-bar-chart',
     icon: aiListBarChart
   },
   {
     component: 'aiListChecksXmark',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'list-checks-xmark',
     icon: aiListChecksXmark
   },
   {
     component: 'aiListChecks',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'list-checks',
     icon: aiListChecks
   },
   {
     component: 'aiListClock',
-    categories: ["time","editor"],
+    categories: ["time","layout-design"],
     tags: [],
     slug: 'list-clock',
     icon: aiListClock
   },
   {
     component: 'aiListOrderedClock',
-    categories: ["editor","time"],
+    categories: ["layout-design","time"],
     tags: [],
     slug: 'list-ordered-clock',
     icon: aiListOrderedClock
   },
   {
     component: 'aiListOrdered',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'list-ordered',
     icon: aiListOrdered
   },
   {
     component: 'aiList',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'list',
     icon: aiList
@@ -2124,7 +2124,7 @@ const icons = [
   },
   {
     component: 'aiMegaphone',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["bullhorn"],
     slug: 'megaphone',
     icon: aiMegaphone
@@ -2159,7 +2159,7 @@ const icons = [
   },
   {
     component: 'aiMicrochip',
-    categories: ["coding","devices"],
+    categories: ["code-editing","devices"],
     tags: ["chip"],
     slug: 'microchip',
     icon: aiMicrochip
@@ -2180,7 +2180,7 @@ const icons = [
   },
   {
     component: 'aiMin',
-    categories: ["editor","maps","mathematics","punctuation-symbols","alerts"],
+    categories: ["text-formatting","maps","mathematics","punctuation-symbols","alerts"],
     tags: ["minus","delete"],
     slug: 'min',
     icon: aiMin
@@ -2250,7 +2250,7 @@ const icons = [
   },
   {
     component: 'aiNumpad',
-    categories: ["coding","devices","writing"],
+    categories: ["code-editing","devices","writing"],
     tags: ["ten keys"],
     slug: 'numpad',
     icon: aiNumpad
@@ -2327,21 +2327,21 @@ const icons = [
   },
   {
     component: 'aiParachuteBox',
-    categories: ["logistics"],
+    categories: ["shopping"],
     tags: [],
     slug: 'parachute-box',
     icon: aiParachuteBox
   },
   {
     component: 'aiParagraph',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'paragraph',
     icon: aiParagraph
   },
   {
     component: 'aiPassword',
-    categories: ["design","editor","security"],
+    categories: ["design","security"],
     tags: ["code","input"],
     slug: 'password',
     icon: aiPassword
@@ -2362,7 +2362,7 @@ const icons = [
   },
   {
     component: 'aiPen',
-    categories: ["editor","business","design","writing"],
+    categories: ["text-formatting","office-tools","design","writing"],
     tags: ["write","ballpoint"],
     slug: 'pen',
     icon: aiPen
@@ -2446,49 +2446,49 @@ const icons = [
   },
   {
     component: 'aiPhoneArrowDownLeftProhibited',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["telephone","call","incoming"],
     slug: 'phone-arrow-down-left-prohibited',
     icon: aiPhoneArrowDownLeftProhibited
   },
   {
     component: 'aiPhoneArrowDownLeft',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["telephone","call","incoming"],
     slug: 'phone-arrow-down-left',
     icon: aiPhoneArrowDownLeft
   },
   {
     component: 'aiPhoneArrowUpRightProhibited',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["telephone","call","outgoing"],
     slug: 'phone-arrow-up-right-prohibited',
     icon: aiPhoneArrowUpRightProhibited
   },
   {
     component: 'aiPhoneArrowUpRight',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["telephone","call","outgoing"],
     slug: 'phone-arrow-up-right',
     icon: aiPhoneArrowUpRight
   },
   {
     component: 'aiPhoneClock',
-    categories: ["business","communication","time"],
+    categories: ["office-tools","communication","time"],
     tags: ["telephone","call"],
     slug: 'phone-clock',
     icon: aiPhoneClock
   },
   {
     component: 'aiPhoneGear',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["telephone","call"],
     slug: 'phone-gear',
     icon: aiPhoneGear
   },
   {
     component: 'aiPhoneList',
-    categories: ["business","communication"],
+    categories: ["office-tools","communication"],
     tags: ["telephone","call","log"],
     slug: 'phone-list',
     icon: aiPhoneList
@@ -2502,21 +2502,21 @@ const icons = [
   },
   {
     component: 'aiPhoneVolume',
-    categories: ["accessibility","business","communication"],
+    categories: ["accessibility","office-tools","communication"],
     tags: ["telephone","call"],
     slug: 'phone-volume',
     icon: aiPhoneVolume
   },
   {
     component: 'aiPhoneXmark',
-    categories: ["business","communication","maps"],
+    categories: ["office-tools","communication","maps"],
     tags: ["telephone","call","hangup"],
     slug: 'phone-xmark',
     icon: aiPhoneXmark
   },
   {
     component: 'aiPhone',
-    categories: ["business","communication","maps"],
+    categories: ["office-tools","communication","maps"],
     tags: ["telephone","call"],
     slug: 'phone',
     icon: aiPhone
@@ -2558,7 +2558,7 @@ const icons = [
   },
   {
     component: 'aiPlus',
-    categories: ["editor","maps","mathematics","health","punctuation-symbols","alerts"],
+    categories: ["text-formatting","maps","mathematics","health","punctuation-symbols","alerts"],
     tags: ["add","create"],
     slug: 'plus',
     icon: aiPlus
@@ -2579,7 +2579,7 @@ const icons = [
   },
   {
     component: 'aiPrinter',
-    categories: ["devices","writing","business"],
+    categories: ["devices","writing","office-tools"],
     tags: ["printing"],
     slug: 'printer',
     icon: aiPrinter
@@ -2593,7 +2593,7 @@ const icons = [
   },
   {
     component: 'aiPuzzlePiece',
-    categories: ["gaming"],
+    categories: ["entertainment"],
     tags: [],
     slug: 'puzzle-piece',
     icon: aiPuzzlePiece
@@ -2607,7 +2607,7 @@ const icons = [
   },
   {
     component: 'aiQuote',
-    categories: ["editor","punctuation-symbols"],
+    categories: ["text-formatting","punctuation-symbols"],
     tags: [],
     slug: 'quote',
     icon: aiQuote
@@ -2628,7 +2628,7 @@ const icons = [
   },
   {
     component: 'aiReceipt',
-    categories: ["money"],
+    categories: ["finance"],
     tags: ["price"],
     slug: 'receipt',
     icon: aiReceipt
@@ -2656,7 +2656,7 @@ const icons = [
   },
   {
     component: 'aiRedo',
-    categories: ["arrows","editor"],
+    categories: ["arrows","text-formatting"],
     tags: [],
     slug: 'redo',
     icon: aiRedo
@@ -2677,7 +2677,7 @@ const icons = [
   },
   {
     component: 'aiRoad',
-    categories: ["maps","transportation","logistics"],
+    categories: ["maps","transportation","shopping"],
     tags: ["drive"],
     slug: 'road',
     icon: aiRoad
@@ -2712,7 +2712,7 @@ const icons = [
   },
   {
     component: 'aiServer',
-    categories: ["devices","business"],
+    categories: ["devices","office-tools"],
     tags: [],
     slug: 'server',
     icon: aiServer
@@ -2761,7 +2761,7 @@ const icons = [
   },
   {
     component: 'aiShoePrints',
-    categories: ["human","maps"],
+    categories: ["people","maps"],
     tags: ["walking"],
     slug: 'shoe-prints',
     icon: aiShoePrints
@@ -2782,14 +2782,14 @@ const icons = [
   },
   {
     component: 'aiSidebarLeft',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: [],
     slug: 'sidebar-left',
     icon: aiSidebarLeft
   },
   {
     component: 'aiSidebarRight',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: [],
     slug: 'sidebar-right',
     icon: aiSidebarRight
@@ -2838,7 +2838,7 @@ const icons = [
   },
   {
     component: 'aiSignature',
-    categories: ["business","editor","writing"],
+    categories: ["office-tools","text-formatting","writing"],
     tags: ["footer"],
     slug: 'signature',
     icon: aiSignature
@@ -2859,7 +2859,7 @@ const icons = [
   },
   {
     component: 'aiSliders',
-    categories: ["editor","media"],
+    categories: ["text-formatting","media"],
     tags: ["options","settings","preferences"],
     slug: 'sliders',
     icon: aiSliders
@@ -2887,7 +2887,7 @@ const icons = [
   },
   {
     component: 'aiSnowflake',
-    categories: ["weather","spinners","household"],
+    categories: ["weather","spinners","home-living"],
     tags: ["winter","snow","blizzard","flurries"],
     slug: 'snowflake',
     icon: aiSnowflake
@@ -2936,7 +2936,7 @@ const icons = [
   },
   {
     component: 'aiSquareGum',
-    categories: ["editor","shapes"],
+    categories: ["text-formatting","shapes"],
     tags: [],
     slug: 'square-gum',
     icon: aiSquareGum
@@ -2985,14 +2985,14 @@ const icons = [
   },
   {
     component: 'aiStore',
-    categories: ["business","maps"],
+    categories: ["office-tools","maps"],
     tags: ["shop"],
     slug: 'store',
     icon: aiStore
   },
   {
     component: 'aiStrikethrough',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'strikethrough',
     icon: aiStrikethrough
@@ -3006,7 +3006,7 @@ const icons = [
   },
   {
     component: 'aiSubscript',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'subscript',
     icon: aiSubscript
@@ -3041,7 +3041,7 @@ const icons = [
   },
   {
     component: 'aiSuperscript',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'superscript',
     icon: aiSuperscript
@@ -3062,112 +3062,112 @@ const icons = [
   },
   {
     component: 'aiTableCellMerge',
-    categories: ["communication","business"],
+    categories: ["communication","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-cell-merge',
     icon: aiTableCellMerge
   },
   {
     component: 'aiTableClock',
-    categories: ["communication","business"],
+    categories: ["communication","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-clock',
     icon: aiTableClock
   },
   {
     component: 'aiTableColumnInsertLeft',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-column-insert-left',
     icon: aiTableColumnInsertLeft
   },
   {
     component: 'aiTableColumnInsertRight',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-column-insert-right',
     icon: aiTableColumnInsertRight
   },
   {
     component: 'aiTableColumnMin',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-column-min',
     icon: aiTableColumnMin
   },
   {
     component: 'aiTableHeaderCell',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-header-cell',
     icon: aiTableHeaderCell
   },
   {
     component: 'aiTableHeaderColumn',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-header-column',
     icon: aiTableHeaderColumn
   },
   {
     component: 'aiTableHeaderRow',
-    categories: ["editor"],
+    categories: ["layout-design"],
     tags: [],
     slug: 'table-header-row',
     icon: aiTableHeaderRow
   },
   {
     component: 'aiTableMin',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-min',
     icon: aiTableMin
   },
   {
     component: 'aiTableRowInsertBottom',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-row-insert-bottom',
     icon: aiTableRowInsertBottom
   },
   {
     component: 'aiTableRowInsertTop',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-row-insert-top',
     icon: aiTableRowInsertTop
   },
   {
     component: 'aiTableRowMin',
-    categories: ["editor","business"],
+    categories: ["layout-design","office-tools"],
     tags: ["spreadsheet"],
     slug: 'table-row-min',
     icon: aiTableRowMin
   },
   {
     component: 'aiTable',
-    categories: ["editor","business","files"],
+    categories: ["layout-design","office-tools","files"],
     tags: ["spreadsheet"],
     slug: 'table',
     icon: aiTable
   },
   {
     component: 'aiTagGear',
-    categories: ["business","maps"],
+    categories: ["office-tools","maps"],
     tags: ["label"],
     slug: 'tag-gear',
     icon: aiTagGear
   },
   {
     component: 'aiTagPlus',
-    categories: ["business","maps"],
+    categories: ["office-tools","maps"],
     tags: ["label"],
     slug: 'tag-plus',
     icon: aiTagPlus
   },
   {
     component: 'aiTag',
-    categories: ["business","maps"],
+    categories: ["office-tools","maps"],
     tags: ["label"],
     slug: 'tag',
     icon: aiTag
@@ -3188,7 +3188,7 @@ const icons = [
   },
   {
     component: 'aiTerminal',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: ["command line","cmd","cli"],
     slug: 'terminal',
     icon: aiTerminal
@@ -3223,21 +3223,21 @@ const icons = [
   },
   {
     component: 'aiThumbtackSlash',
-    categories: ["business","maps","social","writing"],
+    categories: ["office-tools","maps","social","writing"],
     tags: ["pin"],
     slug: 'thumbtack-slash',
     icon: aiThumbtackSlash
   },
   {
     component: 'aiThumbtack',
-    categories: ["business","maps","social","writing"],
+    categories: ["office-tools","maps","social","writing"],
     tags: ["pin"],
     slug: 'thumbtack',
     icon: aiThumbtack
   },
   {
     component: 'aiTicket',
-    categories: ["media","money"],
+    categories: ["media","finance"],
     tags: ["pass"],
     slug: 'ticket',
     icon: aiTicket
@@ -3293,7 +3293,7 @@ const icons = [
   },
   {
     component: 'aiTrashCan',
-    categories: ["maps","editor"],
+    categories: ["maps","text-formatting"],
     tags: ["trash","delete","garbage","remove","junk"],
     slug: 'trash-can',
     icon: aiTrashCan
@@ -3307,7 +3307,7 @@ const icons = [
   },
   {
     component: 'aiTrekkingBackpack',
-    categories: ["nature","maps","play"],
+    categories: ["nature","maps","entertainment"],
     tags: ["walking","exploration"],
     slug: 'trekking-backpack',
     icon: aiTrekkingBackpack
@@ -3377,14 +3377,14 @@ const icons = [
   },
   {
     component: 'aiUnderline',
-    categories: ["editor"],
+    categories: ["text-formatting"],
     tags: [],
     slug: 'underline',
     icon: aiUnderline
   },
   {
     component: 'aiUndo',
-    categories: ["arrows","editor"],
+    categories: ["arrows","text-formatting"],
     tags: [],
     slug: 'undo',
     icon: aiUndo
@@ -3482,7 +3482,7 @@ const icons = [
   },
   {
     component: 'aiWallet',
-    categories: ["business","money","shopping"],
+    categories: ["finance","shopping"],
     tags: [],
     slug: 'wallet',
     icon: aiWallet
@@ -3503,14 +3503,14 @@ const icons = [
   },
   {
     component: 'aiWebhooksClock',
-    categories: ["coding","time"],
+    categories: ["code-editing","time"],
     tags: [],
     slug: 'webhooks-clock',
     icon: aiWebhooksClock
   },
   {
     component: 'aiWebhooks',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: [],
     slug: 'webhooks',
     icon: aiWebhooks
@@ -3524,7 +3524,7 @@ const icons = [
   },
   {
     component: 'aiWindow',
-    categories: ["coding"],
+    categories: ["code-editing"],
     tags: [],
     slug: 'window',
     icon: aiWindow
@@ -3545,14 +3545,14 @@ const icons = [
   },
   {
     component: 'aiXbox',
-    categories: ["brands","gaming"],
+    categories: ["brands","entertainment"],
     tags: ["microsoft"],
     slug: 'xbox',
     icon: aiXbox
   },
   {
     component: 'aiXmark',
-    categories: ["editor","mathematics","punctuation-symbols"],
+    categories: ["text-formatting","mathematics","punctuation-symbols"],
     tags: ["close","cancel"],
     slug: 'xmark',
     icon: aiXmark

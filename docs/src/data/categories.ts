@@ -1,36 +1,30 @@
 import {
-  ai1,
   aiA,
+  aiAlignCenter,
   aiAmicons,
   aiArrowUp,
   aiAsterisk,
   aiBel,
   aiBold,
   aiBook,
-  aiBox,
-  aiBroom,
-  aiCamera,
-  aiCampfire,
   aiChartPie,
   aiClock,
   aiCode,
   aiDevices,
   aiEarth,
   aiEuro,
-  aiEye,
   aiFax,
   aiFiles,
   aiFlask,
   aiGamepad,
   aiHeart,
-  aiKite,
+  aiHouse,
   aiLightbulb,
   aiLock,
   aiMessageText,
   aiPen,
   aiPerson,
   aiPlateUtensils,
-  aiPlay,
   aiPlus,
   aiRocket,
   aiShareNodes,
@@ -68,23 +62,13 @@ const categories = [
     icon: aiAmicons
   },
   {
-    slug: 'business',
-    title: 'Business',
-    icon: aiFax
-  },
-  {
-    slug: 'camping',
-    title: 'Camping',
-    icon: aiCampfire
-  },
-  {
     slug: 'charts',
-    title: 'Charts',
+    title: 'Charts & diagrams',
     icon: aiChartPie
   },
   {
-    slug: 'coding',
-    title: 'Coding',
+    slug: 'code-editing',
+    title: 'Code editing',
     icon: aiCode
   },
   {
@@ -99,18 +83,13 @@ const categories = [
   },
   {
     slug: 'design',
-    title: 'Design',
+    title: 'Design tools',
     icon: aiSwatchbook
   },
   {
     slug: 'devices',
     title: 'Devices',
     icon: aiDevices
-  },
-  {
-    slug: 'editor',
-    title: 'Editor',
-    icon: aiBold
   },
   {
     slug: 'education',
@@ -123,14 +102,19 @@ const categories = [
     icon: aiLightbulb
   },
   {
+    slug: 'entertainment',
+    title: 'Entertainment & gaming',
+    icon: aiGamepad
+  },
+  {
     slug: 'files',
     title: 'Files & folders',
     icon: aiFiles
   },
   {
-    slug: 'film',
-    title: 'Film',
-    icon: aiVideo
+    slug: 'finance',
+    title: 'Finance',
+    icon: aiEuro
   },
   {
     slug: 'food-beverage',
@@ -138,24 +122,19 @@ const categories = [
     icon: aiPlateUtensils
   },
   {
-    slug: 'gaming',
-    title: 'Gaming',
-    icon: aiGamepad
-  },
-  {
     slug: 'health',
     title: 'Health',
     icon: aiHeart
   },
   {
-    slug: 'household',
-    title: 'Household',
-    icon: aiBroom
+    slug: 'home-living',
+    title: 'Home & living',
+    icon: aiHouse
   },
   {
-    slug: 'human',
-    title: 'Human',
-    icon: aiEye
+    slug: 'layout-design',
+    title: 'Layout & alignment',
+    icon: aiAlignCenter
   },
   {
     slug: 'letters-numbers',
@@ -163,13 +142,8 @@ const categories = [
     icon: aiA
   },
   {
-    slug: 'logistics',
-    title: 'Logistics',
-    icon: aiBox
-  },
-  {
     slug: 'maps',
-    title: 'Maps & buildings',
+    title: 'Maps & location',
     icon: aiEarth
   },
   {
@@ -179,13 +153,8 @@ const categories = [
   },
   {
     slug: 'media',
-    title: 'Media',
-    icon: aiPlay
-  },
-  {
-    slug: 'money',
-    title: 'Money',
-    icon: aiEuro
+    title: 'Media & video',
+    icon: aiVideo
   },
   {
     slug: 'nature',
@@ -193,24 +162,14 @@ const categories = [
     icon: aiTree
   },
   {
-    slug: 'numbers',
-    title: 'Numbers',
-    icon: ai1
+    slug: 'office-tools',
+    title: 'Office tools',
+    icon: aiFax
   },
   {
     slug: 'people',
     title: 'People',
     icon: aiPerson
-  },
-  {
-    slug: 'photos',
-    title: 'Photos',
-    icon: aiCamera
-  },
-  {
-    slug: 'play',
-    title: 'Play & sport',
-    icon: aiKite
   },
   {
     slug: 'punctuation-symbols',
@@ -234,7 +193,7 @@ const categories = [
   },
   {
     slug: 'shopping',
-    title: 'Shopping',
+    title: 'Shopping & commerce',
     icon: aiShoppingCart
   },
   {
@@ -246,6 +205,11 @@ const categories = [
     slug: 'spinners',
     title: 'Spinners',
     icon: aiSpinner
+  },
+  {
+    slug: 'text-formatting',
+    title: 'Text formatting',
+    icon: aiBold
   },
   {
     slug: 'time',
