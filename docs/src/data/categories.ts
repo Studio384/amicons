@@ -33,6 +33,7 @@ import {
   aiRocket,
   aiShareNodes,
   aiShoppingCart,
+  aiSignalStrong,
   aiSpinner,
   aiSquareDashed,
   aiSun,
@@ -88,6 +89,11 @@ const categories = [
     slug: 'communication',
     title: 'Communication',
     icon: aiMessageText
+  },
+  {
+    slug: 'connectivity',
+    title: 'Connectivity',
+    icon: aiSignalStrong
   },
   {
     slug: 'design',

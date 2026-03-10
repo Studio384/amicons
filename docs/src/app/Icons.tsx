@@ -103,9 +103,7 @@ export default function Icons() {
     <>
       <Header>
         <Typography level="h1" fontSize={{ xs: 36, md: 48 }} sx={{ textAlign: { xs: 'center', md: 'initial' } }}>
-          <Typography color="primary">{icons.length}</Typography> amicable icons
-          <br />
-          to delight <Typography color="primary">your</Typography> designs
+          Icons
         </Typography>
       </Header>
       <Container>
