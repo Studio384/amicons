@@ -7,6 +7,7 @@ import Amicon, {
   aiAmicons,
   aiArrowRotateRight,
   aiArrowsDownLeftRightUpCenter,
+  aiArrowUp,
   aiCircleHalfInner,
   aiHeart,
   aiReact,
@@ -37,6 +38,11 @@ export default function DocsNavigation() {
           title: 'Spin',
           icon: aiSpinner,
           link: '/docs/spin'
+        },
+        {
+          title: 'Bounce',
+          icon: aiArrowUp,
+          link: '/docs/bounce'
         },
         {
           title: 'Rotate',

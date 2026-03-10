@@ -21,7 +21,8 @@ export default function Changelog() {
         fixed={[
           'Fixes a bug where variables and classes used the wrong prefix.',
           'Fixes a bug where markdown generation would report a successful run before finishing.',
-          'Various enhancements to library generation.'
+          'Various enhancements to library generation.',
+          'Fixes the bounce documentation not showing up in the documentation.'
         ]}
       />
       <Release
