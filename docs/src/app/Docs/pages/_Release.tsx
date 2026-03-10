@@ -143,7 +143,7 @@ function ChangeSection({ title, icon, items }: ChangeSectionProps) {
           '--ListItemDecorator-size': '1.75rem'
         }}
       >
-        {items.map((item: string | ReactNode, index: number) => (
+        {items.map((item: string, index: number) => (
           <ListItem key={index}>
             <ListItemDecorator>
               <Amicon icon={icon} />
