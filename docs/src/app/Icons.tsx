@@ -130,20 +130,20 @@ export default function Icons() {
               {categories.map((_category) => {
                 const categoryIcons = searchableList.filter((icon) => icon.categories.includes(_category.slug as never));
 
-                if (categoryIcons.length === 0) {
-                  return;
-                }
-
                 return (
                   <ListItem key={_category.slug}>
                     <ListItemButton onClick={() => setSearchQuery('c', _category.slug)} selected={searchCategories.includes(_category.slug)} color="primary">
-                      <ListItemDecorator>
+                      <ListItemDecorator sx={{ opacity: categoryIcons.length === 0 ? 0.5 : 1 }}>
                         <Amicon icon={_category.icon} />
                       </ListItemDecorator>
                       <ListItemContent>
-                        <Typography noWrap>{_category.title}</Typography>
+                        <Typography noWrap sx={{ opacity: categoryIcons.length === 0 ? 0.5 : 1 }}>
+                          {_category.title}
+                        </Typography>
                       </ListItemContent>
-                      <ListItemContent sx={{ fontFamily: 'display', textAlign: 'right' }}>{categoryIcons.length}</ListItemContent>
+                      <ListItemContent sx={{ fontFamily: 'display', textAlign: 'right', opacity: categoryIcons.length === 0 ? 0.5 : 1 }}>
+                        {categoryIcons.length}
+                      </ListItemContent>
                     </ListItemButton>
                   </ListItem>
                 );
