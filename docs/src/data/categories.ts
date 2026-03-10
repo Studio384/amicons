@@ -23,7 +23,6 @@ import {
   aiFlask,
   aiGamepad,
   aiHeart,
-  aiHouse,
   aiKite,
   aiLightbulb,
   aiLock,
