@@ -27,7 +27,7 @@ export default function Icon() {
   }, [slug]);
 
   const reactImport = slug
-    ? `vi${slug
+    ? `ai${slug
         .split('-')
         .map((word) => {
           return word[0].toUpperCase() + word.substring(1);
