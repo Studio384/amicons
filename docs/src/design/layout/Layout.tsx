@@ -1,18 +1,16 @@
 import { Outlet } from 'react-router';
 
-import { Box } from '@mui/joy';
-
 import ScrollToTop from '../components/ScrollToTop';
 import Footer from './LayoutElements/Footer';
 import Navbar from './LayoutElements/Navbar';
 
 export default function Layout() {
   return (
-    <Box sx={{ mt: -11.25 }}>
+    <div className="-mt-22.5">
       <ScrollToTop />
       <Navbar />
       <Outlet />
       <Footer />
-    </Box>
+    </div>
   );
 }

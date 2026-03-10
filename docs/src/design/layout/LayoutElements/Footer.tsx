@@ -1,27 +1,10 @@
 import { NavLink } from 'react-router';
 
-import {
-  Box,
-  Container,
-  Grid,
-  IconButton,
-  Link,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemContent,
-  ListItemDecorator,
-  Sheet,
-  Stack,
-  Typography,
-  useColorScheme
-} from '@mui/joy';
+import { Box, Container, Grid, Link, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Sheet, Stack, Typography } from '@mui/joy';
 
-import Amicon, { aiCircleHalfInner, aiGithub, aiHeart, aiMoon, aiStudio384, aiSun, aiTwitter } from '@studio384/amicons';
+import Amicon, { aiGithub, aiHeart, aiStudio384, aiTwitter } from '@studio384/amicons';
 
 export default function Footer() {
-  const { mode, setMode } = useColorScheme();
-
   return (
     <Sheet
       variant="soft"
@@ -149,11 +132,6 @@ export default function Footer() {
                   Studio 384
                 </Link>
               </Typography>
-              <Stack direction="row" gap={0.5}>
-                <IconButton color="primary" variant="soft" onClick={() => setMode(mode === 'dark' ? 'light' : mode === 'light' ? 'system' : 'dark')}>
-                  <Amicon icon={mode === 'dark' ? aiMoon : mode === 'light' ? aiSun : aiCircleHalfInner} />
-                </IconButton>
-              </Stack>
             </Stack>
           </Grid>
         </Grid>

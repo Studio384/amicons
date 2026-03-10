@@ -7,7 +7,7 @@ import router from './Router';
 
 export default function App() {
   return (
-    <CssVarsProvider theme={joyTheme} defaultMode="system">
+    <CssVarsProvider theme={joyTheme} defaultMode="light">
       <CssBaseline />
       <GlobalStyles
         styles={{

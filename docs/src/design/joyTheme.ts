@@ -1,6 +1,5 @@
 import { extendTheme } from '@mui/joy/styles';
 
-import dark from './dark';
 import { darkColorVariables, neutralColorVariables } from './generateColor';
 import light from './light';
 
@@ -54,27 +53,6 @@ const joyTheme = extendTheme({
         success: darkColorVariables('success', light.green),
         danger: darkColorVariables('danger', light.red),
         warning: darkColorVariables('warning', light.amber)
-      }
-    },
-    dark: {
-      palette: {
-        primary: darkColorVariables('primary', dark.primary),
-        neutral: neutralColorVariables('neutral', dark.neutral),
-        success: darkColorVariables('success', dark.green),
-        danger: darkColorVariables('danger', dark.red),
-        warning: darkColorVariables('warning', dark.amber),
-        background: {
-          body: '#000',
-          surface: 'var(--joy-palette-neutral-50)',
-          level1: 'var(--joy-palette-neutral-200)',
-          channel: '0 0 0'
-        },
-        text: {
-          primary: '#fff',
-          secondary: '#fff',
-          tertiary: 'var(--joy-palette-neutral-800)',
-          icon: '#fff'
-        }
       }
     }
   },
