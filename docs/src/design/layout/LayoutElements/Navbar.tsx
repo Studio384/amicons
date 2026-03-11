@@ -1,91 +1,96 @@
 import { NavLink, useLocation } from 'react-router';
 
-import { Box, Button, Container, IconButton, Link, Sheet, Stack } from '@mui/joy';
+import { NavigationMenu } from '@base-ui/react';
+import Amicon, { aiGithub, aiStudio384 } from '@studio384/amicons';
+import clsx from 'clsx';
 
-import IAmicon, { aiGithub } from '@studio384/amicons';
+import pkg from '../../../../../amicons/package.json';
 
 export default function Navbar() {
   const location = useLocation();
 
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        position: 'sticky',
-        zIndex: 1600,
-        top: 0,
-        pt: 2,
-        mb: 2
-      }}
-    >
-      <Sheet
-        variant="outlined"
-        sx={{
-          zIndex: 1600,
-          borderRadius: 'md',
-          p: 1.5,
-          background: 'rgba(var(--joy-palette-primary-mainChannel) / .75)',
-          border: '1px solid rgba(var(--joy-palette-primary-mainChannel) / .75)',
-          backdropFilter: 'blur(20px)',
-          boxShadow: 'xs',
-          height: 58,
-          '--joy-fontFamily-body': 'var(--joy-fontFamily-display)'
-        }}
-      >
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: '1fr auto 1fr',
-            gap: 1,
-            '--variant-plainColor': 'var(--joy-palette-common-white)',
-            '--variant-plainHoverBg': 'var(--joy-palette-primary-500)',
-            '--variant-plainActiveBg': 'var(--joy-palette-primary-600)'
-          }}
-        >
-          <Stack direction="row" alignItems="center" gap={1} sx={{ pl: 0.5 }}>
-            <Link color="neutral" underline="none" level="h1" fontSize="xl" sx={{ color: 'common.white' }} component={NavLink} to="/">
-              <img src="favicon.png" style={{ width: 24, height: 24, marginRight: 8 }} />
-              <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-                Amicons
-              </Box>
-            </Link>
-          </Stack>
-          <Stack direction="row" gap={0.5}>
-            <Button
-              component={NavLink}
-              to="/"
-              variant={location?.pathname === '/' || location?.pathname?.startsWith('/icons') ? 'solid' : 'plain'}
-              size="sm"
-              color={location?.pathname === '/' || location?.pathname?.startsWith('/icons') ? 'primary' : 'primary'}
-            >
-              Home
-            </Button>
-            <Button
-              component={NavLink}
-              to="/docs"
-              variant={location?.pathname?.startsWith('/docs') ? 'solid' : 'plain'}
-              size="sm"
-              color={location?.pathname?.startsWith('/docs') ? 'primary' : 'primary'}
-            >
-              Docs
-            </Button>
-            <Button
-              component={NavLink}
-              to="/changelog"
-              variant={location?.pathname?.startsWith('/changelog') ? 'solid' : 'plain'}
-              size="sm"
-              color={location?.pathname?.startsWith('/changelog') ? 'primary' : 'primary'}
-            >
-              Changelog
-            </Button>
-          </Stack>
-          <Stack direction="row" justifyContent="flex-end">
-            <IconButton size="sm" variant="plain" color="primary" component="a" href="https://github.com/studio384/amicons" target="_blank">
-              <IAmicon icon={aiGithub} />
-            </IconButton>
-          </Stack>
-        </Box>
-      </Sheet>
-    </Container>
+    <>
+      <div className="sticky top-0 z-50 container m-auto mb-2 w-7xl px-4 pt-2">
+        <NavigationMenu.Root className="grid grid-cols-3 items-center justify-between rounded-2xl border border-indigo-400/90 bg-indigo-400/90 px-3.5 py-3 backdrop-blur-sm backdrop-saturate-200">
+          <NavigationMenu.List className="flex justify-start gap-1">
+            <NavigationMenu.Item>
+              <NavLink
+                to="/"
+                className="flex flex-row items-center gap-2 rounded-md font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-indigo-600"
+              >
+                <img src="favicon.png" className="size-6" />
+                <span className="hiddem font-display text-xl lg:block">
+                  Amicons <span className="text-sm font-light opacity-50">v{pkg.version}</span>
+                </span>
+              </NavLink>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+          <NavigationMenu.List className="flex justify-center gap-1">
+            <NavigationMenu.Item>
+              <NavLink
+                to="/"
+                className={clsx(
+                  'font-display flex h-8 items-center justify-center rounded-md px-2.5 text-sm font-medium text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500',
+                  {
+                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-600': location?.pathname === '/' || location?.pathname?.startsWith('/icons')
+                  }
+                )}
+              >
+                Home
+              </NavLink>
+            </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavLink
+                to="/docs/installation"
+                className={clsx(
+                  'font-display flex h-8 items-center justify-center rounded-md px-2.5 text-sm font-medium text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500',
+                  {
+                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-600': location?.pathname?.startsWith('/docs')
+                  }
+                )}
+              >
+                Docs
+              </NavLink>
+            </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavLink
+                to="/changelog"
+                className={clsx(
+                  'font-display flex h-8 items-center justify-center rounded-md px-2.5 text-sm font-medium text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500',
+                  {
+                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-600': location?.pathname?.startsWith('/changelog')
+                  }
+                )}
+              >
+                Changelog
+              </NavLink>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+          <NavigationMenu.List className="flex justify-end gap-1">
+            <NavigationMenu.Item>
+              <a
+                href="https://studio384.be"
+                target="_blank"
+                className="flex size-8 items-center justify-center rounded-md text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                <Amicon icon={aiStudio384} /> <span className="sr-only">Studio 384</span>
+              </a>
+            </NavigationMenu.Item>
+            <NavigationMenu.Item>
+              <a
+                href="https://github.com/studio384/amicons"
+                target="_blank"
+                className="flex size-8 items-center justify-center rounded-md text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                <Amicon icon={aiGithub} /> <span className="sr-only">GitHub repository</span>
+              </a>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+        </NavigationMenu.Root>
+      </div>
+    </>
   );
 }
