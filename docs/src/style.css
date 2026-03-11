@@ -7,4 +7,5 @@
 
 @theme {
   --font-display: 'Lexend', sans-serif;
+  --font-dev: 'Century Gothic', 'Segoe UI Variable Display', var(--font-sans);
 }
