@@ -6,7 +6,7 @@ import Navbar from './LayoutElements/Navbar';
 
 export default function Layout() {
   return (
-    <div className="-mt-22.5">
+    <div className="-mt-23">
       <ScrollToTop />
       <Navbar />
       <Outlet />
