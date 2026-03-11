@@ -19,7 +19,8 @@ export default function Changelog() {
         ]}
         fixed={[
           'Fixes a bug where variables and classes used the wrong prefix.',
-          'Fixes a bug where markdown generation would report a successful run before finishing.'
+          'Fixes a bug where markdown generation would report a successful run before finishing.',
+          'Fixes a bug where `rotate` would not correctly apply the animation styling.'
         ]}
         docs={[
           'The category filter now keeps showing empty categories for easier navigation.',

@@ -56,6 +56,11 @@
 }
 
 /* Transform classes */
+.ai-rotate {
+  transition: transform var(--vi-transition-duration, 0.2s)
+    var(--vi-transition-timing-function, ease-in-out);
+}
+
 .ai-flip {
   transform: scale(-1);
 }

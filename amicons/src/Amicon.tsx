@@ -36,14 +36,15 @@ export default function AmiconIcon({
   return (
     <span
       className={clsx(className, "ai-icon", {
-        ["ai-flip-x"]: flip === "x",
-        ["ai-flip-y"]: flip === "y",
-        ["ai-flip"]: flip === true,
-        ["ai-spin"]: spin === true,
-        ["ai-spin ai-spin-pulse"]: spin === "pulse",
-        ["ai-beat"]: beat,
-        ["ai-fade"]: isFallback || fade,
-        ["ai-bounce"]: bounce,
+        "ai-rotate": !!rotate || rotate === 0,
+        "ai-flip-x": flip === "x",
+        "ai-flip-y": flip === "y",
+        "ai-flip": flip === true,
+        "ai-spin": spin === true,
+        "ai-spin ai-spin-pulse": spin === "pulse",
+        "ai-beat": beat,
+        "ai-fade": isFallback || fade,
+        "ai-bounce": bounce,
       })}
       style={{ ...rotateStyle, ...style }}
       dangerouslySetInnerHTML={{ __html: resolvedIcon.data }}
