@@ -1,21 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router';
 
-import {
-  Box,
-  Chip,
-  ChipDelete,
-  Container,
-  IconButton,
-  Input,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemContent,
-  ListItemDecorator,
-  Stack,
-  Typography
-} from '@mui/joy';
+import { Box, Chip, ChipDelete, IconButton, Input, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Stack, Typography } from '@mui/joy';
 
 import categories from '@/data/categories';
 import icons from '@/data/icons';
@@ -102,11 +88,9 @@ export default function Icons() {
   return (
     <>
       <Header>
-        <Typography level="h1" fontSize={{ xs: 36, md: 48 }} sx={{ textAlign: { xs: 'center', md: 'initial' } }}>
-          Icons
-        </Typography>
+        <h1 className="font-display py-2 text-5xl font-medium text-black">Icons</h1>
       </Header>
-      <Container>
+      <div className="container m-auto my-8 max-w-7xl px-4">
         <Box
           sx={{
             display: 'grid',
@@ -218,7 +202,7 @@ export default function Icons() {
             {result.length > 0 && <Pagination count={Math.ceil(result.length / 96)} page={searchPage} onChange={(_, page) => setSearchQuery('p', page)} />}
           </Stack>
         </Box>
-      </Container>
+      </div>
     </>
   );
 }

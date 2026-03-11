@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { createSearchParams, useNavigate, useParams } from 'react-router';
 
-import { Alert, Avatar, Box, Button, Card, Chip, Container, IconButton, Input, Link, Stack, Typography } from '@mui/joy';
+import { Alert, Avatar, Box, Button, Card, Chip, IconButton, Input, Link, Stack, Typography } from '@mui/joy';
 
 import icons from '@/data/icons';
 import Codeblock from '@/design/components/Codeblock';
@@ -94,7 +94,7 @@ export default function Icon() {
           <LargeIconGrid icon={viIcon?.icon} />
         </Stack>
       </Header>
-      <Container>
+      <div className="container m-auto my-8 max-w-7xl px-4">
         <Stack gap={4} sx={{ my: 5 }}>
           <Stack direction={{ xs: 'column', md: 'row' }} gap={2}>
             <Box sx={{ flexGrow: 1 }}>
@@ -310,7 +310,7 @@ export default function Icon() {
             </Stack>
           )}
         </Stack>
-      </Container>
+      </div>
     </>
   );
 }

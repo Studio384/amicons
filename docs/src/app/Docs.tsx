@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import { Box, Container, Stack, Typography } from '@mui/joy';
+import { Box, Stack } from '@mui/joy';
 
 import Header from '@/design/layout/LayoutElements/Header';
 
@@ -10,11 +10,9 @@ export default function Docs() {
   return (
     <>
       <Header>
-        <Typography level="h1" fontSize={48}>
-          Documentation
-        </Typography>
+        <h1 className="font-display py-2 text-5xl font-medium text-black">Documentation</h1>
       </Header>
-      <Container sx={{ my: 5 }}>
+      <div className="container m-auto my-8 max-w-7xl px-4">
         <Box
           sx={{
             display: 'grid',
@@ -29,7 +27,7 @@ export default function Docs() {
             <Outlet />
           </Stack>
         </Box>
-      </Container>
+      </div>
     </>
   );
 }
