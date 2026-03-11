@@ -80,8 +80,11 @@ export default function Footer() {
         </div>
         <p className="text-sm">
           &copy; 2021-2026 &middot;{' '}
-          <a href="https://studio384.be" className="font-dev font-semibold">
-            Studio 384
+          <a
+            href="https://studio384.be"
+            className="font-dev font-semibold hover:underline hover:decoration-[#78b500] hover:decoration-1 hover:underline-offset-1"
+          >
+            Studio <span className="bg-linear-to-r from-[#78b500] to-[#00b573] bg-clip-text text-transparent">384</span>{' '}
           </a>
         </p>
       </div>
