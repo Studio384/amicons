@@ -1,22 +1,5 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
-import { Typography, TypographyProps } from '@mui/joy';
-
-interface ICodeProps extends TypographyProps {
-  children: ReactNode;
-}
-
-export default function Code({ children, ...props }: ICodeProps) {
-  return (
-    <Typography
-      fontSize="sm"
-      fontFamily="code"
-      color="primary"
-      variant="soft"
-      sx={{ display: 'inline', bgcolor: 'primary.200', borderRadius: 'sm' }}
-      {...props}
-    >
-      {children}
-    </Typography>
-  );
+export default function Code(props: PropsWithChildren) {
+  return <span className="text-em rounded-sm bg-indigo-100 px-0.75 py-px font-mono text-indigo-600" {...props} />;
 }
