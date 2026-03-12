@@ -1,21 +1,15 @@
-import { useNavigate } from 'react-router';
-
-import { Container, IconButton, Stack, Typography } from '@mui/joy';
-
-import Amicon, { aiArrowLeft } from '@studio384/amicons';
+import Header from '@/design/layout/LayoutElements/Header';
 
 export default function Error() {
-  const navigate = useNavigate();
-
   return (
-    <Container maxWidth="md" sx={{ py: 5 }}>
-      <Stack sx={{ textAlign: 'center' }} alignItems="center">
-        <IconButton variant="outlined" onClick={() => navigate('/')} sx={{ mb: 2 }}>
-          <Amicon icon={aiArrowLeft} />
-        </IconButton>
-        <Typography level="h1">Welp, nothing to see here.</Typography>
-        <Typography level="body-sm">Error 404</Typography>
-      </Stack>
-    </Container>
+    <>
+      <Header>
+        <h1 className="font-display py-2 text-5xl font-medium text-black">Error 404</h1>
+      </Header>
+      <div className="container m-auto my-16 max-w-7xl px-4">
+        <h1 className="font-display text-5xl font-medium">Where am I?</h1>
+        <p className="text-medium text-lg">The page you're trying to reach cannot be found.</p>
+      </div>
+    </>
   );
 }

@@ -14,79 +14,40 @@ import Icon from './app/Icon';
 import Icons from './app/Icons';
 import Layout from './design/layout/Layout';
 
-const router = createHashRouter([
+export const router = createHashRouter([
   {
-    element: <Layout />,
-    errorElement: <Error />,
+    Component: Layout,
+    errorElement: (
+      <Layout>
+        <Error />
+      </Layout>
+    ),
     children: [
-      {
-        path: '/',
-        element: <Icons />
-      },
-      {
-        path: '/icons',
-        element: <Icons />
-      },
-      {
-        path: '/icons/:slug',
-        element: <Icon />
-      },
+      { path: '/', Component: Icons },
+      { path: '/icons', Component: Icons },
+      { path: '/icons/:slug', Component: Icon },
       {
         path: '/docs',
-        element: <Docs />,
+        Component: Docs,
         errorElement: <Error />,
         children: [
-          {
-            index: true,
-            element: <Navigate to="installation" replace />
-          },
-          {
-            path: 'installation',
-            element: <PageInstallation />
-          },
-          {
-            path: 'spin',
-            element: <PageSpin />
-          },
-          {
-            path: 'bounce',
-            element: <PageBounce />
-          },
-          {
-            path: 'rotate',
-            element: <PageRotate />
-          },
-          {
-            path: 'flip',
-            element: <PageFlip />
-          },
-          {
-            path: 'beat',
-            element: <PageBeat />
-          },
-          {
-            path: 'fade',
-            element: <PageFade />
-          },
-          {
-            path: 'changelog',
-            element: <Changelog />
-          }
+          { index: true, element: <Navigate to="installation" replace /> },
+          { path: 'installation', Component: PageInstallation },
+          { path: 'spin', Component: PageSpin },
+          { path: 'bounce', Component: PageBounce },
+          { path: 'rotate', Component: PageRotate },
+          { path: 'flip', Component: PageFlip },
+          { path: 'beat', Component: PageBeat },
+          { path: 'fade', Component: PageFade },
+          { path: 'changelog', Component: Changelog }
         ]
       },
       {
         path: '/changelog',
-        element: <Docs />,
+        Component: Docs,
         errorElement: <Error />,
-        children: [
-          {
-            index: true,
-            element: <Changelog />
-          }
-        ]
+        children: [{ index: true, Component: Changelog }]
       }
     ]
   }
 ]);
-
-export default router;
