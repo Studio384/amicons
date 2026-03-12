@@ -33,7 +33,7 @@ export default function Navbar() {
                 className={clsx(
                   'font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500',
                   {
-                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-600': location?.pathname === '/' || location?.pathname?.startsWith('/icons')
+                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-700': location?.pathname === '/' || location?.pathname?.startsWith('/icons')
                   }
                 )}
               >
@@ -47,7 +47,7 @@ export default function Navbar() {
                 className={clsx(
                   'font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500',
                   {
-                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-600': location?.pathname?.startsWith('/docs')
+                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-700': location?.pathname?.startsWith('/docs')
                   }
                 )}
               >
@@ -61,7 +61,7 @@ export default function Navbar() {
                 className={clsx(
                   'font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-indigo-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500',
                   {
-                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-600': location?.pathname?.startsWith('/changelog')
+                    'bg-indigo-500 hover:bg-indigo-600 focus-visible:outline-indigo-700': location?.pathname?.startsWith('/changelog')
                   }
                 )}
               >

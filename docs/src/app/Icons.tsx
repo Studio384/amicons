@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router';
 
-import { Box, Chip, ChipDelete, IconButton, Input, List, ListItem, ListItemButton, ListItemContent, ListItemDecorator, Stack, Typography } from '@mui/joy';
+import { Box, Chip, ChipDelete, IconButton, Input, Stack, Typography } from '@mui/joy';
 
 import categories from '@/data/categories';
 import icons from '@/data/icons';
@@ -10,6 +10,7 @@ import useSearch from '@/hooks/useSearch';
 import { ILibraryIcon } from '@/types';
 
 import Amicon, { aiFilterXmark, aiMagnifyingGlass } from '@studio384/amicons';
+import clsx from 'clsx';
 
 import IconCard from './Components/IconCard';
 import Pagination from './Components/Pagination';
@@ -99,40 +100,30 @@ export default function Icons() {
           }}
         >
           <Box sx={{ position: 'sticky', top: 58 + 16, overflow: 'auto', maxHeight: 'calc(100dvh - 58px - 16px)', alignSelf: 'flex-start' }}>
-            <List
-              sx={{
-                p: 0,
-                my: 2,
-                gap: 0.25,
-                '--ListItem-paddingY': 0,
-                '--ListItem-radius': 'var(--joy-radius-md)',
-                '--ListItem-paddingLeft': '.5rem',
-                '--ListItem-paddingRight': '.5rem',
-                '--ListItemDecorator-size': '1.5rem'
-              }}
-            >
+            <div className="flex flex-col gap-0.5">
               {categories.map((_category) => {
                 const categoryIcons = searchableList.filter((icon) => icon.categories.includes(_category.slug as never));
 
                 return (
-                  <ListItem key={_category.slug}>
-                    <ListItemButton onClick={() => setSearchQuery('c', _category.slug)} selected={searchCategories.includes(_category.slug)} color="primary">
-                      <ListItemDecorator sx={{ opacity: categoryIcons.length === 0 ? 0.5 : 1 }}>
-                        <Amicon icon={_category.icon} />
-                      </ListItemDecorator>
-                      <ListItemContent>
-                        <Typography noWrap sx={{ opacity: categoryIcons.length === 0 ? 0.5 : 1 }}>
-                          {_category.title}
-                        </Typography>
-                      </ListItemContent>
-                      <ListItemContent sx={{ fontFamily: 'display', textAlign: 'right', opacity: categoryIcons.length === 0 ? 0.5 : 1 }}>
-                        {categoryIcons.length}
-                      </ListItemContent>
-                    </ListItemButton>
-                  </ListItem>
+                  <button
+                    key={_category.slug}
+                    onClick={() => setSearchQuery('c', _category.slug)}
+                    data-selected={searchCategories.includes(_category.slug) || undefined}
+                    data-noicons={categoryIcons.length === 0 ? true : undefined}
+                    className={clsx(
+                      'group grid h-8 grid-cols-[min-content_auto_min-content] items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-indigo-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500 data-selected:focus-visible:outline-indigo-700',
+                      {
+                        'bg-indigo-500 text-white hover:bg-indigo-600': searchCategories.includes(_category.slug)
+                      }
+                    )}
+                  >
+                    <Amicon icon={_category.icon} className="text-indigo-600 group-data-noicons:opacity-50 group-data-selected:text-white" />
+                    <span className="truncate group-data-noicons:opacity-50">{_category.title}</span>
+                    <span className="font-display text-indigo-600 group-data-noicons:opacity-50 group-data-selected:text-white">{categoryIcons.length}</span>
+                  </button>
                 );
               })}
-            </List>
+            </div>
           </Box>
           <Stack gap={2} sx={{ my: 2 }}>
             <Stack direction="row" gap={1} justifyContent="space-between" alignItems="center">
