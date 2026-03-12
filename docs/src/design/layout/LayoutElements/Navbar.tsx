@@ -21,7 +21,7 @@ export default function Navbar() {
               >
                 <img src="favicon.png" className="size-6" />
                 <span className="font-display hidden text-xl md:block">
-                  Amicons <span className="text-sm font-light opacity-50">v{pkg.version}</span>
+                  Amicons <span className="text-sm font-light opacity-75">v{pkg.version}</span>
                 </span>
               </NavLink>
             </NavigationMenu.Item>
