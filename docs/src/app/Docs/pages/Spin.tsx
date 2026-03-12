@@ -1,5 +1,3 @@
-import { Stack, Typography } from '@mui/joy';
-
 import Code from '@/design/components/Code';
 
 import { aiGear, aiLoader, aiSpinner, aiSpinnerThird } from '@studio384/amicons';
@@ -52,21 +50,21 @@ export default function PageSpin() {
   };
 
   return (
-    <Stack gap={2}>
-      <Typography level="h2">Spin</Typography>
-      <Typography>
+    <div className="flex flex-col gap-4">
+      <h2 className="font-display text-3xl font-medium">Spin</h2>
+      <p>
         With the <Code>spin</Code> property you can make your icons play a rotation animation.
-      </Typography>
+      </p>
 
       <Playground config={playgroundConfig} />
 
-      <Typography level="h3">API</Typography>
+      <h3 className="font-display text-2xl font-medium">API</h3>
 
-      <Typography>
+      <p>
         When setting the property to <Code>pulse</Code>, some additional variables are available while some defaults are changed.
-      </Typography>
+      </p>
 
       <ApiTable cssVariables={playgroundConfig.cssVariables as IIconCssVariables[]} />
-    </Stack>
+    </div>
   );
 }

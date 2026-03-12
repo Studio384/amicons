@@ -1,5 +1,3 @@
-import { Stack, Typography } from '@mui/joy';
-
 import Code from '@/design/components/Code';
 
 import { aiAmicons, aiCar, aiMessageSmile } from '@studio384/amicons';
@@ -21,13 +19,13 @@ export default function PageFlip() {
   };
 
   return (
-    <Stack gap={2}>
-      <Typography level="h2">Flip</Typography>
-      <Typography>
+    <div className="flex flex-col gap-4">
+      <h2 className="font-display text-3xl font-medium">Flip</h2>
+      <p>
         With the <Code>flip</Code> property you can mirror your icon on its x-axis, y-axis or both.
-      </Typography>
+      </p>
 
       <Playground config={playgroundConfig} />
-    </Stack>
+    </div>
   );
 }

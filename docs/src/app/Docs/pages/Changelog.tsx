@@ -1,10 +1,8 @@
-import { Stack } from '@mui/joy';
-
 import Release from './_Release';
 
 export default function Changelog() {
   return (
-    <Stack gap={5}>
+    <div className="flex flex-col gap-4">
       <Release
         name="Amicons 1.0 alpha 12"
         version="1.0.0-alpha.12"
@@ -318,6 +316,6 @@ export default function Changelog() {
         updatedIcons={['chart-pie', 'circle-dashed', 'table-clock', 'table-header-column', 'table-header-row', 'table', 'tag-gear', 'tag-plus', 'tag']}
       />
       <Release name="Amaranth 1.0 alpha 2" version="1.0.0-alpha.2" date="22 August 2023" changed={['Migrations from ChangeWindows to Studio 384']} />
-    </Stack>
+    </div>
   );
 }

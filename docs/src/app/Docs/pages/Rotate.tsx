@@ -1,5 +1,3 @@
-import { Stack, Typography } from '@mui/joy';
-
 import Code from '@/design/components/Code';
 
 import { aiAmicons, aiArrowUp, aiMessageSmile } from '@studio384/amicons';
@@ -34,17 +32,17 @@ export default function PageRotate() {
   };
 
   return (
-    <Stack gap={2}>
-      <Typography level="h2">Rotate</Typography>
-      <Typography>
+    <div className="flex flex-col gap-4">
+      <h2 className="font-display text-3xl font-medium">Rotate</h2>
+      <p>
         With the <Code>rotate</Code> property you can change the default rotation of your icon. You can pass any numeric degree value for full flexibility.
-      </Typography>
+      </p>
 
       <Playground config={playgroundConfig} />
 
-      <Typography level="h3">API</Typography>
+      <h3 className="font-display text-2xl font-medium">API</h3>
 
       <ApiTable cssVariables={playgroundConfig.cssVariables as IIconCssVariables[]} />
-    </Stack>
+    </div>
   );
 }
