@@ -1,7 +1,5 @@
 import { ReactNode, useMemo } from 'react';
 
-import { Avatar, Box, List, ListItem, ListItemContent, ListItemDecorator, Sheet, Stack, Typography } from '@mui/joy';
-
 import icons from '@/data/icons';
 import Code from '@/design/components/Code';
 import { ILibraryIcon } from '@/types';
@@ -9,18 +7,6 @@ import { ILibraryIcon } from '@/types';
 import Amicon, { aiAmicons, aiArrowRight, aiBook, aiBug, aiPen, aiPlus, aiTrashCan, IAmicon } from '@studio384/amicons';
 
 import IconCard from '../../Components/IconCard';
-
-// Constants for styling
-const ICON_GRID_SX = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(min(9rem, 100%), 1fr))',
-  gap: { xs: 1 }
-};
-
-const SIMPLE_LIST_SX = {
-  '--ListItem-minHeight': '1.5rem',
-  '--ListItem-paddingY': '.125rem'
-};
 
 // Types
 type ChangeSectionProps = {
@@ -63,98 +49,84 @@ export default function Release({
   const updateList = useMemo(() => icons.filter((icon) => updatedIcons?.includes(icon.slug)), [updatedIcons]);
 
   return (
-    <Sheet sx={{ borderRadius: 'lg', p: 3, bgcolor: 'transparent', boxShadow: 'sm' }} variant="outlined">
-      <Stack gap={4}>
-        <Stack direction="row" alignItems="center" gap={2}>
-          <Avatar size="lg" color="primary" variant="solid">
-            <Amicon icon={aiAmicons} />
-          </Avatar>
-          <Stack gap={0.5}>
-            <Typography level="h2" lineHeight={1}>
-              {name}
-            </Typography>
-            <Typography level="title-md" lineHeight={1}>
-              {date} <Typography sx={{ color: 'neutral.600' }}>&middot; Version {version}</Typography>
-            </Typography>
-          </Stack>
-        </Stack>
-        {added && <ChangeSection title="Added" icon={aiPlus} items={added} />}
-        {changed && <ChangeSection title="Changed" icon={aiPen} items={changed} />}
-        {fixed && <ChangeSection title="Fixed" icon={aiBug} items={fixed} />}
-        {removed && <ChangeSection title="Removed" icon={aiTrashCan} items={removed} />}
-        {docs && <ChangeSection title="Documentation" icon={aiBook} items={docs} />}
-        {newIcons && (
-          <Stack gap={2}>
-            <Typography level="h3">New icons &middot; {newIcons?.length}</Typography>
-            <Box sx={ICON_GRID_SX}>
-              {newList.map((icon: ILibraryIcon) => (
-                <IconCard key={icon.slug} icon={icon} />
-              ))}
-            </Box>
-          </Stack>
-        )}
-        {updatedIcons && (
-          <Stack gap={2}>
-            <Typography level="h3">Updated icons &middot; {updatedIcons?.length}</Typography>
-            <Box sx={ICON_GRID_SX}>
-              {updateList.map((icon: ILibraryIcon) => (
-                <IconCard key={icon.slug} icon={icon} />
-              ))}
-            </Box>
-          </Stack>
-        )}
-        {renamedIcons && (
-          <Stack gap={2}>
-            <Typography level="h3">Renamed icons &middot; {renamedIcons?.length}</Typography>
-            <List marker="disc" sx={SIMPLE_LIST_SX}>
-              {renamedIcons.map((icon: { new: string; old: string }) => (
-                <ListItem key={icon.new}>
-                  <Code>{icon.old}</Code> <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: 'relative', top: 2 }} /> <Code>{icon.new}</Code>
-                </ListItem>
-              ))}
-            </List>
-          </Stack>
-        )}
-        {removedIcons && (
-          <Stack gap={2}>
-            <Typography level="h3">Removed icons &middot; {removedIcons?.length}</Typography>
-            <List marker="disc" sx={SIMPLE_LIST_SX}>
-              {removedIcons.map((icon: string) => (
-                <ListItem key={icon}>
-                  <Code>{icon}</Code>
-                </ListItem>
-              ))}
-            </List>
-          </Stack>
-        )}
-      </Stack>
-    </Sheet>
+    <div className="flex flex-col gap-6 rounded-lg border border-zinc-200 bg-white p-6 shadow-md shadow-zinc-100">
+      <div className="align-center flex flex-row gap-4">
+        <div className="flex size-12 items-center justify-center rounded-sm border border-indigo-600 bg-indigo-500 text-2xl text-white">
+          <Amicon icon={aiAmicons} />
+        </div>
+        <div className="flex flex-col gap-1">
+          <h2 className="font-display text-3xl/6 font-medium">{name}</h2>
+          <p className="font-display text-lg/5">
+            {date} <span className="text-zinc-600">&middot; Version {version}</span>
+          </p>
+        </div>
+      </div>
+      {added && <ChangeSection title="Added" icon={aiPlus} items={added} />}
+      {changed && <ChangeSection title="Changed" icon={aiPen} items={changed} />}
+      {fixed && <ChangeSection title="Fixed" icon={aiBug} items={fixed} />}
+      {removed && <ChangeSection title="Removed" icon={aiTrashCan} items={removed} />}
+      {docs && <ChangeSection title="Documentation" icon={aiBook} items={docs} />}
+      {newIcons && (
+        <div className="flex flex-col gap-3">
+          <h3 className="font-display text-2xl/6 font-medium">New icons &middot; {newIcons?.length}</h3>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
+            {newList.map((icon: ILibraryIcon) => (
+              <IconCard key={icon.slug} icon={icon} />
+            ))}
+          </div>
+        </div>
+      )}
+      {updatedIcons && (
+        <div className="flex flex-col gap-3">
+          <h3 className="font-display text-2xl/6 font-medium">Updated icons &middot; {updatedIcons?.length}</h3>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
+            {updateList.map((icon: ILibraryIcon) => (
+              <IconCard key={icon.slug} icon={icon} />
+            ))}
+          </div>
+        </div>
+      )}
+      {renamedIcons && (
+        <div className="flex flex-col gap-3">
+          <h3 className="font-display text-2xl/6 font-medium">Renamed icons &middot; {renamedIcons?.length}</h3>
+          <ul className="list-disc ps-6">
+            {renamedIcons.map((icon: { new: string; old: string }) => (
+              <li key={icon.new} className="not-first:mt-1.5">
+                <Code>{icon.old}</Code> <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: 'relative', top: 2 }} /> <Code>{icon.new}</Code>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {removedIcons && (
+        <div className="flex flex-col gap-3">
+          <h3 className="font-display text-2xl/6 font-medium">Removed icons &middot; {removedIcons?.length}</h3>
+          <ul className="list-disc ps-6">
+            {removedIcons.map((icon: string) => (
+              <li key={icon} className="not-first:mt-1.5">
+                <Code>{icon}</Code>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
 
 function ChangeSection({ title, icon, items }: ChangeSectionProps) {
   return (
-    <Stack gap={2}>
-      <Typography level="h3">{title}</Typography>
-      <List
-        sx={{
-          '--ListItem-minHeight': '1.5rem',
-          '--ListItem-paddingY': '.125rem',
-          '--ListItemDecorator-size': '1.75rem'
-        }}
-      >
+    <div className="flex flex-col gap-3">
+      <h3 className="font-display text-2xl/6 font-medium">{title}</h3>
+      <ul className="list-none">
         {items.map((item: string, index: number) => (
-          <ListItem key={index}>
-            <ListItemDecorator>
-              <Amicon icon={icon} />
-            </ListItemDecorator>
-            <ListItemContent>
-              <Typography>{parseMarkdownCode(item)}</Typography>
-            </ListItemContent>
-          </ListItem>
+          <li className="flex flex-row gap-2 not-first:mt-1.5" key={index}>
+            <Amicon icon={icon} className="mt-1" />
+            <p>{parseMarkdownCode(item)}</p>
+          </li>
         ))}
-      </List>
-    </Stack>
+      </ul>
+    </div>
   );
 }
 

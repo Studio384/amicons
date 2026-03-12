@@ -43,14 +43,14 @@ export default function PageFade() {
 
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="font-display text-3xl font-medium">Fade</h2>
+      <h2 className="font-display text-3xl/6 font-medium">Fade</h2>
       <p>
         With the <Code>fade</Code> property gives you a basic fade animation.
       </p>
 
       <Playground config={playgroundConfig} />
 
-      <h3 className="font-display text-2xl font-medium">API</h3>
+      <h3 className="font-display text-2xl/6 font-medium">API</h3>
 
       <ApiTable cssVariables={playgroundConfig.cssVariables as IIconCssVariables[]} />
     </div>

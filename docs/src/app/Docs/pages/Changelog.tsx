@@ -21,6 +21,7 @@ export default function Changelog() {
           'Fixes a bug where `rotate` would not correctly apply the animation styling.'
         ]}
         docs={[
+          'The documentation has been rebuilt with Tailwind and Base UI.',
           'The category filter now keeps showing empty categories for easier navigation.',
           'Various categories have been updated and categories have been regrouped to make more sense.',
           'Major improvements to our documentation, including simpeler changelog markup.',
