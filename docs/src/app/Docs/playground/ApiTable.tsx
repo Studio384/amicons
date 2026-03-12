@@ -1,5 +1,3 @@
-import { Sheet, Table } from '@mui/joy';
-
 import Code from '@/design/components/Code';
 
 import { IIconCssVariables } from './Playground';
@@ -10,29 +8,35 @@ interface IApiTableProps {
 
 export default function ApiTable({ cssVariables }: IApiTableProps) {
   return (
-    <Sheet variant="outlined" sx={{ borderRadius: 'sm', boxShadow: 'md' }}>
-      <Table variant="outlined">
+    <div className="rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100">
+      <table className="w-full">
         <thead>
-          <tr>
-            <th style={{ width: '30%' }}>Property name</th>
-            <th style={{ width: '15%' }}>Default</th>
-            <th style={{ width: '55%' }}>Description</th>
+          <tr className="border-b-2 border-zinc-200">
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: '30%' }}>
+              Property name
+            </th>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: '15%' }}>
+              Default
+            </th>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: '55%' }}>
+              Description
+            </th>
           </tr>
         </thead>
         <tbody>
           {cssVariables.map((variable, key) => (
-            <tr key={key}>
-              <td>
+            <tr key={key} className="border-t border-zinc-200">
+              <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">
                 <Code>{variable.name}</Code>
               </td>
-              <td>
+              <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">
                 <Code>{variable.default}</Code>
               </td>
-              <td>{variable.description}</td>
+              <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">{variable.description}</td>
             </tr>
           ))}
         </tbody>
-      </Table>
-    </Sheet>
+      </table>
+    </div>
   );
 }

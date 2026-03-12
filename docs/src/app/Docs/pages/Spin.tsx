@@ -2,14 +2,14 @@ import { Stack, Typography } from '@mui/joy';
 
 import Code from '@/design/components/Code';
 
-import { aiGear, aiSpinner, aiSpinnerThird } from '@studio384/amicons';
+import { aiGear, aiLoader, aiSpinner, aiSpinnerThird } from '@studio384/amicons';
 
 import ApiTable from '../playground/ApiTable';
 import Playground, { IIconCssVariables, IPlaygroundConfig } from '../playground/Playground';
 
 export default function PageSpin() {
   const playgroundConfig: IPlaygroundConfig = {
-    icons: [aiSpinnerThird, aiSpinner, aiGear],
+    icons: [aiSpinnerThird, aiSpinner, aiGear, aiLoader],
     properties: [
       {
         label: 'Spin',

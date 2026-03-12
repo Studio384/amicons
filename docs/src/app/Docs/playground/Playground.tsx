@@ -1,10 +1,10 @@
 import { ReactNode, useMemo, useState } from 'react';
 
-import { Box, Card, Chip, Divider, FormControl, FormLabel, IconButton, Input, Sheet, Stack, Typography } from '@mui/joy';
-
 import Codeblock from '@/design/components/Codeblock';
 
+import { Field, Toggle, ToggleGroup } from '@base-ui/react';
 import Amicon, { aiBroom, IAmicon } from '@studio384/amicons';
+import clsx from 'clsx';
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -31,7 +31,9 @@ interface IPlaygroundProps {
 }
 
 export default function Playground({ config }: IPlaygroundProps) {
-  const [playgroundIcon, setPlaygroundIcon] = useState<IAmicon>(config.icons[0]);
+  const [playgroundIcon, setPlaygroundIcon] = useState<string[]>([config.icons[0].name]);
+
+  console.log(config.icons, config.icons[0].name);
 
   // Get the icon name
   function getIconName(icon: string): string {
@@ -41,7 +43,11 @@ export default function Playground({ config }: IPlaygroundProps) {
       .join('')}`;
   }
 
-  const iconName = useMemo(() => getIconName(playgroundIcon.name), [playgroundIcon]);
+  const icon = config.icons.find((icon) => icon.name === playgroundIcon[0]) ?? config.icons[0];
+
+  const iconName = useMemo(() => {
+    return getIconName(icon.name);
+  }, [icon]);
 
   // Properties
   const [playgroundProps, setPlaygroundProps] = useState<{ [index: string]: string | number }>({});
@@ -110,11 +116,11 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [config.cssVariables, iconVariables]);
 
   return (
-    <Card sx={{ display: 'grid', gridTemplateColumns: 'auto 280px', p: 0, contain: 'paint', gap: 0 }}>
-      <Stack sx={{ p: 2 }}>
-        <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center', alignItems: 'center', fontSize: 'xl4' }}>
-          <Amicon icon={playgroundIcon} {...iconProperties} style={playgroundCssVariable} />
-        </Box>
+    <div className="grid grid-cols-[auto_280px] rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100">
+      <div className="flex flex-col p-4">
+        <div className="flex grow items-center justify-center text-4xl">
+          <Amicon icon={icon} {...iconProperties} style={playgroundCssVariable} />
+        </div>
         <Codeblock>{`<Amicon
   icon={${iconName}}${propertyParser}${
     variableParser !== ''
@@ -124,73 +130,80 @@ export default function Playground({ config }: IPlaygroundProps) {
       : ''
   }
 />`}</Codeblock>
-      </Stack>
-      <Sheet sx={{ p: 2, borderWidth: '0 0 0 1px' }} variant="outlined">
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Typography level="title-lg">Playground</Typography>
-          <IconButton
+      </div>
+      <div className="border-s border-zinc-200">
+        <div className="flex flex-row items-center justify-between border-b border-zinc-200 p-4">
+          <span className="font-display text-md font-semibold">Playground</span>
+          <button
             onClick={() => {
-              setPlaygroundIcon(config.icons[0]);
+              setPlaygroundIcon([config.icons[0].name]);
               setPlaygroundProps({});
               setPlaygroundCssVariable({});
             }}
-            size="sm"
+            className="flex size-8 items-center justify-center rounded-sm hover:cursor-pointer hover:bg-indigo-500 hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500"
           >
-            <Amicon icon={aiBroom} />
-          </IconButton>
-        </Stack>
-        <Divider sx={{ my: 2, mx: -2 }} />
-        <Stack gap={1.5}>
-          <FormControl>
-            <FormLabel>Icon</FormLabel>
-            <Stack direction="row" gap={0.5}>
+            <Amicon icon={aiBroom} /> <span className="sr-only">Clear playground</span>
+          </button>
+        </div>
+        <div className="flex flex-col gap-3 p-4">
+          <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
+            <Field.Label className="text-sm font-medium text-zinc-900">Icon</Field.Label>
+
+            <ToggleGroup value={playgroundIcon} onValueChange={setPlaygroundIcon} className="flex gap-0.5 rounded-md border border-zinc-200 bg-zinc-50 p-0.5">
               {config.icons.map((icon) => (
-                <IconButton
-                  variant={playgroundIcon === icon ? 'solid' : 'outlined'}
-                  color={playgroundIcon === icon ? 'primary' : 'neutral'}
-                  onClick={() => setPlaygroundIcon(icon)}
+                <Toggle
                   key={icon.name}
+                  value={icon.name}
+                  className="flex size-8 items-center justify-center rounded-sm select-none hover:bg-indigo-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-indigo-600 active:text-white data-pressed:bg-indigo-500 data-pressed:text-white"
                 >
                   <Amicon icon={icon} />
-                </IconButton>
+                </Toggle>
               ))}
-            </Stack>
-          </FormControl>
+            </ToggleGroup>
+          </Field.Root>
+
           {config.properties?.map((property) => {
             switch (property.type) {
               case 'chip': {
                 return (
-                  <FormControl key={property.name}>
-                    <FormLabel>{property.label}</FormLabel>
-                    <Stack direction="row" gap={0.5} flexWrap="wrap">
+                  <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
+                    <Field.Label className="text-sm font-medium text-zinc-900">{property.label}</Field.Label>
+
+                    <div className="flex flex-row flex-wrap gap-1">
                       {property.values.map((value, key) => (
-                        <Chip
+                        <button
                           key={key}
                           onClick={() => setPlaygroundProps((prev) => ({ ...prev, [property.name as string]: value as string | number }))}
-                          color={iconProperties?.[property.name] === value ? 'primary' : 'neutral'}
-                          variant={iconProperties?.[property.name] === value ? 'solid' : 'outlined'}
+                          className={clsx(
+                            'flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-indigo-300 hover:bg-indigo-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-indigo-600 active:text-white',
+                            {
+                              'border-indigo-600! bg-indigo-500 text-white hover:bg-indigo-500': iconProperties?.[property.name] === value
+                            }
+                          )}
                         >
                           {value?.toString()}
-                        </Chip>
+                        </button>
                       ))}
-                    </Stack>
-                  </FormControl>
+                    </div>
+                  </Field.Root>
                 );
               }
             }
           })}
+
           {config.cssVariables?.map((variable) => (
-            <FormControl key={variable.name}>
-              <FormLabel>{variable.name}</FormLabel>
-              <Input
-                onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
+            <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={variable.name}>
+              <Field.Label className="text-sm font-medium text-zinc-900">{variable.name}</Field.Label>
+              <Field.Control
+                required
                 placeholder={variable.default.toString()}
-                value={playgroundCssVariable?.[variable.name as string] ?? ''}
+                onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
+                className="h-9 w-full rounded-md border border-zinc-200 pl-2 text-zinc-900 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-600"
               />
-            </FormControl>
+            </Field.Root>
           ))}
-        </Stack>
-      </Sheet>
-    </Card>
+        </div>
+      </div>
+    </div>
   );
 }
