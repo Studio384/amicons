@@ -144,7 +144,7 @@ export default function Icon() {
                   <Amicon icon={viIcon?.icon} />
                 </div>
               </div>
-              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-200 text-indigo-800 sm:col-span-3 md:col-span-2 lg:col-span-3">
+              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-100 text-indigo-800 sm:col-span-3 md:col-span-2 lg:col-span-3">
                 <div className="flex flex-row gap-20">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={90} className="text-4xl" />
@@ -187,7 +187,7 @@ export default function Icon() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-200 text-indigo-800 sm:order-11">
+              <div className="order-1 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-100 text-indigo-800 sm:order-11">
                 <Button>
                   <Amicon icon={viIcon?.icon} /> Button
                 </Button>
