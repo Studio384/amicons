@@ -148,7 +148,7 @@ export default function Icons() {
             {(searchQuery || searchCategories.length >= 1) && (
               <div className="flex gap-1">
                 {searchQuery && (
-                  <div className="font-display flex items-center gap-1 rounded-full bg-zinc-200 py-1 ps-2 pe-1 text-sm">
+                  <div className="font-display flex items-center gap-1 rounded-full bg-zinc-100 py-1 ps-2.5 pe-1 text-sm">
                     "{searchQuery}"
                     <button
                       className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300"
@@ -159,7 +159,7 @@ export default function Icons() {
                   </div>
                 )}
                 {searchCategories.map((category) => (
-                  <div key={category} className="font-display flex items-center gap-1 rounded-full bg-zinc-200 py-1 ps-2 pe-1 text-sm">
+                  <div key={category} className="font-display flex items-center gap-1 rounded-full bg-zinc-100 py-1 ps-2.5 pe-1 text-sm">
                     {category}
                     <button
                       className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300"
