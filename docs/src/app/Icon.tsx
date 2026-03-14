@@ -2,16 +2,15 @@ import { useEffect, useMemo, useState } from 'react';
 import { createSearchParams, NavLink, useNavigate, useParams } from 'react-router';
 
 import icons from '@/data/icons';
+import { Button } from '@/design/components/Button';
 import Codeblock from '@/design/components/Codeblock';
+import { IconCard } from '@/design/components/IconCard';
+import { LargeIconGrid } from '@/design/components/LargeIconGrid';
 import Header from '@/design/layout/LayoutElements/Header';
 import { IIcon, ILibraryIcon } from '@/types';
 
 import { Input } from '@base-ui/react';
 import Amicon, { aiArrowLeft, aiXmark } from '@studio384/amicons';
-
-import { Button } from './Components/Button';
-import IconCard from './Components/IconCard';
-import LargeIconGrid from './Components/LargeIconGrid';
 
 export default function Icon() {
   const navigate = useNavigate();

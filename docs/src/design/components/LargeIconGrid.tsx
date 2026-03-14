@@ -1,7 +1,7 @@
 import Amicon, { IAmicon } from '@studio384/amicons';
 import clsx from 'clsx';
 
-export default function LargeIconGrid({ icon }: { icon: IAmicon }) {
+export function LargeIconGrid({ icon }: { icon: IAmicon }) {
   return (
     <div className="rounded-2xl border border-white/60 bg-white/40 p-8 backdrop-blur-xl">
       <div

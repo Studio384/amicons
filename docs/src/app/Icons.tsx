@@ -3,17 +3,16 @@ import { useSearchParams } from 'react-router';
 
 import categories from '@/data/categories';
 import icons from '@/data/icons';
+import { Button } from '@/design/components/Button';
+import { IconCard } from '@/design/components/IconCard';
+import { Pagination } from '@/design/components/Pagination';
+import { Search } from '@/design/components/Search';
 import Header from '@/design/layout/LayoutElements/Header';
 import useSearch from '@/hooks/useSearch';
 import { ILibraryIcon } from '@/types';
 
 import Amicon, { aiFilterXmark, aiXmark } from '@studio384/amicons';
 import clsx from 'clsx';
-
-import { Button } from './Components/Button';
-import IconCard from './Components/IconCard';
-import Pagination from './Components/Pagination';
-import { Search } from './Components/Search';
 
 export default function Icons() {
   const [searchParams, setSearchParams] = useSearchParams();

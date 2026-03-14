@@ -4,7 +4,7 @@ import { ILibraryIcon } from '@/types';
 
 import Amicon from '@studio384/amicons';
 
-export default function IconCard({ icon }: { icon: ILibraryIcon }) {
+export function IconCard({ icon }: { icon: ILibraryIcon }) {
   return (
     <NavLink
       to={`/icons/${icon.slug}`}

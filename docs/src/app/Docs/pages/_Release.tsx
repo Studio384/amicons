@@ -2,11 +2,10 @@ import { ReactNode, useMemo } from 'react';
 
 import icons from '@/data/icons';
 import Code from '@/design/components/Code';
+import { IconCard } from '@/design/components/IconCard';
 import { ILibraryIcon } from '@/types';
 
 import Amicon, { aiAmicons, aiArrowRight, aiBook, aiBug, aiPen, aiPlus, aiTrashCan, IAmicon } from '@studio384/amicons';
-
-import IconCard from '../../Components/IconCard';
 
 // Types
 type ChangeSectionProps = {

@@ -5,7 +5,7 @@ import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from '@studio384/amico
 
 import { Button } from './Button';
 
-export default function Pagination(props: PaginationProps) {
+export function Pagination(props: PaginationProps) {
   const { items } = usePagination(props);
 
   return (
