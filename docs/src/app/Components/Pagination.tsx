@@ -1,7 +1,6 @@
+import { Separator } from '@base-ui/react';
 import { PaginationProps } from '@mui/material';
 import usePagination from '@mui/material/usePagination';
-
-import { Separator } from '@base-ui/react';
 import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from '@studio384/amicons';
 
 import { Button } from './Button';

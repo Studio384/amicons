@@ -1,20 +1,19 @@
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router';
 
-import { Input } from '@mui/joy';
-
 import categories from '@/data/categories';
 import icons from '@/data/icons';
 import Header from '@/design/layout/LayoutElements/Header';
 import useSearch from '@/hooks/useSearch';
 import { ILibraryIcon } from '@/types';
 
-import Amicon, { aiFilterXmark, aiMagnifyingGlass, aiXmark } from '@studio384/amicons';
+import Amicon, { aiFilterXmark, aiXmark } from '@studio384/amicons';
 import clsx from 'clsx';
 
 import { Button } from './Components/Button';
 import IconCard from './Components/IconCard';
 import Pagination from './Components/Pagination';
+import { Search } from './Components/Search';
 
 export default function Icons() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -130,12 +129,7 @@ export default function Icons() {
               </div>
 
               <div className="flex gap-1">
-                <Input
-                  startDecorator={<Amicon icon={aiMagnifyingGlass} />}
-                  placeholder="Search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery('q', e.target.value)}
-                />
+                <Search placeholder="Search" value={searchQuery} onValueChange={(value) => setSearchQuery('q', value)} />
                 <Button
                   icon
                   variant="secondary"

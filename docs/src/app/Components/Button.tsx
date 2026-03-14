@@ -27,8 +27,7 @@ const buttonVariants = cva({
     },
     size: {
       md: 'h-9 gap-x-2 px-3 text-base/6',
-      sm: 'h-7.5 gap-x-1 px-2.5 text-sm/6',
-      xs: 'h-6 gap-x-1 px-1.5 text-xs/6'
+      sm: 'h-7.5 gap-x-1 px-2.5 text-sm/6'
     },
     icon: {
       false: '',
@@ -69,11 +68,6 @@ const buttonVariants = cva({
       icon: true,
       size: 'sm',
       className: 'size-7.5'
-    },
-    {
-      icon: true,
-      size: 'xs',
-      className: 'size-6'
     }
   ],
   defaultVariants: {

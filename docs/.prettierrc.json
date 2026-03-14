@@ -8,7 +8,7 @@
   "trailingComma": "none",
   "endOfLine": "lf",
   "bracketSameLine": false,
-  "importOrder": ["^(^react$|@react|react)", "^@mui/(.*)$", "^@/(.*)$", "<THIRD_PARTY_MODULES>", "^[./]"],
+  "importOrder": ["^(^react$|@react|react)", "^@/(.*)$", "<THIRD_PARTY_MODULES>", "^[./]"],
   "importOrderGroupNamespaceSpecifiers": true,
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
