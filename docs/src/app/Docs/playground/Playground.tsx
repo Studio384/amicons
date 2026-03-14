@@ -33,8 +33,6 @@ interface IPlaygroundProps {
 export default function Playground({ config }: IPlaygroundProps) {
   const [playgroundIcon, setPlaygroundIcon] = useState<string[]>([config.icons[0].name]);
 
-  console.log(config.icons, config.icons[0].name);
-
   // Get the icon name
   function getIconName(icon: string): string {
     return `ai${icon

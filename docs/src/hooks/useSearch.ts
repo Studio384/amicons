@@ -1,29 +1,30 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useMemo } from 'react';
 
+import { IAmicon } from '@studio384/amicons';
+
 interface ISeachResults {
-  [key: string]: any;
+  categories: string[];
+  component: string;
+  icon: IAmicon;
+  slug: string;
+  tags: string[];
   _score: number;
 }
 
-export default function useSearch(haystack: any[] | undefined, keys: string[], needle: string) {
-  const flattenObject = useCallback((item: { [key: string]: any }, prefix?: string) => {
-    const flattened: { [key: string]: any } = {};
-    prefix = prefix ? prefix + '.' : '';
-
-    for (const key in item) {
-      if (typeof item[key] === 'object' && item[key] !== null) {
-        Object.assign(flattened, flattenObject(item[key], prefix + key));
-      } else {
-        flattened[prefix + key] = item[key];
-      }
-    }
-
-    return flattened;
-  }, []);
-
-  const scoreHaystackItem = useCallback((item: string, query: string) => {
-    const searchable = item.toString().toLowerCase().trim();
+export default function useSearch(
+  iconLibrary:
+    | {
+        categories: string[];
+        component: string;
+        icon: IAmicon;
+        slug: string;
+        tags: string[];
+      }[]
+    | undefined,
+  needle: string
+) {
+  const scoreIcon = useCallback((value: string, query: string) => {
+    const searchable = value.toString().toLowerCase().trim();
 
     // Check if the string is an exact match to this partial search query
     if (searchable === query) {
@@ -45,32 +46,34 @@ export default function useSearch(haystack: any[] | undefined, keys: string[], n
 
   const result = useMemo(() => {
     if (needle === '') {
-      return haystack || [];
+      return iconLibrary || [];
     }
 
     const results: ISeachResults[] = [];
     const cleanNeedle = needle.trim().toLowerCase();
 
     // Loop through the haystack
-    (haystack || []).map((item) => {
-      const flatItem: { [key: string]: any } = flattenObject(item);
+    (iconLibrary || []).map((icon) => {
       let matchScore = 0;
 
-      keys.forEach((key) => {
-        if (flatItem[key]) {
-          // Do a 1:1 comparison between all searchable items
-          matchScore += scoreHaystackItem(flatItem[key], cleanNeedle);
-        }
+      if (icon.slug) {
+        // Do a 1:1 comparison between all searchable items
+        matchScore += scoreIcon(icon.slug, cleanNeedle);
+        matchScore += scoreIcon(icon.slug.replaceAll('-', ' '), cleanNeedle);
+      }
+
+      icon.tags.map((tag) => {
+        matchScore += scoreIcon(tag, cleanNeedle);
       });
 
       // If we have a score, set it
       if (matchScore) {
-        results.push({ ...item, _score: matchScore });
+        results.push({ ...icon, _score: matchScore });
       }
     });
 
     return results.sort((a, b) => (a._score < b._score ? -1 : 1));
-  }, [flattenObject, haystack, keys, needle, scoreHaystackItem]);
+  }, [iconLibrary, needle, scoreIcon]);
 
   return { result, needle };
 }

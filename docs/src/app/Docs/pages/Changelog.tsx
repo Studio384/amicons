@@ -23,6 +23,7 @@ export default function Changelog() {
         docs={[
           'The documentation has been rebuilt with Tailwind and Base UI.',
           'The category filter now keeps showing empty categories for easier navigation.',
+          'The search function can now properly look for tags.',
           'Various categories have been updated and categories have been regrouped to make more sense.',
           'Major improvements to our documentation, including simpeler changelog markup.',
           'Fixes the bounce documentation not showing up in the documentation.'
