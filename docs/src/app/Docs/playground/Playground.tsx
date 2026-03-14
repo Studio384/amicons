@@ -147,7 +147,7 @@ export default function Playground({ config }: IPlaygroundProps) {
         </div>
         <div className="flex flex-col gap-3 p-4">
           <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
-            <Field.Label className="text-sm font-medium text-zinc-900">Icon</Field.Label>
+            <Field.Label className="text-sm font-medium">Icon</Field.Label>
 
             <ToggleGroup value={playgroundIcon} onValueChange={setPlaygroundIcon} className="flex gap-0.5 rounded-md border border-zinc-200 bg-zinc-50 p-0.5">
               {config.icons.map((icon) => (
@@ -167,7 +167,7 @@ export default function Playground({ config }: IPlaygroundProps) {
               case 'chip': {
                 return (
                   <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
-                    <Field.Label className="text-sm font-medium text-zinc-900">{property.label}</Field.Label>
+                    <Field.Label className="text-sm font-medium">{property.label}</Field.Label>
 
                     <div className="flex flex-row flex-wrap gap-1">
                       {property.values.map((value, key) => (
@@ -193,12 +193,12 @@ export default function Playground({ config }: IPlaygroundProps) {
 
           {config.cssVariables?.map((variable) => (
             <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={variable.name}>
-              <Field.Label className="text-sm font-medium text-zinc-900">{variable.name}</Field.Label>
+              <Field.Label className="text-sm font-medium">{variable.name}</Field.Label>
               <Field.Control
                 required
                 placeholder={variable.default.toString()}
                 onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
-                className="h-9 w-full rounded-md border border-zinc-200 pl-2 text-zinc-900 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-600"
+                className="h-9 w-full rounded-md border border-zinc-200 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-600"
               />
             </Field.Root>
           ))}

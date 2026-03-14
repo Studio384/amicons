@@ -136,7 +136,7 @@ export default function Icon() {
               <div className="order-4 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100 p-4 md:order-2 lg:order-4">
                 <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                   <Amicon icon={viIcon?.icon} className="ms-2.5" />
-                  <Input className="h-9 w-full px-2 text-base text-zinc-900 outline-0" placeholder={icon?.title} />
+                  <Input className="h-9 w-full px-2 text-base outline-0" placeholder={icon?.title} />
                 </div>
               </div>
               <div className="order-6 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100 sm:order-10 lg:order-5">
