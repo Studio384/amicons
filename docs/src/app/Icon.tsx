@@ -6,9 +6,10 @@ import Codeblock from '@/design/components/Codeblock';
 import Header from '@/design/layout/LayoutElements/Header';
 import { IIcon, ILibraryIcon } from '@/types';
 
-import { Alert, Avatar, Box, Button, Card, Chip, IconButton, Input, Stack, Typography } from '@mui/joy';
+import { Input } from '@base-ui/react';
 import Amicon, { aiArrowLeft, aiXmark } from '@studio384/amicons';
 
+import { Button } from './Components/Button';
 import IconCard from './Components/IconCard';
 import LargeIconGrid from './Components/LargeIconGrid';
 
@@ -47,26 +48,28 @@ export default function Icon() {
   return (
     <>
       <Header>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" gap={5}>
+        <div className="flex flex-row items-center justify-between">
           <div className="flex grow flex-col items-start justify-start gap-2">
-            <IconButton variant="plain" color="primary" onClick={() => navigate('/icons')}>
+            <Button icon plain onClick={() => navigate('/icons')}>
               <Amicon icon={aiArrowLeft} />
-            </IconButton>
-            <Typography level="h1" fontSize={48}>
-              {icon?.title}
-            </Typography>
+            </Button>
+            <h1 className="font-display text-5xl font-medium">{icon?.title}</h1>
 
             {(icon?.categories || icon?.tags) && (
               <div className="flex gap-1">
                 {icon?.categories?.map((cat) => (
-                  <Chip variant="solid" color="primary" size="sm" key={cat}>
-                    {cat}
-                  </Chip>
+                  <NavLink
+                    key={cat}
+                    to={`/icons?${createSearchParams({ category: cat })}`}
+                    className="font-display flex items-center gap-1 rounded-full bg-indigo-500 px-2.5 py-1 text-xs text-white hover:bg-indigo-600"
+                  >
+                    {firstCategory}
+                  </NavLink>
                 ))}
                 {icon?.tags?.map((tag) => (
-                  <Chip key={tag} variant="outlined" size="sm">
+                  <div key={tag} className="font-display flex items-center gap-1 rounded-full bg-zinc-50 px-2.5 py-1 text-xs">
                     {tag}
-                  </Chip>
+                  </div>
                 ))}
               </div>
             )}
@@ -74,27 +77,27 @@ export default function Icon() {
             <div className="mt-3 flex items-center justify-center gap-3">
               {icon?.created && (
                 <div className="flex gap-2">
-                  <Typography>Created</Typography>{' '}
-                  <Chip size="sm" color="primary">
+                  <p className="text-sm">Created</p>{' '}
+                  <div className="font-display flex items-center gap-1 rounded-full border border-indigo-300 bg-indigo-200 px-1.5 py-px text-xs text-indigo-600">
                     {icon?.created}
-                  </Chip>
+                  </div>
                 </div>
               )}
               {icon?.updated && (
                 <div className="flex gap-2">
-                  <Typography>Last updated</Typography>{' '}
-                  <Chip size="sm" color="primary">
+                  <p className="text-sm">Last updated</p>{' '}
+                  <div className="font-display flex items-center gap-1 rounded-full border border-indigo-300 bg-indigo-200 px-1.5 py-px text-xs text-indigo-600">
                     {icon?.updated}
-                  </Chip>
+                  </div>
                 </div>
               )}
             </div>
           </div>
           <LargeIconGrid icon={viIcon?.icon} />
-        </Stack>
+        </div>
       </Header>
       <div className="container m-auto my-8 max-w-7xl px-4">
-        <Stack gap={4} sx={{ my: 5 }}>
+        <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Usage</h3>
             <Codeblock>
@@ -105,179 +108,100 @@ export default function Icon() {
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Examples</h3>
-            <Box
-              sx={{
-                display: 'grid',
-                gap: 3,
-                gridTemplateColumns: {
-                  xs: 'repeat(2, minmax(0, 1fr))',
-                  sm: 'repeat(3, minmax(0, 1fr))',
-                  md: 'repeat(4, minmax(0, 1fr))',
-                  lg: 'repeat(6, minmax(0, 1fr))'
-                },
-                gridAutoRows: '140px'
-              }}
-            >
-              <Card
-                variant="solid"
-                color="primary"
-                sx={{ fontSize: 'xl4', display: 'flex', justifyContent: 'center', alignItems: 'center', order: 1, boxShadow: 'none' }}
-              >
-                <Stack justifyContent="center" alignItems="center" gap={1}>
-                  <Amicon icon={viIcon?.icon} bounce />
-                  <Typography sx={{ color: 'primary.200', lineHeight: 1 }}>Bounce</Typography>
-                </Stack>
-              </Card>
-              <Card
-                variant="outlined"
-                color="primary"
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gridColumn: 'span 2', order: 2, boxShadow: 'none' }}
-              >
-                <Typography fontSize="xl4" color="primary" startDecorator={<Amicon icon={viIcon?.icon} />} noWrap sx={{ maxWidth: 1 }}>
-                  {icon?.title}
-                </Typography>
-              </Card>
-              <Card
-                variant="solid"
-                color="primary"
-                sx={{
-                  fontSize: 'xl4',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  bgcolor: 'primary.300',
-                  gridColumn: 'span 2',
-                  order: 3,
-                  boxShadow: 'none'
-                }}
-              >
-                <Stack direction="row" gap={10}>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} spin />
-                    <Typography sx={{ color: 'primary.800', lineHeight: 1 }}>Spin</Typography>
-                  </Stack>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} spin="pulse" />
-                    <Typography sx={{ color: 'primary.800', lineHeight: 1 }}>Pulse</Typography>
-                  </Stack>
-                </Stack>
-              </Card>
-              <Card
-                variant="outlined"
-                color="primary"
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: { xs: 4, md: 2, lg: 4 }, boxShadow: 'none' }}
-              >
-                <Input startDecorator={<Amicon icon={viIcon?.icon} />} placeholder={icon?.title} sx={{ maxWidth: 1 }} />
-              </Card>
-              <Card
-                variant="outlined"
-                color="primary"
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: { xs: 6, sm: 10, lg: 5 }, boxShadow: 'none' }}
-              >
-                <Avatar color="primary" size="lg" variant="solid">
+            <div className="grid auto-rows-[140px] grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+              <div className="order-1 flex items-center justify-center rounded-lg border border-indigo-600 bg-indigo-500 text-white">
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <Amicon icon={viIcon?.icon} bounce className="text-4xl" />
+                  <p className="text-base/5">Bounce</p>
+                </div>
+              </div>
+              <div className="order-2 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100">
+                <div className="flex flex-row flex-nowrap items-center gap-4 text-indigo-600">
+                  <Amicon icon={viIcon?.icon} className="text-4xl" />
+                  <span className="text-4xl text-nowrap">{icon?.title}</span>
+                </div>
+              </div>
+              <div className="order-3 col-span-2 flex items-center justify-center rounded-lg border border-indigo-400 bg-indigo-300 text-indigo-800">
+                <div className="flex flex-row gap-20">
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} spin className="text-4xl" />
+                    <p className="text-base/5">Spin</p>
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} spin="pulse" className="text-4xl" />
+                    <p className="text-base/5">Pulse</p>
+                  </div>
+                </div>
+              </div>
+              <div className="order-4 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100 p-4 md:order-2 lg:order-4">
+                <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+                  <Amicon icon={viIcon?.icon} className="ms-2.5" />
+                  <Input className="h-9 w-full px-2 text-base text-zinc-900 outline-0" placeholder={icon?.title} />
+                </div>
+              </div>
+              <div className="order-6 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100 sm:order-10 lg:order-5">
+                <div className="flex size-12 items-center justify-center rounded-full border border-indigo-600 bg-indigo-500 text-xl text-white">
                   <Amicon icon={viIcon?.icon} />
-                </Avatar>
-              </Card>
-              <Card
-                variant="soft"
-                color="primary"
-                sx={{
-                  fontSize: 'xl4',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gridColumn: { xs: 'span 2', sm: 'span 3', md: 'span 2', lg: 'span 3' },
-                  order: 7,
-                  boxShadow: 'none'
-                }}
-              >
-                <Stack direction="row" gap={10}>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} rotate={90} />
-                    <Typography sx={{ lineHeight: 1 }}>90°</Typography>
-                  </Stack>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} rotate={180} />
-                    <Typography sx={{ lineHeight: 1 }}>180°</Typography>
-                  </Stack>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} rotate={270} />
-                    <Typography sx={{ lineHeight: 1 }}>270°</Typography>
-                  </Stack>
-                </Stack>
-              </Card>
-              <Card variant="outlined" color="primary" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: 8, boxShadow: 'none' }}>
-                <Avatar color="primary" size="lg" variant="outlined" sx={{ borderRadius: 'md', bgcolor: 'primary.200', borderColor: 'primary.400' }}>
+                </div>
+              </div>
+              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-200 text-indigo-800 sm:col-span-3 md:col-span-2 lg:col-span-3">
+                <div className="flex flex-row gap-20">
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} rotate={90} className="text-4xl" />
+                    <p className="text-base/5 text-indigo-800">90°</p>
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} rotate={180} className="text-4xl" />
+                    <p className="text-base/5 text-indigo-800">180°</p>
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} rotate={270} className="text-4xl" />
+                    <p className="text-base/5 text-indigo-800">270°</p>
+                  </div>
+                </div>
+              </div>
+              <div className="order-8 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100">
+                <div className="flex size-12 items-center justify-center rounded-lg border border-indigo-300 bg-indigo-200 text-xl text-indigo-600">
                   <Amicon icon={viIcon?.icon} />
-                </Avatar>
-              </Card>
-              <Card
-                variant="solid"
-                color="primary"
-                sx={{ fontSize: 'xl4', display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'primary.700', order: 9, boxShadow: 'none' }}
-              >
-                <Stack justifyContent="center" alignItems="center" gap={1}>
-                  <Amicon icon={viIcon?.icon} beat />
-                  <Typography sx={{ color: 'primary.200', lineHeight: 1 }}>Beat</Typography>
-                </Stack>
-              </Card>
-              <Card
-                variant="solid"
-                color="primary"
-                sx={{
-                  fontSize: 'xl4',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  gridColumn: { xs: 'span 2', sm: 'span 3', md: 'span 2', lg: 'span 3' },
-                  order: { xs: 10, md: 8, lg: 10 },
-                  boxShadow: 'none'
-                }}
-              >
-                <Stack direction="row" gap={10}>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} flip />
-                    <Typography sx={{ color: 'common.white', lineHeight: 1 }}>Flip</Typography>
-                  </Stack>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} flip="x" />
-                    <Typography sx={{ color: 'common.white', lineHeight: 1 }}>X</Typography>
-                  </Stack>
-                  <Stack justifyContent="center" alignItems="center" gap={1}>
-                    <Amicon icon={viIcon?.icon} flip="y" />
-                    <Typography sx={{ color: 'common.white', lineHeight: 1 }}>Y</Typography>
-                  </Stack>
-                </Stack>
-              </Card>
-              <Card
-                variant="soft"
-                color="primary"
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', order: { xs: 1, sm: 11 }, boxShadow: 'none' }}
-              >
-                <Button size="lg" startDecorator={<Amicon icon={viIcon?.icon} />}>
-                  Button
+                </div>
+              </div>
+              <div className="order-9 flex items-center justify-center rounded-lg border border-indigo-950 bg-indigo-800 text-white">
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <Amicon icon={viIcon?.icon} beat className="text-4xl" />
+                  <p className="text-base/5">Beat</p>
+                </div>
+              </div>
+              <div className="order-10 col-span-2 flex items-center justify-center rounded-lg border border-indigo-600 bg-indigo-500 text-white sm:col-span-3 md:order-8 md:col-span-2 lg:order-10 lg:col-span-3">
+                <div className="flex flex-row gap-20">
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} flip className="text-4xl" />
+                    <p className="text-base/5">Flip</p>
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} flip="x" className="text-4xl" />
+                    <p className="text-base/5">X</p>
+                  </div>
+                  <div className="flex flex-col items-center justify-center gap-2">
+                    <Amicon icon={viIcon?.icon} flip="y" className="text-4xl" />
+                    <p className="text-base/5">Y</p>
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-200 text-indigo-800 sm:order-11">
+                <Button>
+                  <Amicon icon={viIcon?.icon} /> Button
                 </Button>
-              </Card>
-              <Card
-                variant="outlined"
-                color="primary"
-                sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gridColumn: 'span 2', order: 12, boxShadow: 'none' }}
-              >
-                <Alert
-                  variant="outlined"
-                  color="primary"
-                  sx={{ bgcolor: 'primary.100' }}
-                  startDecorator={<Amicon icon={viIcon?.icon} />}
-                  endDecorator={
-                    <IconButton size="sm" variant="solid" color="primary">
-                      <Amicon icon={aiXmark} />
-                    </IconButton>
-                  }
-                >
-                  Hi! We're demoing you an icon.
-                </Alert>
-              </Card>
-            </Box>
+              </div>
+              <div className="order-12 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100">
+                <div className="flex flex-row items-center gap-3 rounded-md border border-indigo-300 bg-indigo-200 p-3 text-indigo-500">
+                  <Amicon icon={viIcon?.icon} />
+                  <span className="text-sm font-medium">Hi! We're demoing you an icon.</span>
+                  <Button size="sm" icon>
+                    <Amicon icon={aiXmark} />
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
           {firstCategory && categoryIcons.length >= 1 && (
             <div className="flex flex-col gap-3">
@@ -297,7 +221,7 @@ export default function Icon() {
               </div>
             </div>
           )}
-        </Stack>
+        </div>
       </div>
     </>
   );
