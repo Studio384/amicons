@@ -19,9 +19,9 @@ const buttonVariants = cva({
   ],
   variants: {
     variant: {
-      primary: 'hover:border-indigo-950/20 hover:bg-indigo-600 hover:text-white focus-visible:outline-indigo-600/50',
+      primary: 'hover:border-violet-950/20 hover:bg-violet-600 hover:text-white focus-visible:outline-violet-600/50',
       secondary:
-        'hover:border-zinc-800/5 hover:bg-zinc-800/10 focus-visible:outline-indigo-600/50  data-popup-open:border-zinc-800/5 data-popup-open:bg-zinc-800/10  hover:backdrop-blur-xl data-popup-open:backdrop-blur-xl',
+        'hover:border-zinc-800/5 hover:bg-zinc-800/10 focus-visible:outline-violet-600/50  data-popup-open:border-zinc-800/5 data-popup-open:bg-zinc-800/10  hover:backdrop-blur-xl data-popup-open:backdrop-blur-xl',
       danger: 'text-red-600 hover:border-red-950/30 hover:bg-red-700 hover:text-white focus-visible:outline-red-600/50 ',
       success: 'text-green-600 hover:border-green-950/30 hover:bg-green-700 hover:text-white focus-visible:outline-green-600/50 '
     },
@@ -42,12 +42,12 @@ const buttonVariants = cva({
     {
       variant: 'primary',
       plain: false,
-      className: 'bg-indigo-500 text-white focus-visible:border-indigo-600'
+      className: 'bg-violet-500 text-white focus-visible:border-violet-600'
     },
     {
       variant: 'secondary',
       plain: false,
-      className: 'bg-zinc-50 focus-visible:border-indigo-600'
+      className: 'bg-zinc-50 focus-visible:border-violet-600'
     },
     {
       variant: 'danger',

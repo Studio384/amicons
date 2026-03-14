@@ -105,15 +105,15 @@ export default function Icons() {
                     data-selected={searchCategories.includes(_category.slug) || undefined}
                     data-noicons={categoryIcons.length === 0 ? true : undefined}
                     className={clsx(
-                      'group grid h-8 grid-cols-[min-content_auto_min-content] items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-indigo-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500 data-selected:focus-visible:outline-indigo-700',
+                      'group grid h-8 grid-cols-[min-content_auto_min-content] items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700',
                       {
-                        'bg-indigo-500 text-white hover:bg-indigo-600': searchCategories.includes(_category.slug)
+                        'bg-violet-500 text-white hover:bg-violet-600': searchCategories.includes(_category.slug)
                       }
                     )}
                   >
-                    <Amicon icon={_category.icon} className="text-indigo-600 group-data-noicons:opacity-50 group-data-selected:text-white" />
+                    <Amicon icon={_category.icon} className="text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white" />
                     <span className="truncate group-data-noicons:opacity-50">{_category.title}</span>
-                    <span className="font-display text-indigo-600 group-data-noicons:opacity-50 group-data-selected:text-white">{categoryIcons.length}</span>
+                    <span className="font-display text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white">{categoryIcons.length}</span>
                   </button>
                 );
               })}

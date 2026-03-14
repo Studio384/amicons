@@ -51,7 +51,7 @@ export default function Release({
   return (
     <div className="flex flex-col gap-6 rounded-lg border border-zinc-200 bg-white p-6 shadow-md shadow-zinc-100">
       <div className="align-center flex flex-row gap-4">
-        <div className="flex size-12 items-center justify-center rounded-sm border border-indigo-600 bg-indigo-500 text-2xl text-white">
+        <div className="flex size-12 items-center justify-center rounded-sm border border-violet-600 bg-violet-500 text-2xl text-white">
           <Amicon icon={aiAmicons} />
         </div>
         <div className="flex flex-col gap-1">

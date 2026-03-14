@@ -61,7 +61,7 @@ export default function Icon() {
                   <NavLink
                     key={cat}
                     to={`/icons?${createSearchParams({ category: cat })}`}
-                    className="font-display flex items-center gap-1 rounded-full bg-indigo-500 px-2.5 py-1 text-xs text-white hover:bg-indigo-600"
+                    className="font-display flex items-center gap-1 rounded-full bg-violet-500 px-2.5 py-1 text-xs text-white hover:bg-violet-600"
                   >
                     {cat}
                   </NavLink>
@@ -78,7 +78,7 @@ export default function Icon() {
               {icon?.created && (
                 <div className="flex gap-2">
                   <p className="text-sm">Created</p>{' '}
-                  <div className="font-display flex items-center gap-1 rounded-full border border-indigo-300 bg-indigo-200 px-1.5 py-px text-xs text-indigo-600">
+                  <div className="font-display flex items-center gap-1 rounded-full border border-violet-300 bg-violet-200 px-1.5 py-px text-xs text-violet-600">
                     {icon?.created}
                   </div>
                 </div>
@@ -86,7 +86,7 @@ export default function Icon() {
               {icon?.updated && (
                 <div className="flex gap-2">
                   <p className="text-sm">Last updated</p>{' '}
-                  <div className="font-display flex items-center gap-1 rounded-full border border-indigo-300 bg-indigo-200 px-1.5 py-px text-xs text-indigo-600">
+                  <div className="font-display flex items-center gap-1 rounded-full border border-violet-300 bg-violet-200 px-1.5 py-px text-xs text-violet-600">
                     {icon?.updated}
                   </div>
                 </div>
@@ -109,19 +109,19 @@ export default function Icon() {
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Examples</h3>
             <div className="grid auto-rows-[140px] grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              <div className="order-1 flex items-center justify-center rounded-lg border border-indigo-600 bg-indigo-500 text-white">
+              <div className="order-1 flex items-center justify-center rounded-lg border border-violet-600 bg-violet-500 text-white">
                 <div className="flex flex-col items-center justify-center gap-2">
                   <Amicon icon={viIcon?.icon} bounce className="text-4xl" />
                   <p className="text-base/5">Bounce</p>
                 </div>
               </div>
-              <div className="order-2 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100">
-                <div className="flex flex-row flex-nowrap items-center gap-4 text-indigo-600">
+              <div className="order-2 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100">
+                <div className="flex flex-row flex-nowrap items-center gap-4 text-violet-600">
                   <Amicon icon={viIcon?.icon} className="text-4xl" />
                   <span className="text-4xl text-nowrap">{icon?.title}</span>
                 </div>
               </div>
-              <div className="order-3 col-span-2 flex items-center justify-center rounded-lg border border-indigo-400 bg-indigo-300 text-indigo-800">
+              <div className="order-3 col-span-2 flex items-center justify-center rounded-lg border border-violet-400 bg-violet-300 text-violet-800">
                 <div className="flex flex-row gap-20">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} spin className="text-4xl" />
@@ -133,45 +133,45 @@ export default function Icon() {
                   </div>
                 </div>
               </div>
-              <div className="order-4 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100 p-4 md:order-2 lg:order-4">
-                <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
+              <div className="order-4 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 p-4 md:order-2 lg:order-4">
+                <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-violet-600">
                   <Amicon icon={viIcon?.icon} className="ms-2.5" />
                   <Input className="h-9 w-full px-2 text-base outline-0" placeholder={icon?.title} />
                 </div>
               </div>
-              <div className="order-6 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100 sm:order-10 lg:order-5">
-                <div className="flex size-12 items-center justify-center rounded-full border border-indigo-600 bg-indigo-500 text-xl text-white">
+              <div className="order-6 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 sm:order-10 lg:order-5">
+                <div className="flex size-12 items-center justify-center rounded-full border border-violet-600 bg-violet-500 text-xl text-white">
                   <Amicon icon={viIcon?.icon} />
                 </div>
               </div>
-              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-100 text-indigo-800 sm:col-span-3 md:col-span-2 lg:col-span-3">
+              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-violet-100 text-violet-800 sm:col-span-3 md:col-span-2 lg:col-span-3">
                 <div className="flex flex-row gap-20">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={90} className="text-4xl" />
-                    <p className="text-base/5 text-indigo-800">90°</p>
+                    <p className="text-base/5 text-violet-800">90°</p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={180} className="text-4xl" />
-                    <p className="text-base/5 text-indigo-800">180°</p>
+                    <p className="text-base/5 text-violet-800">180°</p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={270} className="text-4xl" />
-                    <p className="text-base/5 text-indigo-800">270°</p>
+                    <p className="text-base/5 text-violet-800">270°</p>
                   </div>
                 </div>
               </div>
-              <div className="order-8 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100">
-                <div className="flex size-12 items-center justify-center rounded-lg border border-indigo-300 bg-indigo-200 text-xl text-indigo-600">
+              <div className="order-8 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100">
+                <div className="flex size-12 items-center justify-center rounded-lg border border-violet-300 bg-violet-200 text-xl text-violet-600">
                   <Amicon icon={viIcon?.icon} />
                 </div>
               </div>
-              <div className="order-9 flex items-center justify-center rounded-lg border border-indigo-950 bg-indigo-800 text-white">
+              <div className="order-9 flex items-center justify-center rounded-lg border border-violet-950 bg-violet-800 text-white">
                 <div className="flex flex-col items-center justify-center gap-2">
                   <Amicon icon={viIcon?.icon} beat className="text-4xl" />
                   <p className="text-base/5">Beat</p>
                 </div>
               </div>
-              <div className="order-10 col-span-2 flex items-center justify-center rounded-lg border border-indigo-600 bg-indigo-500 text-white sm:col-span-3 md:order-8 md:col-span-2 lg:order-10 lg:col-span-3">
+              <div className="order-10 col-span-2 flex items-center justify-center rounded-lg border border-violet-600 bg-violet-500 text-white sm:col-span-3 md:order-8 md:col-span-2 lg:order-10 lg:col-span-3">
                 <div className="flex flex-row gap-20">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} flip className="text-4xl" />
@@ -187,13 +187,13 @@ export default function Icon() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 flex items-center justify-center rounded-lg border border-indigo-300 bg-indigo-100 text-indigo-800 sm:order-11">
+              <div className="order-1 flex items-center justify-center rounded-lg border border-violet-300 bg-violet-100 text-violet-800 sm:order-11">
                 <Button>
                   <Amicon icon={viIcon?.icon} /> Button
                 </Button>
               </div>
-              <div className="order-12 col-span-2 flex items-center justify-center rounded-lg border border-indigo-300 bg-zinc-100">
-                <div className="flex flex-row items-center gap-3 rounded-md border border-indigo-300 bg-indigo-200 p-3 text-indigo-500">
+              <div className="order-12 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100">
+                <div className="flex flex-row items-center gap-3 rounded-md border border-violet-300 bg-violet-200 p-3 text-violet-500">
                   <Amicon icon={viIcon?.icon} />
                   <span className="text-sm font-medium">Hi! We're demoing you an icon.</span>
                   <Button size="sm" icon>
@@ -209,7 +209,7 @@ export default function Icon() {
                 More icons in{' '}
                 <NavLink
                   to={`/icons?${createSearchParams({ category: firstCategory })}`}
-                  className="text-indigo-600 decoration-indigo-600 underline-offset-2 hover:underline hover:decoration-2"
+                  className="text-violet-600 decoration-violet-600 underline-offset-2 hover:underline hover:decoration-2"
                 >
                   {firstCategory}
                 </NavLink>

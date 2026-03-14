@@ -140,7 +140,7 @@ export default function Playground({ config }: IPlaygroundProps) {
               setPlaygroundProps({});
               setPlaygroundCssVariable({});
             }}
-            className="flex size-8 items-center justify-center rounded-sm hover:cursor-pointer hover:bg-indigo-500 hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-500"
+            className="flex size-8 items-center justify-center rounded-sm hover:cursor-pointer hover:bg-violet-500 hover:text-white focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500"
           >
             <Amicon icon={aiBroom} /> <span className="sr-only">Clear playground</span>
           </button>
@@ -154,7 +154,7 @@ export default function Playground({ config }: IPlaygroundProps) {
                 <Toggle
                   key={icon.name}
                   value={icon.name}
-                  className="flex size-8 items-center justify-center rounded-sm select-none hover:bg-indigo-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-indigo-600 active:text-white data-pressed:bg-indigo-500 data-pressed:text-white"
+                  className="flex size-8 items-center justify-center rounded-sm select-none hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white data-pressed:bg-violet-500 data-pressed:text-white"
                 >
                   <Amicon icon={icon} />
                 </Toggle>
@@ -175,9 +175,9 @@ export default function Playground({ config }: IPlaygroundProps) {
                           key={key}
                           onClick={() => setPlaygroundProps((prev) => ({ ...prev, [property.name as string]: value as string | number }))}
                           className={clsx(
-                            'flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-indigo-300 hover:bg-indigo-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-indigo-600 active:text-white',
+                            'flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-violet-300 hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white',
                             {
-                              'border-indigo-600! bg-indigo-500 text-white hover:bg-indigo-500': iconProperties?.[property.name] === value
+                              'border-violet-600! bg-violet-500 text-white hover:bg-violet-500': iconProperties?.[property.name] === value
                             }
                           )}
                         >
@@ -198,7 +198,7 @@ export default function Playground({ config }: IPlaygroundProps) {
                 required
                 placeholder={variable.default.toString()}
                 onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
-                className="h-9 w-full rounded-md border border-zinc-200 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-600"
+                className="h-9 w-full rounded-md border border-zinc-200 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-violet-600"
               />
             </Field.Root>
           ))}
