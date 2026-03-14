@@ -14,9 +14,6 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
-    "@emotion/react": "11.14.0",
-    "@emotion/styled": "11.14.1",
-    "@mui/joy": "5.0.0-beta.52",
     "@mui/material": "7.3.9",
     "@studio384/amicons": "file:../amicons/",
     "@tailwindcss/vite": "^4.2.0",
