@@ -63,7 +63,7 @@ export default function Icon() {
                     to={`/icons?${createSearchParams({ category: cat })}`}
                     className="font-display flex items-center gap-1 rounded-full bg-indigo-500 px-2.5 py-1 text-xs text-white hover:bg-indigo-600"
                   >
-                    {firstCategory}
+                    {cat}
                   </NavLink>
                 ))}
                 {icon?.tags?.map((tag) => (
