@@ -1,7 +1,7 @@
-import { Divider } from '@mui/joy';
 import { PaginationProps } from '@mui/material';
 import usePagination from '@mui/material/usePagination';
 
+import { Separator } from '@base-ui/react';
 import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from '@studio384/amicons';
 
 import { Button } from './Button';
@@ -40,7 +40,7 @@ export default function Pagination(props: PaginationProps) {
             );
         }
 
-        return <Divider orientation="vertical" sx={{ my: 0.5 }} key={key} />;
+        return <Separator orientation="vertical" className="w-px bg-zinc-300" key={key} />;
       })}
     </div>
   );
