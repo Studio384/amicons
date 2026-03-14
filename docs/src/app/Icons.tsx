@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'react-router';
 
-import { Box, Chip, ChipDelete, IconButton, Input, Stack, Typography } from '@mui/joy';
+import { Input } from '@mui/joy';
 
 import categories from '@/data/categories';
 import icons from '@/data/icons';
@@ -9,9 +9,10 @@ import Header from '@/design/layout/LayoutElements/Header';
 import useSearch from '@/hooks/useSearch';
 import { ILibraryIcon } from '@/types';
 
-import Amicon, { aiFilterXmark, aiMagnifyingGlass } from '@studio384/amicons';
+import Amicon, { aiFilterXmark, aiMagnifyingGlass, aiXmark } from '@studio384/amicons';
 import clsx from 'clsx';
 
+import { Button } from './Components/Button';
 import IconCard from './Components/IconCard';
 import Pagination from './Components/Pagination';
 
@@ -92,15 +93,9 @@ export default function Icons() {
         <h1 className="font-display py-2 text-5xl font-medium text-black">Icons</h1>
       </Header>
       <div className="container m-auto my-8 max-w-7xl px-4">
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: '220px auto',
-            gap: 3
-          }}
-        >
-          <Box sx={{ position: 'sticky', top: 58 + 16, overflow: 'auto', maxHeight: 'calc(100dvh - 58px - 16px)', alignSelf: 'flex-start' }}>
-            <div className="flex flex-col gap-0.5">
+        <div className="grid grid-cols-[220px_auto] gap-4">
+          <div className="sticky top-18.5 max-h-[calc(100dvh-74px)] self-start overflow-auto">
+            <div className="my-2 flex flex-col gap-0.5">
               {categories.map((_category) => {
                 const categoryIcons = searchableList.filter((icon) => icon.categories.includes(_category.slug as never));
 
@@ -124,25 +119,26 @@ export default function Icons() {
                 );
               })}
             </div>
-          </Box>
-          <Stack gap={2} sx={{ my: 2 }}>
-            <Stack direction="row" gap={1} justifyContent="space-between" alignItems="center">
-              <Stack direction="row" gap={1} alignItems="baseline">
-                <Typography level="h2">{result.length} icons</Typography>
-                <Typography color="neutral">
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-baseline gap-2">
+                <h2 className="font-display text-3xl font-medium">{result.length} icons</h2>
+                <span className="text-zinc-600">
                   Page {searchPage} of {Math.ceil(result.length / 96)}
-                </Typography>
-              </Stack>
+                </span>
+              </div>
 
-              <Stack direction="row" gap={0.5} alignItems="baseline">
+              <div className="flex gap-1">
                 <Input
                   startDecorator={<Amicon icon={aiMagnifyingGlass} />}
                   placeholder="Search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery('q', e.target.value)}
                 />
-                <IconButton
-                  variant="outlined"
+                <Button
+                  icon
+                  variant="secondary"
                   disabled={searchQuery === '' && searchCategories.length === 0}
                   onClick={() => {
                     setSearchParams({
@@ -152,47 +148,44 @@ export default function Icons() {
                   }}
                 >
                   <Amicon icon={aiFilterXmark} />
-                </IconButton>
-              </Stack>
-            </Stack>
+                </Button>
+              </div>
+            </div>
             {(searchQuery || searchCategories.length >= 1) && (
-              <Stack direction="row" gap={0.5} sx={{ '--_Chip-minHeight': '2rem' }}>
+              <div className="flex gap-1">
                 {searchQuery && (
-                  <Chip
-                    size="lg"
-                    sx={{ fontSize: 'sm', fontWeight: '300', gap: 1.25, fontFamily: 'display', '--_Chip-minHeight': '2rem' }}
-                    endDecorator={<ChipDelete onClick={() => setSearchQuery('q', '')} />}
-                  >
+                  <div className="font-display flex items-center gap-1 rounded-full bg-zinc-200 py-1 ps-2 pe-1 text-sm">
                     "{searchQuery}"
-                  </Chip>
+                    <button
+                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300"
+                      onClick={() => setSearchQuery('q', '')}
+                    >
+                      <Amicon icon={aiXmark} /> <span className="sr-only">Delete category</span>
+                    </button>
+                  </div>
                 )}
                 {searchCategories.map((category) => (
-                  <Chip
-                    key={category}
-                    size="lg"
-                    sx={{ fontSize: 'sm', fontWeight: '300', gap: 1.25, fontFamily: 'display', '--_Chip-minHeight': '2rem' }}
-                    endDecorator={<ChipDelete onClick={() => setSearchQuery('c', category)} />}
-                  >
+                  <div key={category} className="font-display flex items-center gap-1 rounded-full bg-zinc-200 py-1 ps-2 pe-1 text-sm">
                     {category}
-                  </Chip>
+                    <button
+                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300"
+                      onClick={() => setSearchQuery('c', category)}
+                    >
+                      <Amicon icon={aiXmark} /> <span className="sr-only">Delete category</span>
+                    </button>
+                  </div>
                 ))}
-              </Stack>
+              </div>
             )}
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(min(9rem, 100%), 1fr))',
-                gap: { xs: 1 }
-              }}
-            >
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
               {result.slice((searchPage - 1) * 96, searchPage * 96).map((icon: ILibraryIcon) => (
                 <IconCard key={icon.slug} icon={icon} />
               ))}
-            </Box>
+            </div>
 
             {result.length > 0 && <Pagination count={Math.ceil(result.length / 96)} page={searchPage} onChange={(_, page) => setSearchQuery('p', page)} />}
-          </Stack>
-        </Box>
+          </div>
+        </div>
       </div>
     </>
   );

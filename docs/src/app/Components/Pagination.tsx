@@ -1,61 +1,47 @@
-import { Button, Divider, IconButton, Stack } from '@mui/joy';
+import { Divider } from '@mui/joy';
 import { PaginationProps } from '@mui/material';
 import usePagination from '@mui/material/usePagination';
 
 import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from '@studio384/amicons';
 
+import { Button } from './Button';
+
 export default function Pagination(props: PaginationProps) {
   const { items } = usePagination(props);
 
   return (
-    <Stack direction="row" justifyContent="center" alignItems="center" gap={0.5}>
+    <div className="flex items-center justify-center gap-1">
       {items.map(({ page, selected, type, disabled, ...props }, key) => {
         switch (type) {
           case 'page':
             return (
-              <IconButton size="sm" color={selected ? 'primary' : 'neutral'} variant={selected ? 'solid' : 'plain'} disabled={disabled} {...props} key={key}>
+              <Button size="sm" icon variant={selected ? 'primary' : 'secondary'} plain={!selected} disabled={disabled} {...props} key={key}>
                 {page}
-              </IconButton>
+              </Button>
             );
           case 'previous':
             return (
-              <Button
-                size="sm"
-                color={selected ? 'primary' : 'neutral'}
-                variant={selected ? 'solid' : 'plain'}
-                disabled={disabled}
-                startDecorator={<Amicon icon={aiArrowLeft} />}
-                {...props}
-                key={key}
-              >
-                Prev
+              <Button size="sm" variant="secondary" plain disabled={disabled} {...props} key={key}>
+                <Amicon icon={aiArrowLeft} /> Prev
               </Button>
             );
           case 'next':
             return (
-              <Button
-                size="sm"
-                color={selected ? 'primary' : 'neutral'}
-                variant={selected ? 'solid' : 'plain'}
-                disabled={disabled}
-                endDecorator={<Amicon icon={aiArrowRight} />}
-                {...props}
-                key={key}
-              >
-                Next
+              <Button size="sm" variant="secondary" plain disabled={disabled} {...props} key={key}>
+                Next <Amicon icon={aiArrowRight} />
               </Button>
             );
           case 'start-ellipsis':
           case 'end-ellipsis':
             return (
-              <IconButton size="sm" color={selected ? 'primary' : 'neutral'} variant={selected ? 'solid' : 'plain'} disabled={disabled} {...props} key={key}>
+              <Button size="sm" icon variant={selected ? 'primary' : 'secondary'} plain={!selected} disabled={disabled} {...props} key={key}>
                 <Amicon icon={aiEllipsisH} />
-              </IconButton>
+              </Button>
             );
         }
 
         return <Divider orientation="vertical" sx={{ my: 0.5 }} key={key} />;
       })}
-    </Stack>
+    </div>
   );
 }
