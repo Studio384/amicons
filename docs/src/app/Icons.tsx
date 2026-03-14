@@ -25,9 +25,7 @@ export default function Icons() {
     return icons;
   }, [filters.query.categories]);
 
-  console.log(searchableList);
-
-  const { result } = useSearch(searchableList, ['slug', 'tags'], filters.query.search);
+  const { result } = useSearch(searchableList, filters.query.search);
 
   return (
     <>
