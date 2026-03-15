@@ -10,8 +10,8 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const iconsDir = join(__dirname, "../../docs/public/data/icons");
-const pagesDir = join(__dirname, "../../docs/src/data/");
+const iconsDir = join(__dirname, "../../../apps/docs/public/data/icons");
+const pagesDir = join(__dirname, "../../../apps/docs/src/data/");
 
 function getReactImportName(string) {
   return `ai${string

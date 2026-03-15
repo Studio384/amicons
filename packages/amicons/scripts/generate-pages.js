@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const iconsDir = join(__dirname, "../icons/");
-const pagesDir = join(__dirname, "../../docs/public/data/icons/");
+const pagesDir = join(__dirname, "../../../apps/docs/public/data/icons/");
 
 const VERBOSE = process.argv.includes("--verbose");
 

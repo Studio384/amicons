@@ -2,7 +2,7 @@ import { NavLink } from 'react-router';
 
 import Amicon, { aiBluesky, aiGithub, aiHeart, aiStudio384, aiTwitter } from '@studio384/amicons';
 
-import pkg from '../../../../../amicons/package.json';
+import pkg from '../../../../../../packages/amicons/package.json';
 
 export default function Footer() {
   return (

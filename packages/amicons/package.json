@@ -16,14 +16,16 @@
   "scripts": {
     "build": "tsup && node scripts/copy-css.js",
     "build:watch": "tsup --watch",
+    "dev": "npm run icons && npm run pages && npm run lib && npm run build",
     "icons": "npm run icons:clean && npm run icons:ts",
     "icons:clean": "svgo -f ./icons -o ./icons",
     "icons:ts": "svg-to-ts-constants",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pages": "node scripts/generate-pages.js --verbose",
     "lib": "node scripts/generate-library.js",
     "md": "node scripts/generate-markdown.js",
-    "prod": "npm run icons && npm run pages && npm run lib && npm run build"
+    "pages": "node scripts/generate-pages.js --verbose",
+    "prod": "npm run icons && npm run pages && npm run lib && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",

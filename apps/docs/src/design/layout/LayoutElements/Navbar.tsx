@@ -4,7 +4,7 @@ import { NavigationMenu } from '@base-ui/react';
 import Amicon, { aiBluesky, aiGithub, aiStudio384 } from '@studio384/amicons';
 import clsx from 'clsx';
 
-import pkg from '../../../../../amicons/package.json';
+import pkg from '../../../../../../packages/amicons/package.json';
 
 export default function Navbar() {
   const location = useLocation();
