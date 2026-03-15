@@ -15,7 +15,7 @@
   "dependencies": {
     "@base-ui/react": "^1.3.0",
     "@mui/material": "7.3.9",
-    "@studio384/amicons": "file:../amicons/",
+    "@studio384/amicons": "file:../../packages/amicons/",
     "@tailwindcss/vite": "^4.2.0",
     "@tanstack/react-pacer": "^0.20.0",
     "clsx": "^2.1.1",
