@@ -9,6 +9,7 @@
   "endOfLine": "lf",
   "bracketSameLine": false,
   "importOrder": ["^(^react$|@react|react)", "^@/(.*)$", "<THIRD_PARTY_MODULES>", "^[./]"],
+  "tailwindFunctions": ["clsx", "cn", "cva"],
   "importOrderGroupNamespaceSpecifiers": true,
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
