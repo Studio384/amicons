@@ -3,6 +3,12 @@
   "version": "1.0.0-alpha.11",
   "description": "The iconography.",
   "type": "module",
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=24",
+    "npm": "use pnpm",
+    "pnpm": ">=10"
+  },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -16,14 +22,14 @@
   "scripts": {
     "build": "tsup && node scripts/copy-css.js",
     "build:watch": "tsup --watch",
-    "icons": "npm run icons:clean && npm run icons:ts",
+    "icons": "pnpm icons:clean && pnpm icons:ts",
     "icons:clean": "svgo -f ./icons -o ./icons",
     "icons:ts": "svg-to-ts-constants",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pages": "node scripts/generate-pages.js --verbose",
     "lib": "node scripts/generate-library.js",
     "md": "node scripts/generate-markdown.js",
-    "prod": "npm run icons && npm run pages && npm run lib && npm run build"
+    "prod": "pnpm icons && pnpm pages && pnpm lib && pnpm build"
   },
   "repository": {
     "type": "git",

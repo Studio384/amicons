@@ -22,19 +22,23 @@ jobs:
         working-directory: amicons
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20
-          cache: "npm"
-          cache-dependency-path: amicons/package-lock.json
+          version: 10.32.1
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: amicons/pnpm-lock.yaml
       - name: Install dependencies
         run: npm install
       - name: Production build
         run: npm run prod
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: amicons
           path: |
@@ -52,28 +56,32 @@ jobs:
         working-directory: docs
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
+        uses: actions/checkout@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20
-          cache: "npm"
-          cache-dependency-path: docs/package-lock.json
+          version: 10.32.1
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: pnpm-lock.yaml
       - name: Download artifact
         id: download
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: amicons
           path: amicons
       - name: Install dependencies
         if: steps.download.outcome == 'success'
-        run: npm install
+        run: pnpm install --frozen-lockfile
       - name: Build
-        run: npm run build
+        run: pnpm build
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: docs/dist
       - name: Deploy to GitHub Pages
