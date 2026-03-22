@@ -34,9 +34,9 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: amicons/pnpm-lock.yaml
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
       - name: Production build
-        run: npm run prod
+        run: pnpm prod
       - name: Upload artifact
         uses: actions/upload-artifact@v7
         with:
