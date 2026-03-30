@@ -77,6 +77,7 @@ export default function Navbar() {
               <a
                 href="https://studio384.be"
                 target="_blank"
+                rel="noreferrer"
                 className="flex size-8 items-center justify-center rounded-sm text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500"
               >
                 <Amicon icon={aiStudio384} /> <span className="sr-only">Studio 384</span>
@@ -86,6 +87,7 @@ export default function Navbar() {
               <a
                 href="https://bsky.app/profile/studio384.be"
                 target="_blank"
+                rel="noreferrer"
                 className="flex size-8 items-center justify-center rounded-sm text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500"
               >
                 <Amicon icon={aiBluesky} /> <span className="sr-only">Studio384.be on Bluesky</span>
@@ -95,6 +97,7 @@ export default function Navbar() {
               <a
                 href="https://github.com/studio384/amicons"
                 target="_blank"
+                rel="noreferrer"
                 className="flex size-8 items-center justify-center rounded-sm text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500"
               >
                 <Amicon icon={aiGithub} /> <span className="sr-only">GitHub repository</span>

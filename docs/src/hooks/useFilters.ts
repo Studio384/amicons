@@ -20,7 +20,7 @@ export function useFilters() {
     const categories = searchParams.getAll("categories");
 
     return { page, search, categories };
-  }, [searchParams]);
+  }, [searchParams, initial.page, initial.search]);
 
   const debouncedUpdate = useDebouncedCallback(
     (updater: (params: URLSearchParams) => void) => {
@@ -82,7 +82,7 @@ export function useFilters() {
       params.delete("categories");
       setSearchValue("");
     });
-  }, [debouncedUpdate]);
+  }, [debouncedUpdate, initial.page]);
 
   return {
     query,

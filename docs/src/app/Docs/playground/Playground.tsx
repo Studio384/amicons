@@ -168,7 +168,7 @@ export default function Playground({ config }: IPlaygroundProps) {
             switch (property.type) {
               case "chip": {
                 return (
-                  <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
+                  <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={property.type}>
                     <Field.Label className="text-sm font-medium">{property.label}</Field.Label>
 
                     <div className="flex flex-row flex-wrap gap-1">

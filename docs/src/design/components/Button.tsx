@@ -85,7 +85,6 @@ export function Button({
   size,
   icon,
   plain,
-  render = <button />,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
   return (
