@@ -12,7 +12,7 @@ export default function Changelog() {
         ]}
         changed={[
           'Rotate now allows you to set any numeric value rather than just `0`, `90`, `180`, or `270`.',
-          "Amicons now only has 1 dependency as we've dropped `html-react-parser`.",
+          "Amicons doesn't have any other dependencies anymore.",
           'Major enhancements to our build process and library generation. We now include source maps.'
         ]}
         fixed={[

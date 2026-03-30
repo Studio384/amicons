@@ -1,6 +1,5 @@
 import { IAmicon, aiCircleQuestion } from ".";
 import { ComponentPropsWithoutRef } from "react";
-import clsx from "clsx";
 
 interface AmiconProps {
   icon?: IAmicon;
@@ -33,19 +32,25 @@ export default function AmiconIcon({
       ? ({ "--ai-rotate": `${rotate}deg` } as React.CSSProperties)
       : {};
 
+  const classes = [
+    className,
+    "ai-icon",
+    (!!rotate || rotate === 0) && "ai-rotate",
+    flip === "x" && "ai-flip-x",
+    flip === "y" && "ai-flip-y",
+    flip === true && "ai-flip",
+    spin === true && "ai-spin",
+    spin === "pulse" && "ai-spin ai-spin-pulse",
+    beat && "ai-beat",
+    (isFallback || fade) && "ai-fade",
+    bounce && "ai-bounce",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <span
-      className={clsx(className, "ai-icon", {
-        "ai-rotate": !!rotate || rotate === 0,
-        "ai-flip-x": flip === "x",
-        "ai-flip-y": flip === "y",
-        "ai-flip": flip === true,
-        "ai-spin": spin === true,
-        "ai-spin ai-spin-pulse": spin === "pulse",
-        "ai-beat": beat,
-        "ai-fade": isFallback || fade,
-        "ai-bounce": bounce,
-      })}
+      className={classes}
       style={{ ...rotateStyle, ...style }}
       dangerouslySetInnerHTML={{ __html: resolvedIcon.data }}
       {...props}
