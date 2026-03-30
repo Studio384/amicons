@@ -47,7 +47,7 @@ jobs:
             amicons/node_modules
 
   check:
-    name: Check Docs linting and formatting
+    name: Docs linting and formatting
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -73,7 +73,7 @@ jobs:
         run: pnpm lint
 
   deploy:
-    name: Deploy docs to GitHub Pages
+    name: Deploy to GitHub Pages
     needs: [build, check]
     environment:
       name: github-pages
