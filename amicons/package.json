@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.11",
   "description": "The iconography.",
   "type": "module",
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
     "node": ">=24",
     "npm": "use pnpm",
@@ -63,7 +63,7 @@
     "svg-to-ts": "12.0.0",
     "svgo": "4.0.1",
     "tsup": "^8.0.0",
-    "typescript": "5.9.3"
+    "typescript": "^6.0.2"
   },
   "browserslist": {
     "production": [
