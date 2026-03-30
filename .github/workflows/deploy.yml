@@ -42,7 +42,9 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: amicons
-          path: amicons/dist
+          path: |
+            amicons/dist
+            amicons/node_modules
 
   check:
     name: Check Docs linting and formatting
