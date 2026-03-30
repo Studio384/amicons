@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   build:
+    name: Build Amicons
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -44,6 +45,7 @@ jobs:
           path: amicons/dist
 
   check:
+    name: Check Docs linting and formatting
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -69,6 +71,7 @@ jobs:
         run: pnpm lint
 
   deploy:
+    name: Deploy docs to GitHub Pages
     needs: [build, check]
     environment:
       name: github-pages
@@ -92,8 +95,10 @@ jobs:
           cache-dependency-path: docs/pnpm-lock.yaml
       - name: Download artifact
         uses: actions/download-artifact@v8
+        id: download
         with:
           name: amicons
+          path: amicons
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
