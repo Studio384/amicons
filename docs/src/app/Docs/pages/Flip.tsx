@@ -1,21 +1,21 @@
-import Code from '@/design/components/Code';
+import { aiAmicons, aiCar, aiMessageSmile } from "@studio384/amicons";
 
-import { aiAmicons, aiCar, aiMessageSmile } from '@studio384/amicons';
+import Code from "@/design/components/Code";
 
-import Playground, { IPlaygroundConfig } from '../playground/Playground';
+import Playground, { type IPlaygroundConfig } from "../playground/Playground";
 
 export default function PageFlip() {
   const playgroundConfig: IPlaygroundConfig = {
     icons: [aiMessageSmile, aiAmicons, aiCar],
     properties: [
       {
-        label: 'Flip',
-        type: 'chip',
-        name: 'flip',
-        values: [true, 'x', 'y', false],
-        default: true
-      }
-    ]
+        label: "Flip",
+        type: "chip",
+        name: "flip",
+        values: [true, "x", "y", false],
+        default: true,
+      },
+    ],
   };
 
   return (

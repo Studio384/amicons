@@ -1,9 +1,9 @@
-import { Separator } from '@base-ui/react';
-import { PaginationProps } from '@mui/material';
-import usePagination from '@mui/material/usePagination';
-import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from '@studio384/amicons';
+import { Separator } from "@base-ui/react";
+import { type PaginationProps } from "@mui/material";
+import usePagination from "@mui/material/usePagination";
+import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from "@studio384/amicons";
 
-import { Button } from './Button';
+import { Button } from "./Button";
 
 export function Pagination(props: PaginationProps) {
   const { items } = usePagination(props);
@@ -12,28 +12,44 @@ export function Pagination(props: PaginationProps) {
     <div className="flex items-center justify-center gap-1">
       {items.map(({ page, selected, type, disabled, ...props }, key) => {
         switch (type) {
-          case 'page':
+          case "page":
             return (
-              <Button size="sm" icon variant={selected ? 'primary' : 'secondary'} plain={!selected} disabled={disabled} {...props} key={key}>
+              <Button
+                size="sm"
+                icon
+                variant={selected ? "primary" : "secondary"}
+                plain={!selected}
+                disabled={disabled}
+                {...props}
+                key={key}
+              >
                 {page}
               </Button>
             );
-          case 'previous':
+          case "previous":
             return (
               <Button size="sm" variant="secondary" plain disabled={disabled} {...props} key={key}>
                 <Amicon icon={aiArrowLeft} /> Prev
               </Button>
             );
-          case 'next':
+          case "next":
             return (
               <Button size="sm" variant="secondary" plain disabled={disabled} {...props} key={key}>
                 Next <Amicon icon={aiArrowRight} />
               </Button>
             );
-          case 'start-ellipsis':
-          case 'end-ellipsis':
+          case "start-ellipsis":
+          case "end-ellipsis":
             return (
-              <Button size="sm" icon variant={selected ? 'primary' : 'secondary'} plain={!selected} disabled={disabled} {...props} key={key}>
+              <Button
+                size="sm"
+                icon
+                variant={selected ? "primary" : "secondary"}
+                plain={!selected}
+                disabled={disabled}
+                {...props}
+                key={key}
+              >
                 <Amicon icon={aiEllipsisH} />
               </Button>
             );

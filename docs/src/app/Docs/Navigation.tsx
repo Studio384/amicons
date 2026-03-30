@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
-import { NavLink, useLocation } from 'react-router';
+import { Fragment } from "react";
+import { NavLink, useLocation } from "react-router";
 
 import Amicon, {
   aiAmicons,
@@ -10,72 +10,72 @@ import Amicon, {
   aiHeart,
   aiReact,
   aiSpinner,
-  aiStar
-} from '@studio384/amicons';
-import clsx from 'clsx';
+  aiStar,
+} from "@studio384/amicons";
+import clsx from "clsx";
 
 export default function DocsNavigation() {
   const location = useLocation();
 
   const pages = [
     {
-      title: 'Get started',
+      title: "Get started",
       icon: aiAmicons,
       pages: [
         {
-          title: 'Installation',
+          title: "Installation",
           icon: aiAmicons,
-          link: '/docs/installation'
-        }
-      ]
+          link: "/docs/installation",
+        },
+      ],
     },
     {
-      title: 'React component',
+      title: "React component",
       icon: aiReact,
       pages: [
         {
-          title: 'Spin',
+          title: "Spin",
           icon: aiSpinner,
-          link: '/docs/spin'
+          link: "/docs/spin",
         },
         {
-          title: 'Bounce',
+          title: "Bounce",
           icon: aiArrowUp,
-          link: '/docs/bounce'
+          link: "/docs/bounce",
         },
         {
-          title: 'Rotate',
+          title: "Rotate",
           icon: aiArrowRotateRight,
-          link: '/docs/rotate'
+          link: "/docs/rotate",
         },
         {
-          title: 'Flip',
+          title: "Flip",
           icon: aiArrowsDownLeftRightUpCenter,
-          link: '/docs/flip'
+          link: "/docs/flip",
         },
         {
-          title: 'Beat',
+          title: "Beat",
           icon: aiHeart,
-          link: '/docs/beat'
+          link: "/docs/beat",
         },
         {
-          title: 'Fade',
+          title: "Fade",
           icon: aiCircleHalfInner,
-          link: '/docs/fade'
-        }
-      ]
+          link: "/docs/fade",
+        },
+      ],
     },
     {
-      title: 'More',
+      title: "More",
       icon: aiStar,
       pages: [
         {
-          title: 'Changelog',
+          title: "Changelog",
           icon: aiStar,
-          link: '/changelog'
-        }
-      ]
-    }
+          link: "/changelog",
+        },
+      ],
+    },
   ];
 
   return (
@@ -92,10 +92,10 @@ export default function DocsNavigation() {
                 to={page.link}
                 data-selected={location.pathname.includes(page.link) || undefined}
                 className={clsx(
-                  'group flex h-8 items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700',
+                  "group flex h-8 items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700",
                   {
-                    'bg-violet-500 text-white hover:bg-violet-600': location.pathname.includes(page.link)
-                  }
+                    "bg-violet-500 text-white hover:bg-violet-600": location.pathname.includes(page.link),
+                  },
                 )}
               >
                 <span className="truncate group-data-noicons:opacity-50">{page.title}</span>

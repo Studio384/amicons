@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router';
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    document.querySelector('body')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector("body")?.scrollIntoView({ behavior: "smooth" });
   }, [pathname]);
 
   return null;

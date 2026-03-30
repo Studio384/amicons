@@ -1,4 +1,4 @@
-import Codeblock from '@/design/components/Codeblock';
+import Codeblock from "@/design/components/Codeblock";
 
 export default function PageInstallation() {
   return (

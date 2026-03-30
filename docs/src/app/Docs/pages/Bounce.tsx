@@ -1,34 +1,34 @@
-import Code from '@/design/components/Code';
+import { aiArrowUp, aiMusic, aiValkyrieSword } from "@studio384/amicons";
 
-import { aiArrowUp, aiMusic, aiValkyrieSword } from '@studio384/amicons';
+import Code from "@/design/components/Code";
 
-import ApiTable from '../playground/ApiTable';
-import Playground, { IIconCssVariables, IPlaygroundConfig } from '../playground/Playground';
+import ApiTable from "../playground/ApiTable";
+import Playground, { type IIconCssVariables, type IPlaygroundConfig } from "../playground/Playground";
 
 export default function PageBounce() {
   const playgroundConfig: IPlaygroundConfig = {
     icons: [aiValkyrieSword, aiMusic, aiArrowUp],
     properties: [
       {
-        label: 'Bounce',
-        type: 'chip',
-        name: 'bounce',
+        label: "Bounce",
+        type: "chip",
+        name: "bounce",
         values: [true, false],
-        default: true
-      }
+        default: true,
+      },
     ],
     cssVariables: [
       {
-        name: '--ai-animation-duration',
-        default: '1s',
-        description: 'Time for a full play through of the animation.'
+        name: "--ai-animation-duration",
+        default: "1s",
+        description: "Time for a full play through of the animation.",
       },
       {
-        name: '--ai-animation-iteration-count',
-        default: 'infinite',
-        description: 'Number of times the animation is repeated.'
-      }
-    ]
+        name: "--ai-animation-iteration-count",
+        default: "infinite",
+        description: "Number of times the animation is repeated.",
+      },
+    ],
   };
 
   return (

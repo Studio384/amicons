@@ -1,44 +1,44 @@
-import Code from '@/design/components/Code';
+import { aiExpand, aiHeart, aiPlay } from "@studio384/amicons";
 
-import { aiExpand, aiHeart, aiPlay } from '@studio384/amicons';
+import Code from "@/design/components/Code";
 
-import ApiTable from '../playground/ApiTable';
-import Playground, { IIconCssVariables, IPlaygroundConfig } from '../playground/Playground';
+import ApiTable from "../playground/ApiTable";
+import Playground, { type IIconCssVariables, type IPlaygroundConfig } from "../playground/Playground";
 
 export default function PageBeat() {
   const playgroundConfig: IPlaygroundConfig = {
     icons: [aiHeart, aiExpand, aiPlay],
     properties: [
       {
-        label: 'Beat',
-        type: 'chip',
-        name: 'beat',
+        label: "Beat",
+        type: "chip",
+        name: "beat",
         values: [true, false],
-        default: true
-      }
+        default: true,
+      },
     ],
     cssVariables: [
       {
-        name: '--ai-animation-duration',
-        default: '1s',
-        description: 'Time for a full play through of the animation.'
+        name: "--ai-animation-duration",
+        default: "1s",
+        description: "Time for a full play through of the animation.",
       },
       {
-        name: '--ai-animation-timing-function',
-        default: 'ease-in-out',
-        description: 'The timing function used for the animation.'
+        name: "--ai-animation-timing-function",
+        default: "ease-in-out",
+        description: "The timing function used for the animation.",
       },
       {
-        name: '--ai-animation-iteration-count',
-        default: 'infinite',
-        description: 'Number of times the animation is repeated.'
+        name: "--ai-animation-iteration-count",
+        default: "infinite",
+        description: "Number of times the animation is repeated.",
       },
       {
-        name: '--ai-animation-scale',
-        default: '1.4',
-        description: 'The scale at which the icon can grow.'
-      }
-    ]
+        name: "--ai-animation-scale",
+        default: "1.4",
+        description: "The scale at which the icon can grow.",
+      },
+    ],
   };
 
   return (

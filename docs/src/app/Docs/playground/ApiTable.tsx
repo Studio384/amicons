@@ -1,6 +1,6 @@
-import Code from '@/design/components/Code';
+import Code from "@/design/components/Code";
 
-import { IIconCssVariables } from './Playground';
+import { type IIconCssVariables } from "./Playground";
 
 interface IApiTableProps {
   cssVariables: IIconCssVariables[];
@@ -12,13 +12,13 @@ export default function ApiTable({ cssVariables }: IApiTableProps) {
       <table className="w-full">
         <thead>
           <tr className="border-b-2 border-zinc-200">
-            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: '30%' }}>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "30%" }}>
               Property name
             </th>
-            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: '15%' }}>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "15%" }}>
               Default
             </th>
-            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: '55%' }}>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "55%" }}>
               Description
             </th>
           </tr>

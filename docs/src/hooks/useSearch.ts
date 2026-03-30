@@ -1,6 +1,6 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from "react";
 
-import { IAmicon } from '@studio384/amicons';
+import { type IAmicon } from "@studio384/amicons";
 
 interface ISeachResults {
   categories: string[];
@@ -21,7 +21,7 @@ export default function useSearch(
         tags: string[];
       }[]
     | undefined,
-  needle: string
+  needle: string,
 ) {
   const scoreIcon = useCallback((value: string, query: string) => {
     const searchable = value.toString().toLowerCase().trim();
@@ -45,7 +45,7 @@ export default function useSearch(
   }, []);
 
   const result = useMemo(() => {
-    if (needle === '') {
+    if (needle === "") {
       return iconLibrary || [];
     }
 
@@ -59,7 +59,7 @@ export default function useSearch(
       if (icon.slug) {
         // Do a 1:1 comparison between all searchable items
         matchScore += scoreIcon(icon.slug, cleanNeedle);
-        matchScore += scoreIcon(icon.slug.replaceAll('-', ' '), cleanNeedle);
+        matchScore += scoreIcon(icon.slug.replaceAll("-", " "), cleanNeedle);
       }
 
       icon.tags.map((tag) => {

@@ -1,13 +1,12 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { StrictMode } from "react";
 
-import '@studio384/amicons/amicons.css';
+import { createRoot } from "react-dom/client";
+import "@studio384/amicons/amicons.css";
+import App from "./App";
+import "./style.css";
 
-import App from './App';
-import './style.css';
-
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <App />
-  </StrictMode>
+  </StrictMode>,
 );

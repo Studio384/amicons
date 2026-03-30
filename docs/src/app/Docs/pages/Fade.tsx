@@ -1,44 +1,44 @@
-import Code from '@/design/components/Code';
+import { aiAmicons, aiCircleHalfInner, aiMusic } from "@studio384/amicons";
 
-import { aiAmicons, aiCircleHalfInner, aiMusic } from '@studio384/amicons';
+import Code from "@/design/components/Code";
 
-import ApiTable from '../playground/ApiTable';
-import Playground, { IIconCssVariables, IPlaygroundConfig } from '../playground/Playground';
+import ApiTable from "../playground/ApiTable";
+import Playground, { type IIconCssVariables, type IPlaygroundConfig } from "../playground/Playground";
 
 export default function PageFade() {
   const playgroundConfig: IPlaygroundConfig = {
     icons: [aiAmicons, aiMusic, aiCircleHalfInner],
     properties: [
       {
-        label: 'Fade',
-        type: 'chip',
-        name: 'fade',
+        label: "Fade",
+        type: "chip",
+        name: "fade",
         values: [true, false],
-        default: true
-      }
+        default: true,
+      },
     ],
     cssVariables: [
       {
-        name: '--ai-animation-duration',
-        default: '1.5s',
-        description: 'Time for a full play through of the animation.'
+        name: "--ai-animation-duration",
+        default: "1.5s",
+        description: "Time for a full play through of the animation.",
       },
       {
-        name: '--ai-animation-timing-function',
-        default: 'ease-in-out',
-        description: 'The timing function used for the animation.'
+        name: "--ai-animation-timing-function",
+        default: "ease-in-out",
+        description: "The timing function used for the animation.",
       },
       {
-        name: '--ai-animation-iteration-count',
-        default: 'infinite',
-        description: 'Number of times the animation is repeated.'
+        name: "--ai-animation-iteration-count",
+        default: "infinite",
+        description: "Number of times the animation is repeated.",
       },
       {
-        name: '--ai-animation-opacity',
-        default: '.4',
-        description: 'The lowest opacity of the icon.'
-      }
-    ]
+        name: "--ai-animation-opacity",
+        default: ".4",
+        description: "The lowest opacity of the icon.",
+      },
+    ],
   };
 
   return (

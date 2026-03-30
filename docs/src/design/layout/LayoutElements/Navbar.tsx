@@ -1,10 +1,10 @@
-import { NavLink, useLocation } from 'react-router';
+import { NavLink, useLocation } from "react-router";
 
-import { NavigationMenu } from '@base-ui/react';
-import Amicon, { aiBluesky, aiGithub, aiStudio384 } from '@studio384/amicons';
-import clsx from 'clsx';
+import { NavigationMenu } from "@base-ui/react";
+import Amicon, { aiBluesky, aiGithub, aiStudio384 } from "@studio384/amicons";
+import clsx from "clsx";
 
-import pkg from '../../../../../amicons/package.json';
+import pkg from "../../../../../amicons/package.json";
 
 export default function Navbar() {
   const location = useLocation();
@@ -31,10 +31,11 @@ export default function Navbar() {
               <NavLink
                 to="/"
                 className={clsx(
-                  'font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500',
+                  "font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500",
                   {
-                    'bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700': location?.pathname === '/' || location?.pathname?.startsWith('/icons')
-                  }
+                    "bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700":
+                      location?.pathname === "/" || location?.pathname?.startsWith("/icons"),
+                  },
                 )}
               >
                 Home
@@ -45,10 +46,11 @@ export default function Navbar() {
               <NavLink
                 to="/docs/installation"
                 className={clsx(
-                  'font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500',
+                  "font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500",
                   {
-                    'bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700': location?.pathname?.startsWith('/docs')
-                  }
+                    "bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700":
+                      location?.pathname?.startsWith("/docs"),
+                  },
                 )}
               >
                 Docs
@@ -59,10 +61,11 @@ export default function Navbar() {
               <NavLink
                 to="/changelog"
                 className={clsx(
-                  'font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500',
+                  "font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500",
                   {
-                    'bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700': location?.pathname?.startsWith('/changelog')
-                  }
+                    "bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700":
+                      location?.pathname?.startsWith("/changelog"),
+                  },
                 )}
               >
                 Changelog

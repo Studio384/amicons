@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router';
+import { NavLink } from "react-router";
 
-import { ILibraryIcon } from '@/types';
+import Amicon from "@studio384/amicons";
 
-import Amicon from '@studio384/amicons';
+import { type ILibraryIcon } from "@/types";
 
 export function IconCard({ icon }: { icon: ILibraryIcon }) {
   return (

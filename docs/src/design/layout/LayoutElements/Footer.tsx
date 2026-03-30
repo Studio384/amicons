@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router';
+import { NavLink } from "react-router";
 
-import Amicon, { aiBluesky, aiGithub, aiHeart, aiStudio384, aiTwitter } from '@studio384/amicons';
+import Amicon, { aiBluesky, aiGithub, aiHeart, aiStudio384, aiTwitter } from "@studio384/amicons";
 
-import pkg from '../../../../../amicons/package.json';
+import pkg from "../../../../../amicons/package.json";
 
 export default function Footer() {
   return (
@@ -83,7 +83,8 @@ export default function Footer() {
             href="https://studio384.be"
             className="font-dev text-2xl font-semibold hover:underline hover:decoration-[#78b500] hover:decoration-1 hover:underline-offset-1"
           >
-            Studio <span className="bg-linear-to-r from-[#78b500] to-[#00b573] bg-clip-text text-transparent">384</span>{' '}
+            Studio{" "}
+            <span className="bg-linear-to-r from-[#78b500] to-[#00b573] bg-clip-text text-transparent">384</span>{" "}
           </a>
           <p className="text-sm">&copy; 2021-2026</p>
         </div>

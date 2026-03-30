@@ -1,9 +1,9 @@
-import * as path from 'path';
-import tailwindcss from '@tailwindcss/vite';
-import { devtools } from '@tanstack/devtools-vite';
-import react from '@vitejs/plugin-react-swc';
-import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig } from 'vite';
+import tailwindcss from "@tailwindcss/vite";
+import { devtools } from "@tanstack/devtools-vite";
+import react from "@vitejs/plugin-react-swc";
+import * as path from "path";
+import { visualizer } from "rollup-plugin-visualizer";
+import { defineConfig } from "vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,18 +12,18 @@ export default defineConfig({
     react(),
     devtools(),
     visualizer({
-      title: 'Package size',
-      filename: 'stats/index.html',
-      template: 'treemap',
+      title: "Package size",
+      filename: "stats/index.html",
+      template: "treemap",
       gzipSize: true,
-      brotliSize: true
-    })
+      brotliSize: true,
+    }),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
-    }
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
-  base: '/amicons/',
-  envPrefix: 'AMICONS_'
+  base: "/amicons/",
+  envPrefix: "AMICONS_",
 });

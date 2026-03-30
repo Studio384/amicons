@@ -1,9 +1,9 @@
-import { PropsWithChildren } from 'react';
-import { Outlet } from 'react-router';
+import { type PropsWithChildren } from "react";
+import { Outlet } from "react-router";
 
-import ScrollToTop from '../components/ScrollToTop';
-import Footer from './LayoutElements/Footer';
-import Navbar from './LayoutElements/Navbar';
+import ScrollToTop from "../components/ScrollToTop";
+import Footer from "./LayoutElements/Footer";
+import Navbar from "./LayoutElements/Navbar";
 
 export default function Layout({ children }: PropsWithChildren) {
   return (

@@ -1,11 +1,20 @@
-import { ReactNode, useMemo } from 'react';
+import { type ReactNode, useMemo } from "react";
 
-import icons from '@/data/icons';
-import Code from '@/design/components/Code';
-import { IconCard } from '@/design/components/IconCard';
-import { ILibraryIcon } from '@/types';
+import Amicon, {
+  aiAmicons,
+  aiArrowRight,
+  aiBook,
+  aiBug,
+  aiPen,
+  aiPlus,
+  aiTrashCan,
+  type IAmicon,
+} from "@studio384/amicons";
 
-import Amicon, { aiAmicons, aiArrowRight, aiBook, aiBug, aiPen, aiPlus, aiTrashCan, IAmicon } from '@studio384/amicons';
+import icons from "@/data/icons";
+import Code from "@/design/components/Code";
+import { IconCard } from "@/design/components/IconCard";
+import { type ILibraryIcon } from "@/types";
 
 // Types
 type ChangeSectionProps = {
@@ -42,7 +51,7 @@ export default function Release({
   newIcons,
   updatedIcons,
   renamedIcons,
-  removedIcons
+  removedIcons,
 }: ReleaseProps) {
   const newList = useMemo(() => icons.filter((icon) => newIcons?.includes(icon.slug)), [newIcons]);
   const updateList = useMemo(() => icons.filter((icon) => updatedIcons?.includes(icon.slug)), [updatedIcons]);
@@ -91,7 +100,9 @@ export default function Release({
           <ul className="list-disc ps-6">
             {renamedIcons.map((icon: { new: string; old: string }) => (
               <li key={icon.new} className="not-first:mt-1.5">
-                <Code>{icon.old}</Code> <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: 'relative', top: 2 }} /> <Code>{icon.new}</Code>
+                <Code>{icon.old}</Code>{" "}
+                <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: "relative", top: 2 }} />{" "}
+                <Code>{icon.new}</Code>
               </li>
             ))}
           </ul>

@@ -1,8 +1,8 @@
-import { Outlet } from 'react-router';
+import { Outlet } from "react-router";
 
-import Header from '@/design/layout/LayoutElements/Header';
+import Header from "@/design/layout/LayoutElements/Header";
 
-import DocsNavigation from './Docs/Navigation';
+import DocsNavigation from "./Docs/Navigation";
 
 export default function Docs() {
   return (

@@ -1,23 +1,23 @@
-import { useCallback, useMemo, useState } from 'react';
-import { useSearchParams } from 'react-router';
+import { useCallback, useMemo, useState } from "react";
+import { useSearchParams } from "react-router";
 
-import { useDebouncedCallback } from '@tanstack/react-pacer';
+import { useDebouncedCallback } from "@tanstack/react-pacer";
 
 export function useFilters() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const initial = {
     page: 1,
-    search: '',
-    categories: [] as string[]
+    search: "",
+    categories: [] as string[],
   };
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
   const query = useMemo(() => {
-    const page = Number(searchParams.get('page') ?? initial.page);
-    const search = searchParams.get('search') ?? initial.search;
-    const categories = searchParams.getAll('categories');
+    const page = Number(searchParams.get("page") ?? initial.page);
+    const search = searchParams.get("search") ?? initial.search;
+    const categories = searchParams.getAll("categories");
 
     return { page, search, categories };
   }, [searchParams]);
@@ -30,57 +30,57 @@ export function useFilters() {
         return next;
       });
     },
-    { wait: 300 }
+    { wait: 300 },
   );
 
   const setPage = useCallback(
     (page: number) => {
-      debouncedUpdate((params) => params.set('page', String(page)));
+      debouncedUpdate((params) => params.set("page", String(page)));
     },
-    [debouncedUpdate]
+    [debouncedUpdate],
   );
 
   const setSearch = useCallback(
     (value: string) => {
       setSearchValue(value);
       debouncedUpdate((params) => {
-        params.set('page', '1');
+        params.set("page", "1");
         if (value) {
-          params.set('search', value);
+          params.set("search", value);
         } else {
-          params.delete('search');
+          params.delete("search");
         }
       });
     },
-    [debouncedUpdate]
+    [debouncedUpdate],
   );
 
   const toggleCategory = useCallback(
     (category: string) => {
       debouncedUpdate((params) => {
-        params.set('page', '1');
+        params.set("page", "1");
 
-        const current = params.getAll('categories');
+        const current = params.getAll("categories");
         const exists = current.includes(category);
 
-        params.delete('categories');
+        params.delete("categories");
 
         const nextValue = exists ? current.filter((_category) => _category !== category) : [...current, category];
 
-        nextValue.forEach((_category) => params.append('categories', _category));
+        nextValue.forEach((_category) => params.append("categories", _category));
       });
     },
-    [debouncedUpdate]
+    [debouncedUpdate],
   );
 
   const resetQuery = useCallback(() => {
     debouncedUpdate((params) => {
-      params.set('page', String(initial.page));
+      params.set("page", String(initial.page));
 
-      params.delete('search');
-      params.delete('page');
-      params.delete('categories');
-      setSearchValue('');
+      params.delete("search");
+      params.delete("page");
+      params.delete("categories");
+      setSearchValue("");
     });
   }, [debouncedUpdate]);
 
@@ -90,6 +90,6 @@ export function useFilters() {
     setPage,
     setSearch,
     toggleCategory,
-    resetQuery
+    resetQuery,
   };
 }

@@ -1,4 +1,4 @@
-import Header from '@/design/layout/LayoutElements/Header';
+import Header from "@/design/layout/LayoutElements/Header";
 
 export default function Error() {
   return (

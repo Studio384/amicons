@@ -1,10 +1,10 @@
-import { ReactNode, useMemo, useState } from 'react';
+import { type ReactNode, useMemo, useState } from "react";
 
-import Codeblock from '@/design/components/Codeblock';
+import { Field, Toggle, ToggleGroup } from "@base-ui/react";
+import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
+import clsx from "clsx";
 
-import { Field, Toggle, ToggleGroup } from '@base-ui/react';
-import Amicon, { aiBroom, IAmicon } from '@studio384/amicons';
-import clsx from 'clsx';
+import Codeblock from "@/design/components/Codeblock";
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -14,7 +14,7 @@ export interface IPlaygroundConfig {
 
 export interface IIconProperties {
   label: string;
-  type: 'chip';
+  type: "chip";
   name: string;
   values: unknown[];
   default: unknown;
@@ -36,9 +36,9 @@ export default function Playground({ config }: IPlaygroundProps) {
   // Get the icon name
   function getIconName(icon: string): string {
     return `ai${icon
-      .split('_')
+      .split("_")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('')}`;
+      .join("")}`;
   }
 
   const icon = config.icons.find((icon) => icon.name === playgroundIcon[0]) ?? config.icons[0];
@@ -61,7 +61,7 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [config.properties, playgroundProps]);
 
   const propertyParser: string = useMemo(() => {
-    let exampleString = '';
+    let exampleString = "";
 
     Object.keys(iconProperties).map((propName) => {
       if (iconProperties[propName] === true) {
@@ -69,9 +69,9 @@ export default function Playground({ config }: IPlaygroundProps) {
         return;
       } else if (iconProperties[propName] === false) {
         return;
-      } else if (typeof iconProperties[propName] === 'number') {
+      } else if (typeof iconProperties[propName] === "number") {
         exampleString += `\n  ${propName}={${iconProperties[propName]}}`;
-      } else if (typeof iconProperties[propName] === 'string') {
+      } else if (typeof iconProperties[propName] === "string") {
         exampleString += `\n  ${propName}="${iconProperties[propName]}"`;
       }
     });
@@ -93,7 +93,7 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [config.cssVariables, playgroundCssVariable]);
 
   const variableParser = useMemo(() => {
-    let exampleString = '';
+    let exampleString = "";
     let hasProperty = false;
 
     Object.keys(iconVariables).map((varName) => {
@@ -103,14 +103,14 @@ export default function Playground({ config }: IPlaygroundProps) {
 
       hasProperty = true;
 
-      if (typeof iconVariables[varName] === 'number') {
+      if (typeof iconVariables[varName] === "number") {
         exampleString += `\n    ${varName}: ${iconVariables[varName]},`;
-      } else if (typeof iconVariables[varName] === 'string') {
+      } else if (typeof iconVariables[varName] === "string") {
         exampleString += `\n    ${varName}: "${iconVariables[varName]}",`;
       }
     });
 
-    return hasProperty ? exampleString : '';
+    return hasProperty ? exampleString : "";
   }, [config.cssVariables, iconVariables]);
 
   return (
@@ -121,11 +121,11 @@ export default function Playground({ config }: IPlaygroundProps) {
         </div>
         <Codeblock>{`<Amicon
   icon={${iconName}}${propertyParser}${
-    variableParser !== ''
+    variableParser !== ""
       ? `
   style={{${variableParser}
   }}`
-      : ''
+      : ""
   }
 />`}</Codeblock>
       </div>
@@ -147,7 +147,11 @@ export default function Playground({ config }: IPlaygroundProps) {
           <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
             <Field.Label className="text-sm font-medium">Icon</Field.Label>
 
-            <ToggleGroup value={playgroundIcon} onValueChange={setPlaygroundIcon} className="flex gap-0.5 rounded-md border border-zinc-200 bg-zinc-50 p-0.5">
+            <ToggleGroup
+              value={playgroundIcon}
+              onValueChange={setPlaygroundIcon}
+              className="flex gap-0.5 rounded-md border border-zinc-200 bg-zinc-50 p-0.5"
+            >
               {config.icons.map((icon) => (
                 <Toggle
                   key={icon.name}
@@ -162,7 +166,7 @@ export default function Playground({ config }: IPlaygroundProps) {
 
           {config.properties?.map((property) => {
             switch (property.type) {
-              case 'chip': {
+              case "chip": {
                 return (
                   <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1">
                     <Field.Label className="text-sm font-medium">{property.label}</Field.Label>
@@ -171,12 +175,18 @@ export default function Playground({ config }: IPlaygroundProps) {
                       {property.values.map((value, key) => (
                         <button
                           key={key}
-                          onClick={() => setPlaygroundProps((prev) => ({ ...prev, [property.name as string]: value as string | number }))}
+                          onClick={() =>
+                            setPlaygroundProps((prev) => ({
+                              ...prev,
+                              [property.name as string]: value as string | number,
+                            }))
+                          }
                           className={clsx(
-                            'flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-violet-300 hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white',
+                            "flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-violet-300 hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white",
                             {
-                              'border-violet-600! bg-violet-500 text-white hover:bg-violet-500': iconProperties?.[property.name] === value
-                            }
+                              "border-violet-600! bg-violet-500 text-white hover:bg-violet-500":
+                                iconProperties?.[property.name] === value,
+                            },
                           )}
                         >
                           {value?.toString()}

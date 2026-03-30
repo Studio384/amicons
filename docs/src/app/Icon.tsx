@@ -1,16 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
-import { createSearchParams, NavLink, useNavigate, useParams } from 'react-router';
+import { useEffect, useMemo, useState } from "react";
+import { createSearchParams, NavLink, useNavigate, useParams } from "react-router";
 
-import icons from '@/data/icons';
-import { Button } from '@/design/components/Button';
-import Codeblock from '@/design/components/Codeblock';
-import { IconCard } from '@/design/components/IconCard';
-import { LargeIconGrid } from '@/design/components/LargeIconGrid';
-import Header from '@/design/layout/LayoutElements/Header';
-import { IIcon, ILibraryIcon } from '@/types';
+import { Input } from "@base-ui/react";
+import Amicon, { aiArrowLeft, aiXmark } from "@studio384/amicons";
 
-import { Input } from '@base-ui/react';
-import Amicon, { aiArrowLeft, aiXmark } from '@studio384/amicons';
+import icons from "@/data/icons";
+import { Button } from "@/design/components/Button";
+import Codeblock from "@/design/components/Codeblock";
+import { IconCard } from "@/design/components/IconCard";
+import { LargeIconGrid } from "@/design/components/LargeIconGrid";
+import Header from "@/design/layout/LayoutElements/Header";
+import { type IIcon, type ILibraryIcon } from "@/types";
 
 export default function Icon() {
   const navigate = useNavigate();
@@ -27,12 +27,12 @@ export default function Icon() {
 
   const reactImport = slug
     ? `ai${slug
-        .split('-')
+        .split("-")
         .map((word) => {
           return word[0].toUpperCase() + word.substring(1);
         })
-        .join('')}`
-    : '';
+        .join("")}`
+    : "";
 
   const categoryIcons = useMemo(() => {
     if (firstCategory) {
@@ -49,7 +49,7 @@ export default function Icon() {
       <Header>
         <div className="flex flex-row items-center justify-between">
           <div className="flex grow flex-col items-start justify-start gap-2">
-            <Button icon plain onClick={() => navigate('/icons')}>
+            <Button icon plain onClick={() => navigate("/icons")}>
               <Amicon icon={aiArrowLeft} />
             </Button>
             <h1 className="font-display text-5xl font-medium">{icon?.title}</h1>
@@ -66,7 +66,10 @@ export default function Icon() {
                   </NavLink>
                 ))}
                 {icon?.tags?.map((tag) => (
-                  <div key={tag} className="font-display flex items-center gap-1 rounded-full bg-zinc-50 px-2.5 py-1 text-xs">
+                  <div
+                    key={tag}
+                    className="font-display flex items-center gap-1 rounded-full bg-zinc-50 px-2.5 py-1 text-xs"
+                  >
                     {tag}
                   </div>
                 ))}
@@ -76,7 +79,7 @@ export default function Icon() {
             <div className="mt-3 flex items-center justify-center gap-3">
               {icon?.created && (
                 <div className="flex gap-2">
-                  <p className="text-sm">Created</p>{' '}
+                  <p className="text-sm">Created</p>{" "}
                   <div className="font-display flex items-center gap-1 rounded-full border border-violet-300 bg-violet-200 px-1.5 py-px text-xs text-violet-600">
                     {icon?.created}
                   </div>
@@ -84,7 +87,7 @@ export default function Icon() {
               )}
               {icon?.updated && (
                 <div className="flex gap-2">
-                  <p className="text-sm">Last updated</p>{' '}
+                  <p className="text-sm">Last updated</p>{" "}
                   <div className="font-display flex items-center gap-1 rounded-full border border-violet-300 bg-violet-200 px-1.5 py-px text-xs text-violet-600">
                     {icon?.updated}
                   </div>
@@ -205,7 +208,7 @@ export default function Icon() {
           {firstCategory && categoryIcons.length >= 1 && (
             <div className="flex flex-col gap-3">
               <h3 className="font-display text-2xl font-medium">
-                More icons in{' '}
+                More icons in{" "}
                 <NavLink
                   to={`/icons?${createSearchParams({ category: firstCategory })}`}
                   className="text-violet-600 decoration-violet-600 underline-offset-2 hover:underline hover:decoration-2"
