@@ -1,7 +1,0 @@
----
-title: Bolt
-categories: [weather, energy]
-tags: [zap, storm, thunder, lightning]
-created: 1.0.0
-updated: 1.0.0
----

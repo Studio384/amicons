@@ -1,7 +1,0 @@
----
-title: Arrow right from smartphone
-categories: [communication, devices, arrows]
-tags: []
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Burger glass
-categories: [food-beverage, maps]
-tags: [food, drink, eat, restaurant]
-created: 1.0.0
-updated: 1.0.0
----

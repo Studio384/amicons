@@ -1,7 +1,0 @@
----
-title: Order numerical desc
-categories: [arrows]
-tags: [sort-numeric-down]
-created: 1.0.0
-updated: 1.0.0
----

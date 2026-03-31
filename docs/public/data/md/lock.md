@@ -1,7 +1,0 @@
----
-title: Lock
-categories: [security]
-tags: [privacy]
-created: 1.0.0
-updated: 1.0.0
----

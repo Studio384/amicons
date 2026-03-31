@@ -1,7 +1,0 @@
----
-title: Arrow up right from square
-categories: [arrows]
-tags: [external, external-link]
-created: 1.0.0
-updated: 1.0.0
----

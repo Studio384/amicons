@@ -1,7 +1,0 @@
----
-title: Volume 0
-categories: [media]
-tags: [sound, silence]
-created: 1.0.0
-updated: 1.0.0
----

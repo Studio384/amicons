@@ -1,7 +1,0 @@
----
-title: Toggle off
-categories: [toggle]
-tags: []
-created: 1.0.0
-updated: 1.0.0
----

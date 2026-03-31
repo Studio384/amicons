@@ -1,7 +1,0 @@
----
-title: Umbrella
-categories: [weather]
-tags: [rain]
-created: 1.0.0
-updated: 1.0.0
----

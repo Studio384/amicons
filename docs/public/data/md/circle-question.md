@@ -1,7 +1,0 @@
----
-title: Circle question
-categories: [accessibility, maps, alerts, punctuation-symbols]
-tags: [information, help]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Moped
-categories: [transportation, maps]
-tags: [bike, drive, driving, delivery]
-created: 1.0.0
-updated: 1.0.0
----

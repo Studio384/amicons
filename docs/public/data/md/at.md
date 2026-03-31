@@ -1,7 +1,0 @@
----
-title: At
-categories: [communication, punctuation-symbols]
-tags: [email]
-created: 1.0.0
-updated: 1.0.0
----

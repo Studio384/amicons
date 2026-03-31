@@ -1,7 +1,0 @@
----
-title: Password
-categories: [design, editor, security]
-tags: [code, input]
-created: 1.0.0
-updated: 1.0.0
----

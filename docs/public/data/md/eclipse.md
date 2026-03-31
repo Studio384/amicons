@@ -1,7 +1,0 @@
----
-title: Eclipse
-categories: [science, weather]
-tags: [sun, moon]
-created: 1.0.0
-updated: 1.0.0
----

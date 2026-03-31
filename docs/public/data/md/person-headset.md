@@ -1,7 +1,0 @@
----
-title: Person headset
-categories: [people, social]
-tags: [user, microphone, headset]
-created: 1.0.0
-updated: 1.0.0
----

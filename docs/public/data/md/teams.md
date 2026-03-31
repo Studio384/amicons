@@ -1,7 +1,0 @@
----
-title: Teams
-categories: [brands]
-tags: [microsoft, communication, office, social]
-created: 1.0.0
-updated: 1.0.0
----

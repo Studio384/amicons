@@ -1,7 +1,0 @@
----
-title: Display
-categories: [devices]
-tags: [screen, monitor, desktop]
-created: 1.0.0
-updated: 1.0.0
----

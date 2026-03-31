@@ -1,7 +1,0 @@
----
-title: Circle exclamation
-categories: [alerts, punctuation-symbols]
-tags: [warning, danger]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Phone office
-categories: [communication, devices]
-tags: [desk phone]
-created: 1.0.0
-updated: 1.0.0
----

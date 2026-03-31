@@ -1,7 +1,0 @@
----
-title: Arrow up to cloud
-categories: [arrows, communication]
-tags: [direction, upload, cloud-upload]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Train track
-categories: [maps, transportation]
-tags: [rail]
-created: 1.0.0
-updated: 1.0.0
----

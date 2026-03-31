@@ -1,7 +1,0 @@
----
-title: Devices
-categories: [coding, devices]
-tags: [laptop, smartphone, mobile]
-created: 1.0.0
-updated: 1.0.0
----

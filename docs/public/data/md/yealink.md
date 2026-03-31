@@ -1,7 +1,0 @@
----
-title: Yealink
-categories: [brands]
-tags: [phone]
-created: 1.0.0
-updated: 1.0.0
----

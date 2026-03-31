@@ -1,7 +1,0 @@
----
-title: Arrow left arrow right
-categories: [arrows]
-tags: [direction, order, sort, replace]
-created: 1.0.0
-updated: 1.0.0
----

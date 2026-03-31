@@ -42,7 +42,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "pages": "node scripts/generate-pages.js --verbose",
     "lib": "node scripts/generate-library.js",
-    "md": "node scripts/generate-markdown.js",
     "prod": "pnpm icons && pnpm pages && pnpm lib && pnpm build"
   },
   "devDependencies": {

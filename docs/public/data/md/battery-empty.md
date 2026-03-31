@@ -1,7 +1,0 @@
----
-title: Battery empty
-categories: [energy]
-tags: [battery-0]
-created: 1.0.0
-updated: 1.0.0
----

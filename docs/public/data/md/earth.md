@@ -1,7 +1,0 @@
----
-title: Earth
-categories: [science, maps]
-tags: [europe]
-created: 1.0.0
-updated: 1.0.0
----

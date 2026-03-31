@@ -1,7 +1,0 @@
----
-title: Droplet
-categories: [weather, nature]
-tags: [water]
-created: 1.0.0
-updated: 1.0.0
----

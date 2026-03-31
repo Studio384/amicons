@@ -1,7 +1,0 @@
----
-title: Icons
-categories: [design]
-tags: [circle, square, xmark, triangle]
-created: 1.0.0
-updated: 1.0.0
----

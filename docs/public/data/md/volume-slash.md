@@ -1,7 +1,0 @@
----
-title: Volume slash
-categories: [media]
-tags: [sound, silence]
-created: 1.0.0
-updated: 1.0.0
----

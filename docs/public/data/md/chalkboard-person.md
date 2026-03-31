@@ -1,7 +1,0 @@
----
-title: Chalkboard person
-categories: [education, people]
-tags: [whiteboard]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Tent
-categories: [maps, nature]
-tags: [shelter]
-created: 1.0.0
-updated: 1.0.0
----

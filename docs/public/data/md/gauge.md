@@ -1,7 +1,0 @@
----
-title: Gauge
-categories: [transportation]
-tags: [speedometer, tachometer, dashboard]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Chart pie
-categories: [business, charts, money]
-tags: [data, graph, analytics]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Car
-categories: [transportation, maps]
-tags: [auto, drive, driving]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Horizontal line
-categories: [editor, punctuation-symbols]
-tags: [rule]
-created: 1.0.0
-updated: 1.0.0
----

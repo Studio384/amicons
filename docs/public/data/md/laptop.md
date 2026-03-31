@@ -1,7 +1,0 @@
----
-title: Laptop
-categories: [devices]
-tags: [notebook]
-created: 1.0.0
-updated: 1.0.0
----

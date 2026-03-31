@@ -1,7 +1,0 @@
----
-title: Arrow down from cloud
-categories: [arrows, communication]
-tags: [direction, download, cloud-download]
-created: 1.0.0
-updated: 1.0.0
----

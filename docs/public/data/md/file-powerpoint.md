@@ -1,7 +1,0 @@
----
-title: File powerpoint
-categories: [files]
-tags: [ppt, pptx, presentation, slide, office, microsoft]
-created: 1.0.0
-updated: 1.0.0
----

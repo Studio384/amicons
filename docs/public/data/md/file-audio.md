@@ -1,7 +1,0 @@
----
-title: File audio
-categories: [files]
-tags: [music, audio, playlist, song, mp3, wav]
-created: 1.0.0
-updated: 1.0.0
----

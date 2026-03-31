@@ -1,7 +1,0 @@
----
-title: Circle
-categories: [shapes]
-tags: [round]
-created: 1.0.0
-updated: 1.0.0
----

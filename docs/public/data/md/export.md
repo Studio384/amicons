@@ -1,7 +1,0 @@
----
-title: Export
-categories: [arrows, social]
-tags: [share]
-created: 1.0.0
-updated: 1.0.0
----

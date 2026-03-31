@@ -1,7 +1,0 @@
----
-title: Glass
-categories: [food-beverage]
-tags: [food, drink, eat, restaurant]
-created: 1.0.0
-updated: 1.0.0
----

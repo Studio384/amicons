@@ -1,7 +1,0 @@
----
-title: Heart crack
-categories: [health, shapes]
-tags: [love, favorite, heartbreak]
-created: 1.0.0
-updated: 1.0.0
----

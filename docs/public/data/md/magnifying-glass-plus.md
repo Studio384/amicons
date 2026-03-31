@@ -1,7 +1,0 @@
----
-title: Magnifying glass plus
-categories: [maps]
-tags: [search, zoom, zoom-in, zoom-plus]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Battery half
-categories: [energy]
-tags: [battery-3]
-created: 1.0.0
-updated: 1.0.0
----

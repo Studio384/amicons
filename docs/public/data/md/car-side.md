@@ -1,7 +1,0 @@
----
-title: Car side
-categories: [maps, transportation]
-tags: [auto, drive, driving]
-created: 1.0.0
-updated: 1.0.0
----

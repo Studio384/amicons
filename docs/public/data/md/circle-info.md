@@ -1,7 +1,0 @@
----
-title: Circle info
-categories: [accessibility, maps, alerts]
-tags: [information, help]
-created: 1.0.0
-updated: 1.0.0
----

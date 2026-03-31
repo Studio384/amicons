@@ -1,7 +1,0 @@
----
-title: List bar chart
-categories: [editor, charts]
-tags: []
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Image
-categories: [social, files]
-tags: [picture, photo]
-created: 1.0.0
-updated: 1.0.0
----

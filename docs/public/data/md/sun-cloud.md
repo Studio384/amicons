@@ -1,7 +1,0 @@
----
-title: Sun cloud
-categories: [weather]
-tags: [overcast, cloudy]
-created: 1.0.0
-updated: 1.0.0
----

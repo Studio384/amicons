@@ -1,7 +1,0 @@
----
-title: Circle X mark
-categories: [alerts, mathematics]
-tags: [warning, danger]
-created: 1.0.0
-updated: 1.0.0
----

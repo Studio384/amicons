@@ -1,7 +1,0 @@
----
-title: Arrow right to file
-categories: [files, business, arrows]
-tags: [import]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Bel
-categories: [alerts, education, social]
-tags: [notification]
-created: 1.0.0
-updated: 1.0.0
----

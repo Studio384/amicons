@@ -1,7 +1,0 @@
----
-title: Order numerical asc
-categories: [arrows]
-tags: [sort-numeric-up]
-created: 1.0.0
-updated: 1.0.0
----

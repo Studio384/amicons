@@ -1,7 +1,0 @@
----
-title: Record stop
-categories: [media]
-tags: [recorder, video, recording]
-created: 1.0.0
-updated: 1.0.0
----

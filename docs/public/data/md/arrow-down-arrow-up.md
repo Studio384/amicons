@@ -1,7 +1,0 @@
----
-title: Arrow down arrow up
-categories: [arrows]
-tags: [direction, order, sort]
-created: 1.0.0
-updated: 1.0.0
----

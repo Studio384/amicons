@@ -1,7 +1,0 @@
----
-title: Cloud
-categories: [weather, communication]
-tags: []
-created: 1.0.0
-updated: 1.0.0
----

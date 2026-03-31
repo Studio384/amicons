@@ -1,7 +1,0 @@
----
-title: Check
-categories: [alerts, punctuation-symbols]
-tags: [checkmark, confirm, done]
-created: 1.0.0
-updated: 1.0.0
----

@@ -1,7 +1,0 @@
----
-title: Circle check
-categories: [alerts]
-tags: [checkmark, confirm, done]
-created: 1.0.0
-updated: 1.0.0
----

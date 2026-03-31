@@ -1,7 +1,0 @@
----
-title: Arrow up wide short
-categories: [arrows]
-tags: [sort, descending]
-created: 1.0.0
-updated: 1.0.0
----

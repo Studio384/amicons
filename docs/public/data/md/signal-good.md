@@ -1,7 +1,0 @@
----
-title: Signal good
-categories: [connectivity]
-tags: [network]
-created: 1.0.0
-updated: 1.0.0
----
