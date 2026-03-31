@@ -81,7 +81,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Publish to npm
-        run: npm publish studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance
+        run: npm publish amicons/studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance
 
   prerelease:
     name: Prerelease Amicons
@@ -113,4 +113,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Publish to npm (next)
-        run: npm publish studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance --tag next
+        run: npm publish amicons/studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance --tag next
