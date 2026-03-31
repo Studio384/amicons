@@ -3,7 +3,7 @@ name: Release
 on:
   pull_request:
     types: [closed]
-    branches: ["main"]
+    branches: ["main", "next"]
 
 permissions:
   contents: write
@@ -12,7 +12,7 @@ permissions:
 jobs:
   release:
     name: Release Amicons
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,7 +47,7 @@ jobs:
       - name: Create GitHub release
         run: |
           gh release create v${{ steps.version.outputs.version }} \
-            --title "v${{ steps.version.outputs.version }}" \
+            --title "${{ github.event.pull_request.title }}" \
             --notes-file release-notes.md \
             "amicons-${{ steps.version.outputs.version }}-icons.zip#Amicons icons v${{ steps.version.outputs.version }}"
         env:
@@ -55,3 +55,56 @@ jobs:
       - name: Publish to npm
         working-directory: amicons
         run: pnpm publish --no-git-checks --access public --provenance
+
+  prerelease:
+    name: Prerelease Amicons
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'next'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Get version
+        id: version
+        run: echo "version=$(jq -r '.version' amicons/package.json)" >> $GITHUB_OUTPUT
+      - name: Set prerelease metadata
+        id: meta
+        run: |
+          echo "tag=v${{ steps.version.outputs.version }}" >> $GITHUB_OUTPUT
+          echo "label=v${{ steps.version.outputs.version }}" >> $GITHUB_OUTPUT
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: amicons/pnpm-lock.yaml
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        working-directory: amicons
+        run: pnpm install --frozen-lockfile
+      - name: Production build
+        working-directory: amicons
+        run: pnpm prod
+      - name: Package icons
+        working-directory: amicons
+        run: zip -r ../amicons-${{ steps.meta.outputs.label }}-icons.zip icons -i "*.svg"
+
+      - name: Write release notes
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: echo "$BODY" > release-notes.md
+      - name: Create GitHub prerelease
+        run: |
+          gh release create ${{ steps.meta.outputs.tag }} \
+            --title "${{ github.event.pull_request.title }}" \
+            --prerelease \
+            --notes-file release-notes.md \
+            "amicons-${{ steps.meta.outputs.label }}-icons.zip#Amicons icons ${{ steps.meta.outputs.label }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Publish to npm (next)
+        working-directory: amicons
+        run: pnpm publish --no-git-checks --access public --provenance --tag next
