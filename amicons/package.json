@@ -1,6 +1,6 @@
 {
   "name": "@studio384/amicons",
-  "version": "1.0.0-dev.3",
+  "version": "1.0.0-dev.4",
   "description": "The iconography.",
   "keywords": [
     "iconography",
@@ -9,13 +9,13 @@
   ],
   "homepage": "https://studio384.github.io/amicons",
   "bugs": {
-    "url": "https://github.com/studio384/amicons/issues"
+    "url": "https://github.com/Studio384/amicons/issues"
   },
   "license": "AGPL-3.0-or-later",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/studio384/amicons.git"
+    "url": "git+https://github.com/Studio384/amicons.git"
   },
   "files": [
     "/icons",
