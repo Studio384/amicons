@@ -1,22 +1,45 @@
 name: Release
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches: ["main", "next"]
+  workflow_dispatch:
 
 permissions:
   contents: write
   id-token: write
+  pull-requests: read
 
 jobs:
   release:
     name: Release Amicons
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Get PR metadata
+        id: pr
+        run: |
+          PR_NUMBER=$(gh api repos/${{ github.repository }}/commits/${{ github.sha }}/pulls --jq '.[0].number' 2>/dev/null || true)
+          if [ -n "$PR_NUMBER" ]; then
+            TITLE=$(gh pr view "$PR_NUMBER" --json title --jq '.title')
+            BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
+          else
+            TITLE="${{ github.event.head_commit.message }}"
+            BODY="Automated release for commit ${{ github.sha }}."
+          fi
+
+          {
+            echo "title<<EOF"
+            echo "$TITLE"
+            echo "EOF"
+            echo "body<<EOF"
+            echo "$BODY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Get version
         id: version
         run: echo "version=$(jq -r '.version' amicons/package.json)" >> $GITHUB_OUTPUT
@@ -42,12 +65,12 @@ jobs:
 
       - name: Write release notes
         env:
-          BODY: ${{ github.event.pull_request.body }}
+          BODY: ${{ steps.pr.outputs.body }}
         run: echo "$BODY" > release-notes.md
       - name: Create GitHub release
         run: |
           gh release create v${{ steps.version.outputs.version }} \
-            --title "${{ github.event.pull_request.title }}" \
+            --title "${{ steps.pr.outputs.title }}" \
             --notes-file release-notes.md \
             "amicons-${{ steps.version.outputs.version }}-icons.zip#Amicons icons v${{ steps.version.outputs.version }}"
         env:
@@ -58,11 +81,33 @@ jobs:
 
   prerelease:
     name: Prerelease Amicons
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'next'
+    if: github.ref_name == 'next'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Get PR metadata
+        id: pr
+        run: |
+          PR_NUMBER=$(gh api repos/${{ github.repository }}/commits/${{ github.sha }}/pulls --jq '.[0].number' 2>/dev/null || true)
+          if [ -n "$PR_NUMBER" ]; then
+            TITLE=$(gh pr view "$PR_NUMBER" --json title --jq '.title')
+            BODY=$(gh pr view "$PR_NUMBER" --json body --jq '.body')
+          else
+            TITLE="${{ github.event.head_commit.message }}"
+            BODY="Automated prerelease for commit ${{ github.sha }}."
+          fi
+
+          {
+            echo "title<<EOF"
+            echo "$TITLE"
+            echo "EOF"
+            echo "body<<EOF"
+            echo "$BODY"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Get version
         id: version
         run: echo "version=$(jq -r '.version' amicons/package.json)" >> $GITHUB_OUTPUT
@@ -94,12 +139,12 @@ jobs:
 
       - name: Write release notes
         env:
-          BODY: ${{ github.event.pull_request.body }}
+          BODY: ${{ steps.pr.outputs.body }}
         run: echo "$BODY" > release-notes.md
       - name: Create GitHub prerelease
         run: |
           gh release create ${{ steps.meta.outputs.tag }} \
-            --title "${{ github.event.pull_request.title }}" \
+            --title "${{ steps.pr.outputs.title }}" \
             --prerelease \
             --notes-file release-notes.md \
             "amicons-${{ steps.meta.outputs.label }}-icons.zip#Amicons icons ${{ steps.meta.outputs.label }}"
