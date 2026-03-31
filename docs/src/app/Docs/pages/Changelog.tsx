@@ -14,6 +14,7 @@ export default function Changelog() {
           "Rotate now allows you to set any numeric value rather than just `0`, `90`, `180`, or `270`.",
           "Amicons doesn't have any other dependencies anymore.",
           "Major enhancements to our build process and library generation. We now include source maps.",
+          "The build process now includes logic to publish Amicons to GitHub and npm.",
         ]}
         fixed={[
           "Fixes a bug where variables and classes used the wrong prefix.",
@@ -287,9 +288,22 @@ export default function Changelog() {
         name="Amaranth 1.0 alpha 6"
         version="1.0.0-alpha.6"
         date="30 January 2024"
-        newIcons={["align-center", "align-justify", "align-left", "align-right", "amicons", "subscript", "superscript"]}
+        newIcons={[
+          "align-center",
+          "align-justify",
+          "align-left",
+          "align-right",
+          "amicons",
+          "subscript",
+          "superscript",
+        ]}
       />
-      <Release name="Amaranth 1.0 alpha 5" version="1.0.0-alpha.5" date="17 November 2023" newIcons={["circle"]} />
+      <Release
+        name="Amaranth 1.0 alpha 5"
+        version="1.0.0-alpha.5"
+        date="17 November 2023"
+        newIcons={["circle"]}
+      />
       <Release
         name="Amaranth 1.0 alpha 4"
         version="1.0.0-alpha.4"

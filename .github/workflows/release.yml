@@ -8,10 +8,15 @@ on:
 permissions:
   contents: write
   id-token: write
+  pages: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: Build
+    name: Build Amicons package
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     outputs:
@@ -49,11 +54,12 @@ jobs:
         with:
           name: release-artifacts
           path: |
+            amicons/dist
             amicons/studio384-amicons-*.tgz
             amicons-${{ steps.version.outputs.version }}-icons.zip
 
   release:
-    name: Release Amicons
+    name: Release Amicons stable
     needs: build
     if: github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
@@ -83,8 +89,77 @@ jobs:
       - name: Publish to npm
         run: npm publish ./amicons/studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance
 
+  docs_check:
+    name: Docs linting and formatting
+    needs: release
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: docs/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check formatting
+        run: pnpm format
+      - name: Lint
+        run: pnpm lint
+
+  deploy-docs:
+    name: Deploy to GitHub Pages
+    needs: [release, docs_check]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: docs/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
   prerelease:
-    name: Prerelease Amicons
+    name: Prerelease Amicons preview
     needs: build
     if: github.event.pull_request.base.ref == 'next'
     runs-on: ubuntu-latest
