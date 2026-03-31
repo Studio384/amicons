@@ -10,10 +10,12 @@ permissions:
   id-token: write
 
 jobs:
-  release:
-    name: Release Amicons
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+  build:
+    name: Build
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -36,75 +38,77 @@ jobs:
       - name: Production build
         working-directory: amicons
         run: pnpm prod
-      - name: Package icons
+      - name: Pack for npm
         working-directory: amicons
-        run: zip -r ../amicons-${{ steps.version.outputs.version }}-icons.zip icons -i "*.svg"
+        run: pnpm pack
+      - name: Package icons
+        working-directory: amicons/icons
+        run: zip -r ../../amicons-${{ steps.version.outputs.version }}-icons.zip . -i "*.svg"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-artifacts
+          path: |
+            amicons/studio384-amicons-*.tgz
+            amicons-${{ steps.version.outputs.version }}-icons.zip
 
+  release:
+    name: Release Amicons
+    needs: build
+    if: github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          registry-url: "https://registry.npmjs.org"
       - name: Write release notes
         env:
           BODY: ${{ github.event.pull_request.body }}
         run: echo "$BODY" > release-notes.md
       - name: Create GitHub release
         run: |
-          gh release create v${{ steps.version.outputs.version }} \
+          gh release create v${{ needs.build.outputs.version }} \
             --title "${{ github.event.pull_request.title }}" \
             --notes-file release-notes.md \
-            "amicons-${{ steps.version.outputs.version }}-icons.zip#Amicons icons v${{ steps.version.outputs.version }}"
+            "amicons-${{ needs.build.outputs.version }}-icons.zip#Amicons icons v${{ needs.build.outputs.version }}"
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Publish to npm
-        working-directory: amicons
-        run: pnpm publish --no-git-checks --access public --provenance
+        run: npm publish studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance
 
   prerelease:
     name: Prerelease Amicons
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'next'
+    needs: build
+    if: github.event.pull_request.base.ref == 'next'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Get version
-        id: version
-        run: echo "version=$(jq -r '.version' amicons/package.json)" >> $GITHUB_OUTPUT
-      - name: Set prerelease metadata
-        id: meta
-        run: |
-          echo "tag=v${{ steps.version.outputs.version }}" >> $GITHUB_OUTPUT
-          echo "label=v${{ steps.version.outputs.version }}" >> $GITHUB_OUTPUT
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v5
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
         with:
-          version: 10.33.0
+          name: release-artifacts
       - name: Set up Node 24
         uses: actions/setup-node@v6
         with:
           node-version: 24.x
-          cache: "pnpm"
-          cache-dependency-path: amicons/pnpm-lock.yaml
           registry-url: "https://registry.npmjs.org"
-      - name: Install dependencies
-        working-directory: amicons
-        run: pnpm install --frozen-lockfile
-      - name: Production build
-        working-directory: amicons
-        run: pnpm prod
-      - name: Package icons
-        working-directory: amicons
-        run: zip -r ../amicons-${{ steps.meta.outputs.label }}-icons.zip icons -i "*.svg"
-
       - name: Write release notes
         env:
           BODY: ${{ github.event.pull_request.body }}
         run: echo "$BODY" > release-notes.md
       - name: Create GitHub prerelease
         run: |
-          gh release create ${{ steps.meta.outputs.tag }} \
+          gh release create v${{ needs.build.outputs.version }} \
             --title "${{ github.event.pull_request.title }}" \
             --prerelease \
             --notes-file release-notes.md \
-            "amicons-${{ steps.meta.outputs.label }}-icons.zip#Amicons icons ${{ steps.meta.outputs.label }}"
+            "amicons-${{ needs.build.outputs.version }}-icons.zip#Amicons icons v${{ needs.build.outputs.version }}"
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Publish to npm (next)
-        working-directory: amicons
-        run: pnpm publish --no-git-checks --access public --provenance --tag next
+        run: npm publish studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance --tag next
