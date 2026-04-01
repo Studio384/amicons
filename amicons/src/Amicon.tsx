@@ -11,7 +11,7 @@ interface AmiconProps {
   bounce?: boolean;
 }
 
-export default function AmiconIcon({
+export default function Amicon({
   flip = undefined,
   icon,
   rotate = undefined,
