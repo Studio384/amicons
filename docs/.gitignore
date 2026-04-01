@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Repo directories
-/stats
+stats.html

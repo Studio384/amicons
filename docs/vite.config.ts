@@ -15,7 +15,7 @@ export default defineConfig({
     devtools(),
     visualizer({
       title: "Package size",
-      filename: "stats/index.html",
+      filename: "stats.html",
       template: "treemap",
       gzipSize: true,
       brotliSize: true,
