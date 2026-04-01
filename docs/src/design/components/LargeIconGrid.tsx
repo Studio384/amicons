@@ -17,7 +17,7 @@ export function LargeIconGrid({ icon }: { icon: IAmicon }) {
           "border-violet-400 dark:border-violet-700",
         )}
       >
-        <Amicon icon={icon} className="text-[calc(var(--Amicon-scale,16px)*16)] " />
+        <Amicon icon={icon} className="text-[calc(var(--Amicon-scale,16px)*16)]" />
       </div>
     </div>
   );

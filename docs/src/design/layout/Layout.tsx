@@ -7,7 +7,7 @@ import Navbar from "./LayoutElements/Navbar";
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <div className="dark:bg-zinc-900 dark:text-white min-h-screen">
+    <div className="min-h-screen dark:bg-zinc-900 dark:text-white">
       <ScrollToTop />
       <Navbar />
       {children ? children : <Outlet />}

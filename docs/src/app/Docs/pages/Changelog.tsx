@@ -288,22 +288,9 @@ export default function Changelog() {
         name="Amaranth 1.0 alpha 6"
         version="1.0.0-alpha.6"
         date="30 January 2024"
-        newIcons={[
-          "align-center",
-          "align-justify",
-          "align-left",
-          "align-right",
-          "amicons",
-          "subscript",
-          "superscript",
-        ]}
+        newIcons={["align-center", "align-justify", "align-left", "align-right", "amicons", "subscript", "superscript"]}
       />
-      <Release
-        name="Amaranth 1.0 alpha 5"
-        version="1.0.0-alpha.5"
-        date="17 November 2023"
-        newIcons={["circle"]}
-      />
+      <Release name="Amaranth 1.0 alpha 5" version="1.0.0-alpha.5" date="17 November 2023" newIcons={["circle"]} />
       <Release
         name="Amaranth 1.0 alpha 4"
         version="1.0.0-alpha.4"
