@@ -36,16 +36,23 @@
   "scripts": {
     "build": "tsup && node scripts/copy-css.js",
     "build:watch": "tsup --watch",
+    "fix": "oxfmt && oxlint --fix",
+    "format": "oxfmt --check",
+    "format:fix": "oxfmt",
     "icons": "pnpm icons:clean && pnpm icons:ts",
     "icons:clean": "svgo -f ./icons -o ./icons",
     "icons:ts": "svg-to-ts-constants",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pages": "node scripts/generate-pages.js --verbose",
     "lib": "node scripts/generate-library.js",
-    "prod": "pnpm icons && pnpm pages && pnpm lib && pnpm build"
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "pages": "node scripts/generate-pages.js --verbose",
+    "prod": "pnpm icons && pnpm pages && pnpm lib && pnpm build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "@types/react": "^19.0.1",
+    "oxfmt": "^0.43.0",
+    "oxlint": "^1.58.0",
     "picocolors": "1.1.1",
     "react": "^19.0.0",
     "svg-to-ts": "12.0.0",

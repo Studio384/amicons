@@ -18,9 +18,7 @@ const pagesDir = join(__dirname, "../../docs/public/data/icons/");
 const VERBOSE = process.argv.includes("--verbose");
 
 function capitalizeFirstLetter(string) {
-  return (string.charAt(0).toUpperCase() + string.slice(1))
-    .split("-")
-    .join(" ");
+  return (string.charAt(0).toUpperCase() + string.slice(1)).split("-").join(" ");
 }
 
 async function main(file) {
@@ -40,15 +38,11 @@ async function main(file) {
     await fs.access(pageName, fs.F_OK);
 
     if (VERBOSE) {
-      console.log(
-        `☑️ ${picocolors.cyan(iconBasename)}: Already exists, skipping`,
-      );
+      console.log(`☑️ ${picocolors.cyan(iconBasename)}: Already exists, skipping`);
     }
   } catch {
     await fs.writeFile(pageName, pageTemplate);
-    console.log(
-      `✅ ${picocolors.cyan(iconBasename)}: ${picocolors.green("Page created")}`,
-    );
+    console.log(`✅ ${picocolors.cyan(iconBasename)}: ${picocolors.green("Page created")}`);
   }
 }
 
@@ -65,11 +59,7 @@ async function main(file) {
 
     const filesLength = files.length;
 
-    console.log(
-      picocolors.green("\nSuccess, %s page%s created!"),
-      filesLength,
-      filesLength !== 1 ? "s" : "",
-    );
+    console.log(picocolors.green("\nSuccess, %s page%s created!"), filesLength, filesLength !== 1 ? "s" : "");
     console.timeEnd(timeLabel);
   } catch (error) {
     console.error(error);

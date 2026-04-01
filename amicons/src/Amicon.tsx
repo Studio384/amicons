@@ -1,5 +1,6 @@
-import { IAmicon, aiCircleQuestion } from ".";
-import { ComponentPropsWithoutRef } from "react";
+import { type ComponentPropsWithoutRef } from "react";
+
+import { type IAmicon, aiCircleQuestion } from ".";
 
 interface AmiconProps {
   icon?: IAmicon;
@@ -28,9 +29,7 @@ export default function Amicon({
   const isFallback = !icon || !icon.data;
 
   const rotateStyle =
-    rotate !== undefined && rotate !== false
-      ? ({ "--ai-rotate": `${rotate}deg` } as React.CSSProperties)
-      : {};
+    rotate !== undefined && rotate !== false ? ({ "--ai-rotate": `${rotate}deg` } as React.CSSProperties) : {};
 
   const classes = [
     className,
