@@ -20,7 +20,9 @@ export default function Icons() {
   const searchableList = useMemo(() => {
     if (filters.query.categories.length >= 1) {
       return icons.filter((icon) =>
-        filters.query.categories.every((_searchCategory) => icon.categories.includes(_searchCategory as never)),
+        filters.query.categories.every((_searchCategory) =>
+          icon.categories.includes(_searchCategory as never),
+        ),
       );
     }
 
@@ -32,7 +34,7 @@ export default function Icons() {
   return (
     <>
       <Header>
-        <h1 className="font-display py-2 text-5xl font-medium text-black">Icons</h1>
+        <h1 className="font-display py-2 text-5xl font-medium ">Icons</h1>
       </Header>
       <div className="container m-auto my-8 max-w-7xl px-4">
         <div className="grid grid-cols-[220px_auto] gap-4">
@@ -50,20 +52,21 @@ export default function Icons() {
                     data-selected={filters.query.categories.includes(_category.slug) || undefined}
                     data-noicons={categoryIcons.length === 0 ? true : undefined}
                     className={clsx(
-                      "group grid h-8 grid-cols-[min-content_auto_min-content] items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700",
+                      "group grid h-8 grid-cols-[min-content_auto_min-content] items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700 dark:hover:bg-violet-600 ",
                       {
-                        "bg-violet-500 text-white hover:bg-violet-600": filters.query.categories.includes(
-                          _category.slug,
-                        ),
+                        "bg-violet-500 text-white hover:bg-violet-600 dark:bg-violet-800":
+                          filters.query.categories.includes(_category.slug),
                       },
                     )}
                   >
                     <Amicon
                       icon={_category.icon}
-                      className="text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white"
+                      className="text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white dark:group-hover:text-white"
                     />
-                    <span className="truncate group-data-noicons:opacity-50">{_category.title}</span>
-                    <span className="font-display text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white">
+                    <span className="truncate group-data-noicons:opacity-50">
+                      {_category.title}
+                    </span>
+                    <span className="font-display text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white dark:group-hover:text-white">
                       {categoryIcons.length}
                     </span>
                   </button>
@@ -99,10 +102,10 @@ export default function Icons() {
             {(filters.query.search || filters.query.categories.length >= 1) && (
               <div className="flex gap-1">
                 {filters.query.search && (
-                  <div className="font-display flex items-center gap-1 rounded-full bg-zinc-100 py-1 ps-2.5 pe-1 text-sm">
+                  <div className="font-display flex items-center gap-1 rounded-full bg-zinc-100 dark:bg-zinc-950 py-1 ps-2.5 pe-1 text-sm">
                     "{filters.query.search}"
                     <button
-                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300"
+                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300  dark:hover:bg-zinc-800"
                       onClick={() => filters.setSearch("")}
                     >
                       <Amicon icon={aiXmark} /> <span className="sr-only">Delete category</span>
@@ -112,11 +115,11 @@ export default function Icons() {
                 {filters.query.categories.map((category) => (
                   <div
                     key={category}
-                    className="font-display flex items-center gap-1 rounded-full bg-zinc-100 py-1 ps-2.5 pe-1 text-sm"
+                    className="font-display flex items-center gap-1 rounded-full bg-zinc-100 dark:bg-zinc-950 py-1 ps-2.5 pe-1 text-sm"
                   >
                     {category}
                     <button
-                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300"
+                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300  dark:hover:bg-zinc-800"
                       onClick={() => filters.toggleCategory(category)}
                     >
                       <Amicon icon={aiXmark} /> <span className="sr-only">Delete category</span>
@@ -126,9 +129,11 @@ export default function Icons() {
               </div>
             )}
             <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
-              {result.slice((filters.query.page - 1) * 96, filters.query.page * 96).map((icon: ILibraryIcon) => (
-                <IconCard key={icon.slug} icon={icon} />
-              ))}
+              {result
+                .slice((filters.query.page - 1) * 96, filters.query.page * 96)
+                .map((icon: ILibraryIcon) => (
+                  <IconCard key={icon.slug} icon={icon} />
+                ))}
             </div>
 
             {result.length > 0 && (

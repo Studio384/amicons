@@ -19,9 +19,13 @@ const buttonVariants = cva({
   ],
   variants: {
     variant: {
-      primary: "hover:border-violet-950/20 hover:bg-violet-600 hover:text-white focus-visible:outline-violet-600/50",
-      secondary:
-        "hover:border-zinc-800/5 hover:bg-zinc-800/10 focus-visible:outline-violet-600/50  data-popup-open:border-zinc-800/5 data-popup-open:bg-zinc-800/10  hover:backdrop-blur-xl data-popup-open:backdrop-blur-xl",
+      primary:
+        "hover:border-violet-950/20 hover:bg-violet-600 hover:text-white focus-visible:outline-violet-600/50",
+      secondary: [
+        "hover:backdrop-blur-xl data-popup-open:backdrop-blur-xl",
+        "hover:border-zinc-800/5 hover:bg-zinc-800/10 focus-visible:outline-violet-600/50  data-popup-open:border-zinc-800/5 data-popup-open:bg-zinc-800/10  ",
+        "dark:hover:border-zinc-50/5 dark:hover:bg-zinc-50/10 dark:focus-visible:outline-violet-600/50  dark:data-popup-open:border-zinc-200/5 dark:data-popup-open:bg-zinc-200/10  ",
+      ],
       danger:
         "text-red-600 hover:border-red-950/30 hover:bg-red-700 hover:text-white focus-visible:outline-red-600/50 ",
       success:
@@ -36,7 +40,8 @@ const buttonVariants = cva({
       true: "shrink-0 p-0",
     },
     plain: {
-      false: "border-zinc-950/10 disabled:border-zinc-950/5 disabled:bg-zinc-50",
+      false:
+        "border-zinc-950/10 disabled:border-zinc-950/5 disabled:bg-zinc-50 dark:disabled:bg-zinc-900 dark:disabled:border-zinc-50/5",
       true: "border-transparent",
     },
   },
@@ -49,17 +54,17 @@ const buttonVariants = cva({
     {
       variant: "secondary",
       plain: false,
-      className: "bg-zinc-50 focus-visible:border-violet-600",
+      className: "bg-zinc-50 dark:bg-zinc-800 focus-visible:border-violet-600",
     },
     {
       variant: "danger",
       plain: false,
-      className: "bg-zinc-50 focus-visible:border-red-700",
+      className: "bg-zinc-50 dark:bg-zinc-800 focus-visible:border-red-700",
     },
     {
       variant: "success",
       plain: false,
-      className: "bg-zinc-50 focus-visible:border-green-600",
+      className: "bg-zinc-50 dark:bg-zinc-800 focus-visible:border-green-600",
     },
     {
       icon: true,

@@ -54,10 +54,13 @@ export default function Release({
   removedIcons,
 }: ReleaseProps) {
   const newList = useMemo(() => icons.filter((icon) => newIcons?.includes(icon.slug)), [newIcons]);
-  const updateList = useMemo(() => icons.filter((icon) => updatedIcons?.includes(icon.slug)), [updatedIcons]);
+  const updateList = useMemo(
+    () => icons.filter((icon) => updatedIcons?.includes(icon.slug)),
+    [updatedIcons],
+  );
 
   return (
-    <div className="flex flex-col gap-6 rounded-lg border border-zinc-200 bg-white p-6 shadow-md shadow-zinc-100">
+    <div className="flex flex-col gap-6 rounded-lg border border-zinc-200 bg-white p-6 shadow-md shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950">
       <div className="align-center flex flex-row gap-4">
         <div className="flex size-12 items-center justify-center rounded-sm border border-violet-600 bg-violet-500 text-2xl text-white">
           <Amicon icon={aiAmicons} />
@@ -76,7 +79,9 @@ export default function Release({
       {docs && <ChangeSection title="Documentation" icon={aiBook} items={docs} />}
       {newIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">New icons &middot; {newIcons?.length}</h3>
+          <h3 className="font-display text-2xl/6 font-medium">
+            New icons &middot; {newIcons?.length}
+          </h3>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
             {newList.map((icon: ILibraryIcon) => (
               <IconCard key={icon.slug} icon={icon} />
@@ -86,7 +91,9 @@ export default function Release({
       )}
       {updatedIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">Updated icons &middot; {updatedIcons?.length}</h3>
+          <h3 className="font-display text-2xl/6 font-medium">
+            Updated icons &middot; {updatedIcons?.length}
+          </h3>
           <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
             {updateList.map((icon: ILibraryIcon) => (
               <IconCard key={icon.slug} icon={icon} />
@@ -96,12 +103,17 @@ export default function Release({
       )}
       {renamedIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">Renamed icons &middot; {renamedIcons?.length}</h3>
+          <h3 className="font-display text-2xl/6 font-medium">
+            Renamed icons &middot; {renamedIcons?.length}
+          </h3>
           <ul className="list-disc ps-6">
             {renamedIcons.map((icon: { new: string; old: string }) => (
               <li key={icon.new} className="not-first:mt-1.5">
                 <Code>{icon.old}</Code>{" "}
-                <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: "relative", top: 2 }} />{" "}
+                <Amicon
+                  icon={aiArrowRight}
+                  style={{ marginInline: 8, position: "relative", top: 2 }}
+                />{" "}
                 <Code>{icon.new}</Code>
               </li>
             ))}
@@ -110,7 +122,9 @@ export default function Release({
       )}
       {removedIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">Removed icons &middot; {removedIcons?.length}</h3>
+          <h3 className="font-display text-2xl/6 font-medium">
+            Removed icons &middot; {removedIcons?.length}
+          </h3>
           <ul className="list-disc ps-6">
             {removedIcons.map((icon: string) => (
               <li key={icon} className="not-first:mt-1.5">

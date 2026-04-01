@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <>
       <div className="sticky top-0 z-50 container m-auto max-w-7xl px-4 py-4">
-        <NavigationMenu.Root className="grid h-15 grid-cols-[repeat(3,auto)] items-center justify-between rounded-lg border border-violet-400/90 bg-violet-400/90 px-3.5 backdrop-blur-sm backdrop-saturate-200 md:grid-cols-3">
+        <NavigationMenu.Root className="grid h-15 grid-cols-[repeat(3,auto)] items-center justify-between rounded-lg border border-violet-400/90 bg-violet-400/90 px-3.5 backdrop-blur-sm backdrop-saturate-200 md:grid-cols-3 dark:border-violet-900/90 dark:bg-violet-900/90">
           <NavigationMenu.List className="flex justify-start gap-1">
             <NavigationMenu.Item>
               <NavLink

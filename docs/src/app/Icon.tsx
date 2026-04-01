@@ -42,7 +42,10 @@ export default function Icon() {
     return icons;
   }, [firstCategory]);
 
-  const viIcon: ILibraryIcon = useMemo(() => icons.find((icon) => icon.component === reactImport)!, [reactImport]);
+  const viIcon: ILibraryIcon = useMemo(
+    () => icons.find((icon) => icon.component === reactImport)!,
+    [reactImport],
+  );
 
   return (
     <>
@@ -68,7 +71,7 @@ export default function Icon() {
                 {icon?.tags?.map((tag) => (
                   <div
                     key={tag}
-                    className="font-display flex items-center gap-1 rounded-full bg-zinc-50 px-2.5 py-1 text-xs"
+                    className="font-display flex items-center gap-1 rounded-full bg-zinc-50 dark:bg-zinc-900 border border-zinc-50 dark:border-white/10 px-2.5 py-1 text-xs"
                   >
                     {tag}
                   </div>
@@ -117,7 +120,7 @@ export default function Icon() {
                   <p className="text-base/5">Bounce</p>
                 </div>
               </div>
-              <div className="order-2 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100">
+              <div className="order-2 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 dark:border-violet-900 dark:bg-zinc-800">
                 <div className="flex flex-row flex-nowrap items-center gap-4 text-violet-600">
                   <Amicon icon={viIcon?.icon} className="text-4xl" />
                   <span className="text-4xl text-nowrap">{icon?.title}</span>
@@ -135,34 +138,37 @@ export default function Icon() {
                   </div>
                 </div>
               </div>
-              <div className="order-4 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 p-4 md:order-2 lg:order-4">
-                <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-violet-600">
+              <div className="order-4 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 dark:border-violet-900 dark:bg-zinc-800 p-4 md:order-2 lg:order-4">
+                <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 dark:border-zinc-700 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-violet-600">
                   <Amicon icon={viIcon?.icon} className="ms-2.5" />
-                  <Input className="h-9 w-full px-2 text-base outline-0" placeholder={icon?.title} />
+                  <Input
+                    className="h-9 w-full px-2 text-base outline-0"
+                    placeholder={icon?.title}
+                  />
                 </div>
               </div>
-              <div className="order-6 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 sm:order-10 lg:order-5">
+              <div className="order-6 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 dark:border-violet-900 dark:bg-zinc-800 sm:order-10 lg:order-5">
                 <div className="flex size-12 items-center justify-center rounded-full border border-violet-600 bg-violet-500 text-xl text-white">
                   <Amicon icon={viIcon?.icon} />
                 </div>
               </div>
-              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-violet-100 text-violet-800 sm:col-span-3 md:col-span-2 lg:col-span-3">
+              <div className="order-7 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-violet-100 dark:border-violet-900 dark:bg-violet-950 text-violet-800 dark:text-white sm:col-span-3 md:col-span-2 lg:col-span-3">
                 <div className="flex flex-row gap-20">
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={90} className="text-4xl" />
-                    <p className="text-base/5 text-violet-800">90°</p>
+                    <p className="text-base/5">90°</p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={180} className="text-4xl" />
-                    <p className="text-base/5 text-violet-800">180°</p>
+                    <p className="text-base/5">180°</p>
                   </div>
                   <div className="flex flex-col items-center justify-center gap-2">
                     <Amicon icon={viIcon?.icon} rotate={270} className="text-4xl" />
-                    <p className="text-base/5 text-violet-800">270°</p>
+                    <p className="text-base/5">270°</p>
                   </div>
                 </div>
               </div>
-              <div className="order-8 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100">
+              <div className="order-8 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 dark:border-violet-900 dark:bg-zinc-800">
                 <div className="flex size-12 items-center justify-center rounded-lg border border-violet-300 bg-violet-200 text-xl text-violet-600">
                   <Amicon icon={viIcon?.icon} />
                 </div>
@@ -189,12 +195,12 @@ export default function Icon() {
                   </div>
                 </div>
               </div>
-              <div className="order-1 flex items-center justify-center rounded-lg border border-violet-300 bg-violet-100 text-violet-800 sm:order-11">
+              <div className="order-1 flex items-center justify-center rounded-lg border border-violet-300 bg-violet-100 dark:border-violet-900 dark:bg-violet-950 text-violet-800 sm:order-11">
                 <Button>
                   <Amicon icon={viIcon?.icon} /> Button
                 </Button>
               </div>
-              <div className="order-12 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100">
+              <div className="order-12 col-span-2 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 dark:border-violet-900 dark:bg-zinc-800">
                 <div className="flex flex-row items-center gap-3 rounded-md border border-violet-300 bg-violet-200 p-3 text-violet-500">
                   <Amicon icon={viIcon?.icon} />
                   <span className="text-sm font-medium">Hi! We're demoing you an icon.</span>

@@ -80,7 +80,9 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [iconProperties]);
 
   // CSS Variables
-  const [playgroundCssVariable, setPlaygroundCssVariable] = useState<{ [cssVar: string]: string }>({});
+  const [playgroundCssVariable, setPlaygroundCssVariable] = useState<{ [cssVar: string]: string }>(
+    {},
+  );
 
   const iconVariables: { [index: string]: string | number | boolean } = useMemo(() => {
     const props: { [index: string]: string | number | boolean } = {};
@@ -114,7 +116,7 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [config.cssVariables, iconVariables]);
 
   return (
-    <div className="grid grid-cols-[auto_280px] rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100">
+    <div className="grid grid-cols-[auto_280px] rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950">
       <div className="flex flex-col p-4">
         <div className="flex grow items-center justify-center text-4xl">
           <Amicon icon={icon} {...iconProperties} style={playgroundCssVariable} />
@@ -129,8 +131,8 @@ export default function Playground({ config }: IPlaygroundProps) {
   }
 />`}</Codeblock>
       </div>
-      <div className="border-s border-zinc-200">
-        <div className="flex flex-row items-center justify-between border-b border-zinc-200 p-4">
+      <div className="border-s border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-row items-center justify-between border-b border-zinc-200 dark:border-zinc-800 p-4">
           <span className="font-display text-md font-semibold">Playground</span>
           <button
             onClick={() => {
@@ -150,13 +152,13 @@ export default function Playground({ config }: IPlaygroundProps) {
             <ToggleGroup
               value={playgroundIcon}
               onValueChange={setPlaygroundIcon}
-              className="flex gap-0.5 rounded-md border border-zinc-200 bg-zinc-50 p-0.5"
+              className="flex gap-0.5 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 p-0.5 dark:bg-zinc-900"
             >
               {config.icons.map((icon) => (
                 <Toggle
                   key={icon.name}
                   value={icon.name}
-                  className="flex size-8 items-center justify-center rounded-sm select-none hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white data-pressed:bg-violet-500 data-pressed:text-white"
+                  className="flex size-8 items-center justify-center rounded-sm select-none hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white data-pressed:bg-violet-500 data-pressed:text-white dark:hover:bg-violet-900"
                 >
                   <Amicon icon={icon} />
                 </Toggle>
@@ -168,7 +170,10 @@ export default function Playground({ config }: IPlaygroundProps) {
             switch (property.type) {
               case "chip": {
                 return (
-                  <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={property.type}>
+                  <Field.Root
+                    className="flex w-full max-w-64 flex-col items-start gap-1"
+                    key={property.type}
+                  >
                     <Field.Label className="text-sm font-medium">{property.label}</Field.Label>
 
                     <div className="flex flex-row flex-wrap gap-1">
@@ -182,7 +187,7 @@ export default function Playground({ config }: IPlaygroundProps) {
                             }))
                           }
                           className={clsx(
-                            "flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-violet-300 hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-violet-600 active:text-white",
+                            "flex rounded-full border border-zinc-200 dark:border-zinc-800 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-violet-300 hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-violet-800 active:bg-violet-600 active:text-white dark:hover:border-violet-900 dark:hover:bg-violet-950",
                             {
                               "border-violet-600! bg-violet-500 text-white hover:bg-violet-500":
                                 iconProperties?.[property.name] === value,
@@ -200,13 +205,18 @@ export default function Playground({ config }: IPlaygroundProps) {
           })}
 
           {config.cssVariables?.map((variable) => (
-            <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={variable.name}>
+            <Field.Root
+              className="flex w-full max-w-64 flex-col items-start gap-1"
+              key={variable.name}
+            >
               <Field.Label className="text-sm font-medium">{variable.name}</Field.Label>
               <Field.Control
                 required
                 placeholder={variable.default.toString()}
-                onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
-                className="h-9 w-full rounded-md border border-zinc-200 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-violet-600"
+                onChange={(e) =>
+                  setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))
+                }
+                className="h-9 w-full rounded-md border border-zinc-200 dark:border-zinc-800 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-violet-600"
               />
             </Field.Root>
           ))}

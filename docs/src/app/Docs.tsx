@@ -8,7 +8,7 @@ export default function Docs() {
   return (
     <>
       <Header>
-        <h1 className="font-display py-2 text-5xl font-medium text-black">Documentation</h1>
+        <h1 className="font-display py-2 text-5xl font-medium">Documentation</h1>
       </Header>
       <div className="container m-auto my-8 max-w-7xl px-4">
         <div className="grid grid-cols-[220px_auto] gap-4">
