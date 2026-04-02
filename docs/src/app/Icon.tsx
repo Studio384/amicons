@@ -6,17 +6,18 @@ import Amicon, { aiArrowLeft, aiXmark } from "@studio384/amicons";
 
 import icons from "@/data/icons";
 import { Button } from "@/design/components/Button";
-import Codeblock from "@/design/components/Codeblock";
 import { IconCard } from "@/design/components/IconCard";
 import { LargeIconGrid } from "@/design/components/LargeIconGrid";
 import Header from "@/design/layout/LayoutElements/Header";
 import { type IIcon, type ILibraryIcon } from "@/types";
+import { codeToHtml } from "shiki";
 
 export default function Icon() {
   const navigate = useNavigate();
   const { slug } = useParams();
 
   const [icon, setIcon] = useState<IIcon | null>(null);
+  const [html, setHtml] = useState<string>("");
   const firstCategory = icon?.categories?.[0];
 
   useEffect(() => {
@@ -42,7 +43,23 @@ export default function Icon() {
     return icons;
   }, [firstCategory]);
 
-  const viIcon: ILibraryIcon = useMemo(() => icons.find((icon) => icon.component === reactImport)!, [reactImport]);
+  const viIcon: ILibraryIcon = useMemo(
+    () => icons.find((icon) => icon.component === reactImport)!,
+    [reactImport],
+  );
+
+  const importCode = `import Amicon, { ${reactImport} } from "@studio384/amicons";
+
+return (
+  <Amicon icon={${reactImport}} />
+);`;
+
+  useEffect(() => {
+    codeToHtml(importCode, {
+      lang: "javascript",
+      theme: "dark-plus",
+    }).then((result) => setHtml(result));
+  }, [importCode]);
 
   return (
     <>
@@ -102,11 +119,7 @@ export default function Icon() {
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Usage</h3>
-            <Codeblock>
-              {`import Amicon, { ${reactImport} } from "@studio384/amicons";
-
-<Amicon icon={${reactImport}} />`}
-            </Codeblock>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Examples</h3>
@@ -138,7 +151,10 @@ export default function Icon() {
               <div className="order-4 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 p-4 md:order-2 lg:order-4 dark:border-violet-900 dark:bg-zinc-800">
                 <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-violet-600 dark:border-zinc-700">
                   <Amicon icon={viIcon?.icon} className="ms-2.5" />
-                  <Input className="h-9 w-full px-2 text-base outline-0" placeholder={icon?.title} />
+                  <Input
+                    className="h-9 w-full px-2 text-base outline-0"
+                    placeholder={icon?.title}
+                  />
                 </div>
               </div>
               <div className="order-6 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 sm:order-10 lg:order-5 dark:border-violet-900 dark:bg-zinc-800">

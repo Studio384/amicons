@@ -1,10 +1,11 @@
-import { type ReactNode, useMemo, useState } from "react";
+import { type ReactNode, useEffect, useMemo, useState } from "react";
 
 import { Field, Toggle, ToggleGroup } from "@base-ui/react";
 import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
 import clsx from "clsx";
 
 import Codeblock from "@/design/components/Codeblock";
+import { codeToHtml } from "shiki";
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -32,6 +33,7 @@ interface IPlaygroundProps {
 
 export default function Playground({ config }: IPlaygroundProps) {
   const [playgroundIcon, setPlaygroundIcon] = useState<string[]>([config.icons[0].name]);
+  const [html, setHtml] = useState<string>("");
 
   // Get the icon name
   function getIconName(icon: string): string {
@@ -80,7 +82,9 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [iconProperties]);
 
   // CSS Variables
-  const [playgroundCssVariable, setPlaygroundCssVariable] = useState<{ [cssVar: string]: string }>({});
+  const [playgroundCssVariable, setPlaygroundCssVariable] = useState<{ [cssVar: string]: string }>(
+    {},
+  );
 
   const iconVariables: { [index: string]: string | number | boolean } = useMemo(() => {
     const props: { [index: string]: string | number | boolean } = {};
@@ -103,23 +107,17 @@ export default function Playground({ config }: IPlaygroundProps) {
 
       hasProperty = true;
 
-      if (typeof iconVariables[varName] === "number") {
-        exampleString += `\n    ${varName}: ${iconVariables[varName]},`;
+      if (typeof iconVariables[varName] === "number" || !isNaN(Number(iconVariables[varName]))) {
+        exampleString += `\n    "${varName}": ${iconVariables[varName]},`;
       } else if (typeof iconVariables[varName] === "string") {
-        exampleString += `\n    ${varName}: "${iconVariables[varName]}",`;
+        exampleString += `\n    "${varName}": "${iconVariables[varName]}",`;
       }
     });
 
     return hasProperty ? exampleString : "";
   }, [config.cssVariables, iconVariables]);
 
-  return (
-    <div className="grid grid-cols-[auto_280px] rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950">
-      <div className="flex flex-col p-4">
-        <div className="flex grow items-center justify-center text-4xl">
-          <Amicon icon={icon} {...iconProperties} style={playgroundCssVariable} />
-        </div>
-        <Codeblock>{`<Amicon
+  const importCode = `<Amicon
   icon={${iconName}}${propertyParser}${
     variableParser !== ""
       ? `
@@ -127,7 +125,22 @@ export default function Playground({ config }: IPlaygroundProps) {
   }}`
       : ""
   }
-/>`}</Codeblock>
+/>`;
+
+  useEffect(() => {
+    codeToHtml(importCode, {
+      lang: "javascript",
+      theme: "dark-plus",
+    }).then((result) => setHtml(result));
+  }, [importCode]);
+
+  return (
+    <div className="grid grid-cols-[auto_280px] rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950">
+      <div className="flex flex-col p-4">
+        <div className="flex grow items-center justify-center text-4xl">
+          <Amicon icon={icon} {...iconProperties} style={playgroundCssVariable} />
+        </div>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       <div className="border-s border-zinc-200 dark:border-zinc-800">
         <div className="flex flex-row items-center justify-between border-b border-zinc-200 p-4 dark:border-zinc-800">
@@ -168,7 +181,10 @@ export default function Playground({ config }: IPlaygroundProps) {
             switch (property.type) {
               case "chip": {
                 return (
-                  <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={property.type}>
+                  <Field.Root
+                    className="flex w-full max-w-64 flex-col items-start gap-1"
+                    key={property.type}
+                  >
                     <Field.Label className="text-sm font-medium">{property.label}</Field.Label>
 
                     <div className="flex flex-row flex-wrap gap-1">
@@ -200,12 +216,17 @@ export default function Playground({ config }: IPlaygroundProps) {
           })}
 
           {config.cssVariables?.map((variable) => (
-            <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={variable.name}>
+            <Field.Root
+              className="flex w-full max-w-64 flex-col items-start gap-1"
+              key={variable.name}
+            >
               <Field.Label className="text-sm font-medium">{variable.name}</Field.Label>
               <Field.Control
                 required
                 placeholder={variable.default.toString()}
-                onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
+                onChange={(e) =>
+                  setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))
+                }
                 className="h-9 w-full rounded-md border border-zinc-200 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-violet-600 dark:border-zinc-800"
               />
             </Field.Root>
