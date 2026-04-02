@@ -7,7 +7,7 @@ export default function Changelog() {
         name="Amicons 1.0 alpha 12"
         version="1.0.0-alpha.12"
         date="March 2026"
-        newIcons={["book-bookmarked"]}
+        newIcons={["book-bookmark"]}
         updatedIcons={[
           "book",
           "bug",
@@ -39,6 +39,7 @@ export default function Changelog() {
           "Various categories have been updated and categories have been regrouped to make more sense.",
           "Major improvements to our documentation, including simpeler changelog markup.",
           "Fixes the bounce documentation not showing up in the documentation.",
+          "Codeblocks in our documentation now have syntax highlighting.",
         ]}
       />
       <Release
