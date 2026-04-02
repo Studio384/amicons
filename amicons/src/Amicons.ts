@@ -608,6 +608,13 @@ export const aiBolt: {
   name: 'bolt',
   data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M11.647.113a.75.75 0 0 1 .32.858L10.265 6.5h2.985a.75.75 0 0 1 .514 1.296l-8.5 8a.75.75 0 0 1-1.23-.767l1.7-5.529H2.75a.75.75 0 0 1-.514-1.296l8.5-8a.75.75 0 0 1 .91-.09M4.64 8h2.11a.75.75 0 0 1 .717.97L6.3 12.76 11.359 8H9.25a.75.75 0 0 1-.717-.97L9.7 3.24z"/></svg>`,
 };
+export const aiBookBookmark: {
+  name: 'book_bookmark';
+  data: string;
+} = {
+  name: 'book_bookmark',
+  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M8.75 12.5a.25.25 0 0 1 .25.25v2.846a.25.25 0 0 1-.361.223l-1.528-.763a.25.25 0 0 0-.222 0l-1.528.763A.25.25 0 0 1 5 15.596V12.75a.25.25 0 0 1 .25-.25zm1.5-9.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5z"/><path d="M12.25 0C13.216 0 14 .784 14 1.75v7.5a1.75 1.75 0 0 1-1.25 1.676V12.5h.5a.75.75 0 0 1 0 1.5H10v-1.5h1.25V11h-7A.747.747 0 0 0 4 12.454v1.53a2.25 2.25 0 0 1-2-2.234v-9.5A2.25 2.25 0 0 1 4.25 0zm-8 1.5a.75.75 0 0 0-.75.75v7.38c.235-.082.487-.13.75-.13h8a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25z"/></svg>`,
+};
 export const aiBookOpen: {
   name: 'book_open';
   data: string;
@@ -620,7 +627,7 @@ export const aiBook: {
   data: string;
 } = {
   name: 'book',
-  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M5.75 3a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5z"/><path d="M3.75 0A1.75 1.75 0 0 0 2 1.75v12A2.25 2.25 0 0 0 4.25 16h9a.75.75 0 0 0 0-1.5H12V13h.25A1.75 1.75 0 0 0 14 11.25v-9.5A1.75 1.75 0 0 0 12.25 0zM3.5 1.75a.25.25 0 0 1 .25-.25h8.5a.25.25 0 0 1 .25.25v9.5a.25.25 0 0 1-.25.25h-8q-.396.002-.75.128zm.75 12.75a.75.75 0 0 1 0-1.5h6.25v1.5z"/></svg>`,
+  data: `<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ai" viewBox="0 0 16 16"><path d="M10.25 3a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5z"/><path d="M12.25 0C13.216 0 14 .784 14 1.75v9.5a1.75 1.75 0 0 1-1.25 1.676V14.5h.5a.75.75 0 0 1 0 1.5h-9A2.25 2.25 0 0 1 2 13.75V2.25A2.25 2.25 0 0 1 4.25 0zm-8 13a.75.75 0 0 0 0 1.5h7V13zm0-11.5a.75.75 0 0 0-.75.75v9.38a2.2 2.2 0 0 1 .75-.13h8a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25z"/></svg>`,
 };
 export const aiBoxOpenFull: {
   name: 'box_open_full';
@@ -3664,6 +3671,7 @@ export type Amicons =
   | 'bluesky'
   | 'bold'
   | 'bolt'
+  | 'book_bookmark'
   | 'book_open'
   | 'book'
   | 'box_open_full'
@@ -4182,6 +4190,7 @@ export const amiconSet = [
   aiBluesky,
   aiBold,
   aiBolt,
+  aiBookBookmark,
   aiBookOpen,
   aiBook,
   aiBoxOpenFull,
