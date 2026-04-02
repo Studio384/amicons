@@ -9,12 +9,14 @@ export default function Changelog() {
         date="March 2026"
         newIcons={["book-bookmarked"]}
         updatedIcons={[
-          "visual-studio",
+          "book",
+          "bug",
+          "compress",
+          "expand",
           "facebook-messenger",
           "github",
           "google-play",
-          "book",
-          "bug",
+          "visual-studio",
         ]}
         added={[
           "When the `Amicon` component isn't passed an icon, or the icon isn't valid, it will now show the `aiCircleQuestion` icon. The `fade` property will be enabled to draw attention to it.",
