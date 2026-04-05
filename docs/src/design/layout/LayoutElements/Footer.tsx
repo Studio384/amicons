@@ -1,6 +1,6 @@
 import { NavLink } from "react-router";
 
-import Amicon, { aiBluesky, aiGithub, aiHeart, aiStudio384, aiTwitter } from "@studio384/amicons";
+import Amicon, { aiBluesky, aiGithub, aiHeart, aiPatreon, aiTwitter } from "@studio384/amicons";
 
 import pkg from "../../../../../amicons/package.json";
 
@@ -58,16 +58,16 @@ export default function Footer() {
                 <Amicon icon={aiGithub} /> GitHub
               </a>
               <a
+                href="https://patreon.com/Amicons"
+                className="flex h-8 items-center gap-2 rounded-sm px-2.5 text-sm hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-violet-800"
+              >
+                <Amicon icon={aiPatreon} /> Patreon
+              </a>
+              <a
                 href="https://bsky.app/profile/studio384.be"
                 className="flex h-8 items-center gap-2 rounded-sm px-2.5 text-sm hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-violet-800"
               >
                 <Amicon icon={aiBluesky} /> Bluesky
-              </a>
-              <a
-                href="https://studio384.be"
-                className="flex h-8 items-center gap-2 rounded-sm px-2.5 text-sm hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 dark:hover:bg-violet-800"
-              >
-                <Amicon icon={aiStudio384} /> Studio 384
               </a>
               <a
                 href="https://twitter.com/studio384"
@@ -83,8 +83,7 @@ export default function Footer() {
             href="https://studio384.be"
             className="font-dev text-2xl font-semibold hover:underline hover:decoration-[#78b500] hover:decoration-1 hover:underline-offset-1"
           >
-            Studio{" "}
-            <span className="bg-linear-to-r from-[#78b500] to-[#00b573] bg-clip-text text-transparent">384</span>{" "}
+            Studio <span className="bg-linear-to-r from-[#78b500] to-[#00b573] bg-clip-text text-transparent">384</span>
           </a>
           <p className="text-sm">&copy; 2021-2026</p>
         </div>

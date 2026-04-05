@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router";
 
 import { NavigationMenu } from "@base-ui/react";
-import Amicon, { aiBluesky, aiGithub, aiStudio384 } from "@studio384/amicons";
+import Amicon, { aiBluesky, aiGithub, aiPatreon } from "@studio384/amicons";
 import clsx from "clsx";
 
 import pkg from "../../../../../amicons/package.json";
@@ -75,12 +75,12 @@ export default function Navbar() {
           <NavigationMenu.List className="flex justify-end gap-1">
             <NavigationMenu.Item>
               <a
-                href="https://studio384.be"
+                href="https://www.patreon.com/cw/Amicons"
                 target="_blank"
                 rel="noreferrer"
                 className="flex size-8 items-center justify-center rounded-sm text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500"
               >
-                <Amicon icon={aiStudio384} /> <span className="sr-only">Studio 384</span>
+                <Amicon icon={aiPatreon} /> <span className="sr-only">Support us on Patreon</span>
               </a>
             </NavigationMenu.Item>
             <NavigationMenu.Item>
