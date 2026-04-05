@@ -31,10 +31,7 @@ pre {
     font-weight: var(--font-weight-medium);
     font-family: var(--font-display);
     margin-bottom: 0.25rem;
-
-    &:not(:first-child) {
-      margin-top: 1rem;
-    }
+    margin-top: 1rem;
   }
 
   h3 {
@@ -42,10 +39,15 @@ pre {
     font-weight: var(--font-weight-medium);
     font-family: var(--font-display);
     margin-bottom: 0.25rem;
+    margin-top: 0.75rem;
+  }
 
-    &:not(:first-child) {
-      margin-top: 0.75rem;
-    }
+  :is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0;
   }
 
   figure {
