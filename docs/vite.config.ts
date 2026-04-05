@@ -1,8 +1,10 @@
+import mdx from "@mdx-js/rollup";
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import react from "@vitejs/plugin-react-swc";
 import ReactCompiler from "babel-plugin-react-compiler";
 import * as path from "path";
+import rehypePrettyCode from "rehype-pretty-code";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 
@@ -10,6 +12,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   plugins: [
     [ReactCompiler],
+    mdx({
+      rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
+    }),
     tailwindcss(),
     react(),
     devtools(),

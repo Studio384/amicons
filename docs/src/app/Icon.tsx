@@ -3,6 +3,7 @@ import { createSearchParams, NavLink, useNavigate, useParams } from "react-route
 
 import { Input } from "@base-ui/react";
 import Amicon, { aiArrowLeft, aiXmark } from "@studio384/amicons";
+import { codeToHtml } from "shiki";
 
 import icons from "@/data/icons";
 import { Button } from "@/design/components/Button";
@@ -10,7 +11,6 @@ import { IconCard } from "@/design/components/IconCard";
 import { LargeIconGrid } from "@/design/components/LargeIconGrid";
 import Header from "@/design/layout/LayoutElements/Header";
 import { type IIcon, type ILibraryIcon } from "@/types";
-import { codeToHtml } from "shiki";
 
 export default function Icon() {
   const navigate = useNavigate();
@@ -43,10 +43,7 @@ export default function Icon() {
     return icons;
   }, [firstCategory]);
 
-  const viIcon: ILibraryIcon = useMemo(
-    () => icons.find((icon) => icon.component === reactImport)!,
-    [reactImport],
-  );
+  const viIcon: ILibraryIcon = useMemo(() => icons.find((icon) => icon.component === reactImport)!, [reactImport]);
 
   const importCode = `import Amicon, { ${reactImport} } from "@studio384/amicons";
 
@@ -151,10 +148,7 @@ return (
               <div className="order-4 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 p-4 md:order-2 lg:order-4 dark:border-violet-900 dark:bg-zinc-800">
                 <div className="flex h-9 w-56 flex-row items-center justify-center rounded-md border border-zinc-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-violet-600 dark:border-zinc-700">
                   <Amicon icon={viIcon?.icon} className="ms-2.5" />
-                  <Input
-                    className="h-9 w-full px-2 text-base outline-0"
-                    placeholder={icon?.title}
-                  />
+                  <Input className="h-9 w-full px-2 text-base outline-0" placeholder={icon?.title} />
                 </div>
               </div>
               <div className="order-6 flex items-center justify-center rounded-lg border border-violet-300 bg-zinc-100 sm:order-10 lg:order-5 dark:border-violet-900 dark:bg-zinc-800">

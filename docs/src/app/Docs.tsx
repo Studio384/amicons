@@ -15,7 +15,7 @@ export default function Docs() {
           <div className="max-h-[calc(100dvh-90px) sticky top-22.5 self-start overflow-auto">
             <DocsNavigation />
           </div>
-          <div>
+          <div className="docs">
             <Outlet />
           </div>
         </div>

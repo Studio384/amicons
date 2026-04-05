@@ -3,8 +3,6 @@ import { type ReactNode, useEffect, useMemo, useState } from "react";
 import { Field, Toggle, ToggleGroup } from "@base-ui/react";
 import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
 import clsx from "clsx";
-
-import Codeblock from "@/design/components/Codeblock";
 import { codeToHtml } from "shiki";
 
 export interface IPlaygroundConfig {
@@ -82,9 +80,7 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [iconProperties]);
 
   // CSS Variables
-  const [playgroundCssVariable, setPlaygroundCssVariable] = useState<{ [cssVar: string]: string }>(
-    {},
-  );
+  const [playgroundCssVariable, setPlaygroundCssVariable] = useState<{ [cssVar: string]: string }>({});
 
   const iconVariables: { [index: string]: string | number | boolean } = useMemo(() => {
     const props: { [index: string]: string | number | boolean } = {};
@@ -181,10 +177,7 @@ export default function Playground({ config }: IPlaygroundProps) {
             switch (property.type) {
               case "chip": {
                 return (
-                  <Field.Root
-                    className="flex w-full max-w-64 flex-col items-start gap-1"
-                    key={property.type}
-                  >
+                  <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={property.type}>
                     <Field.Label className="text-sm font-medium">{property.label}</Field.Label>
 
                     <div className="flex flex-row flex-wrap gap-1">
@@ -216,17 +209,12 @@ export default function Playground({ config }: IPlaygroundProps) {
           })}
 
           {config.cssVariables?.map((variable) => (
-            <Field.Root
-              className="flex w-full max-w-64 flex-col items-start gap-1"
-              key={variable.name}
-            >
+            <Field.Root className="flex w-full max-w-64 flex-col items-start gap-1" key={variable.name}>
               <Field.Label className="text-sm font-medium">{variable.name}</Field.Label>
               <Field.Control
                 required
                 placeholder={variable.default.toString()}
-                onChange={(e) =>
-                  setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))
-                }
+                onChange={(e) => setPlaygroundCssVariable((prev) => ({ ...prev, [variable.name]: e.target.value }))}
                 className="h-9 w-full rounded-md border border-zinc-200 pl-2 focus:outline-2 focus:-outline-offset-1 focus:outline-violet-600 dark:border-zinc-800"
               />
             </Field.Root>

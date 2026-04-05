@@ -1,14 +1,14 @@
 import { createHashRouter, Navigate } from "react-router";
 
 import Docs from "./app/Docs";
-import PageBeat from "./app/Docs/pages/Beat";
-import PageBounce from "./app/Docs/pages/Bounce";
-import Changelog from "./app/Docs/pages/Changelog";
-import PageFade from "./app/Docs/pages/Fade";
-import PageFlip from "./app/Docs/pages/Flip";
-import PageInstallation from "./app/Docs/pages/Installation";
-import PageRotate from "./app/Docs/pages/Rotate";
-import PageSpin from "./app/Docs/pages/Spin";
+import PageBeat from "./app/Docs/pages/Beat.mdx";
+import PageBounce from "./app/Docs/pages/Bounce.mdx";
+import Changelog from "./app/Docs/pages/Changelog.mdx";
+import PageFade from "./app/Docs/pages/Fade.mdx";
+import PageFlip from "./app/Docs/pages/Flip.mdx";
+import PageInstallation from "./app/Docs/pages/Installation.mdx";
+import PageRotate from "./app/Docs/pages/Rotate.mdx";
+import PageSpin from "./app/Docs/pages/Spin.mdx";
 import Error from "./app/Error";
 import Icon from "./app/Icon";
 import Icons from "./app/Icons";

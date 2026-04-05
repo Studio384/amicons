@@ -1,0 +1,345 @@
+import Release from "./_Release";
+
+<div className="flex flex-col gap-4">
+  <Release
+    name="Amicons 1.0 alpha 12"
+    version="1.0.0-alpha.12"
+    date="March 2026"
+    newIcons={["book-bookmark"]}
+    updatedIcons={["book", "bug", "compress", "expand", "facebook-messenger", "github", "google-play", "visual-studio"]}
+    added={[
+      "When the `Amicon` component isn't passed an icon, or the icon isn't valid, it will now show the `aiCircleQuestion` icon. The `fade` property will be enabled to draw attention to it.",
+    ]}
+    changed={[
+      "Rotate now allows you to set any numeric value rather than just `0`, `90`, `180`, or `270`.",
+      "Amicons doesn't have any other dependencies anymore.",
+      "Major enhancements to our build process and library generation. We now include source maps.",
+      "The build process now includes logic to publish Amicons to GitHub and npm.",
+    ]}
+    fixed={[
+      "Fixes a bug where variables and classes used the wrong prefix.",
+      "Fixes a bug where markdown generation would report a successful run before finishing.",
+      "Fixes a bug where `rotate` would not correctly apply the animation styling.",
+    ]}
+    docs={[
+      "The documentation has been rebuilt with Tailwind and Base UI.",
+      "The category filter now keeps showing empty categories for easier navigation.",
+      "The search function can now properly look for tags.",
+      "Various categories have been updated and categories have been regrouped to make more sense.",
+      "Major improvements to our documentation, including simpeler changelog markup.",
+      "Fixes the bounce documentation not showing up in the documentation.",
+      "Codeblocks in our documentation now have syntax highlighting.",
+    ]}
+  />
+  <Release
+    name="Amicons 1.0 alpha 11"
+    version="1.0.0-alpha.11"
+    date="5 March 2026"
+    newIcons={["calendar-arrow-to-day"]}
+    updatedIcons={["gauge", "teams"]}
+    changed={["This update includes general maintenance work."]}
+  />
+  <Release
+    name="Amicons 1.0 alpha 10"
+    version="1.0.0-alpha.10"
+    date="17 October 2025"
+    newIcons={[
+      "align-content-center",
+      "align-content-end",
+      "align-content-start",
+      "arrow-right-to-bracket-clock",
+      "arrows-up-right-and-down-left-from-center",
+      "arrows-up-right-and-down-left-to-center",
+      "bluesky",
+      "clock-pause",
+      "clock-slash",
+      "cursor",
+      "diamonds",
+      "id-card-slash",
+      "input",
+      "list-bar-chart",
+      "macos-finder",
+      "record-stop",
+      "record",
+      "signal-fair",
+      "signal-good",
+      "signal-moderate",
+      "signal-slash",
+      "signal-strong",
+      "signal-weak",
+      "square-check",
+    ]}
+    updatedIcons={[
+      "arrow-down-to-line",
+      "arrow-left-from-bracket",
+      "arrow-up-right-from-square",
+      "devices",
+      "facebook-messenger",
+      "fanvil",
+      "fingerprint",
+      "keyboard",
+      "message-pen",
+      "record-stop",
+      "safari",
+      "signal-strong",
+      "triangle-exclamation",
+      "yealink",
+    ]}
+    added={[
+      "Amicons is now properly exported as both a CJS and ESM package.",
+      "Adds the bounce animation to our default style, and added the `bounce` prop to our React component.",
+      "We've removed the dependency on `@emotion/css`!",
+    ]}
+    fixed={[
+      "Fixes the SVG and export for fingerprint, record-stop, safari, signal-strong, and triangle-exclamation containing the icon twice.",
+    ]}
+  />
+  <Release
+    name="Amicons 1.0 alpha 9"
+    version="1.0.0-alpha.9"
+    date="19 December 2024"
+    added={["Amicons now supports React 19."]}
+  />
+  <Release
+    name="Amicons 1.0 alpha 8"
+    version="1.0.0-alpha.8"
+    date="17 November 2024"
+    changed={["Changes the import from `@studio384/amaranth` to `@studio384/amicons`."]}
+    newIcons={[
+      "angles-x",
+      "apple",
+      "arrow-left-arrow-right",
+      "arrow-rotate-left",
+      "bars-uneven",
+      "burger-glass",
+      "cloud-softphone",
+      "diagram",
+      "fanvil",
+      "glass",
+      "grip-dots-h",
+      "magnifying-glass-min",
+      "magnifying-glass-plus",
+      "microphone-slash",
+      "moped",
+      "order-alphabetical-asc",
+      "order-alphabetical-desc",
+      "order-numerical-asc",
+      "order-numerical-desc",
+      "password",
+      "phone-xmark",
+      "teams",
+      "yealink",
+    ]}
+    updatedIcons={["angles-y", "magnifying-glass", "windows"]}
+    renamedIcons={[
+      { old: "thumbstack", new: "thumbtack" },
+      { old: "thumbstack-slash", new: "thumbtack-slash" },
+    ]}
+  />
+  <Release
+    name="Amicons 1.0 alpha 7"
+    date="12 March 2024"
+    version="1.0.0-alpha.7"
+    added={[
+      "Introduces a brand new documentation website with improved icon previews, component documentation with interactive playground, this changelog, and much more. And best of all; it's now available online instead of needing to be compiled by you.",
+      "The `AmaranthIcon` component has been renamed to `Amicon`.",
+      "The `Amicon` component now supports the `beat` and `fade` property.",
+    ]}
+    changed={[
+      "We're updating our branding from Amaranth to Amicons, with a brand new logo and mascot to boot. While the `Amaranth` and `Amicons` icons have existed at the same time in the previous version, we consider the removal of the `Amaranth` icon a rename.",
+      "The default values for all properties of our `Amicon` component are now being set to `Undefined` rather than a default truthy value.",
+      "The various CSS variables have been renamed to be more consistent with new variables introduced in this update. See the documentation for more info.",
+      "You can now pass properties to the `Amicon` component.",
+      "Various updates to the categorization of icons in the documentation.",
+    ]}
+    fixed={[
+      "Fixed the `expand` icon including excessive shapes.",
+      "Fixed the misalignment in the `heading-2` icon to better map the icon to a pixel grid.",
+      "Fixes various issues with the CSS variables in the `Amicon` component.",
+    ]}
+    newIcons={[
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "a",
+      "arrow-down-arrow-up",
+      "arrow-up-right-from-square",
+      "b",
+      "battery-charging",
+      "battery-empty",
+      "battery-exclamation",
+      "battery-full",
+      "battery-half",
+      "battery-low",
+      "battery-quarter",
+      "battery-slash",
+      "battery-three-quarter",
+      "broom",
+      "c",
+      "calculator",
+      "camera",
+      "car-side",
+      "clipboard",
+      "command",
+      "computer-mouse-scroll-wheel",
+      "computer-mouse",
+      "crop",
+      "cursor",
+      "d",
+      "dice-five",
+      "dice-four",
+      "dice-one",
+      "dice-six",
+      "dice-three",
+      "dice-two",
+      "dice",
+      "e",
+      "ellipsis-h",
+      "envelope-open",
+      "export",
+      "f",
+      "file-audio",
+      "file-excel",
+      "file-powerpoint",
+      "file-text",
+      "file-word",
+      "file-zip",
+      "flask",
+      "folder-min",
+      "folder-open",
+      "folder-plus",
+      "frame",
+      "g",
+      "grip-dots-v",
+      "grip-dots",
+      "h",
+      "i",
+      "icons",
+      "j",
+      "k",
+      "keyboard-brightness-high",
+      "keyboard-brightness-low",
+      "keyboard",
+      "l",
+      "loader",
+      "m",
+      "n",
+      "o",
+      "option",
+      "p",
+      "q",
+      "r",
+      "road",
+      "s",
+      "share-nodes",
+      "spinner",
+      "square-dashed",
+      "square",
+      "studio-384",
+      "t",
+      "threads",
+      "toast",
+      "train-track",
+      "triangle-dashed",
+      "triangle",
+      "truck-pickup",
+      "truck-tow",
+      "u",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z",
+    ]}
+    updatedIcons={[
+      "a-gum",
+      "envelope",
+      "facebook",
+      "heading-1",
+      "heading-2",
+      "heading-3",
+      "heading-4",
+      "heading-5",
+      "heading-6",
+      "patreon",
+      "safari",
+      "shuffle",
+      "translate",
+      "triangle-exclamation",
+      "volume-0",
+      "volume-1",
+      "volume-2",
+      "volume-3",
+      "volume-slash",
+    ]}
+    renamedIcons={[
+      { old: "amaranth", new: "amicons" },
+      { old: "ellipsis", new: "ellipsis-h" },
+    ]}
+    removedIcons={["amaranth", "bootstrap", "font-awesome"]}
+  />
+  <Release
+    name="Amaranth 1.0 alpha 6"
+    version="1.0.0-alpha.6"
+    date="30 January 2024"
+    newIcons={["align-center", "align-justify", "align-left", "align-right", "amicons", "subscript", "superscript"]}
+  />
+  <Release name="Amaranth 1.0 alpha 5" version="1.0.0-alpha.5" date="17 November 2023" newIcons={["circle"]} />
+  <Release
+    name="Amaranth 1.0 alpha 4"
+    version="1.0.0-alpha.4"
+    date="17 November 2023"
+    newIcons={[
+      "arrow-down-from-cloud",
+      "arrow-right-from-file",
+      "arrow-right-from-smartphone",
+      "arrow-right-to-file",
+      "arrow-up-to-cloud",
+      "compare",
+      "people-xmark",
+      "person-xmark",
+      "react",
+    ]}
+  />
+  <Release
+    name="Amaranth 1.0 alpha 3"
+    version="1.0.0-alpha.3"
+    date="23 August 2023"
+    removed={["The repository no longer provides font files or CSS files."]}
+    newIcons={[
+      "table-cell-merge",
+      "table-column-insert-left",
+      "table-column-insert-right",
+      "table-column-min",
+      "table-header-cell",
+      "table-min",
+      "table-row-insert-bottom",
+      "table-row-insert-top",
+      "table-row-min",
+    ]}
+    updatedIcons={[
+      "chart-pie",
+      "circle-dashed",
+      "table-clock",
+      "table-header-column",
+      "table-header-row",
+      "table",
+      "tag-gear",
+      "tag-plus",
+      "tag",
+    ]}
+  />
+  <Release
+    name="Amaranth 1.0 alpha 2"
+    version="1.0.0-alpha.2"
+    date="22 August 2023"
+    changed={["Migrations from ChangeWindows to Studio 384"]}
+  />
+</div>

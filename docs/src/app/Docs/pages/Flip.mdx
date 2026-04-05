@@ -1,0 +1,22 @@
+import { aiAmicons, aiCar, aiMessageSmile } from "@studio384/amicons";
+
+import Playground from "../playground/Playground";
+
+export const playgroundConfig = {
+  icons: [aiMessageSmile, aiAmicons, aiCar],
+  properties: [
+    {
+      label: "Flip",
+      type: "chip",
+      name: "flip",
+      values: [true, "x", "y", false],
+      default: true,
+    },
+  ],
+};
+
+## Flip
+
+With the `flip` property you can mirror your icon on its x-axis, y-axis or both.
+
+<Playground config={playgroundConfig} />
