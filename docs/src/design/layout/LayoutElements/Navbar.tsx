@@ -19,7 +19,7 @@ export default function Navbar() {
                 to="/"
                 className="flex flex-row items-center gap-2 rounded-sm font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-violet-600"
               >
-                <img src="favicon.png" className="size-6" />
+                <img src="favicon.png" className="size-6 shrink-0" />
                 <span className="font-display hidden text-xl md:block">
                   Amicons <span className="text-sm font-light opacity-75">v{pkg.version}</span>
                 </span>
