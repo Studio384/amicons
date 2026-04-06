@@ -5,6 +5,8 @@ import react from "@vitejs/plugin-react-swc";
 import ReactCompiler from "babel-plugin-react-compiler";
 import * as path from "path";
 import rehypePrettyCode from "rehype-pretty-code";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 
@@ -13,6 +15,7 @@ export default defineConfig({
   plugins: [
     [ReactCompiler],
     mdx({
+      remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: "frontmatter" }]],
       rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
     }),
     tailwindcss(),

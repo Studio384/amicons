@@ -1,6 +1,8 @@
 import { createHashRouter, Navigate } from "react-router";
 
 import Docs from "./app/Docs";
+import Blog from "./app/blog/Blog";
+import BlogPost from "./app/blog/BlogPost";
 import PageBeat from "./app/Docs/pages/Beat.mdx";
 import PageBounce from "./app/Docs/pages/Bounce.mdx";
 import Changelog from "./app/Docs/pages/Changelog.mdx";
@@ -40,6 +42,14 @@ export const router = createHashRouter([
           { path: "beat", Component: PageBeat },
           { path: "fade", Component: PageFade },
           { path: "changelog", Component: Changelog },
+        ],
+      },
+      {
+        path: "/blog",
+        errorElement: <Error />,
+        children: [
+          { index: true, Component: Blog },
+          { path: ":slug", Component: BlogPost },
         ],
       },
       {

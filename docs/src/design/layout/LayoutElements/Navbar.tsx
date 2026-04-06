@@ -59,6 +59,21 @@ export default function Navbar() {
 
             <NavigationMenu.Item>
               <NavLink
+                to="/blog"
+                className={clsx(
+                  "font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500",
+                  {
+                    "bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700":
+                      location?.pathname?.startsWith("/blog"),
+                  },
+                )}
+              >
+                Blog
+              </NavLink>
+            </NavigationMenu.Item>
+
+            <NavigationMenu.Item>
+              <NavLink
                 to="/changelog"
                 className={clsx(
                   "font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500",
