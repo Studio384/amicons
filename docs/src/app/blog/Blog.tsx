@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 import { blogPosts } from "./blogPosts";
 import Amicon, { aiArrowRight } from "@studio384/amicons";
@@ -31,7 +31,7 @@ export default function Blog() {
           {blogPosts.map((post) => (
             <article
               key={post.slug}
-              className="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950"
+              className="overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-md shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950 relative group/article hover:shadow-lg hover:shadow-zinc-200 transition-all dark:hover:shadow-zinc-950"
             >
               <div className="flex flex-col gap-3 p-5">
                 <img
@@ -41,12 +41,17 @@ export default function Blog() {
                 />
                 <div className="">
                   <div className="flex flex-wrap items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    <span>{formatDate(post.publishDate)}</span>
-                    <span>&middot;</span>
-                    <span>By {post.author}</span>
+                    {formatDate(post.publishDate)}
                   </div>
 
-                  <h3 className="font-display text-2xl font-medium mt-0.5 mb-1">{post.title}</h3>
+                  <NavLink
+                    to={`/blog/${post.slug}`}
+                    className="after:absolute after:inset-0 after:content-['']"
+                  >
+                    <h3 className="font-display text-2xl font-medium mt-0.5 mb-1 dark:group-has-hover/article:text-violet-200 group-has-hover/article:text-violet-900 transition-all">
+                      {post.title}
+                    </h3>
+                  </NavLink>
                   <p>{post.excerpt}</p>
                 </div>
 
@@ -59,15 +64,6 @@ export default function Blog() {
                       {category}
                     </span>
                   ))}
-                </div>
-
-                <div>
-                  <Link
-                    to={`/blog/${post.slug}`}
-                    className="font-display inline-flex rounded-sm bg-violet-500 px-3 py-1.5 text-sm text-white hover:bg-violet-600 items-center gap-1"
-                  >
-                    Read post <Amicon icon={aiArrowRight} />
-                  </Link>
                 </div>
               </div>
             </article>
