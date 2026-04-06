@@ -89,4 +89,8 @@ pre {
       color: var(--color-violet-300);
     }
   }
+
+  & > .icon-grid {
+    margin-bottom: 0.75rem;
+  }
 }
