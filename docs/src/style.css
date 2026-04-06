@@ -58,6 +58,10 @@ pre {
     margin-bottom: 0.5rem;
   }
 
+  li > p {
+    margin-bottom: 0;
+  }
+
   p code {
     font-size: var(--text-sm);
     background-color: var(--color-violet-100);
