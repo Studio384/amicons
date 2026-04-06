@@ -59,6 +59,18 @@ pre {
     line-height: var(--leading-loose);
   }
 
+  & > a,
+  p > a {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-violet-400);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: var(--color-violet-500);
+    }
+  }
+
   li > p {
     margin-bottom: 0;
   }
