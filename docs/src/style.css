@@ -27,7 +27,7 @@ pre {
 
 .docs {
   h2 {
-    font-size: var(--text-3xl);
+    font-size: var(--text-4xl);
     font-weight: var(--font-weight-medium);
     font-family: var(--font-display);
     margin-bottom: 0.25rem;
@@ -35,7 +35,7 @@ pre {
   }
 
   h3 {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     font-weight: var(--font-weight-medium);
     font-family: var(--font-display);
     margin-bottom: 0.25rem;
@@ -51,11 +51,12 @@ pre {
   }
 
   figure {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    line-height: var(--leading-loose);
   }
 
   li > p {
