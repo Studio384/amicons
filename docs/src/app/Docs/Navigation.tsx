@@ -28,9 +28,9 @@ export default function DocsNavigation() {
           link: "/docs/installation",
         },
         {
-          title: "Changelog",
+          title: "Releases",
           icon: aiStar,
-          link: "/changelog",
+          link: "/releases",
         },
       ],
     },

@@ -5,7 +5,7 @@ import Blog from "./app/blog/Blog";
 import BlogPost from "./app/blog/BlogPost";
 import PageBeat from "./app/Docs/pages/Beat.mdx";
 import PageBounce from "./app/Docs/pages/Bounce.mdx";
-import Changelog from "./app/Docs/pages/Changelog.mdx";
+import Releases from "./app/Docs/pages/Releases.mdx";
 import PageFade from "./app/Docs/pages/Fade.mdx";
 import PageFlip from "./app/Docs/pages/Flip.mdx";
 import PageInstallation from "./app/Docs/pages/Installation.mdx";
@@ -41,7 +41,7 @@ export const router = createHashRouter([
           { path: "flip", Component: PageFlip },
           { path: "beat", Component: PageBeat },
           { path: "fade", Component: PageFade },
-          { path: "changelog", Component: Changelog },
+          { path: "releases", Component: Releases },
         ],
       },
       {
@@ -53,10 +53,10 @@ export const router = createHashRouter([
         ],
       },
       {
-        path: "/changelog",
+        path: "/releases",
         Component: Docs,
         errorElement: <Error />,
-        children: [{ index: true, Component: Changelog }],
+        children: [{ index: true, Component: Releases }],
       },
     ],
   },
