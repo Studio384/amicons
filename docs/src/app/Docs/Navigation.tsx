@@ -7,6 +7,7 @@ import Amicon, {
   aiArrowsDownLeftRightUpCenter,
   aiArrowUp,
   aiCircleHalfInner,
+  aiFlag,
   aiHeart,
   aiReact,
   aiSpinner,
@@ -23,8 +24,13 @@ export default function DocsNavigation() {
       icon: aiAmicons,
       pages: [
         {
-          title: "Installation",
+          title: "About",
           icon: aiAmicons,
+          link: "/docs/about",
+        },
+        {
+          title: "Installation",
+          icon: aiFlag,
           link: "/docs/installation",
         },
         {

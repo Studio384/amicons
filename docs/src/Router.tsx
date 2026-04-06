@@ -3,6 +3,7 @@ import { createHashRouter, Navigate } from "react-router";
 import Docs from "./app/Docs";
 import Blog from "./app/blog/Blog";
 import BlogPost from "./app/blog/BlogPost";
+import PageAbout from "./app/Docs/pages/About.mdx";
 import PageBeat from "./app/Docs/pages/Beat.mdx";
 import PageBounce from "./app/Docs/pages/Bounce.mdx";
 import Releases from "./app/Docs/pages/Releases.mdx";
@@ -34,6 +35,7 @@ export const router = createHashRouter([
         errorElement: <Error />,
         children: [
           { index: true, element: <Navigate to="installation" replace /> },
+          { path: "about", Component: PageAbout },
           { path: "installation", Component: PageInstallation },
           { path: "spin", Component: PageSpin },
           { path: "bounce", Component: PageBounce },
