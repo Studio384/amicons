@@ -94,8 +94,9 @@ export default function DocsNavigation() {
                 className={clsx(
                   "group flex h-8 items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700 dark:hover:bg-violet-800",
                   {
-                    "bg-violet-500 text-white hover:bg-violet-600 dark:bg-violet-800":
-                      location.pathname.includes(page.link),
+                    "bg-violet-500 text-white hover:bg-violet-600 dark:bg-violet-800": location.pathname.includes(
+                      page.link,
+                    ),
                   },
                 )}
               >

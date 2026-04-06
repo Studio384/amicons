@@ -1,15 +1,15 @@
 import { createHashRouter, Navigate } from "react-router";
 
-import Docs from "./app/Docs";
 import Blog from "./app/blog/Blog";
 import BlogPost from "./app/blog/BlogPost";
+import Docs from "./app/Docs";
 import PageAbout from "./app/Docs/pages/About.mdx";
 import PageBeat from "./app/Docs/pages/Beat.mdx";
 import PageBounce from "./app/Docs/pages/Bounce.mdx";
-import Releases from "./app/Docs/pages/Releases.mdx";
 import PageFade from "./app/Docs/pages/Fade.mdx";
 import PageFlip from "./app/Docs/pages/Flip.mdx";
 import PageInstallation from "./app/Docs/pages/Installation.mdx";
+import Releases from "./app/Docs/pages/Releases.mdx";
 import PageRotate from "./app/Docs/pages/Rotate.mdx";
 import PageSpin from "./app/Docs/pages/Spin.mdx";
 import Error from "./app/Error";

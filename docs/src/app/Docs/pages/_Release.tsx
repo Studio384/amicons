@@ -12,6 +12,7 @@ import Amicon, {
 } from "@studio384/amicons";
 
 import Code from "@/design/components/Code";
+
 import IconGrid from "./_IconGrid";
 
 // Types
@@ -71,33 +72,24 @@ export default function Release({
       {docs && <ChangeSection title="Documentation" icon={aiBook} items={docs} />}
       {newIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">
-            New icons &middot; {newIcons?.length}
-          </h3>
+          <h3 className="font-display text-2xl/6 font-medium">New icons &middot; {newIcons?.length}</h3>
           <IconGrid icons={newIcons} />
         </div>
       )}
       {updatedIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">
-            Updated icons &middot; {updatedIcons?.length}
-          </h3>
+          <h3 className="font-display text-2xl/6 font-medium">Updated icons &middot; {updatedIcons?.length}</h3>
           <IconGrid icons={updatedIcons} />
         </div>
       )}
       {renamedIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">
-            Renamed icons &middot; {renamedIcons?.length}
-          </h3>
+          <h3 className="font-display text-2xl/6 font-medium">Renamed icons &middot; {renamedIcons?.length}</h3>
           <ul className="list-disc ps-6">
             {renamedIcons.map((icon: { new: string; old: string }) => (
               <li key={icon.new} className="not-first:mt-1.5">
                 <Code>{icon.old}</Code>{" "}
-                <Amicon
-                  icon={aiArrowRight}
-                  style={{ marginInline: 8, position: "relative", top: 2 }}
-                />{" "}
+                <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: "relative", top: 2 }} />{" "}
                 <Code>{icon.new}</Code>
               </li>
             ))}
@@ -106,9 +98,7 @@ export default function Release({
       )}
       {removedIcons && (
         <div className="flex flex-col gap-3">
-          <h3 className="font-display text-2xl/6 font-medium">
-            Removed icons &middot; {removedIcons?.length}
-          </h3>
+          <h3 className="font-display text-2xl/6 font-medium">Removed icons &middot; {removedIcons?.length}</h3>
           <ul className="list-disc ps-6">
             {removedIcons.map((icon: string) => (
               <li key={icon} className="not-first:mt-1.5">
@@ -129,7 +119,7 @@ function ChangeSection({ title, icon, items }: ChangeSectionProps) {
       <ul className="list-none">
         {items.map((item: string, index: number) => (
           <li className="flex flex-row gap-2 not-first:mt-1.5" key={index}>
-            <Amicon icon={icon} className="mt-1" />
+            <Amicon icon={icon} className="mt-2" />
             <p>{parseMarkdownCode(item)}</p>
           </li>
         ))}

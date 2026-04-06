@@ -11,6 +11,7 @@ import { IconCard } from "@/design/components/IconCard";
 import { LargeIconGrid } from "@/design/components/LargeIconGrid";
 import Header from "@/design/layout/LayoutElements/Header";
 import { type IIcon, type ILibraryIcon } from "@/types";
+import { formatSvg } from "@/utils/formatSvg";
 
 export default function Icon() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ export default function Icon() {
 
   const [icon, setIcon] = useState<IIcon | null>(null);
   const [html, setHtml] = useState<string>("");
+  const [svg, setSvg] = useState<string>("");
   const firstCategory = icon?.categories?.[0];
 
   useEffect(() => {
@@ -56,7 +58,11 @@ return (
       lang: "javascript",
       theme: "dark-plus",
     }).then((result) => setHtml(result));
-  }, [importCode]);
+    codeToHtml(formatSvg(viIcon.icon.data), {
+      lang: "javascript",
+      theme: "dark-plus",
+    }).then((result) => setSvg(result));
+  }, [importCode, viIcon.icon.data]);
 
   return (
     <>
@@ -117,6 +123,10 @@ return (
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Usage</h3>
             <div dangerouslySetInnerHTML={{ __html: html }} />
+          </div>
+          <div className="flex flex-col gap-3">
+            <h3 className="font-display text-2xl font-medium">SVG</h3>
+            <div dangerouslySetInnerHTML={{ __html: svg }} />
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Examples</h3>
