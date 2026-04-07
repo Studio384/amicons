@@ -96,8 +96,9 @@ export default function Navbar() {
                 <ul className="grid list-none grid-cols-1 gap-1">
                   {navigationLinks.map((item) => (
                     <li key={item.to}>
-                      <NavLink
-                        to={item.to}
+                      <NavigationMenuPrimitive.Link
+                        closeOnClick
+                        render={<NavLink to={item.to} />}
                         className={clsx(
                           "flex flex-row gap-2 rounded-md p-2 text-inherit no-underline [@media(min-width:32rem)]:p-3 hover:bg-violet-300 focus-visible:relative focus-visible:outline-2 dark:hover:bg-violet-700 focus-visible:-outline-offset-1 focus-visible:outline-violet-800",
                         )}
@@ -111,7 +112,7 @@ export default function Navbar() {
                             {item.description}
                           </p>
                         </span>
-                      </NavLink>
+                      </NavigationMenuPrimitive.Link>
                     </li>
                   ))}
                 </ul>
