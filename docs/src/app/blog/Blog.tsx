@@ -1,6 +1,4 @@
-import { Link, NavLink } from "react-router";
-
-import Amicon, { aiArrowRight } from "@studio384/amicons";
+import { NavLink } from "react-router";
 
 import Header from "@/design/layout/LayoutElements/Header";
 
