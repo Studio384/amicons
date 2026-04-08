@@ -50,14 +50,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@types/react": "^19.0.1",
-    "oxfmt": "^0.43.0",
-    "oxlint": "^1.58.0",
+    "@types/react": "^19.2.14",
+    "oxfmt": "^0.44.0",
+    "oxlint": "^1.59.0",
     "picocolors": "1.1.1",
-    "react": "^19.0.0",
+    "react": "^19.2.4",
     "svg-to-ts": "12.0.0",
     "svgo": "4.0.1",
-    "tsup": "^8.0.0",
+    "tsup": "^8.5.1",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
