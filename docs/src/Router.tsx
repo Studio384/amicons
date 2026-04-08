@@ -16,6 +16,8 @@ import Error from "./app/Error";
 import Icon from "./app/Icon";
 import Icons from "./app/Icons";
 import Layout from "./design/layout/Layout";
+import NeoIcons from "./neo/app/Icons";
+import NeoLayout from "./neo/design/layouts/Layout";
 
 export const router = createHashRouter([
   {
@@ -60,6 +62,14 @@ export const router = createHashRouter([
         errorElement: <Error />,
         children: [{ index: true, Component: Releases }],
       },
+    ],
+  },
+  {
+    path: "/neo",
+    Component: NeoLayout,
+    children: [
+      { index: true, Component: NeoIcons },
+      { path: "icons", Component: NeoIcons },
     ],
   },
 ]);
