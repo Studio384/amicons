@@ -2,7 +2,6 @@ import { NavLink, useLocation } from "react-router";
 
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react";
 import Amicon, {
-  aiBarsStaggered,
   aiBarsUneven,
   aiBluesky,
   aiBook,
