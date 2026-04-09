@@ -59,9 +59,9 @@ export default function Menu(props: NavigationMenuPrimitive.Root.Props) {
           </NavigationMenu.List>
           {DOC_NAV.map((section) => (
             <Fragment key={section.title}>
-              <h2 className="mb-2 flex items-center gap-2 px-4 text-sm font-semibold text-zinc-500 not-first:mt-5">
+              <span className="mb-2 flex items-center gap-2 px-4 text-base font-semibold text-zinc-500 not-first:mt-5">
                 {section.title}
-              </h2>
+              </span>
               <NavigationMenu.List>
                 {section.pages.map((page) => {
                   const isActive = location.pathname === page.path;
