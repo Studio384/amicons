@@ -16,7 +16,7 @@ export default defineConfig({
     [ReactCompiler],
     mdx({
       remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: "frontmatter" }]],
-      rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
+      rehypePlugins: [[rehypePrettyCode, { theme: "slack-ochin" }]],
     }),
     tailwindcss(),
     react(),
