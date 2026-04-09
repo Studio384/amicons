@@ -4,8 +4,8 @@ import { NavLink, Outlet } from "react-router";
 import Amicon, { aiBarsUneven, aiXmark } from "@studio384/amicons";
 
 import pkg from "../../../../../amicons/package.json";
-import Menu from "./Menu";
 import { Drawer } from "../components/Drawer";
+import Menu from "./Menu";
 
 export default function NeoLayout({ children }: PropsWithChildren) {
   return (
@@ -20,14 +20,14 @@ export default function NeoLayout({ children }: PropsWithChildren) {
           </NavLink>
 
           <Drawer.Root swipeDirection="right">
-            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm hover:bg-white/10   select-none  hover:cursor-pointer focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 ">
+            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
               <Amicon icon={aiBarsUneven} /> <span className="sr-only">Open navigation menu</span>
             </Drawer.Trigger>
             <Drawer.Portal>
               <Drawer.Viewport>
                 <Drawer.Popup>
                   <Drawer.Content className="mx-auto w-full max-w-lg">
-                    <div className="flex w-full items-center justify-between p-4 border-b border-white/10">
+                    <div className="flex w-full items-center justify-between border-b border-white/10 p-4">
                       <Drawer.Title>
                         <NavLink to="/neo" className="flex flex-row items-center gap-2">
                           <img src="favicon.png" className="size-6 shrink-0" />
@@ -38,7 +38,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
                         </NavLink>
                       </Drawer.Title>
 
-                      <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm hover:bg-white/10   select-none  hover:cursor-pointer focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 ">
+                      <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
                         <Amicon icon={aiXmark} />{" "}
                         <span className="sr-only">Close navigation menu</span>
                       </Drawer.Close>

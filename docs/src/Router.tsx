@@ -18,6 +18,8 @@ import Icons from "./app/Icons";
 import Layout from "./design/layout/Layout";
 import NeoIcons from "./neo/app/Icons";
 import NeoLayout from "./neo/design/layouts/Layout";
+import NeoDocumentation from "./neo/app/Documentation";
+import NeoError from "./neo/app/Error";
 
 export const router = createHashRouter([
   {
@@ -70,6 +72,25 @@ export const router = createHashRouter([
     children: [
       { index: true, Component: NeoIcons },
       { path: "icons", Component: NeoIcons },
+      {
+        path: "documentation",
+        Component: NeoDocumentation,
+        errorElement: <NeoError />,
+        children: [
+          { index: true, element: <Navigate to="installation" replace /> },
+          { path: "about", Component: PageAbout },
+          { path: "installation", Component: PageInstallation },
+          { path: "spin", Component: PageSpin },
+          { path: "bounce", Component: PageBounce },
+          { path: "rotate", Component: PageRotate },
+          { path: "flip", Component: PageFlip },
+          { path: "beat", Component: PageBeat },
+          { path: "fade", Component: PageFade },
+          { path: "releases", Component: Releases },
+          { path: "*", Component: NeoError },
+        ],
+      },
+      { path: "*", Component: NeoError },
     ],
   },
 ]);

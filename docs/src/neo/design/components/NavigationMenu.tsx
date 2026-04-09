@@ -9,9 +9,7 @@ function Root(props: NavigationMenuPrimitive.Root.Props) {
 }
 
 function List({ className, ...props }: NavigationMenuPrimitive.List.Props) {
-  return (
-    <NavigationMenuPrimitive.List className={cn("flex flex-col gap-1", className)} {...props} />
-  );
+  return <NavigationMenuPrimitive.List className={cn("flex flex-col gap-1", className)} {...props} />;
 }
 
 function Item({ to, ...props }: { to: string } & NavigationMenuPrimitive.Link.Props) {
