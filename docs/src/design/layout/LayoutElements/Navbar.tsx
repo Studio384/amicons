@@ -80,16 +80,13 @@ export default function Navbar() {
 
                 <img src="favicon.png" className="size-6 shrink-0" />
                 <span className="font-display text-xl">
-                  Amicons{" "}
-                  <span className="hidden text-sm font-light opacity-75 md:inline">
-                    v{pkg.version}
-                  </span>
+                  Amicons <span className="hidden text-sm font-light opacity-75 md:inline">v{pkg.version}</span>
                 </span>
               </NavigationMenuPrimitive.Trigger>
 
               <NavigationMenuPrimitive.Content
                 className={clsx(
-                  "h-full w-[calc(100vw-40px)] p-2 [@media(min-width:32rem)]:w-max [@media(min-width:32rem)]:min-w-100 transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:opacity-0 data-starting-style:opacity-0 data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%] data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%]",
+                  "h-full w-[calc(100vw-40px)] p-2 transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%] [@media(min-width:32rem)]:w-max [@media(min-width:32rem)]:min-w-100",
                 )}
               >
                 <ul className="grid list-none grid-cols-1 gap-1">
@@ -99,17 +96,13 @@ export default function Navbar() {
                         closeOnClick
                         render={<NavLink to={item.to} />}
                         className={clsx(
-                          "flex flex-row gap-2 rounded-md p-2 text-inherit no-underline [@media(min-width:32rem)]:p-3 hover:bg-violet-300 focus-visible:relative focus-visible:outline-2 dark:hover:bg-violet-700 focus-visible:-outline-offset-1 focus-visible:outline-violet-800",
+                          "flex flex-row gap-2 rounded-md p-2 text-inherit no-underline hover:bg-violet-300 focus-visible:relative focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-violet-800 dark:hover:bg-violet-700 [@media(min-width:32rem)]:p-3",
                         )}
                       >
                         <Amicon icon={item.icon} className="mt-0.75" />
                         <span>
-                          <h3 className="m-0 mb-1 text-base leading-5 font-semibold">
-                            {item.title}
-                          </h3>
-                          <p className="m-0 text-sm leading-5 text-zinc-700 dark:text-violet-200">
-                            {item.description}
-                          </p>
+                          <h3 className="m-0 mb-1 text-base leading-5 font-semibold">{item.title}</h3>
+                          <p className="m-0 text-sm leading-5 text-zinc-700 dark:text-violet-200">{item.description}</p>
                         </span>
                       </NavigationMenuPrimitive.Link>
                     </li>
