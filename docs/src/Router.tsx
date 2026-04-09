@@ -81,6 +81,7 @@ export const router = createHashRouter([
     children: [
       { index: true, Component: NeoIcons },
       { path: "icons", Component: NeoIcons },
+      { path: "releases", Component: NeoReleases },
       {
         path: "documentation",
         Component: NeoDocumentation,
@@ -95,8 +96,6 @@ export const router = createHashRouter([
           { path: "flip", Component: NeoPageFlip },
           { path: "beat", Component: NeoPageBeat },
           { path: "fade", Component: NeoPageFade },
-          { path: "releases", Component: NeoReleases },
-          { path: "*", Component: NeoError },
         ],
       },
       { path: "*", Component: NeoError },
