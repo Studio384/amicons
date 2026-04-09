@@ -32,15 +32,13 @@ export default function NeoLayout({ children }: PropsWithChildren) {
                         <NavLink to="/neo" className="flex flex-row items-center gap-2">
                           <img src="favicon.png" className="size-6 shrink-0" />
                           <span className="font-display text-xl">
-                            Amicons{" "}
-                            <span className="text-xs font-light opacity-75">{pkg.version}</span>
+                            Amicons <span className="text-xs font-light opacity-75">{pkg.version}</span>
                           </span>
                         </NavLink>
                       </Drawer.Title>
 
                       <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
-                        <Amicon icon={aiXmark} />{" "}
-                        <span className="sr-only">Close navigation menu</span>
+                        <Amicon icon={aiXmark} /> <span className="sr-only">Close navigation menu</span>
                       </Drawer.Close>
                     </div>
                     <Menu className="p-4" />

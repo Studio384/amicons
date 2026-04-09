@@ -16,10 +16,19 @@ import Error from "./app/Error";
 import Icon from "./app/Icon";
 import Icons from "./app/Icons";
 import Layout from "./design/layout/Layout";
-import NeoIcons from "./neo/app/Icons";
-import NeoLayout from "./neo/design/layouts/Layout";
+import NeoPageAbout from "./neo/app/docs/About.mdx";
+import NeoPageBeat from "./neo/app/docs/Beat.mdx";
+import NeoPageBounce from "./neo/app/docs/Bounce.mdx";
+import NeoPageFade from "./neo/app/docs/Fade.mdx";
+import NeoPageFlip from "./neo/app/docs/Flip.mdx";
+import NeoPageInstallation from "./neo/app/docs/Installation.mdx";
+import NeoReleases from "./neo/app/docs/Releases.mdx";
+import NeoPageRotate from "./neo/app/docs/Rotate.mdx";
+import NeoPageSpin from "./neo/app/docs/Spin.mdx";
 import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
+import NeoIcons from "./neo/app/Icons";
+import NeoLayout from "./neo/design/layouts/Layout";
 
 export const router = createHashRouter([
   {
@@ -78,15 +87,15 @@ export const router = createHashRouter([
         errorElement: <NeoError />,
         children: [
           { index: true, element: <Navigate to="installation" replace /> },
-          { path: "about", Component: PageAbout },
-          { path: "installation", Component: PageInstallation },
-          { path: "spin", Component: PageSpin },
-          { path: "bounce", Component: PageBounce },
-          { path: "rotate", Component: PageRotate },
-          { path: "flip", Component: PageFlip },
-          { path: "beat", Component: PageBeat },
-          { path: "fade", Component: PageFade },
-          { path: "releases", Component: Releases },
+          { path: "about", Component: NeoPageAbout },
+          { path: "installation", Component: NeoPageInstallation },
+          { path: "spin", Component: NeoPageSpin },
+          { path: "bounce", Component: NeoPageBounce },
+          { path: "rotate", Component: NeoPageRotate },
+          { path: "flip", Component: NeoPageFlip },
+          { path: "beat", Component: NeoPageBeat },
+          { path: "fade", Component: NeoPageFade },
+          { path: "releases", Component: NeoReleases },
           { path: "*", Component: NeoError },
         ],
       },

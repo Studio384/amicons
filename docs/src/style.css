@@ -94,3 +94,77 @@ pre {
     margin-bottom: 0.75rem;
   }
 }
+
+.neo-docs {
+  h2 {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-display);
+    margin-bottom: 0.25rem;
+    margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-display);
+    margin-bottom: 0.25rem;
+    margin-top: 0.75rem;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0;
+  }
+
+  figure {
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    line-height: var(--leading-relaxed);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > a,
+  p > a {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-violet-400);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: var(--color-violet-500);
+    }
+  }
+
+  li > p {
+    margin-bottom: 0;
+  }
+
+  p code {
+    font-size: var(--text-sm);
+    background-color: var(--color-violet-100);
+    color: var(--color-violet-600);
+    font-family: var(--font-mono);
+    border-radius: var(--radius-sm);
+    padding-inline: 0.25rem;
+    padding-block: 1px;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-violet-950);
+      color: var(--color-violet-300);
+    }
+  }
+
+  & > .icon-grid {
+    margin-bottom: 0.75rem;
+  }
+}
