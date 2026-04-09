@@ -20,7 +20,9 @@ export default function Menu(props: NavigationMenuPrimitive.Root.Props) {
   const location = useLocation();
   const navigate = useNavigate();
   const isDocumentationRoute = location.pathname.startsWith("/neo/documentation");
-  const [view, setView] = useState<"primary" | "documentation">(isDocumentationRoute ? "documentation" : "primary");
+  const [view, setView] = useState<"primary" | "documentation">(
+    isDocumentationRoute ? "documentation" : "primary",
+  );
   const previousPathname = useRef(location.pathname);
 
   useEffect(() => {
@@ -77,11 +79,21 @@ export default function Menu(props: NavigationMenuPrimitive.Root.Props) {
         </nav>
       ) : (
         <NavigationMenu.List>
-          <NavigationMenu.Item to="/neo/icons" active={location.pathname.includes("/neo/icons")}>
+          <NavigationMenu.Item
+            to="/neo/icons"
+            active={
+              location.pathname === "/neo" ||
+              location.pathname === "/neo/" ||
+              location.pathname.includes("/neo/icons")
+            }
+          >
             <Amicon icon={aiIcons} /> Icons
           </NavigationMenu.Item>
 
-          <NavigationMenu.ActionItem active={isDocumentationRoute} onClick={openDocumentationNavigation}>
+          <NavigationMenu.ActionItem
+            active={isDocumentationRoute}
+            onClick={openDocumentationNavigation}
+          >
             <Amicon icon={aiBook} />
             Documentation
             <Amicon icon={aiChevronRight} />
@@ -92,12 +104,18 @@ export default function Menu(props: NavigationMenuPrimitive.Root.Props) {
             News
           </NavigationMenu.Item>
 
-          <NavigationMenu.Item to="/neo/releases" active={location.pathname.includes("/neo/releases")}>
+          <NavigationMenu.Item
+            to="/neo/releases"
+            active={location.pathname.includes("/neo/releases")}
+          >
             <Amicon icon={aiRocket} />
             Releases
           </NavigationMenu.Item>
 
-          <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-white/10" />
+          <Separator
+            orientation="horizontal"
+            className="my-2 h-px bg-zinc-950/5 dark:bg-white/10"
+          />
 
           <NavigationMenu.Item to="/neo/error" active={location.pathname.includes("/neo/error")}>
             <Amicon icon={aiCircleQuestion} />
