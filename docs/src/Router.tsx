@@ -22,12 +22,12 @@ import NeoPageBounce from "./neo/app/docs/Bounce.mdx";
 import NeoPageFade from "./neo/app/docs/Fade.mdx";
 import NeoPageFlip from "./neo/app/docs/Flip.mdx";
 import NeoPageInstallation from "./neo/app/docs/Installation.mdx";
-import NeoReleases from "./neo/app/docs/Releases.mdx";
 import NeoPageRotate from "./neo/app/docs/Rotate.mdx";
 import NeoPageSpin from "./neo/app/docs/Spin.mdx";
 import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
 import NeoIcons from "./neo/app/Icons";
+import NeoReleases from "./neo/app/Releases.mdx";
 import NeoLayout from "./neo/design/layouts/Layout";
 
 export const router = createHashRouter([
