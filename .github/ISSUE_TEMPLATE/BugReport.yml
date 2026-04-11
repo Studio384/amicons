@@ -9,14 +9,14 @@ body:
     id: current
     attributes:
       label: Current behavior
-      description: Describe the current faulty beharior of Amicons.
+      description: Describe the current faulty behavior of Amicons.
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected behavior
-      description: Describe the expected beharior of Amicons.
+      description: Describe the expected behavior of Amicons.
     validations:
       required: true
   - type: textarea
@@ -56,7 +56,7 @@ body:
     attributes:
       label: Bug report checklist
       options:
-        - label: This bug occures in the latest version of Amicons.
+        - label: This bug occurs in the latest version of Amicons.
           required: true
         - label: The reproduction is included and is the minimum test case to recreate the faulty behavior.
           required: true

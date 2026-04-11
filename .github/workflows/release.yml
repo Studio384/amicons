@@ -11,7 +11,7 @@ permissions:
   pages: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -58,9 +58,36 @@ jobs:
             amicons/studio384-amicons-*.tgz
             amicons-${{ steps.version.outputs.version }}-icons.zip
 
+  docs_check:
+    name: Docs linting and formatting
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: docs/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check formatting
+        run: pnpm format
+      - name: Lint
+        run: pnpm lint
+
   release:
     name: Release Amicons stable
-    needs: build
+    needs: [build, docs_check]
     if: github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     steps:
@@ -89,34 +116,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
       - name: Publish to npm
         run: npm publish ./amicons/studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance
-
-  docs_check:
-    name: Docs linting and formatting
-    needs: release
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: docs
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v5
-        with:
-          version: 10.33.0
-      - name: Set up Node 24
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24.x
-          cache: "pnpm"
-          cache-dependency-path: docs/pnpm-lock.yaml
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Check formatting
-        run: pnpm format
-      - name: Lint
-        run: pnpm lint
 
   deploy-docs:
     name: Deploy to GitHub Pages
