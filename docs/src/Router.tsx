@@ -15,8 +15,8 @@ import PageSpin from "./app/Docs/pages/Spin.mdx";
 import Error from "./app/Error";
 import Icon from "./app/Icon";
 import Icons from "./app/Icons";
-import Layout from "./design/layout/Layout";
 import Releases from "./app/Releases";
+import Layout from "./design/layout/Layout";
 
 export const router = createHashRouter([
   {
