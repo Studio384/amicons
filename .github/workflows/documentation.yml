@@ -1,9 +1,8 @@
 name: Publish documentation
 
 on:
-  pull_request:
-    types: [closed]
-    branches: ["main", "next"]
+  push:
+    branches: ["main"]
 
 permissions:
   contents: write
@@ -11,13 +10,12 @@ permissions:
   pages: write
 
 concurrency:
-  group: pages-${{ github.workflow }}-${{ github.ref }}
+  group: documentation-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     name: Build Amicons package
-    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository && (github.event.pull_request.base.ref == 'next' || (github.event.pull_request.base.ref == 'main' && contains(github.event.pull_request.labels.*.name, 'docs')))
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -60,7 +58,6 @@ jobs:
 
   docs_check:
     name: Docs linting and formatting
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && contains(github.event.pull_request.labels.*.name, 'docs') && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -87,8 +84,7 @@ jobs:
 
   deploy-docs:
     name: Deploy to GitHub Pages
-    needs: [docs_check]
-    if: github.event.pull_request.base.ref == 'main' && contains(github.event.pull_request.labels.*.name, 'docs') && github.event.pull_request.head.repo.full_name == github.repository
+    needs: [build, docs_check]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
