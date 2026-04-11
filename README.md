@@ -1,6 +1,6 @@
 # Amicons
 
-An open source icon set designed for ChangeWindows & Starscouts.
+An open source icon set designed for ChangeWindows & Starscout.
 
 # Usage
 
