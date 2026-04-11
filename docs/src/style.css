@@ -56,7 +56,7 @@ pre {
 
   p {
     margin-bottom: 0.75rem;
-    line-height: var(--leading-loose);
+    line-height: var(--leading-relaxed);
   }
 
   & > a,

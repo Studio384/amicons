@@ -78,20 +78,20 @@ async function main(file) {
 
     await fs.writeFile(join(pagesDir, "icons.ts"), template);
 
-    const categoriesTemplate = `
-import { aiCircleDashed } from '@studio384/amicons';
+    // const categoriesTemplate = `
+    // import { aiCircleDashed } from '@studio384/amicons';
 
-const categories = [${categories.map(
-      (cat) => `
-  {
-    slug: "${cat}",
-    title: "${cat}",
-    icon: aiCircleDashed
-  }`,
-    )}
-];
+    // const categories = [${categories.map(
+    // (cat) => `
+    // {
+    // slug: "${cat}",
+    // title: "${cat}",
+    // icon: aiCircleDashed
+    // }`,
+    // )}
+    // ];
 
-export default categories;`;
+    // export default categories;`;
 
     // await fs.writeFile(path.join(pagesDir, `categories.ts`), categoriesTemplate)
 

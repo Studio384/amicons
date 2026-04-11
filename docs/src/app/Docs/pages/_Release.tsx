@@ -60,7 +60,7 @@ export default function Release({
         </div>
         <div className="flex flex-col gap-1">
           <h2 className="font-display text-3xl/6 font-medium">{name}</h2>
-          <p className="font-display text-lg/5">
+          <p className="text-base/5">
             {date} <span className="text-zinc-600">&middot; Version {version}</span>
           </p>
         </div>
@@ -119,7 +119,7 @@ function ChangeSection({ title, icon, items }: ChangeSectionProps) {
       <ul className="list-none">
         {items.map((item: string, index: number) => (
           <li className="flex flex-row gap-2 not-first:mt-1.5" key={index}>
-            <Amicon icon={icon} className="mt-2" />
+            <Amicon icon={icon} className="mt-1" />
             <p>{parseMarkdownCode(item)}</p>
           </li>
         ))}

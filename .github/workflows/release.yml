@@ -11,13 +11,13 @@ permissions:
   pages: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
     name: Build Amicons package
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -58,42 +58,9 @@ jobs:
             amicons/studio384-amicons-*.tgz
             amicons-${{ steps.version.outputs.version }}-icons.zip
 
-  release:
-    name: Release Amicons stable
-    needs: build
-    if: github.event.pull_request.base.ref == 'main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: release-artifacts
-      - name: Set up Node 24
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24.x
-          registry-url: "https://registry.npmjs.org"
-      - name: Write release notes
-        env:
-          BODY: ${{ github.event.pull_request.body }}
-        run: echo "$BODY" > release-notes.md
-      - name: Create GitHub release
-        run: |
-          gh release create v${{ needs.build.outputs.version }} \
-            --repo ${{ github.repository }} \
-            --target "${{ github.event.pull_request.merge_commit_sha }}" \
-            --title "${{ github.event.pull_request.title }}" \
-            --notes-file release-notes.md \
-            "amicons-${{ needs.build.outputs.version }}-icons.zip#Amicons icons v${{ needs.build.outputs.version }}"
-        env:
-          GH_TOKEN: ${{ github.token }}
-      - name: Publish to npm
-        run: npm publish ./amicons/studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance
-
   docs_check:
     name: Docs linting and formatting
-    needs: release
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -118,9 +85,42 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+  release:
+    name: Release Amicons stable
+    needs: [build, docs_check]
+    if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          registry-url: "https://registry.npmjs.org"
+      - name: Write release notes
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: printf '%s' "$BODY" > release-notes.md
+      - name: Create GitHub release
+        run: |
+          gh release create v${{ needs.build.outputs.version }} \
+            --repo ${{ github.repository }} \
+            --target "${{ github.event.pull_request.merge_commit_sha }}" \
+            --title "${{ github.event.pull_request.title }}" \
+            --notes-file release-notes.md \
+            "amicons-${{ needs.build.outputs.version }}-icons.zip#Amicons icons v${{ needs.build.outputs.version }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Publish to npm
+        run: npm publish ./amicons/studio384-amicons-${{ needs.build.outputs.version }}.tgz --access public --provenance --tag latest
+
   deploy-docs:
     name: Deploy to GitHub Pages
     needs: [release, docs_check]
+    if: github.event.pull_request.head.repo.full_name == github.repository
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -162,7 +162,7 @@ jobs:
   prerelease:
     name: Prerelease Amicons preview
     needs: build
-    if: github.event.pull_request.base.ref == 'next'
+    if: github.event.pull_request.base.ref == 'next' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
@@ -177,7 +177,7 @@ jobs:
       - name: Write release notes
         env:
           BODY: ${{ github.event.pull_request.body }}
-        run: echo "$BODY" > release-notes.md
+        run: printf '%s' "$BODY" > release-notes.md
       - name: Create GitHub prerelease
         run: |
           gh release create v${{ needs.build.outputs.version }} \

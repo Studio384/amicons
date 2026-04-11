@@ -9,12 +9,13 @@ import PageBounce from "./app/Docs/pages/Bounce.mdx";
 import PageFade from "./app/Docs/pages/Fade.mdx";
 import PageFlip from "./app/Docs/pages/Flip.mdx";
 import PageInstallation from "./app/Docs/pages/Installation.mdx";
-import Releases from "./app/Docs/pages/Releases.mdx";
+import PageReleases from "./app/Docs/pages/Releases.mdx";
 import PageRotate from "./app/Docs/pages/Rotate.mdx";
 import PageSpin from "./app/Docs/pages/Spin.mdx";
 import Error from "./app/Error";
 import Icon from "./app/Icon";
 import Icons from "./app/Icons";
+import Releases from "./app/Releases";
 import Layout from "./design/layout/Layout";
 import NeoPageAbout from "./neo/app/docs/About.mdx";
 import NeoPageBeat from "./neo/app/docs/Beat.mdx";
@@ -56,7 +57,6 @@ export const router = createHashRouter([
           { path: "flip", Component: PageFlip },
           { path: "beat", Component: PageBeat },
           { path: "fade", Component: PageFade },
-          { path: "releases", Component: Releases },
         ],
       },
       {
@@ -69,9 +69,9 @@ export const router = createHashRouter([
       },
       {
         path: "/releases",
-        Component: Docs,
+        Component: Releases,
         errorElement: <Error />,
-        children: [{ index: true, Component: Releases }],
+        children: [{ index: true, Component: PageReleases }],
       },
     ],
   },
