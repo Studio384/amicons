@@ -103,7 +103,7 @@ jobs:
       - name: Write release notes
         env:
           BODY: ${{ github.event.pull_request.body }}
-        run: echo "$BODY" > release-notes.md
+        run: printf '%s' "$BODY" > release-notes.md
       - name: Create GitHub release
         run: |
           gh release create v${{ needs.build.outputs.version }} \
@@ -176,7 +176,7 @@ jobs:
       - name: Write release notes
         env:
           BODY: ${{ github.event.pull_request.body }}
-        run: echo "$BODY" > release-notes.md
+        run: printf '%s' "$BODY" > release-notes.md
       - name: Create GitHub prerelease
         run: |
           gh release create v${{ needs.build.outputs.version }} \
