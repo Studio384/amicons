@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build:
     name: Build Amicons package
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -60,7 +60,7 @@ jobs:
 
   docs_check:
     name: Docs linting and formatting
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -88,7 +88,7 @@ jobs:
   release:
     name: Release Amicons stable
     needs: [build, docs_check]
-    if: github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
@@ -120,6 +120,7 @@ jobs:
   deploy-docs:
     name: Deploy to GitHub Pages
     needs: [release, docs_check]
+    if: github.event.pull_request.head.repo.full_name == github.repository
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -161,7 +162,7 @@ jobs:
   prerelease:
     name: Prerelease Amicons preview
     needs: build
-    if: github.event.pull_request.base.ref == 'next'
+    if: github.event.pull_request.base.ref == 'next' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
