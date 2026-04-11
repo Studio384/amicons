@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build:
     name: Build Amicons package
-    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository && (github.event.pull_request.base.ref == 'next' || (github.event.pull_request.base.ref == 'main' && contains(github.event.pull_request.labels.*.name, 'release')))
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.version.outputs.version }}
@@ -60,7 +60,7 @@ jobs:
 
   docs_check:
     name: Docs linting and formatting
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository && (contains(github.event.pull_request.labels.*.name, 'release') || contains(github.event.pull_request.labels.*.name, 'docs'))
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -88,7 +88,7 @@ jobs:
   release:
     name: Release Amicons stable
     needs: [build, docs_check]
-    if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository && contains(github.event.pull_request.labels.*.name, 'release')
+    if: github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
@@ -119,8 +119,8 @@ jobs:
 
   deploy-docs:
     name: Deploy to GitHub Pages
-    needs: [docs_check, release]
-    if: always() && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.repo.full_name == github.repository && ((contains(github.event.pull_request.labels.*.name, 'release') && needs.docs_check.result == 'success' && needs.release.result == 'success') || (!contains(github.event.pull_request.labels.*.name, 'release') && contains(github.event.pull_request.labels.*.name, 'docs') && needs.docs_check.result == 'success'))
+    needs: [release, docs_check]
+    if: github.event.pull_request.head.repo.full_name == github.repository
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -131,6 +131,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
       - name: Set up pnpm
         uses: pnpm/action-setup@v5
         with:
