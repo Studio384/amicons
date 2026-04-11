@@ -1,0 +1,104 @@
+@keyframes spin-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes beat-animation {
+  0%,
+  90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--ai-animation-scale, 1.4));
+  }
+}
+
+@keyframes fade-animation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: var(--ai-animation-opacity, 0.4);
+  }
+}
+
+@keyframes bounce-animation {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Base icon styling */
+.ai-icon {
+  height: 1em;
+  width: 1em;
+  min-width: 1em;
+  line-height: 1em;
+  box-sizing: content-box;
+  display: inline-block;
+  position: relative;
+  overflow: visible;
+  vertical-align: 0;
+  flex-shrink: 0;
+  transition: inherit;
+  transform: rotate(var(--ai-rotate, 0deg));
+}
+
+/* Transform classes */
+.ai-rotate {
+  transition: transform var(--vi-transition-duration, 0.2s) var(--vi-transition-timing-function, ease-in-out);
+}
+
+.ai-flip {
+  transform: scale(-1);
+}
+.ai-flip-x {
+  transform: scaleX(-1);
+}
+.ai-flip-y {
+  transform: scaleY(-1);
+}
+
+/* Animation classes */
+.ai-spin {
+  animation-name: spin-animation;
+  animation-timing-function: var(--ai-animation-timing-function, linear);
+  animation-duration: var(--ai-animation-duration, 2s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
+}
+
+.ai-spin-pulse {
+  --ai-animation-timing-function: steps(var(--ai-animation-pulse-steps, 8));
+  --ai-animation-duration: 1s;
+}
+
+.ai-beat {
+  animation-name: beat-animation;
+  animation-timing-function: var(--ai-animation-timing-function, ease-in-out);
+  animation-duration: var(--ai-animation-duration, 1s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
+}
+
+.ai-fade {
+  animation-name: fade-animation;
+  animation-timing-function: var(--ai-animation-timing-function, ease-in-out);
+  animation-duration: var(--ai-animation-duration, 1.5s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
+}
+
+.ai-bounce {
+  animation-name: bounce-animation;
+  animation-duration: var(--ai-animation-duration, 1s);
+  animation-iteration-count: var(--ai-animation-iteration-count, infinite);
+}

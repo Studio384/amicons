@@ -9,14 +9,14 @@ body:
     id: current
     attributes:
       label: Current behavior
-      description: Describe the current faulty beharior of Valkyrie.
+      description: Describe the current faulty behavior of Amicons.
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
       label: Expected behavior
-      description: Describe the expected beharior of Valkyrie.
+      description: Describe the expected behavior of Amicons.
     validations:
       required: true
   - type: textarea
@@ -40,7 +40,7 @@ body:
   - type: checkboxes
     id: implementations
     attributes:
-      label: Which parts of Valkyrie are affected?
+      label: Which parts of Amicons are affected?
       options:
         - label: Web fonts and CSS
           required: false
@@ -56,9 +56,9 @@ body:
     attributes:
       label: Bug report checklist
       options:
-        - label: This bug occures in the latest version of Valkyrie.
+        - label: This bug occurs in the latest version of Amicons.
           required: true
         - label: The reproduction is included and is the minimum test case to recreate the faulty behavior.
           required: true
-        - label: I have [searched the issues](https://github.com/sippy-platform/valkyrie/issues) for any possible duplications of this bug report.
+        - label: I have [searched the issues](https://github.com/studio384/amicons/issues) for any possible duplications of this bug report.
           required: true

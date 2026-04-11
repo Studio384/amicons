@@ -1,0 +1,42 @@
+import Code from "@/design/components/Code";
+
+import { type IIconCssVariables } from "./Playground";
+
+interface IApiTableProps {
+  cssVariables: IIconCssVariables[];
+}
+
+export default function ApiTable({ cssVariables }: IApiTableProps) {
+  return (
+    <div className="rounded-lg border border-zinc-200 bg-zinc-50 shadow-md shadow-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:shadow-zinc-950">
+      <table className="w-full">
+        <thead>
+          <tr className="border-b-2 border-zinc-200 dark:border-zinc-800">
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "30%" }}>
+              Property name
+            </th>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "15%" }}>
+              Default
+            </th>
+            <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "55%" }}>
+              Description
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {cssVariables.map((variable, key) => (
+            <tr key={key} className="border-t border-zinc-200 dark:border-zinc-800">
+              <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">
+                <Code>{variable.name}</Code>
+              </td>
+              <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">
+                <Code>{variable.default}</Code>
+              </td>
+              <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">{variable.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}

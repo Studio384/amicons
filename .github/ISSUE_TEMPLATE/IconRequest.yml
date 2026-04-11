@@ -1,6 +1,6 @@
 name: Icon Request
 description: Request a new icon to be added to the set.
-title: "[Icon] Add vi-"
+title: "[Icon] Add ai-"
 labels: [icon, external]
 assignees:
   - studio384
@@ -32,7 +32,7 @@ body:
       options:
         - label: This is a single icon or part of an expected pair (e.g. `eye` and `eye-slashed`).
           required: true
-        - label: I have [searched the issues](https://github.com/sippy-platform/valkyrie/issues) for any possible duplications of this icon request.
+        - label: I have [searched the issues](https://github.com/studio384/amicons/issues) for any possible duplications of this icon request.
           required: true
         - label: An example image is included if available.
           required: false

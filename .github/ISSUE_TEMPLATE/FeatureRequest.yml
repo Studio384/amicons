@@ -1,5 +1,5 @@
 name: Feature Request
-description: Suggest a new idea for Valkyrie.
+description: Suggest a new idea for Amicons.
 title: "[Feature] "
 labels: [feature]
 assignees:
@@ -32,5 +32,5 @@ body:
       options:
         - label: This is a single feature.
           required: true
-        - label: I have [searched the issues](https://github.com/sippy-platform/valkyrie/issues) for any possible duplications of this feature request.
+        - label: I have [searched the issues](https://github.com/studio384/amicons/issues) for any possible duplications of this feature request.
           required: true

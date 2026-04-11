@@ -1,0 +1,11 @@
+{
+  "srcFiles": ["./icons/**/*.svg"],
+  "outputDirectory": "./src",
+  "interfaceName": "IAmicon",
+  "typeName": "Amicons",
+  "prefix": "ai",
+  "fileName": "Amicons",
+  "additionalModelFile": "./src",
+  "compileSources": true,
+  "completeIconSetName": "amiconSet"
+}
