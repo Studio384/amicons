@@ -44,9 +44,11 @@ export default function ReleaseCard({
           <ul className="list-disc ps-6">
             {renamedIcons.map((icon: { new: string; old: string }) => (
               <li key={icon.new} className="not-first:mt-1.5">
-                <Code>{icon.old}</Code>{" "}
-                <Amicon icon={aiArrowRight} style={{ marginInline: 8, position: "relative", top: 2 }} />{" "}
-                <Code>{icon.new}</Code>
+                <span className="flex flex-row items-center justify-start gap-2">
+                  <Code>{icon.old}</Code>
+                  <Amicon icon={aiArrowRight} />
+                  <Code>{icon.new}</Code>
+                </span>
               </li>
             ))}
           </ul>

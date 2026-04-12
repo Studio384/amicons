@@ -22,47 +22,53 @@ export default function ReleasePage() {
   const previousRelease = releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
 
   return (
-    <article>
-      <div className="relative isolate overflow-hidden bg-white bg-origin-border p-4 shadow-sm">
-        <div className="z-10 container mx-auto max-w-4xl">
-          <div className="flex flex-col gap-2">
-            <Link
-              to="/neo/releases"
-              className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
-            >
-              <Amicon icon={aiArrowLeft} /> All releases
-            </Link>
-          </div>
-
-          <div className="mt-12 flex flex-row items-center gap-3">
-            <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
-              <Amicon icon={aiAmicons} />
+    <>
+      <article>
+        <div className="relative isolate overflow-hidden bg-white bg-origin-border p-4 shadow-sm">
+          <div className="z-10 container mx-auto max-w-4xl">
+            <div className="flex flex-col gap-2">
+              <Link
+                to="/neo/releases"
+                className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
+              >
+                <Amicon icon={aiArrowLeft} /> All releases
+              </Link>
             </div>
-            <div className="flex flex-col gap-1">
-              <h2 className="font-display text-3xl font-bold">{release.name}</h2>
-              <p className="-mt-2 text-base">
-                {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}{" "}
-                <span className="text-zinc-600">&middot; Version {release.version}</span>
-              </p>
+
+            <div className="mt-12 flex flex-row items-center gap-3">
+              <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
+                <Amicon icon={aiAmicons} />
+              </div>
+              <div className="flex flex-col gap-1">
+                <h2 className="font-display text-3xl font-bold">{release.name}</h2>
+                <p className="-mt-2 text-base">
+                  {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}{" "}
+                  <span className="text-zinc-600">&middot; Version {release.version}</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="p-4">
-        <div className="container mx-auto flex max-w-4xl flex-col">
-          <ReleaseCard
-            excerpt={release.excerpt}
-            newIcons={release.newIcons}
-            updatedIcons={release.updatedIcons}
-            renamedIcons={release.renamedIcons}
-            removedIcons={release.removedIcons}
-          >
-            <ReleaseComponent />
-          </ReleaseCard>
+        <div className="p-4">
+          <div className="container mx-auto max-w-4xl">
+            <ReleaseCard
+              excerpt={release.excerpt}
+              newIcons={release.newIcons}
+              updatedIcons={release.updatedIcons}
+              renamedIcons={release.renamedIcons}
+              removedIcons={release.removedIcons}
+            >
+              <ReleaseComponent />
+            </ReleaseCard>
+          </div>
+        </div>
+      </article>
 
-          {nextRelease || previousRelease ? (
-            <nav className="mt-4 flex gap-1 border-t border-zinc-950/5 pt-4 max-sm:flex-col">
+      {nextRelease || previousRelease ? (
+        <div className="p-4 pt-0">
+          <div className="container mx-auto max-w-4xl">
+            <nav className="flex gap-1 border-t border-zinc-950/5 pt-4 max-sm:flex-col">
               {nextRelease ? (
                 <Link
                   to={`/neo/releases/${nextRelease.slug}`}
@@ -107,9 +113,9 @@ export default function ReleasePage() {
                 <div className="flex-1" />
               )}
             </nav>
-          ) : null}
+          </div>
         </div>
-      </div>
-    </article>
+      ) : null}
+    </>
   );
 }

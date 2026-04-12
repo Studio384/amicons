@@ -35,7 +35,7 @@ export default function DocsPager() {
       ) : (
         <div className="flex-1" />
       )}
-      <div className="flex-1" />
+      <div className="flex-1 max-md:hidden" />
       {next ? (
         <Link
           to={next.path}

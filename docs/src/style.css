@@ -178,7 +178,7 @@ pre {
     padding-block: 1px;
   }
 
-  & > .icon-grid {
+  & > .icon-grid:not(:last-child) {
     margin-bottom: 0.75rem;
   }
 }
