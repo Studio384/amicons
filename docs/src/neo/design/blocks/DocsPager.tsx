@@ -17,7 +17,7 @@ export default function DocsPager() {
   const next = currentIndex < DOC_PAGES.length - 1 ? DOC_PAGES[currentIndex + 1] : null;
 
   return (
-    <div className="mt-6 flex gap-4 border-t border-zinc-950/5 pt-6">
+    <nav className="mt-6 flex gap-4 border-t border-zinc-950/5 pt-6">
       {prev ? (
         <Link
           to={prev.path}
@@ -29,11 +29,11 @@ export default function DocsPager() {
           <Amicon icon={aiArrowLeft} className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75" />
           <div className="flex flex-col">
             <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">{prev.sectionTitle}</span>
-            <span className="font-display -mt-0.5 text-xl font-medium">{prev.title}</span>
+            <span className="font-display my-1 text-xl/5 font-medium">{prev.title}</span>
           </div>
         </Link>
       ) : (
-        <div className="flex-1 max-md:hidden" />
+        <div className="flex-1" />
       )}
       <div className="flex-1" />
       {next ? (
@@ -46,13 +46,13 @@ export default function DocsPager() {
         >
           <div className="flex flex-col items-end">
             <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">{next.sectionTitle}</span>
-            <span className="font-display -mt-0.5 text-xl font-medium">{next.title}</span>
+            <span className="font-display my-1 text-xl/5 font-medium">{next.title}</span>
           </div>
           <Amicon icon={aiArrowRight} className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75" />
         </Link>
       ) : (
         <div className="flex-1" />
       )}
-    </div>
+    </nav>
   );
 }

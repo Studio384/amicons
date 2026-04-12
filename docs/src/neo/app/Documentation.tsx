@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 
-import DocsPager from "../design/components/DocsPager";
+import DocsPager from "../design/blocks/DocsPager";
 
 export default function NeoDocumentation() {
   return (

@@ -51,7 +51,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
 
         <Menu className="p-4 max-md:hidden" />
       </aside>
-      <main className="me-2 mb-2 max-h-[calc(100dvh-1rem)] overflow-auto rounded-sm border border-zinc-200 bg-white p-4 text-black inset-shadow-sm max-md:ms-2 md:mt-2 dark:border-zinc-700 dark:bg-zinc-50">
+      <main className="me-2 mb-2 max-h-[calc(100dvh-1rem)] overflow-auto rounded-sm border border-zinc-200 bg-white text-black inset-shadow-sm max-md:ms-2 md:mt-2 dark:border-zinc-700 dark:bg-zinc-50">
         {children ? children : <Outlet />}
       </main>
     </div>
