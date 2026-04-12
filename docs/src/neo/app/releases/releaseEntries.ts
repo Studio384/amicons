@@ -28,6 +28,7 @@ export type ReleaseEntry = ReleaseFrontmatter & {
 };
 
 const modules = import.meta.glob<ReleaseModule>("./posts/*.mdx", { eager: true });
+const versionCollator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 
 export const releases: ReleaseEntry[] = Object.values(modules)
   .map((module) => ({
@@ -35,7 +36,16 @@ export const releases: ReleaseEntry[] = Object.values(modules)
     slug: module.frontmatter.version,
     Component: module.default,
   }))
-  .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+  .sort((a, b) => {
+    const publishDateDifference =
+      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+
+    if (publishDateDifference !== 0) {
+      return publishDateDifference;
+    }
+
+    return versionCollator.compare(b.version, a.version);
+  });
 
 export function getReleaseBySlug(slug?: string): ReleaseEntry | undefined {
   if (!slug) return undefined;
