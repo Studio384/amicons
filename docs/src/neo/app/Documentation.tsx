@@ -47,7 +47,7 @@ export default function NeoDocumentation() {
 
       <div className="p-4 pt-0">
         <div className="container mx-auto max-w-4xl">
-          <nav className="mt-6 flex gap-4 border-t border-zinc-950/5 pt-6">
+          <nav className="flex gap-1 border-t border-zinc-950/5 pt-4 max-sm:flex-col">
             {prev ? (
               <Link
                 to={prev.path}
