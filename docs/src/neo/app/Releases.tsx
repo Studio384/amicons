@@ -22,14 +22,13 @@ export default function Releases() {
                 <Amicon icon={aiAmicons} />
               </div>
               <div className="flex flex-col gap-1">
-                <h2 className="font-display text-3xl font-bold">{currentRelease.name}</h2>
-                <p className="-mt-2 text-base">
+                <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
                   {format(
                     parse(currentRelease.publishDate, "yyyy-MM-dd", new Date()),
                     "d MMMM yyyy",
-                  )}{" "}
-                  <span className="text-zinc-600">&middot; Version {currentRelease.version}</span>
+                  )}
                 </p>
+                <h1 className="font-display -mt-1 text-3xl font-bold">{currentRelease.name}</h1>
               </div>
             </div>
           </div>
