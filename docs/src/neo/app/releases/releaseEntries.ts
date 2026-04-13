@@ -27,7 +27,7 @@ export type ReleaseEntry = ReleaseFrontmatter & {
   Component: ComponentType;
 };
 
-const modules = import.meta.glob<ReleaseModule>("./posts/*.mdx", { eager: true });
+const modules = import.meta.glob<ReleaseModule>("./*.mdx", { eager: true });
 const versionCollator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 
 export const releases: ReleaseEntry[] = Object.values(modules)

@@ -6,9 +6,9 @@ import { format, parse } from "date-fns";
 import ReleaseCard from "@/neo/design/blocks/ReleaseCard";
 import { cn } from "@/utils/cn";
 
-import { getReleaseBySlug, releases } from "./releaseEntries";
+import { getReleaseBySlug, releases } from "./releases/releaseEntries";
 
-export default function ReleasePage() {
+export default function Release() {
   const { slug } = useParams();
   const release = getReleaseBySlug(slug);
 
@@ -19,7 +19,8 @@ export default function ReleasePage() {
   const ReleaseComponent = release.Component;
   const releaseIndex = releases.findIndex((entry) => entry.slug === release.slug);
   const nextRelease = releaseIndex > 0 ? releases[releaseIndex - 1] : undefined;
-  const previousRelease = releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
+  const previousRelease =
+    releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
 
   return (
     <>
@@ -40,11 +41,10 @@ export default function ReleasePage() {
                 <Amicon icon={aiAmicons} />
               </div>
               <div className="flex flex-col gap-1">
-                <h2 className="font-display text-3xl font-bold">{release.name}</h2>
-                <p className="-mt-2 text-base">
-                  {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}{" "}
-                  <span className="text-zinc-600">&middot; Version {release.version}</span>
+                <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
+                  {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
                 </p>
+                <h1 className="font-display -mt-1 text-3xl font-bold">{release.name}</h1>
               </div>
             </div>
           </div>
@@ -82,8 +82,12 @@ export default function ReleasePage() {
                     className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75"
                   />
                   <div className="flex flex-col">
-                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">Next release</span>
-                    <span className="font-display my-1 text-xl/5 font-medium">{nextRelease.name}</span>
+                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
+                      Next release
+                    </span>
+                    <span className="font-display my-1 text-xl/5 font-medium">
+                      {nextRelease.name}
+                    </span>
                   </div>
                 </Link>
               ) : (
@@ -102,7 +106,9 @@ export default function ReleasePage() {
                     <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
                       Previous release
                     </span>
-                    <span className="font-display my-1 text-xl/5 font-medium">{previousRelease.name}</span>
+                    <span className="font-display my-1 text-xl/5 font-medium">
+                      {previousRelease.name}
+                    </span>
                   </div>
                   <Amicon
                     icon={aiArrowRight}

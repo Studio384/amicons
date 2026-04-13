@@ -29,8 +29,7 @@ import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
 import NeoIcons from "./neo/app/Icons";
 import NeoReleases from "./neo/app/Releases";
-import NeoReleasePage from "./neo/app/releases/ReleasePage";
-import NeoReleasesIndex from "./neo/app/releases/ReleasesIndex";
+import NeoReleasePage from "./neo/app/Release";
 import NeoLayout from "./neo/design/layouts/Layout";
 
 export const router = createHashRouter([
@@ -85,10 +84,9 @@ export const router = createHashRouter([
       { path: "icons", Component: NeoIcons },
       {
         path: "releases",
-        Component: NeoReleases,
         errorElement: <NeoError />,
         children: [
-          { index: true, Component: NeoReleasesIndex },
+          { index: true, Component: NeoReleases },
           { path: ":slug", Component: NeoReleasePage },
         ],
       },
