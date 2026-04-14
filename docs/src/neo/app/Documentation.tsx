@@ -17,30 +17,28 @@ export default function NeoDocumentation() {
 
   return (
     <>
-      <article>
-        <div className="relative isolate overflow-hidden bg-white bg-origin-border p-4 shadow-sm">
-          <div className="z-10 container mx-auto max-w-4xl">
-            <div className="mt-18 flex flex-row items-center gap-3">
-              <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
-                <Amicon icon={currentPage?.icon ?? aiBook} />
-              </div>
-              <div className="flex flex-col gap-1">
-                <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
-                  {currentPage?.sectionTitle ?? "Documentation"}
-                </p>
-                <h1 className="font-display -mt-1 text-3xl font-bold">
-                  {currentPage?.title ?? "Documentation"}
-                </h1>
-              </div>
+      <div className=" isolate overflow-hidden bg-white/80 backdrop-blur-xs bg-origin-border p-4 shadow-sm sticky -top-18 z-10">
+        <div className="z-10 container mx-auto max-w-4xl">
+          <div className="mt-18 flex flex-row items-center gap-3">
+            <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
+              <Amicon icon={currentPage?.icon ?? aiBook} />
+            </div>
+            <div className="flex flex-col gap-1">
+              <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
+                {currentPage?.sectionTitle ?? "Documentation"}
+              </p>
+              <h1 className="font-display -mt-1 text-3xl font-bold">
+                {currentPage?.title ?? "Documentation"}
+              </h1>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="p-4">
-          <div className="container mx-auto max-w-4xl">
-            <div className="neo-doc-page neo-docs">
-              <Outlet />
-            </div>
+      <article className="p-4">
+        <div className="container mx-auto max-w-4xl">
+          <div className="neo-doc-page neo-docs">
+            <Outlet />
           </div>
         </div>
       </article>

@@ -32,13 +32,15 @@ export default function NeoLayout({ children }: PropsWithChildren) {
                         <NavLink to="/neo" className="flex flex-row items-center gap-2">
                           <img src="favicon.png" className="size-6 shrink-0" />
                           <span className="font-display text-xl">
-                            Amicons <span className="text-xs font-light opacity-75">{pkg.version}</span>
+                            Amicons{" "}
+                            <span className="text-xs font-light opacity-75">{pkg.version}</span>
                           </span>
                         </NavLink>
                       </Drawer.Title>
 
                       <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
-                        <Amicon icon={aiXmark} /> <span className="sr-only">Close navigation menu</span>
+                        <Amicon icon={aiXmark} />{" "}
+                        <span className="sr-only">Close navigation menu</span>
                       </Drawer.Close>
                     </div>
                     <Menu className="p-4" />
@@ -51,7 +53,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
 
         <Menu className="p-4 max-md:hidden" />
       </aside>
-      <main className="me-2 mb-2 max-h-[calc(100dvh-1rem)] overflow-auto rounded-sm border border-zinc-200 bg-white text-black inset-shadow-sm max-md:ms-2 md:mt-2 dark:border-zinc-700 dark:bg-zinc-50">
+      <main className="me-2 mb-2 md:max-h-[calc(100dvh-1rem)] max-md:max-h-[calc(100dvh-4.25rem)] overflow-auto rounded-sm border border-zinc-200 bg-white text-black inset-shadow-sm max-md:ms-2 md:mt-2 dark:border-zinc-700 dark:bg-zinc-50">
         {children ? children : <Outlet />}
       </main>
     </div>

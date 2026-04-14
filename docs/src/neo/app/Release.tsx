@@ -24,44 +24,42 @@ export default function Release() {
 
   return (
     <>
-      <article>
-        <div className="relative isolate overflow-hidden bg-white bg-origin-border p-4 shadow-sm">
-          <div className="z-10 container mx-auto max-w-4xl">
-            <div className="flex flex-col gap-2">
-              <Link
-                to="/neo/releases"
-                className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
-              >
-                <Amicon icon={aiArrowLeft} /> All releases
-              </Link>
-            </div>
+      <div className=" isolate overflow-hidden bg-white/80 backdrop-blur-xs bg-origin-border p-4 shadow-sm sticky -top-18 z-10">
+        <div className="z-10 container mx-auto max-w-4xl">
+          <div className="flex flex-col gap-2">
+            <Link
+              to="/neo/releases"
+              className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
+            >
+              <Amicon icon={aiArrowLeft} /> All releases
+            </Link>
+          </div>
 
-            <div className="mt-12 flex flex-row items-center gap-3">
-              <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
-                <Amicon icon={aiAmicons} />
-              </div>
-              <div className="flex flex-col gap-1">
-                <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
-                  {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
-                </p>
-                <h1 className="font-display -mt-1 text-3xl font-bold">{release.name}</h1>
-              </div>
+          <div className="mt-12 flex flex-row items-center gap-3">
+            <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
+              <Amicon icon={aiAmicons} />
+            </div>
+            <div className="flex flex-col gap-1">
+              <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
+                {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
+              </p>
+              <h1 className="font-display -mt-1 text-3xl font-bold">{release.name}</h1>
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="p-4">
-          <div className="container mx-auto max-w-4xl">
-            <ReleaseCard
-              excerpt={release.excerpt}
-              newIcons={release.newIcons}
-              updatedIcons={release.updatedIcons}
-              renamedIcons={release.renamedIcons}
-              removedIcons={release.removedIcons}
-            >
-              <ReleaseComponent />
-            </ReleaseCard>
-          </div>
+      <article className="p-4">
+        <div className="container mx-auto max-w-4xl">
+          <ReleaseCard
+            excerpt={release.excerpt}
+            newIcons={release.newIcons}
+            updatedIcons={release.updatedIcons}
+            renamedIcons={release.renamedIcons}
+            removedIcons={release.removedIcons}
+          >
+            <ReleaseComponent />
+          </ReleaseCard>
         </div>
       </article>
 
