@@ -5,6 +5,7 @@ import Amicon, { aiBook, aiArrowLeft, aiArrowRight } from "@studio384/amicons";
 import { cn } from "@/utils/cn";
 
 import { DOC_PAGES } from "./docs/navigation";
+import PageHeader from "../design/blocks/PageHeader";
 
 export default function NeoDocumentation() {
   const location = useLocation();
@@ -18,21 +19,11 @@ export default function NeoDocumentation() {
 
   return (
     <>
-      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs">
-        <div className="z-10 container mx-auto max-w-4xl">
-          <div className="mt-18 flex flex-row items-center gap-3">
-            <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
-              <Amicon icon={currentPage?.icon ?? aiBook} />
-            </div>
-            <div className="flex flex-col gap-1">
-              <p className="font-display mt-0.5 -mb-1 text-sm font-medium tracking-widest text-violet-700 uppercase">
-                {currentPage?.sectionTitle ?? "Documentation"}
-              </p>
-              <h1 className="font-display -mt-1 text-3xl font-bold">{currentPage?.title ?? "Documentation"}</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        icon={currentPage?.icon ?? aiBook}
+        title={currentPage?.title ?? "Documentation"}
+        subtitle={currentPage?.sectionTitle ?? "Documentation"}
+      />
 
       <article className="p-4">
         <div className="container mx-auto max-w-4xl">

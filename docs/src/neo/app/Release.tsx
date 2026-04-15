@@ -7,6 +7,7 @@ import ReleaseCard from "@/neo/design/blocks/ReleaseCard";
 import { cn } from "@/utils/cn";
 
 import { getReleaseBySlug, releases } from "./releases/releaseEntries";
+import PageHeader from "../design/blocks/PageHeader";
 
 export default function Release() {
   const { slug } = useParams();
@@ -19,34 +20,23 @@ export default function Release() {
   const ReleaseComponent = release.Component;
   const releaseIndex = releases.findIndex((entry) => entry.slug === release.slug);
   const nextRelease = releaseIndex > 0 ? releases[releaseIndex - 1] : undefined;
-  const previousRelease = releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
+  const previousRelease =
+    releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
 
   return (
     <>
-      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs">
-        <div className="z-10 container mx-auto max-w-4xl">
-          <div className="flex flex-col gap-2">
-            <Link
-              to="/neo/releases"
-              className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
-            >
-              <Amicon icon={aiArrowLeft} /> All releases
-            </Link>
-          </div>
-
-          <div className="mt-12 flex flex-row items-center gap-3">
-            <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
-              <Amicon icon={aiAmicons} />
-            </div>
-            <div className="flex flex-col gap-1">
-              <p className="font-display mt-0.5 -mb-1 text-sm font-medium tracking-widest text-violet-700 uppercase">
-                {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
-              </p>
-              <h1 className="font-display -mt-1 text-3xl font-bold">{release.name}</h1>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PageHeader
+        icon={aiAmicons}
+        title={release.name}
+        subtitle={format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
+      >
+        <Link
+          to="/neo/releases"
+          className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
+        >
+          <Amicon icon={aiArrowLeft} /> All releases
+        </Link>
+      </PageHeader>
 
       <article className="p-4">
         <div className="container mx-auto max-w-4xl">
@@ -79,8 +69,12 @@ export default function Release() {
                     className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75"
                   />
                   <div className="flex flex-col">
-                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">Next release</span>
-                    <span className="font-display my-1 text-xl/5 font-medium">{nextRelease.name}</span>
+                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
+                      Next release
+                    </span>
+                    <span className="font-display my-1 text-xl/5 font-medium">
+                      {nextRelease.name}
+                    </span>
                   </div>
                 </Link>
               ) : (
@@ -99,7 +93,9 @@ export default function Release() {
                     <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
                       Previous release
                     </span>
-                    <span className="font-display my-1 text-xl/5 font-medium">{previousRelease.name}</span>
+                    <span className="font-display my-1 text-xl/5 font-medium">
+                      {previousRelease.name}
+                    </span>
                   </div>
                   <Amicon
                     icon={aiArrowRight}
