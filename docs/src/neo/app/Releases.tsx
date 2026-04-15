@@ -5,8 +5,9 @@ import { format, parse } from "date-fns";
 
 import ReleaseCard from "@/neo/design/blocks/ReleaseCard";
 
-import { releases } from "./releases/releaseEntries";
 import PageHeader from "../design/blocks/PageHeader";
+import { releases } from "./releases/releaseEntries";
+import { Separator } from "@base-ui/react";
 
 export default function Releases() {
   const [currentRelease, ...previousReleases] = releases;
@@ -24,8 +25,8 @@ export default function Releases() {
         )}
       />
 
-      <article className="p-4">
-        <div className="container mx-auto max-w-4xl">
+      <div className="flex flex-col gap-4 p-4">
+        <article className="container mx-auto max-w-4xl">
           <ReleaseCard
             excerpt={currentRelease.excerpt}
             newIcons={currentRelease.newIcons}
@@ -35,12 +36,15 @@ export default function Releases() {
           >
             <CurrentRelease />
           </ReleaseCard>
-        </div>
-      </article>
+        </article>
 
-      {previousReleases.length > 0 ? (
-        <div className="p-4 pt-0">
-          <section className="container mx-auto flex max-w-4xl flex-col gap-3 border-t border-zinc-200 pt-4">
+        <Separator
+          orientation="horizontal"
+          className="container max-w-4xl mx-auto h-px bg-zinc-950/5 dark:bg-zinc-950/10"
+        />
+
+        {previousReleases.length > 0 && (
+          <section className="container mx-auto flex max-w-4xl flex-col gap-3">
             <h2 className="font-display text-3xl font-bold">Previous releases</h2>
 
             <div className="flex flex-col">
@@ -73,8 +77,8 @@ export default function Releases() {
               ))}
             </div>
           </section>
-        </div>
-      ) : null}
+        )}
+      </div>
     </>
   );
 }

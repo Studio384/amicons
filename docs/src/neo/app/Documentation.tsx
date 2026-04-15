@@ -1,11 +1,12 @@
 import { Outlet, Link, useLocation } from "react-router";
 
+import { Separator } from "@base-ui/react";
 import Amicon, { aiBook, aiArrowLeft, aiArrowRight } from "@studio384/amicons";
 
 import { cn } from "@/utils/cn";
 
-import { DOC_PAGES } from "./docs/navigation";
 import PageHeader from "../design/blocks/PageHeader";
+import { DOC_PAGES } from "./docs/navigation";
 
 export default function NeoDocumentation() {
   const location = useLocation();
@@ -25,23 +26,24 @@ export default function NeoDocumentation() {
         subtitle={currentPage?.sectionTitle ?? "Documentation"}
       />
 
-      <article className="p-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="neo-doc-page neo-docs">
-            <Outlet />
-          </div>
-        </div>
-      </article>
+      <div className="flex flex-col gap-4 p-4">
+        <article className="neo-docs neo-doc-page container mx-auto max-w-4xl">
+          <Outlet />
+        </article>
 
-      <div className="p-4 pt-0">
+        <Separator
+          orientation="horizontal"
+          className="container max-w-4xl mx-auto h-px bg-zinc-950/5 dark:bg-zinc-950/10"
+        />
+
         <div className="container mx-auto max-w-4xl">
-          <nav className="flex gap-1 border-t border-zinc-950/5 pt-4 max-sm:flex-col">
-            {prev ? (
+          <nav className="grid grid-cols-1 grid-rows-2 gap-1 @md/main:grid-cols-2 @md/main:grid-rows-1 @xl2/main:grid-cols-3">
+            {prev && (
               <Link
                 to={prev.path}
                 className={cn(
-                  "group grid flex-1 grid-cols-[min-content_auto] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
-                  "hover:bg-violet-600 hover:text-white hover:shadow-sm",
+                  "group grid grid-cols-[min-content_auto] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
+                  "col-start-1 hover:bg-violet-600 hover:text-white hover:shadow-sm",
                 )}
               >
                 <Amicon
@@ -55,31 +57,28 @@ export default function NeoDocumentation() {
                   <span className="font-display my-1 text-xl/5 font-medium">{prev.title}</span>
                 </div>
               </Link>
-            ) : (
-              <div className="flex-1" />
             )}
-            <div className="flex-1 max-md:hidden" />
-            {next ? (
+            {next && (
               <Link
                 to={next.path}
                 className={cn(
-                  "group grid flex-1 grid-cols-[auto_min-content] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
-                  "hover:bg-violet-600 hover:text-white hover:shadow-sm",
+                  "group grid grid-cols-[auto_min-content] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
+                  "hover:bg-violet-600 hover:text-white hover:shadow-sm @md/main:col-start-2 @xl2/main:col-start-3",
                 )}
               >
                 <div className="flex flex-col items-end">
                   <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
                     {next.sectionTitle}
                   </span>
-                  <span className="font-display my-1 text-xl/5 font-medium">{next.title}</span>
+                  <span className="font-display my-1 text-xl/5 font-medium text-end">
+                    {next.title}
+                  </span>
                 </div>
                 <Amicon
                   icon={aiArrowRight}
                   className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75"
                 />
               </Link>
-            ) : (
-              <div className="flex-1" />
             )}
           </nav>
         </div>
