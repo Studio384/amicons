@@ -19,12 +19,11 @@ export default function Release() {
   const ReleaseComponent = release.Component;
   const releaseIndex = releases.findIndex((entry) => entry.slug === release.slug);
   const nextRelease = releaseIndex > 0 ? releases[releaseIndex - 1] : undefined;
-  const previousRelease =
-    releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
+  const previousRelease = releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
 
   return (
     <>
-      <div className=" isolate overflow-hidden bg-white/80 backdrop-blur-xs bg-origin-border p-4 shadow-sm sticky -top-18 z-10">
+      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs">
         <div className="z-10 container mx-auto max-w-4xl">
           <div className="flex flex-col gap-2">
             <Link
@@ -40,7 +39,7 @@ export default function Release() {
               <Amicon icon={aiAmicons} />
             </div>
             <div className="flex flex-col gap-1">
-              <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
+              <p className="font-display mt-0.5 -mb-1 text-sm font-medium tracking-widest text-violet-700 uppercase">
                 {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
               </p>
               <h1 className="font-display -mt-1 text-3xl font-bold">{release.name}</h1>
@@ -80,12 +79,8 @@ export default function Release() {
                     className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75"
                   />
                   <div className="flex flex-col">
-                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
-                      Next release
-                    </span>
-                    <span className="font-display my-1 text-xl/5 font-medium">
-                      {nextRelease.name}
-                    </span>
+                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">Next release</span>
+                    <span className="font-display my-1 text-xl/5 font-medium">{nextRelease.name}</span>
                   </div>
                 </Link>
               ) : (
@@ -104,9 +99,7 @@ export default function Release() {
                     <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
                       Previous release
                     </span>
-                    <span className="font-display my-1 text-xl/5 font-medium">
-                      {previousRelease.name}
-                    </span>
+                    <span className="font-display my-1 text-xl/5 font-medium">{previousRelease.name}</span>
                   </div>
                   <Amicon
                     icon={aiArrowRight}

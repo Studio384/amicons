@@ -37,8 +37,7 @@ export const releases: ReleaseEntry[] = Object.values(modules)
     Component: module.default,
   }))
   .sort((a, b) => {
-    const publishDateDifference =
-      new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
+    const publishDateDifference = new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime();
 
     if (publishDateDifference !== 0) {
       return publishDateDifference;

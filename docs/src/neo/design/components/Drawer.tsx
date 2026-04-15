@@ -47,7 +47,7 @@ function Popup({ className, ...props }: DrawerPrimitive.Popup.Props) {
         // Background
         "bg-zinc-100 dark:bg-zinc-900",
         // Styling
-        "h-full w-75 max-w-[calc(100dvw-20px)] touch-auto overflow-y-auto overscroll-contain outline-1 outline-zinc-200 dark:outline-zinc-800",
+        "h-dvh w-80 max-w-[calc(100dvw-20px)] touch-auto overflow-y-auto overscroll-contain outline-1 outline-zinc-200 dark:outline-zinc-800",
         "[--bleed:0rem]",
         "transform-[translateX(var(--drawer-swipe-movement-x))]",
         "data-ending-style:transform-[translateX(calc(100%-var(--bleed)+var(--viewport-padding)+2px))]",

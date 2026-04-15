@@ -9,9 +9,7 @@ function Root(props: NavigationMenuPrimitive.Root.Props) {
 }
 
 function List({ className, ...props }: NavigationMenuPrimitive.List.Props) {
-  return (
-    <NavigationMenuPrimitive.List className={cn("flex flex-col gap-1", className)} {...props} />
-  );
+  return <NavigationMenuPrimitive.List className={cn("flex flex-col gap-1", className)} {...props} />;
 }
 
 const itemClassName = cn(
@@ -19,8 +17,8 @@ const itemClassName = cn(
   "font-display text-start",
   // Spacing
   "grid grid-cols-[min-content_auto_min-content] items-center",
-  "data-[size=md]:px-4 data-[size=md]:py-2.5 data-[size=md]:gap-2.5",
-  "data-[size=sm]:px-4 data-[size=sm]:py-1.5 data-[size=sm]:gap-2.5",
+  "data-[size=md]:gap-2.5 data-[size=md]:px-4 data-[size=md]:py-2.5",
+  "data-[size=sm]:gap-2.5 data-[size=sm]:px-4 data-[size=sm]:py-1.5",
   // Styling
   "w-full rounded-sm",
   // Hover
@@ -31,11 +29,7 @@ const itemClassName = cn(
   "transition-all duration-150",
 );
 
-function Item({
-  to,
-  size = "md",
-  ...props
-}: { to: string; size?: "sm" | "md" } & NavigationMenuPrimitive.Link.Props) {
+function Item({ to, size = "md", ...props }: { to: string; size?: "sm" | "md" } & NavigationMenuPrimitive.Link.Props) {
   return (
     <NavigationMenuPrimitive.Item>
       <NavigationMenuPrimitive.Link
@@ -48,11 +42,7 @@ function Item({
   );
 }
 
-function ActionItem({
-  className,
-  size = "md",
-  ...props
-}: { size?: "sm" | "md" } & NavigationMenuPrimitive.Link.Props) {
+function ActionItem({ className, size = "md", ...props }: { size?: "sm" | "md" } & NavigationMenuPrimitive.Link.Props) {
   return (
     <NavigationMenuPrimitive.Item>
       <NavigationMenuPrimitive.Link

@@ -9,9 +9,9 @@ import Menu from "./Menu";
 
 export default function NeoLayout({ children }: PropsWithChildren) {
   return (
-    <div className="isolate grid min-h-screen bg-zinc-100 max-md:grid-rows-[min-content_auto] md:grid-cols-[300px_auto] dark:bg-zinc-900 dark:text-white">
-      <aside className="flex flex-col max-md:items-center max-md:justify-between max-h-dvh">
-        <header className="flex w-full items-center justify-between p-4 md:border-b md:border-white/10">
+    <div className="isolate grid min-h-screen bg-zinc-100 max-md:grid-rows-[min-content_auto] md:grid-cols-[320px_auto] dark:bg-zinc-900 dark:text-white">
+      <aside className="flex max-h-dvh flex-col overflow-scroll max-md:items-center max-md:justify-between dark:scheme-dark">
+        <header className="flex w-full items-center justify-between bg-zinc-100 p-4 md:border-b md:border-zinc-950/5 dark:bg-zinc-900 dark:md:border-white/10">
           <NavLink to="/neo" className="flex flex-row items-center gap-2">
             <img src="favicon.png" className="size-6 shrink-0" />
             <span className="font-display text-xl">
@@ -20,30 +20,28 @@ export default function NeoLayout({ children }: PropsWithChildren) {
           </NavLink>
 
           <Drawer.Root swipeDirection="right">
-            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
+            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
               <Amicon icon={aiBarsUneven} /> <span className="sr-only">Open navigation menu</span>
             </Drawer.Trigger>
             <Drawer.Portal>
               <Drawer.Viewport>
                 <Drawer.Popup>
-                  <Drawer.Content className="mx-auto w-full flex  flex-col max-w-lg max-h-dvh">
-                    <div className="flex w-full items-center justify-between border-b border-white/10 p-4">
+                  <Drawer.Content className="flex h-dvh flex-col overflow-scroll max-md:items-center max-md:justify-between dark:scheme-dark">
+                    <div className="flex w-full items-center justify-between bg-zinc-100 p-4 md:border-b md:border-zinc-950/5 dark:bg-zinc-900 dark:md:border-white/10">
                       <Drawer.Title>
                         <NavLink to="/neo" className="flex flex-row items-center gap-2">
                           <img src="favicon.png" className="size-6 shrink-0" />
                           <span className="font-display text-xl">
-                            Amicons{" "}
-                            <span className="text-xs font-light opacity-75">{pkg.version}</span>
+                            Amicons <span className="text-xs font-light opacity-75">{pkg.version}</span>
                           </span>
                         </NavLink>
                       </Drawer.Title>
 
-                      <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
-                        <Amicon icon={aiXmark} />{" "}
-                        <span className="sr-only">Close navigation menu</span>
+                      <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
+                        <Amicon icon={aiXmark} /> <span className="sr-only">Close navigation menu</span>
                       </Drawer.Close>
                     </div>
-                    <Menu className="p-4 overflow-scroll dark:scheme-dark" />
+                    <Menu className="max-md:hidden" />
                   </Drawer.Content>
                 </Drawer.Popup>
               </Drawer.Viewport>
@@ -51,9 +49,9 @@ export default function NeoLayout({ children }: PropsWithChildren) {
           </Drawer.Root>
         </header>
 
-        <Menu className="p-4 max-md:hidden overflow-scroll dark:scheme-dark" />
+        <Menu className="max-md:hidden" />
       </aside>
-      <main className="me-2 mb-2 md:max-h-[calc(100dvh-1rem)] max-md:max-h-[calc(100dvh-4.25rem)] overflow-auto rounded-sm border border-zinc-200 bg-white text-black inset-shadow-sm max-md:ms-2 md:mt-2 dark:border-zinc-700 dark:bg-zinc-50">
+      <main className="me-2 mb-2 overflow-auto rounded-sm border border-zinc-200 bg-white text-black inset-shadow-sm max-md:ms-2 max-md:max-h-[calc(100dvh-4.25rem)] md:mt-2 md:max-h-[calc(100dvh-1rem)] dark:border-zinc-700 dark:bg-zinc-50">
         {children ? children : <Outlet />}
       </main>
     </div>

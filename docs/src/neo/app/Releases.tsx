@@ -14,14 +14,14 @@ export default function Releases() {
 
   return (
     <>
-      <div className=" isolate overflow-hidden bg-white/80 backdrop-blur-xs bg-origin-border p-4 shadow-sm sticky -top-18 z-10">
+      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs">
         <div className="z-10 container mx-auto max-w-4xl">
           <div className="mt-18 flex flex-row items-center gap-3">
             <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
               <Amicon icon={aiAmicons} />
             </div>
             <div className="flex flex-col gap-1">
-              <p className="font-display text-sm font-medium tracking-widest -mb-1 mt-0.5 text-violet-700 uppercase">
+              <p className="font-display mt-0.5 -mb-1 text-sm font-medium tracking-widest text-violet-700 uppercase">
                 {format(parse(currentRelease.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
               </p>
               <h1 className="font-display -mt-1 text-3xl font-bold">{currentRelease.name}</h1>
@@ -46,7 +46,7 @@ export default function Releases() {
 
       {previousReleases.length > 0 ? (
         <div className="p-4 pt-0">
-          <section className="container mx-auto max-w-4xl flex flex-col gap-3 border-t border-zinc-200 pt-4">
+          <section className="container mx-auto flex max-w-4xl flex-col gap-3 border-t border-zinc-200 pt-4">
             <h2 className="font-display text-3xl font-bold">Previous releases</h2>
 
             <div className="flex flex-col">
@@ -62,12 +62,8 @@ export default function Releases() {
                         {release.name}
                       </h3>
                       <p className="-mt-2 text-sm">
-                        {format(
-                          parse(release.publishDate, "yyyy-MM-dd", new Date()),
-                          "d MMMM yyyy",
-                        )}{" "}
-                        <span>&middot;</span>{" "}
-                        <span className="text-zinc-600">Version {release.version}</span>
+                        {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}{" "}
+                        <span>&middot;</span> <span className="text-zinc-600">Version {release.version}</span>
                       </p>
                     </div>
                     <Amicon

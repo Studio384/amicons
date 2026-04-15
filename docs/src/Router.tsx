@@ -28,8 +28,8 @@ import NeoPageSpin from "./neo/app/docs/Spin.mdx";
 import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
 import NeoIcons from "./neo/app/Icons";
-import NeoReleases from "./neo/app/Releases";
 import NeoReleasePage from "./neo/app/Release";
+import NeoReleases from "./neo/app/Releases";
 import NeoLayout from "./neo/design/layouts/Layout";
 
 export const router = createHashRouter([
