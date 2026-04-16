@@ -1,0 +1,124 @@
+name: Publish documentation
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+concurrency:
+  group: documentation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Amicons package
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Get version
+        id: version
+        run: echo "version=$(jq -r '.version' amicons/package.json)" >> $GITHUB_OUTPUT
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: amicons/pnpm-lock.yaml
+      - name: Install dependencies
+        working-directory: amicons
+        run: pnpm install --frozen-lockfile
+      - name: Production build
+        working-directory: amicons
+        run: pnpm prod
+      - name: Pack for npm
+        working-directory: amicons
+        run: pnpm pack
+      - name: Package icons
+        working-directory: amicons/icons
+        run: zip -r ../../amicons-${{ steps.version.outputs.version }}-icons.zip . -i "*.svg"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: release-artifacts
+          path: |
+            amicons/dist
+            amicons/studio384-amicons-*.tgz
+            amicons-${{ steps.version.outputs.version }}-icons.zip
+
+  docs_check:
+    name: Docs linting and formatting
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: docs/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check formatting
+        run: pnpm format
+      - name: Lint
+        run: pnpm lint
+
+  deploy-docs:
+    name: Deploy to GitHub Pages
+    needs: [build, docs_check]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: release-artifacts
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10.33.0
+      - name: Set up Node 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.x
+          cache: "pnpm"
+          cache-dependency-path: docs/pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
