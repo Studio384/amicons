@@ -21,14 +21,14 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(vite@8.0.8(@types/node@25.6.0)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))
       '@tanstack/react-pacer':
-        specifier: ^0.21.1
-        version: 0.21.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        specifier: ^0.22.0
+        version: 0.22.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
       cva:
         specifier: 1.0.0-beta.4
-        version: 1.0.0-beta.4(typescript@6.0.2)
+        version: 1.0.0-beta.4(typescript@6.0.3)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -58,8 +58,8 @@ importers:
         specifier: ^0.10.2
         version: 0.10.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(csstype@3.2.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(solid-js@1.9.12)
       '@tanstack/react-pacer-devtools':
-        specifier: ^0.6.1
-        version: 0.6.1(@tanstack/pacer@0.20.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(solid-js@1.9.12)
+        specifier: ^0.7.0
+        version: 0.7.0(@tanstack/pacer@0.21.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(solid-js@1.9.12)
       '@types/node':
         specifier: ^25.6.0
         version: 25.6.0
@@ -97,8 +97,8 @@ importers:
         specifier: ^4.0.2
         version: 4.0.2
       typescript:
-        specifier: ^6.0.2
-        version: 6.0.2
+        specifier: ^6.0.3
+        version: 6.0.3
       vite:
         specifier: ^8.0.8
         version: 8.0.8(@types/node@25.6.0)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3)
@@ -1170,14 +1170,14 @@ packages:
     peerDependencies:
       solid-js: '>=1.9.7'
 
-  '@tanstack/pacer-devtools@1.2.1':
-    resolution: {integrity: sha512-812A+OtUNYXLs8S9U0eVwO/SkYi0178HgVZYa18LAB8fge+4ACyf4EJmWXyN/6eOBQRCgbVMt8Lye/GFi86qaQ==}
+  '@tanstack/pacer-devtools@1.3.0':
+    resolution: {integrity: sha512-wpFXV4H8se86geWEiDa4gf4cYb7zcyUtr1DQ2b58ILXEfD30B2jRGYMS1R6/PIQlJXNwXLRyQp3cQzyJJRkgwg==}
     engines: {node: '>=18'}
     peerDependencies:
       '@tanstack/pacer': '>=0.16.4'
 
-  '@tanstack/pacer@0.20.1':
-    resolution: {integrity: sha512-ZNQ1bIL6eUXVKdic0tiImvBVkWrg/IoSK6VIacTrO3d3HAGnd70qFJNJagR/YOJIOw4EKGWnodwpYZkN1pWuVQ==}
+  '@tanstack/pacer@0.21.0':
+    resolution: {integrity: sha512-EZyU3fQvdz7faj0vBVrPd5ejkSS9pbGKtrGZI56dLJgotca6iZKhaNDRv7dweG4dnWx0LovE9YYf1MAErGpbLQ==}
     engines: {node: '>=18'}
 
   '@tanstack/react-devtools@0.10.2':
@@ -1189,8 +1189,8 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
 
-  '@tanstack/react-pacer-devtools@0.6.1':
-    resolution: {integrity: sha512-vAyoz8AlV0TKlZjFV+MehghGh+8q+zuhZYMRbejguCYopIKYy/nUmVFJ6F5aGhILA8cyOPiNq5UTjVcHbRt87w==}
+  '@tanstack/react-pacer-devtools@0.7.0':
+    resolution: {integrity: sha512-KDMpHhE6uZXQMBTIwwlRlCjv44imcVVnqXxI6nh7Epgg7BCZCk3Vnjo/sOKYgBRkuMoO3nwkGuhJTEbfYuk+fw==}
     engines: {node: '>=18'}
     peerDependencies:
       '@types/react': '>=16.8'
@@ -1198,26 +1198,26 @@ packages:
       react: '>=16.8'
       react-dom: '>=16.8'
 
-  '@tanstack/react-pacer@0.21.1':
-    resolution: {integrity: sha512-BIBWmxSi+RHuB4Sh8SPyh3i3PVK8GR3yAyxOqXjERyww1cfvKdu2veUfJuTTiR4os1lfdctcS4HAibt8KTmMiw==}
+  '@tanstack/react-pacer@0.22.0':
+    resolution: {integrity: sha512-AuKrkcP/LheBuq1tJCN8DDkwU+RmSql3zpJ1RFwvdc7qJED7Ba+jwlfFkeOZ62WcMtV54RceG9Uyprr0j99Qnw==}
     engines: {node: '>=18'}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
 
-  '@tanstack/react-store@0.9.3':
-    resolution: {integrity: sha512-y2iHd/N9OkoQbFJLUX1T9vbc2O9tjH0pQRgTcx1/Nz4IlwLvkgpuglXUx+mXt0g5ZDFrEeDnONPqkbfxXJKwRg==}
+  '@tanstack/react-store@0.11.0':
+    resolution: {integrity: sha512-tX4YXh3PDkmpvGQWkWqKpzs/MSqbtuwY9dWdWhtV9Q50PmO+jOkUKIWIX4G85dwt7lxdHLXsiaEKPdKmC8F41w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/solid-store@0.9.3':
-    resolution: {integrity: sha512-XThXDzwJT8zeatmxFK1UISikfzz1z76mMlpg1IBDPrJp6df6U3cpJInZRbYs3xlVsnhMziuZigaSkzMyZESK9Q==}
+  '@tanstack/solid-store@0.11.0':
+    resolution: {integrity: sha512-2isL0ZnnyI1iN0V+QPrxE3OcPndohBgVlBcHZYoAOIAiU1WoWjVy0q5gb0suPu1Id0h5cKC23JnwzQTxWDZD0w==}
     peerDependencies:
       solid-js: ^1.6.0
 
-  '@tanstack/store@0.9.3':
-    resolution: {integrity: sha512-8reSzl/qGWGGVKhBoxXPMWzATSbZLZFWhwBAFO9NAyp0TxzfBP0mIrGb8CP8KrQTmvzXlR/vFPPUrHTLBGyFyw==}
+  '@tanstack/store@0.11.0':
+    resolution: {integrity: sha512-WlzzCt3xi0G6pCAJu1U+2jiECwabETDpQDi3hfkFZvJii9AuZqEKbOiVarX1/bWhTNjU486yQtJCCasi/0q+Cw==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -1305,8 +1305,8 @@ packages:
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
 
-  baseline-browser-mapping@2.10.19:
-    resolution: {integrity: sha512-qCkNLi2sfBOn8XhZQ0FXsT1Ki/Yo5P90hrkRamVFRS7/KV9hpfA4HkoWNU152+8w0zPjnxo5psx5NL3PSGgv5g==}
+  baseline-browser-mapping@2.10.20:
+    resolution: {integrity: sha512-1AaXxEPfXT+GvTBJFuy4yXVHWJBXa4OdbIebGN/wX5DlsIkU0+wzGnd2lOzokSk51d5LUmqjgBLRLlypLUqInQ==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1423,8 +1423,8 @@ packages:
   dom-helpers@5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
 
-  electron-to-chromium@1.5.339:
-    resolution: {integrity: sha512-Is+0BBHJ4NrdpAYiperrmp53pLywG/yV/6lIMTAnhxvzj/Cmn5Q/ogSHC6AKe7X+8kPLxxFk0cs5oc/3j/fxIg==}
+  electron-to-chromium@1.5.340:
+    resolution: {integrity: sha512-908qahOGocRMinT2nM3ajCEM99H4iPdv84eagPP3FfZy/1ZGeOy2CZYzjhms81ckOPCXPlW7LkY4XpxD8r1DrA==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -2102,8 +2102,8 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  typescript@6.0.2:
-    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3101,12 +3101,12 @@ snapshots:
       - csstype
       - utf-8-validate
 
-  '@tanstack/pacer-devtools@1.2.1(@tanstack/pacer@0.20.1)(@types/react@19.2.14)(react@19.2.5)':
+  '@tanstack/pacer-devtools@1.3.0(@tanstack/pacer@0.21.0)(@types/react@19.2.14)(react@19.2.5)':
     dependencies:
       '@tanstack/devtools-ui': 0.5.1(csstype@3.2.3)(solid-js@1.9.12)
       '@tanstack/devtools-utils': 0.4.0(@types/react@19.2.14)(react@19.2.5)(solid-js@1.9.12)
-      '@tanstack/pacer': 0.20.1
-      '@tanstack/solid-store': 0.9.3(solid-js@1.9.12)
+      '@tanstack/pacer': 0.21.0
+      '@tanstack/solid-store': 0.11.0(solid-js@1.9.12)
       clsx: 2.1.1
       csstype: 3.2.3
       dayjs: 1.11.20
@@ -3118,10 +3118,10 @@ snapshots:
       - react
       - vue
 
-  '@tanstack/pacer@0.20.1':
+  '@tanstack/pacer@0.21.0':
     dependencies:
       '@tanstack/devtools-event-client': 0.4.3
-      '@tanstack/store': 0.9.3
+      '@tanstack/store': 0.11.0
 
   '@tanstack/react-devtools@0.10.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(csstype@3.2.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(solid-js@1.9.12)':
     dependencies:
@@ -3136,10 +3136,10 @@ snapshots:
       - solid-js
       - utf-8-validate
 
-  '@tanstack/react-pacer-devtools@0.6.1(@tanstack/pacer@0.20.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(solid-js@1.9.12)':
+  '@tanstack/react-pacer-devtools@0.7.0(@tanstack/pacer@0.21.0)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(solid-js@1.9.12)':
     dependencies:
       '@tanstack/devtools-utils': 0.4.0(@types/react@19.2.14)(react@19.2.5)(solid-js@1.9.12)
-      '@tanstack/pacer-devtools': 1.2.1(@tanstack/pacer@0.20.1)(@types/react@19.2.14)(react@19.2.5)
+      '@tanstack/pacer-devtools': 1.3.0(@tanstack/pacer@0.21.0)(@types/react@19.2.14)(react@19.2.5)
       '@types/react': 19.2.14
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
       react: 19.2.5
@@ -3150,26 +3150,26 @@ snapshots:
       - solid-js
       - vue
 
-  '@tanstack/react-pacer@0.21.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@tanstack/react-pacer@0.22.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
-      '@tanstack/pacer': 0.20.1
-      '@tanstack/react-store': 0.9.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@tanstack/pacer': 0.21.0
+      '@tanstack/react-store': 0.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
 
-  '@tanstack/react-store@0.9.3(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@tanstack/react-store@0.11.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
-      '@tanstack/store': 0.9.3
+      '@tanstack/store': 0.11.0
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
       use-sync-external-store: 1.6.0(react@19.2.5)
 
-  '@tanstack/solid-store@0.9.3(solid-js@1.9.12)':
+  '@tanstack/solid-store@0.11.0(solid-js@1.9.12)':
     dependencies:
-      '@tanstack/store': 0.9.3
+      '@tanstack/store': 0.11.0
       solid-js: 1.9.12
 
-  '@tanstack/store@0.9.3': {}
+  '@tanstack/store@0.11.0': {}
 
   '@tybys/wasm-util@0.10.1':
     dependencies:
@@ -3248,13 +3248,13 @@ snapshots:
 
   bail@2.0.2: {}
 
-  baseline-browser-mapping@2.10.19: {}
+  baseline-browser-mapping@2.10.20: {}
 
   browserslist@4.28.2:
     dependencies:
-      baseline-browser-mapping: 2.10.19
+      baseline-browser-mapping: 2.10.20
       caniuse-lite: 1.0.30001788
-      electron-to-chromium: 1.5.339
+      electron-to-chromium: 1.5.340
       node-releases: 2.0.37
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
@@ -3300,11 +3300,11 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  cva@1.0.0-beta.4(typescript@6.0.2):
+  cva@1.0.0-beta.4(typescript@6.0.3):
     dependencies:
       clsx: 2.1.1
     optionalDependencies:
-      typescript: 6.0.2
+      typescript: 6.0.3
 
   date-fns@4.1.0: {}
 
@@ -3340,7 +3340,7 @@ snapshots:
       '@babel/runtime': 7.29.2
       csstype: 3.2.3
 
-  electron-to-chromium@1.5.339: {}
+  electron-to-chromium@1.5.340: {}
 
   emoji-regex@10.6.0: {}
 
@@ -4367,7 +4367,7 @@ snapshots:
   tslib@2.8.1:
     optional: true
 
-  typescript@6.0.2: {}
+  typescript@6.0.3: {}
 
   undici-types@7.19.2: {}
 

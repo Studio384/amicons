@@ -20,7 +20,7 @@
     "@mui/material": "^9.0.0",
     "@studio384/amicons": "file:..\\amicons",
     "@tailwindcss/vite": "^4.2.2",
-    "@tanstack/react-pacer": "^0.21.1",
+    "@tanstack/react-pacer": "^0.22.0",
     "clsx": "^2.1.1",
     "cva": "1.0.0-beta.4",
     "date-fns": "^4.1.0",
@@ -34,7 +34,7 @@
     "@mdx-js/rollup": "^3.1.1",
     "@tanstack/devtools-vite": "^0.6.0",
     "@tanstack/react-devtools": "^0.10.2",
-    "@tanstack/react-pacer-devtools": "^0.6.1",
+    "@tanstack/react-pacer-devtools": "^0.7.0",
     "@types/node": "^25.6.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
@@ -47,7 +47,7 @@
     "remark-mdx-frontmatter": "^5.2.0",
     "rollup-plugin-visualizer": "^7.0.1",
     "shiki": "^4.0.2",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "vite": "^8.0.8"
   },
   "engines": {
