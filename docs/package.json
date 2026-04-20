@@ -16,7 +16,7 @@
     "start": "vite serve --mode dev"
   },
   "dependencies": {
-    "@base-ui/react": "^1.4.0",
+    "@base-ui/react": "^1.4.1",
     "@mui/material": "^9.0.0",
     "@studio384/amicons": "file:..\\amicons",
     "@tailwindcss/vite": "^4.2.2",
@@ -47,7 +47,7 @@
     "rollup-plugin-visualizer": "^7.0.1",
     "shiki": "^4.0.2",
     "typescript": "^6.0.3",
-    "vite": "^8.0.8"
+    "vite": "^8.0.9"
   },
   "engines": {
     "node": ">=24",
