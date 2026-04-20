@@ -21,8 +21,7 @@ export default function Release() {
   const ReleaseComponent = release.Component;
   const releaseIndex = releases.findIndex((entry) => entry.slug === release.slug);
   const nextRelease = releaseIndex > 0 ? releases[releaseIndex - 1] : undefined;
-  const previousRelease =
-    releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
+  const previousRelease = releaseIndex < releases.length - 1 ? releases[releaseIndex + 1] : undefined;
 
   return (
     <>
@@ -54,12 +53,12 @@ export default function Release() {
 
         <Separator
           orientation="horizontal"
-          className="container max-w-4xl mx-auto h-px bg-zinc-950/5 dark:bg-zinc-950/10"
+          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-950/10"
         />
 
         {(nextRelease || previousRelease) && (
           <div className="container mx-auto max-w-4xl">
-            <nav className="grid grid-cols-1 grid-rows-2 gap-1 @md/main:grid-cols-2 @md/main:grid-rows-1 @xl2/main:grid-cols-3">
+            <nav className="@xl2/main:grid-cols-3 grid grid-cols-1 grid-rows-2 gap-1 @md/main:grid-cols-2 @md/main:grid-rows-1">
               {nextRelease && (
                 <Link
                   to={`/neo/releases/${nextRelease.slug}`}
@@ -73,12 +72,8 @@ export default function Release() {
                     className="mt-1 text-sm text-zinc-500 duration-150! group-hover:text-white/75"
                   />
                   <div className="flex flex-col">
-                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
-                      Next release
-                    </span>
-                    <span className="font-display my-1 text-xl/5 font-medium">
-                      {nextRelease.name}
-                    </span>
+                    <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">Next release</span>
+                    <span className="font-display my-1 text-xl/5 font-medium">{nextRelease.name}</span>
                   </div>
                 </Link>
               )}
@@ -87,16 +82,14 @@ export default function Release() {
                   to={`/neo/releases/${previousRelease.slug}`}
                   className={cn(
                     "group grid grid-cols-[auto_min-content] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
-                    "hover:bg-violet-600 hover:text-white hover:shadow-sm @md/main:col-start-2 @xl2/main:col-start-3",
+                    "@xl2/main:col-start-3 hover:bg-violet-600 hover:text-white hover:shadow-sm @md/main:col-start-2",
                   )}
                 >
                   <div className="flex flex-col items-end">
                     <span className="text-sm text-zinc-500 duration-150 group-hover:text-white/75">
                       Previous release
                     </span>
-                    <span className="font-display my-1 text-xl/5 font-medium text-end">
-                      {previousRelease.name}
-                    </span>
+                    <span className="font-display my-1 text-end text-xl/5 font-medium">{previousRelease.name}</span>
                   </div>
                   <Amicon
                     icon={aiArrowRight}

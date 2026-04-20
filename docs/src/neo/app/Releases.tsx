@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 
+import { Separator } from "@base-ui/react";
 import Amicon, { aiAmicons, aiArrowRight } from "@studio384/amicons";
 import { format, parse } from "date-fns";
 
@@ -7,7 +8,6 @@ import ReleaseCard from "@/neo/design/blocks/ReleaseCard";
 
 import PageHeader from "../design/blocks/PageHeader";
 import { releases } from "./releases/releaseEntries";
-import { Separator } from "@base-ui/react";
 
 export default function Releases() {
   const [currentRelease, ...previousReleases] = releases;
@@ -19,10 +19,7 @@ export default function Releases() {
       <PageHeader
         icon={aiAmicons}
         title={currentRelease.name}
-        subtitle={format(
-          parse(currentRelease.publishDate, "yyyy-MM-dd", new Date()),
-          "d MMMM yyyy",
-        )}
+        subtitle={format(parse(currentRelease.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
       />
 
       <div className="flex flex-col gap-4 p-4">
@@ -40,7 +37,7 @@ export default function Releases() {
 
         <Separator
           orientation="horizontal"
-          className="container max-w-4xl mx-auto h-px bg-zinc-950/5 dark:bg-zinc-950/10"
+          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-950/10"
         />
 
         {previousReleases.length > 0 && (
@@ -60,12 +57,8 @@ export default function Releases() {
                         {release.name}
                       </h3>
                       <p className="-mt-2 text-sm">
-                        {format(
-                          parse(release.publishDate, "yyyy-MM-dd", new Date()),
-                          "d MMMM yyyy",
-                        )}{" "}
-                        <span>&middot;</span>{" "}
-                        <span className="text-zinc-600">Version {release.version}</span>
+                        {format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}{" "}
+                        <span>&middot;</span> <span className="text-zinc-600">Version {release.version}</span>
                       </p>
                     </div>
                     <Amicon
