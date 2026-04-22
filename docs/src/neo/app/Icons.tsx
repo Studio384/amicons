@@ -161,16 +161,24 @@ export default function NeoIcons() {
                 key={category.slug}
                 onClick={() => toggleCategory(category.slug)}
                 className={cn(
-                  "grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium text-black transition-all hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm",
+                  "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium text-black transition-all hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm",
                   selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
                   categoryCounts.get(category.slug) === 0 &&
                     "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
                 )}
                 data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
               >
-                <Amicon icon={category.icon} className="text-base" />
+                <Amicon
+                  icon={category.icon}
+                  className="text-base text-violet-800 group-hover:text-white group-data-active:text-white"
+                />
                 <span className="font-display truncate">{category.title}</span>
-                <span className="font-display tabular-nums">{categoryCounts.get(category.slug) ?? 0}</span>
+                <span
+                  className="font-display text-violet-600 tabular-nums group-hover:text-white group-data-active:text-white group-not-data-active:data-zero:text-zinc-400 group-hover:group-not-data-active:data-zero:text-violet-200"
+                  data-zero={categoryCounts.get(category.slug) === 0 ? "true" : undefined}
+                >
+                  {categoryCounts.get(category.slug) ?? 0}
+                </span>
               </button>
             ))}
           </div>
@@ -182,8 +190,8 @@ export default function NeoIcons() {
               ))}
             </div>
           ) : (
-            <div className="flex h-64 items-center justify-center rounded-lg border border-dashed border-zinc-300">
-              <p className="text-zinc-500">No icons found</p>
+            <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300">
+              <p className="font-display text-3xl text-zinc-700">No icons found</p>
             </div>
           )}
         </div>
