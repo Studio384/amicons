@@ -10,7 +10,7 @@ import Menu from "./Menu";
 export default function NeoLayout({ children }: PropsWithChildren) {
   return (
     <div className="isolate grid min-h-screen bg-zinc-100 max-md:grid-rows-[min-content_auto] md:grid-cols-[320px_auto] dark:bg-zinc-900 dark:text-white">
-      <aside className="flex max-h-dvh flex-col overflow-scroll max-md:items-center max-md:justify-between dark:scheme-dark">
+      <aside className="flex max-h-dvh flex-col overflow-y-auto max-md:items-center max-md:justify-between dark:scheme-dark">
         <header className="flex w-full items-center justify-between bg-zinc-100 p-4 md:border-b md:border-zinc-950/5 dark:bg-zinc-900 dark:md:border-white/10">
           <NavLink to="/neo" className="flex flex-row items-center gap-2">
             <img src="favicon.png" className="size-6 shrink-0" />
@@ -26,7 +26,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
             <Drawer.Portal>
               <Drawer.Viewport>
                 <Drawer.Popup>
-                  <Drawer.Content className="flex h-dvh flex-col overflow-scroll max-md:items-center max-md:justify-between dark:scheme-dark">
+                  <Drawer.Content className="flex h-dvh flex-col overflow-y-auto max-md:items-center max-md:justify-between dark:scheme-dark">
                     <div className="flex w-full items-center justify-between bg-zinc-100 p-4 md:border-b md:border-zinc-950/5 dark:bg-zinc-900 dark:md:border-white/10">
                       <Drawer.Title>
                         <NavLink to="/neo" className="flex flex-row items-center gap-2">

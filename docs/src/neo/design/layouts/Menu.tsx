@@ -51,7 +51,7 @@ export default function Menu(props: React.HTMLAttributes<HTMLDivElement>) {
   }
 
   return (
-    <div className={cn(props.className, "flex grow flex-col justify-between overflow-scroll p-4")}>
+    <div className={cn(props.className, "flex grow flex-col justify-between overflow-y-auto p-4")}>
       <NavigationMenu.Root>
         {view === "documentation" ? (
           <nav aria-label="Documentation navigation">
