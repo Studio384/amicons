@@ -112,7 +112,7 @@ export default function Menu(props: React.HTMLAttributes<HTMLDivElement>) {
           </NavigationMenu.List>
         )}
 
-        <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-white/10" />
+        <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-zinc-50/10" />
 
         <NavigationMenu.List>
           <NavigationMenu.Item to="/neo/error" active={location.pathname.includes("/neo/error")}>
@@ -121,7 +121,7 @@ export default function Menu(props: React.HTMLAttributes<HTMLDivElement>) {
           </NavigationMenu.Item>
         </NavigationMenu.List>
 
-        <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-white/10" />
+        <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-zinc-50/10" />
 
         <div className="flex shrink-0 flex-row gap-1">
           <a

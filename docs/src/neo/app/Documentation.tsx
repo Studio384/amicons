@@ -33,7 +33,7 @@ export default function NeoDocumentation() {
 
         <Separator
           orientation="horizontal"
-          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-950/10"
+          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-50/10"
         />
 
         <div className="container mx-auto max-w-4xl">

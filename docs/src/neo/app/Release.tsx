@@ -32,7 +32,7 @@ export default function Release() {
       >
         <Link
           to="/neo/releases"
-          className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900"
+          className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900 dark:text-white dark:hover:text-violet-300"
         >
           <Amicon icon={aiArrowLeft} /> All releases
         </Link>
@@ -53,7 +53,7 @@ export default function Release() {
 
         <Separator
           orientation="horizontal"
-          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-950/10"
+          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-50/10"
         />
 
         {(nextRelease || previousRelease) && (

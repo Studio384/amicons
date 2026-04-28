@@ -37,7 +37,7 @@ export default function Releases() {
 
         <Separator
           orientation="horizontal"
-          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-950/10"
+          className="container mx-auto h-px max-w-4xl bg-zinc-950/5 dark:bg-zinc-50/10"
         />
 
         {previousReleases.length > 0 && (
@@ -49,7 +49,7 @@ export default function Releases() {
                 <Link
                   key={release.slug}
                   to={`/neo/releases/${release.slug}`}
-                  className="group -mt-px rounded-sm border border-zinc-950/10 bg-zinc-50 px-4 py-3 transition-all not-first:rounded-t-none not-last:rounded-b-none hover:z-10 hover:border-violet-700/15 hover:bg-violet-100 hover:shadow-sm"
+                  className="group -mt-px rounded-sm border border-zinc-950/10 bg-zinc-50 px-4 py-3 transition-all not-first:rounded-t-none not-last:rounded-b-none hover:z-10 hover:border-violet-700/15 hover:bg-violet-100 hover:shadow-sm dark:border-zinc-50/5 dark:bg-zinc-950 dark:focus-within:bg-violet-600/20 dark:hover:bg-violet-600/20"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex flex-col gap-1">

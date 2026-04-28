@@ -128,7 +128,7 @@ export default function NeoIcons() {
 
   return (
     <>
-      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs">
+      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs dark:bg-zinc-900/80">
         <div className="z-10 container mx-auto max-w-7xl">
           <div className="flex h-6 flex-row items-center gap-2">
             <Amicon icon={aiMagnifyingGlass} className="text-zinc-400" />
@@ -161,7 +161,7 @@ export default function NeoIcons() {
                 key={category.slug}
                 onClick={() => toggleCategory(category.slug)}
                 className={cn(
-                  "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium text-black transition-all hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm",
+                  "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
                   selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
                   categoryCounts.get(category.slug) === 0 &&
                     "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",

@@ -8,10 +8,10 @@ interface IApiTableProps {
 
 export default function ApiTable({ cssVariables }: IApiTableProps) {
   return (
-    <div className="rounded-sm border border-zinc-200 bg-white">
+    <div className="rounded-sm border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
       <table className="w-full">
         <thead>
-          <tr className="border-b-2 border-zinc-200">
+          <tr className="border-b-2 border-zinc-200 dark:border-zinc-800">
             <th className="text-md/4 py-1.75 ps-2 pe-2 text-start first:ps-4 last:pe-4" style={{ width: "30%" }}>
               Property name
             </th>
@@ -25,7 +25,7 @@ export default function ApiTable({ cssVariables }: IApiTableProps) {
         </thead>
         <tbody>
           {cssVariables.map((variable, key) => (
-            <tr key={key} className="border-t border-zinc-200">
+            <tr key={key} className="border-t border-zinc-200 dark:border-zinc-800">
               <td className="py-2 ps-2 pe-2 text-start text-sm/4 first:ps-4 last:pe-5">
                 <Code>{variable.name}</Code>
               </td>

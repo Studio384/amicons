@@ -20,7 +20,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
           </NavLink>
 
           <Drawer.Root swipeDirection="right">
-            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
+            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-zinc-50/10">
               <Amicon icon={aiBarsUneven} /> <span className="sr-only">Open navigation menu</span>
             </Drawer.Trigger>
             <Drawer.Portal>
@@ -37,7 +37,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
                         </NavLink>
                       </Drawer.Title>
 
-                      <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-white/10">
+                      <Drawer.Close className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-zinc-50/10">
                         <Amicon icon={aiXmark} /> <span className="sr-only">Close navigation menu</span>
                       </Drawer.Close>
                     </div>
@@ -51,7 +51,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
 
         <Menu className="max-md:hidden" />
       </aside>
-      <main className="@container/main me-2 mb-2 overflow-auto rounded-sm border border-zinc-200 bg-white text-black inset-shadow-sm max-md:ms-2 max-md:max-h-[calc(100dvh-4.25rem)] md:mt-2 md:max-h-[calc(100dvh-1rem)] dark:border-zinc-700 dark:bg-zinc-50">
+      <main className="@container/main me-2 mb-2 overflow-auto rounded-sm border border-zinc-200 bg-white inset-shadow-sm max-md:ms-2 max-md:max-h-[calc(100dvh-4.25rem)] md:mt-2 md:max-h-[calc(100dvh-1rem)] dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:scheme-dark">
         {children ? children : <Outlet />}
       </main>
     </div>
