@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @import "@studio384/amicons/amicons.css";
+@import "highlight.js/styles/github.css";
+@import "highlight.js/styles/github-dark.css" (prefers-color-scheme: dark);
 
 .root {
   isolation: isolate;
@@ -12,18 +14,17 @@
   --font-dev: "Century Gothic", "Segoe UI Variable Display", var(--font-sans);
 }
 
-.shiki {
+.hljs {
   line-height: 1.25;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5em !important;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-zinc-200);
 }
 
-pre {
-  line-height: 1.25;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-zinc-200);
+@media (prefers-color-scheme: dark) {
+  .hljs {
+    border-color: var(--color-zinc-800);
+  }
 }
 
 .docs {

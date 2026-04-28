@@ -1,9 +1,12 @@
-import { type ReactNode, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 
 import { Field, Toggle, ToggleGroup } from "@base-ui/react";
 import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
 import clsx from "clsx";
-import { codeToHtml } from "shiki";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+
+hljs.registerLanguage("javascript", javascript);
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -31,7 +34,6 @@ interface IPlaygroundProps {
 
 export default function Playground({ config }: IPlaygroundProps) {
   const [playgroundIcon, setPlaygroundIcon] = useState<string[]>([config.icons[0].name]);
-  const [html, setHtml] = useState<string>("");
 
   // Get the icon name
   function getIconName(icon: string): string {
@@ -123,11 +125,8 @@ export default function Playground({ config }: IPlaygroundProps) {
   }
 />`;
 
-  useEffect(() => {
-    codeToHtml(importCode, {
-      lang: "javascript",
-      theme: "slack-ochin",
-    }).then((result) => setHtml(result));
+  const html = useMemo(() => {
+    return hljs.highlight(importCode, { language: "javascript" }).value;
   }, [importCode]);
 
   return (
@@ -136,7 +135,9 @@ export default function Playground({ config }: IPlaygroundProps) {
         <div className="flex grow items-center justify-center text-4xl">
           <Amicon icon={icon} {...iconProperties} style={playgroundCssVariable} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <pre className="hljs">
+          <code dangerouslySetInnerHTML={{ __html: html }} />
+        </pre>
       </div>
       <div className="border-s border-zinc-200 dark:border-zinc-800">
         <div className="flex flex-row items-center justify-between border-b border-zinc-200 p-4 dark:border-zinc-800">

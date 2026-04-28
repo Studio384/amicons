@@ -4,7 +4,7 @@ import { devtools } from "@tanstack/devtools-vite";
 import react from "@vitejs/plugin-react-swc";
 import ReactCompiler from "babel-plugin-react-compiler";
 import * as path from "path";
-import rehypePrettyCode from "rehype-pretty-code";
+import rehypeHighlight from "rehype-highlight";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { visualizer } from "rollup-plugin-visualizer";
@@ -16,7 +16,7 @@ export default defineConfig({
     [ReactCompiler],
     mdx({
       remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: "frontmatter" }]],
-      rehypePlugins: [[rehypePrettyCode, { theme: "slack-ochin" }]],
+      rehypePlugins: [rehypeHighlight],
     }),
     tailwindcss(),
     react(),
