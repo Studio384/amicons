@@ -28,6 +28,8 @@ import NeoPageSpin from "./neo/app/docs/Spin.mdx";
 import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
 import NeoIcons from "./neo/app/Icons";
+import NeoNews from "./neo/app/News";
+import NeoNewsPost from "./neo/app/NewsPost";
 import NeoReleasePage from "./neo/app/Release";
 import NeoReleases from "./neo/app/Releases";
 import NeoLayout from "./neo/design/layouts/Layout";
@@ -82,6 +84,14 @@ export const router = createHashRouter([
     children: [
       { index: true, Component: NeoIcons },
       { path: "icons", Component: NeoIcons },
+      {
+        path: "news",
+        errorElement: <NeoError />,
+        children: [
+          { index: true, Component: NeoNews },
+          { path: ":slug", Component: NeoNewsPost },
+        ],
+      },
       {
         path: "releases",
         errorElement: <NeoError />,

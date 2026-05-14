@@ -190,8 +190,8 @@ export default function NeoIcons() {
               ))}
             </div>
           ) : (
-            <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300">
-              <p className="font-display text-3xl text-zinc-700">No icons found</p>
+            <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300 dark:border-zinc-700">
+              <p className="font-display text-3xl text-zinc-700 dark:text-zinc-500">No icons found</p>
             </div>
           )}
         </div>
