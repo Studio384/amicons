@@ -14,17 +14,17 @@ export default function News() {
 
       <div className="flex flex-col gap-4 p-4">
         {newsPosts.length === 0 ? (
-          <div className="container mx-auto max-w-4xl rounded-sm border border-zinc-200 bg-zinc-50 p-6 text-zinc-700 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200">
-            No posts published yet.
+          <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300 dark:border-zinc-700">
+            <p className="font-display text-3xl text-zinc-700 dark:text-zinc-500">No posts found</p>
           </div>
         ) : (
-          <div className="container mx-auto flex max-w-4xl flex-col gap-3">
-            <div className="grid grid-cols-2 gap-3">
+          <div className="@container/posts container mx-auto flex max-w-4xl flex-col gap-3">
+            <div className="grid grid-cols-1 gap-3 @lg/posts:grid-cols-2">
               {newsPosts.map((post) => (
                 <Link
                   key={post.slug}
                   to={`/neo/news/${post.slug}`}
-                  className="group flex flex-col gap-2 overflow-hidden rounded-sm bg-zinc-50 p-4 outline -outline-offset-1 outline-zinc-950/10 transition-all hover:z-10 hover:bg-white hover:shadow-sm hover:outline-violet-700/15 sm:grid-cols-[120px_auto] dark:bg-zinc-950 dark:outline-zinc-50/5 dark:focus-within:bg-violet-600/20 dark:hover:bg-violet-600/20"
+                  className="group flex flex-col items-start gap-2 rounded-sm bg-zinc-50 p-3 outline -outline-offset-1 outline-zinc-950/10 transition-all hover:z-10 hover:bg-violet-100 hover:shadow-sm hover:outline-violet-700/15 dark:bg-zinc-950 dark:outline-zinc-50/5 dark:focus-within:bg-violet-600/20 dark:hover:bg-violet-600/20"
                 >
                   <img
                     src={post.featuredImage}

@@ -51,7 +51,7 @@ export default function Menu(props: React.HTMLAttributes<HTMLDivElement>) {
   }
 
   return (
-    <div className={cn(props.className, "flex grow flex-col justify-between overflow-y-auto p-4")}>
+    <div className={cn(props.className, "flex w-full grow flex-col justify-between overflow-y-auto p-4")}>
       <NavigationMenu.Root>
         {view === "documentation" ? (
           <nav aria-label="Documentation navigation">
@@ -111,15 +111,6 @@ export default function Menu(props: React.HTMLAttributes<HTMLDivElement>) {
             </NavigationMenu.Item>
           </NavigationMenu.List>
         )}
-
-        <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-zinc-50/10" />
-
-        <NavigationMenu.List>
-          <NavigationMenu.Item to="/neo/error" active={location.pathname.includes("/neo/error")}>
-            <Amicon icon={aiCircleQuestion} />
-            Error
-          </NavigationMenu.Item>
-        </NavigationMenu.List>
 
         <Separator orientation="horizontal" className="my-2 h-px bg-zinc-950/5 dark:bg-zinc-50/10" />
 

@@ -27,7 +27,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
               <Drawer.Viewport>
                 <Drawer.Popup>
                   <Drawer.Content className="flex h-dvh flex-col overflow-y-auto max-md:items-center max-md:justify-between dark:scheme-dark">
-                    <div className="flex w-full items-center justify-between bg-zinc-100 p-4 md:border-b md:border-zinc-950/5 dark:bg-zinc-900 dark:md:border-white/10">
+                    <div className="flex w-full items-center justify-between border-b border-zinc-950/5 bg-zinc-100 p-4 dark:border-white/10 dark:bg-zinc-900">
                       <Drawer.Title>
                         <NavLink to="/neo" className="flex flex-row items-center gap-2">
                           <img src="favicon.png" className="size-6 shrink-0" />
@@ -41,7 +41,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
                         <Amicon icon={aiXmark} /> <span className="sr-only">Close navigation menu</span>
                       </Drawer.Close>
                     </div>
-                    <Menu className="max-md:hidden" />
+                    <Menu />
                   </Drawer.Content>
                 </Drawer.Popup>
               </Drawer.Viewport>
