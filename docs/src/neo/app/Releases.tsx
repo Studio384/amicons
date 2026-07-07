@@ -49,7 +49,7 @@ export default function Releases() {
                 <Link
                   key={release.slug}
                   to={`/neo/releases/${release.slug}`}
-                  className="group col-span-full grid grid-cols-subgrid items-center rounded-sm bg-zinc-50 py-2 ps-3.5 pe-4 outline -outline-offset-1 outline-zinc-950/10 transition-all hover:z-10 hover:bg-violet-100 hover:shadow-sm hover:outline-violet-700/15 dark:bg-zinc-950 dark:outline-zinc-50/5 dark:focus-within:bg-violet-600/20 dark:hover:bg-violet-600/20"
+                  className="group col-span-full grid grid-cols-subgrid items-center rounded-sm bg-zinc-50 py-2 ps-3.5 pe-4 outline -outline-offset-1 outline-zinc-950/10 transition-all hover:z-10 hover:bg-violet-100 hover:shadow-sm hover:outline-violet-700/15 dark:bg-zinc-900 dark:outline-zinc-50/5 dark:focus-within:bg-violet-600/20 dark:hover:bg-violet-600/20"
                 >
                   <h3 className="font-display font-bold transition-colors group-hover:text-violet-700 max-sm:col-start-1 max-sm:row-start-1">
                     {release.name}
