@@ -7,7 +7,6 @@ import Amicon, {
   aiBook,
   aiChevronLeft,
   aiChevronRight,
-  aiCircleQuestion,
   aiGithub,
   aiIcons,
   aiMegaphone,

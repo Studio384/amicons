@@ -10,7 +10,7 @@ import Menu from "./Menu";
 export default function NeoLayout({ children }: PropsWithChildren) {
   return (
     <div className="isolate grid min-h-screen bg-zinc-100 max-md:grid-rows-[min-content_auto] md:grid-cols-[320px_auto] dark:bg-zinc-900 dark:text-white">
-      <aside className="flex max-h-dvh flex-col overflow-y-auto max-md:items-center max-md:justify-between dark:scheme-dark">
+      <aside className="flex max-h-dvh flex-col overflow-y-auto border-zinc-200 max-md:items-center max-md:justify-between max-md:border-b md:border-e dark:border-zinc-800 dark:scheme-dark">
         <header className="flex w-full items-center justify-between bg-zinc-100 p-4 md:border-b md:border-zinc-950/5 dark:bg-zinc-900 dark:md:border-white/10">
           <NavLink to="/neo" className="flex flex-row items-center gap-2">
             <img src="favicon.png" className="size-6 shrink-0" />
@@ -51,7 +51,7 @@ export default function NeoLayout({ children }: PropsWithChildren) {
 
         <Menu className="max-md:hidden" />
       </aside>
-      <main className="@container/main me-2 mb-2 overflow-auto rounded-sm border border-zinc-200 bg-white inset-shadow-sm max-md:ms-2 max-md:max-h-[calc(100dvh-4.25rem)] md:mt-2 md:max-h-[calc(100dvh-1rem)] dark:border-zinc-800 dark:bg-black dark:text-white dark:scheme-dark">
+      <main className="@container/main overflow-auto max-md:max-h-[calc(100dvh-4.25rem)] md:max-h-dvh dark:bg-black dark:text-white dark:scheme-dark">
         {children ? children : <Outlet />}
       </main>
     </div>
