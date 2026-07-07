@@ -145,7 +145,7 @@ export default function NeoIcons() {
               <Amicon icon={aiHouse} />
             </div>
             <div className="flex flex-col gap-1">
-              <h1 className="font-display -mb-1 text-3xl font-bold">Icon Explorer</h1>
+              <h1 className="font-display -mb-1 text-3xl font-bold">Icons</h1>
               <p className="font-display -mt-1 mb-0.5 text-sm font-medium tracking-widest text-violet-700 uppercase">
                 {filteredIcons.length} icon{filteredIcons.length !== 1 ? "s" : ""}
               </p>
