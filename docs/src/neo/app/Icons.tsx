@@ -128,7 +128,7 @@ export default function NeoIcons() {
 
   return (
     <>
-      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs dark:border-b dark:border-zinc-900 dark:bg-zinc-950/80">
+      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-zinc-100/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs dark:border-b dark:border-zinc-800 dark:bg-zinc-900/80">
         <div className="z-10 container mx-auto max-w-7xl">
           <div className="flex h-6 flex-row items-center gap-2">
             <Amicon icon={aiMagnifyingGlass} className="text-zinc-400" />

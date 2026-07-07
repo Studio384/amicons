@@ -9,7 +9,7 @@ export default function PageHeader({
   children,
 }: { icon: IAmicon; title: string; subtitle: string } & PropsWithChildren) {
   return (
-    <div className="sticky -top-18 isolate z-10 overflow-hidden bg-white/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs dark:border-b dark:border-zinc-900 dark:bg-zinc-950/80">
+    <div className="sticky -top-18 isolate z-10 overflow-hidden bg-zinc-100/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs dark:border-b dark:border-zinc-800 dark:bg-zinc-900/80">
       <div className="z-10 container mx-auto max-w-4xl">
         <div className="flex h-6 flex-col gap-2">{children}</div>
 
