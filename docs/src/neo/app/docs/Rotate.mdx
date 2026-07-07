@@ -1,0 +1,39 @@
+import { aiAmicons, aiArrowUp, aiMessageSmile } from "@studio384/amicons";
+
+import ApiTable from "../../design/blocks/ApiTable";
+import Playground from "../../design/blocks/Playground";
+
+export const playgroundConfig = {
+  icons: [aiMessageSmile, aiAmicons, aiArrowUp],
+  properties: [
+    {
+      label: "Rotate",
+      type: "chip",
+      name: "rotate",
+      values: [0, 45, 90, 135, 180, 225, 270, 315, false],
+      default: 90,
+    },
+  ],
+  cssVariables: [
+    {
+      name: "--ai-transition-duration",
+      default: "0.2s",
+      description: "Time for a full play through of the animation.",
+    },
+    {
+      name: "--ai-animation-timing-function",
+      default: "ease-in-out",
+      description: "The timing function used for the animation.",
+    },
+  ],
+};
+
+# Rotate
+
+With the `rotate` property you can change the default rotation of your icon. You can pass any numeric degree value for full flexibility.
+
+<Playground config={playgroundConfig} />
+
+## API
+
+<ApiTable cssVariables={playgroundConfig.cssVariables} />

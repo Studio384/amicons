@@ -1,0 +1,47 @@
+---
+name: Amicons 1.0 alpha 12
+version: 1.0.0-alpha.12
+publishDate: 2026-04-11
+excerpt: A broad documentation refresh with a better React component, major improvements to the documentation, and easier releases for the future.
+newIcons:
+  - book-bookmark
+updatedIcons:
+  - book
+  - bug
+  - compress
+  - expand
+  - facebook-messenger
+  - github
+  - google-play
+  - visual-studio
+---
+
+Amicons 1.0 alpha 12 is a significant update to our project. With both a first step towards a major refresh of our documentation, drastic enhancements to our tooling for releasing future updates, and the first steps towards a more consistent icon library, this release is maybe our biggest update yet.
+
+## Added
+
+- When the `Amicon` component isn't passed an icon, or the icon isn't valid, it will now show the `aiCircleQuestion` icon. The `fade` property will be enabled to draw attention to it.
+
+## Changed
+
+- Rotate now allows you to set any numeric value rather than just `0`, `90`, `180`, or `270`.
+- Amicons doesn't have any other dependencies anymore.
+- Major enhancements to our build process and library generation. We now include source maps.
+- The build process now includes logic to publish Amicons to GitHub and npm.
+
+## Fixed
+
+- Fixes a bug where variables and classes used the wrong prefix.
+- Fixes a bug where markdown generation would report a successful run before finishing.
+- Fixes a bug where `rotate` would not correctly apply the animation styling.
+
+## Documentation
+
+- The documentation has been rebuilt with Tailwind and Base UI.
+- Icon details now include a section that shows the SVG markup.
+- The category filter now keeps showing empty categories for easier navigation.
+- The search function can now properly look for tags.
+- Various categories have been updated and categories have been regrouped to make more sense.
+- Major improvements to our documentation, including simpeler changelog markup.
+- Fixes the bounce documentation not showing up in the documentation.
+- Codeblocks in our documentation now have syntax highlighting.

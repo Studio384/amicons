@@ -1,28 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @import "@studio384/amicons/amicons.css";
+@import "highlight.js/styles/github.css";
+@import "highlight.js/styles/github-dark.css" (prefers-color-scheme: dark);
 
 .root {
   isolation: isolate;
 }
 
 @theme {
-  --font-display: "Lexend", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
   --font-dev: "Century Gothic", "Segoe UI Variable Display", var(--font-sans);
 }
 
-.shiki {
-  overflow-x: auto;
-  padding: 0.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-zinc-800);
+.hljs {
+  line-height: 1.25;
+  padding: 0.5em !important;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-zinc-200);
 }
 
-pre {
-  overflow-x: auto;
-  padding: 0.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-zinc-800);
+@media (prefers-color-scheme: dark) {
+  .hljs {
+    border-color: var(--color-zinc-800);
+  }
 }
 
 .docs {
@@ -91,6 +93,108 @@ pre {
   }
 
   & > .icon-grid {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.neo-doc-page {
+  & > h1:first-child {
+    display: none;
+  }
+}
+
+.neo-docs {
+  :is(ul, ol) {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    line-height: var(--leading-relaxed);
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+    margin-bottom: 0.25rem;
+    margin-top: 1rem;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+    margin-bottom: 0.25rem;
+    margin-top: 0.75rem;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+    margin-top: 0;
+  }
+
+  figure {
+    margin-bottom: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    line-height: var(--leading-relaxed);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > a,
+  p > a {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-violet-400);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+
+    &:hover {
+      text-decoration-color: var(--color-violet-500);
+    }
+  }
+
+  li > p {
+    margin-bottom: 0;
+  }
+
+  p code,
+  li code {
+    font-size: var(--text-sm);
+    background-color: var(--color-violet-100);
+    color: var(--color-violet-600);
+    font-family: var(--font-mono);
+    border-radius: var(--radius-sm);
+    padding-inline: 0.25rem;
+    padding-block: 1px;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-violet-950);
+      color: var(--color-violet-300);
+    }
+  }
+
+  & > .icon-grid:not(:last-child) {
     margin-bottom: 0.75rem;
   }
 }

@@ -1,0 +1,26 @@
+{
+  "name": "amicons-monorepo",
+  "version": "1.0.0-alpha.13",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter amicons-docs dev",
+    "docs:build": "pnpm --filter amicons-docs build",
+    "deps:sync": "syncpack fix --dependency-types local,prod,dev",
+    "deps:sync-check": "syncpack lint --dependency-types local,prod,dev",
+    "docs:dev": "pnpm --filter amicons-docs dev",
+    "docs:preview": "pnpm --filter amicons-docs preview",
+    "fix": "pnpm -r fix",
+    "format": "pnpm -r format",
+    "format:fix": "pnpm -r format:fix",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "lib:build": "pnpm --filter @studio384/amicons build",
+    "lib:prod": "pnpm --filter @studio384/amicons prod",
+    "version:sync": "node scripts/sync-versions.mjs"
+  },
+  "devDependencies": {
+    "syncpack": "^15.3.2"
+  },
+  "packageManager": "pnpm@11.10.0"
+}

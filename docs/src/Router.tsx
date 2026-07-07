@@ -17,6 +17,22 @@ import Icon from "./app/Icon";
 import Icons from "./app/Icons";
 import Releases from "./app/Releases";
 import Layout from "./design/layout/Layout";
+import NeoPageAbout from "./neo/app/docs/About.mdx";
+import NeoPageBeat from "./neo/app/docs/Beat.mdx";
+import NeoPageBounce from "./neo/app/docs/Bounce.mdx";
+import NeoPageFade from "./neo/app/docs/Fade.mdx";
+import NeoPageFlip from "./neo/app/docs/Flip.mdx";
+import NeoPageInstallation from "./neo/app/docs/Installation.mdx";
+import NeoPageRotate from "./neo/app/docs/Rotate.mdx";
+import NeoPageSpin from "./neo/app/docs/Spin.mdx";
+import NeoDocumentation from "./neo/app/Documentation";
+import NeoError from "./neo/app/Error";
+import NeoIcons from "./neo/app/Icons";
+import NeoNews from "./neo/app/News";
+import NeoNewsPost from "./neo/app/NewsPost";
+import NeoReleasePage from "./neo/app/Release";
+import NeoReleases from "./neo/app/Releases";
+import NeoLayout from "./neo/design/layouts/Layout";
 
 export const router = createHashRouter([
   {
@@ -60,6 +76,47 @@ export const router = createHashRouter([
         errorElement: <Error />,
         children: [{ index: true, Component: PageReleases }],
       },
+    ],
+  },
+  {
+    path: "/neo",
+    Component: NeoLayout,
+    children: [
+      { index: true, Component: NeoIcons },
+      { path: "icons", Component: NeoIcons },
+      {
+        path: "news",
+        errorElement: <NeoError />,
+        children: [
+          { index: true, Component: NeoNews },
+          { path: ":slug", Component: NeoNewsPost },
+        ],
+      },
+      {
+        path: "releases",
+        errorElement: <NeoError />,
+        children: [
+          { index: true, Component: NeoReleases },
+          { path: ":slug", Component: NeoReleasePage },
+        ],
+      },
+      {
+        path: "documentation",
+        Component: NeoDocumentation,
+        errorElement: <NeoError />,
+        children: [
+          { index: true, element: <Navigate to="installation" replace /> },
+          { path: "about", Component: NeoPageAbout },
+          { path: "installation", Component: NeoPageInstallation },
+          { path: "spin", Component: NeoPageSpin },
+          { path: "bounce", Component: NeoPageBounce },
+          { path: "rotate", Component: NeoPageRotate },
+          { path: "flip", Component: NeoPageFlip },
+          { path: "beat", Component: NeoPageBeat },
+          { path: "fade", Component: NeoPageFade },
+        ],
+      },
+      { path: "*", Component: NeoError },
     ],
   },
 ]);

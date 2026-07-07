@@ -1,0 +1,64 @@
+---
+title: Amicons Alpha 12 Is Here
+excerpt: A major update is here with a refreshed look for the documentation, icon updates, and an improved React component.
+author: Amicons
+categories: [Release]
+publishDate: 2026-04-11
+featuredImage: release-alpha-12.svg
+---
+
+import IconGrid from "../../design/blocks/IconGrid";
+
+Amicons 1.0 alpha 12 is finally here! It's been a while since our last substantial update, but Alpha 12 brings a massive list of changes to Amicons. So let's just jump into it.
+
+## Icons
+
+Are there new icons? Well... yeah. Kinda. `book-bookmark` joins the fun. And that's... it. We do, however, have a bunch of updated icons too. `book`, `bug`, `compress`, and `expand` have been updated. Together, these five icons are the first steps for a larger effort that we'll get to later.
+
+<IconGrid icons={["book-bookmark", "book", "bug", "compress", "expand"]} />
+
+Also updated are the `facebook-messenger`, `github`, `google-play`, and `visual-studio` icons to match their latest brand updates. Especially for GitHub, this is a big jump, since we completely missed that the icon we used until this alpha hasn't been used since 2015. Don't worry, we're instantly up-to-date and skipped straight to the 2026 redesign.
+
+<IconGrid icons={["facebook-messenger", "github", "google-play", "visual-studio"]} />
+
+## React component
+
+Our React component has gotten some major enhancements. First of all, we've dropped the two dependencies it previously relied on (being `clsx` and `html-react-parser`). `html-react-parser` itself also brought in 11 other dependencies. The end result is a significantly lighter Amicons component.
+
+Now, when the `Amicon` component hasn't been given a valid icon in its `icon` prop, it will render a placeholder icon instead of breaking your application. This placeholder is the `aiCircleQuestion` icon, which will also have the fade style applied to it to make it easier to notice when an icon is broken.
+
+Finally, instead of being limited to `0`, `90`, `180`, `270`, and `false`, the `rotate` prop can now take any numeric degree value (and `false`), giving you full flexibility over the rotation of all icons. We've also fixed a bug where the `rotate` prop wouldn't properly apply the transition style.
+
+## The documentation
+
+We've spent a lot of time improving the documentation. While it will not look very different, underneath it has been basically rebuilt from the ground up. The documentation now uses Markdown like any sane project instead of being written in JSX directly. This just makes everything easier to maintain. Of course, there is also this new blog section. We hope you like it.
+
+But more importantly, we've made some major improvements to icon exploration. They're small, yet substantial. For starters, the search function no longer freaks out when you type the name of an icon faster than it likes. Search can now also look for the tags that we've given icons. These are essentially alternative names, e.g. the `house` icon is tagged with `home`, and `magnifying-glass` is tagged with `search`. This should make finding the right icon considerably easier.
+
+Furthermore, when you select a category, instead of the other categories that don't also have icons in that particular category just disappearing, they'll now just become slightly transparent. This makes it easier to switch between categories when searching. We've also put some effort into cleaning up some of the categories, merging categories when it made sense, etc., to further improve this experience.
+
+You'll also find that our code blocks now have syntax highlighting. It's a small change, but it hopefully makes it easier to read and copy our code snippets for your own use. And last but not least; the icon detail pages now include a section that shows you the SVG markup of the icon, so you can use it even without the React component if you want to.
+
+## The pipeline
+
+Last but not least, we've made major enhancements to our build pipeline. This isn't something you'll notice as an end user directly, but it makes our lives a lot easier and allows us to get updates out faster. Among those changes are improvements for our own developer experience like improved linting and formatting, but also a complete overhaul of our release process both for GitHub releases and npm. As part of this, our [GitHub releases](https://github.com/Studio384/amicons/releases) will finally have actual release notes again instead of just linking to our [changelog page](https://studio384.github.io/amicons/#/changelog) here.
+
+## What's next
+
+### Alpha 13
+
+Next up will be our 13th alpha. This is where we get back to our 4 redesigned icons and `book-bookmark`. These 5 are the start of an effort to further improve the (visual) consistency in our icons. We're finally properly defining the design guidelines for Amicons - which we'll publish in our documentation soon - and these 5 icons basically serve as a first test run for those guidelines. Alpha 13 will bring this to all of our icons. Mostly this means slightly altered border radii, improved stroke clarity, better visual balance, and more consistent shapes. It's not supposed to be some major redesign effort.
+
+### Future alphas
+
+And when that work is done, we'll continue on our path to add more icons. We'll primarily focus on bringing more icons to some of the existing icon categories in an effort to improve the functional use of Amicons. Finally, after our major update to the documentation to port it over to Tailwind and Base UI, we'll also give it an actual new coat of paint in the near future. That will either happen in alpha 13, or the release after that.
+
+### Changes to our release strategy
+
+Starting with alpha 12, we'll be changing our release strategy. We've been a bit all over the place, now we're codifying it. Every future 1.0 preview will, from here on out, be published as the latest release both on GitHub and npm.
+
+Once 1.0 goes stable, the `latest` tag on npm will only serve stable releases like 1.0.1, 1.1.0, and 2.0.0. Future previews like 1.1.0-alpha.1 will be made available on the `next` tag.
+
+## Support us
+
+From this point forward, we want to take things a bit more seriously too, so today we're also launching our [Patreon](https://www.patreon.com/cw/Amicons) where you can support us on our journey to building this icon set.

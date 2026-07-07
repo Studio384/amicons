@@ -1,0 +1,56 @@
+---
+name: Amicons 1.0 alpha 10
+version: 1.0.0-alpha.10
+publishDate: 2025-10-17
+excerpt: Improving our exports, removing dependencies, and introducing a bouncy new animation. And of course a bunch of new icons.
+newIcons:
+  - align-content-center
+  - align-content-end
+  - align-content-start
+  - arrow-right-to-bracket-clock
+  - arrows-up-right-and-down-left-from-center
+  - arrows-up-right-and-down-left-to-center
+  - bluesky
+  - clock-pause
+  - clock-slash
+  - cursor
+  - diamonds
+  - id-card-slash
+  - input
+  - list-bar-chart
+  - macos-finder
+  - record-stop
+  - record
+  - signal-fair
+  - signal-good
+  - signal-moderate
+  - signal-slash
+  - signal-strong
+  - signal-weak
+  - square-check
+updatedIcons:
+  - arrow-down-to-line
+  - arrow-left-from-bracket
+  - arrow-up-right-from-square
+  - devices
+  - facebook-messenger
+  - fanvil
+  - fingerprint
+  - keyboard
+  - message-pen
+  - record-stop
+  - safari
+  - signal-strong
+  - triangle-exclamation
+  - yealink
+---
+
+## Added
+
+- Amicons is now properly exported as both a CJS and ESM package.
+- Adds the bounce animation to our default style, and added the `bounce` prop to our React component.
+- We've removed the dependency on `@emotion/css`.
+
+## Fixed
+
+- Fixes the SVG and export for fingerprint, record-stop, safari, signal-strong, and triangle-exclamation containing the icon twice.

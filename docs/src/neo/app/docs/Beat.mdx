@@ -1,0 +1,49 @@
+import { aiExpand, aiHeart, aiPlay } from "@studio384/amicons";
+
+import ApiTable from "../../design/blocks/ApiTable";
+import Playground from "../../design/blocks/Playground";
+
+export const playgroundConfig = {
+  icons: [aiHeart, aiExpand, aiPlay],
+  properties: [
+    {
+      label: "Beat",
+      type: "chip",
+      name: "beat",
+      values: [true, false],
+      default: true,
+    },
+  ],
+  cssVariables: [
+    {
+      name: "--ai-animation-duration",
+      default: "1s",
+      description: "Time for a full play through of the animation.",
+    },
+    {
+      name: "--ai-animation-timing-function",
+      default: "ease-in-out",
+      description: "The timing function used for the animation.",
+    },
+    {
+      name: "--ai-animation-iteration-count",
+      default: "infinite",
+      description: "Number of times the animation is repeated.",
+    },
+    {
+      name: "--ai-animation-scale",
+      default: "1.4",
+      description: "The scale at which the icon can grow.",
+    },
+  ],
+};
+
+# Beat
+
+With the `beat` property gives you a basic beat animation.
+
+<Playground config={playgroundConfig} />
+
+## API
+
+<ApiTable cssVariables={playgroundConfig.cssVariables} />

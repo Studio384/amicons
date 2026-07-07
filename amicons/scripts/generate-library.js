@@ -69,6 +69,7 @@ async function main(file) {
       cats.forEach((cat) => categoriesSet.add(cat));
     });
 
+    // oxlint-disable-next-line no-unused-vars
     const categories = Array.from(categoriesSet).sort();
 
     const importsLine = names.join(", ");
