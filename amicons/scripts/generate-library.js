@@ -40,6 +40,8 @@ async function main(file) {
     component: '${iconTitle}',
     categories: ${JSON.stringify(iconJson.categories || [])},
     tags: ${JSON.stringify(iconJson.tags || [])},
+    created: ${JSON.stringify(iconJson.created || null)},
+    updated: ${JSON.stringify(iconJson.updated || null)},
     slug: '${iconBasename}',
     icon: ${iconTitle}
   }`;

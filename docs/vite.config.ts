@@ -4,11 +4,12 @@ import { devtools } from "@tanstack/devtools-vite";
 import react from "@vitejs/plugin-react-swc";
 import ReactCompiler from "babel-plugin-react-compiler";
 import * as path from "path";
-import rehypeHighlight from "rehype-highlight";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
+
+import { rehypeCodeBlocks } from "./src/neo/design/blocks/rehypeCodeBlocks";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,7 +17,7 @@ export default defineConfig({
     [ReactCompiler],
     mdx({
       remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: "frontmatter" }]],
-      rehypePlugins: [rehypeHighlight],
+      rehypePlugins: [rehypeCodeBlocks],
     }),
     tailwindcss(),
     react(),

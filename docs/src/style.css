@@ -9,9 +9,102 @@
   isolation: isolate;
 }
 
+/* Follow the system colour scheme so scrollbars don't stay light in dark mode. */
+:root {
+  color-scheme: light dark;
+
+  --th-token: var(--color-accent-900);
+  --th-attr: var(--color-blue-600);
+  --th-background: var(--color-white);
+  --th-code-inline: var(--color-blue-600);
+  --th-command: var(--color-orange-500);
+  --th-comment: var(--color-accent-600);
+  --th-deleted: var(--color-red-700);
+  --th-function: var(--color-violet-500);
+  --th-heading: var(--color-sky-500);
+  --th-inserted: var(--color-green-600);
+  --th-keyword: var(--color-rose-500);
+  --th-link: var(--color-orange-600);
+  --th-literal: var(--color-blue-600);
+  --th-meta: var(--color-yellow-600);
+  --th-number: var(--color-lime-600);
+  --th-operator: var(--color-accent-600);
+  --th-property: var(--color-violet-500);
+  --th-selector: var(--color-blue-400);
+  --th-string: var(--color-blue-400);
+  --th-tag: var(--color-lime-600);
+  --th-type: var(--color-teal-500);
+  --th-variable: var(--color-blue-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --th-attr: var(--color-blue-400);
+    --th-background: var(--color-zinc-950);
+    --th-code-inline: var(--color-blue-400);
+    --th-command: var(--color-orange-400);
+    --th-comment: var(--color-accent-100);
+    --th-deleted: var(--color-red-400);
+    --th-function: var(--color-violet-400);
+    --th-heading: var(--color-sky-400);
+    --th-inserted: var(--color-green-400);
+    --th-keyword: var(--color-rose-400);
+    --th-link: var(--color-orange-500);
+    --th-literal: var(--color-blue-400);
+    --th-meta: var(--color-yellow-500);
+    --th-number: var(--color-lime-500);
+    --th-operator: var(--color-accent-100);
+    --th-property: var(--color-violet-400);
+    --th-selector: var(--color-blue-300);
+    --th-string: var(--color-blue-300);
+    --th-tag: var(--color-lime-500);
+    --th-token: var(--color-accent-300);
+    --th-type: var(--color-teal-400);
+    --th-variable: var(--color-blue-400);
+  }
+}
+
 @theme {
   --font-display: "Space Grotesk", sans-serif;
   --font-dev: "Century Gothic", "Segoe UI Variable Display", var(--font-sans);
+}
+
+/* Slim, themed scrollbars. Firefox uses the thumb/border properties while
+   Chromium and WebKit use the ::-webkit-* pseudo elements. */
+* {
+  scrollbar-width: thin;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-zinc-300);
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-zinc-400);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-zinc-700);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-zinc-600);
+  }
 }
 
 .hljs {
@@ -25,6 +118,103 @@
   .hljs {
     border-color: var(--color-zinc-800);
   }
+}
+
+/* TanStack Highlight (th-*) token colours. The theme file supplies the
+   --th-* custom properties for both colour schemes. */
+.th-code {
+  color: var(--th-token);
+  background-color: var(--th-background);
+}
+
+/* Wrap long lines instead of scrolling horizontally, and keep the whitespace
+   inside inline decorations (ins/del) from collapsing. */
+.th-code code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.th-token {
+  color: var(--th-token);
+}
+
+.th-token.th-keyword,
+.th-token.th-command {
+  color: var(--th-keyword);
+}
+
+.th-token.th-string,
+.th-token.th-code-inline {
+  color: var(--th-string);
+}
+
+.th-token.th-comment {
+  color: var(--th-comment);
+}
+
+.th-token.th-number,
+.th-token.th-literal {
+  color: var(--th-number);
+}
+
+.th-token.th-function {
+  color: var(--th-function);
+}
+
+.th-token.th-type {
+  color: var(--th-type);
+}
+
+.th-token.th-property {
+  color: var(--th-property);
+}
+
+.th-token.th-variable {
+  color: var(--th-variable);
+}
+
+.th-token.th-attr {
+  color: var(--th-attr);
+}
+
+.th-token.th-tag {
+  color: var(--th-tag);
+}
+
+.th-token.th-selector {
+  color: var(--th-selector);
+}
+
+.th-token.th-meta {
+  color: var(--th-meta);
+}
+
+.th-token.th-operator {
+  color: var(--th-operator);
+}
+
+.th-token.th-link {
+  color: var(--th-link);
+}
+
+.th-token.th-heading {
+  color: var(--th-heading);
+}
+
+/* Line decorations (ins / del) span the full block. */
+.th-token.th-inserted,
+.th-token.th-deleted {
+  display: inline-block;
+  width: 100%;
+}
+
+.th-token.th-inserted {
+  color: var(--th-inserted);
+}
+
+.th-token.th-deleted {
+  color: var(--th-deleted);
 }
 
 .docs {

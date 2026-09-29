@@ -1,28 +1,12 @@
 import { useCallback, useMemo } from "react";
 
-import { type IAmicon } from "@studio384/amicons";
+import { type ILibraryIcon } from "@/types";
 
-interface ISeachResults {
-  categories: string[];
-  component: string;
-  icon: IAmicon;
-  slug: string;
-  tags: string[];
+interface ISeachResults extends ILibraryIcon {
   _score: number;
 }
 
-export default function useSearch(
-  iconLibrary:
-    | {
-        categories: string[];
-        component: string;
-        icon: IAmicon;
-        slug: string;
-        tags: string[];
-      }[]
-    | undefined,
-  needle: string,
-) {
+export default function useSearch(iconLibrary: ILibraryIcon[] | undefined, needle: string) {
   const scoreIcon = useCallback((value: string, query: string) => {
     const searchable = value.toString().toLowerCase().trim();
 

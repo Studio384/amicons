@@ -3,10 +3,8 @@ import { type ReactNode, useMemo, useState } from "react";
 import { Field, Toggle, ToggleGroup } from "@base-ui/react";
 import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
 import clsx from "clsx";
-import hljs from "highlight.js/lib/core";
-import javascript from "highlight.js/lib/languages/javascript";
 
-hljs.registerLanguage("javascript", javascript);
+import { highlightToTokens } from "./highlight";
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -126,7 +124,7 @@ export default function Playground({ config }: IPlaygroundProps) {
 />`;
 
   const html = useMemo(() => {
-    return hljs.highlight(importCode, { language: "javascript" }).value;
+    return highlightToTokens(importCode, "jsx");
   }, [importCode]);
 
   return (
@@ -135,7 +133,7 @@ export default function Playground({ config }: IPlaygroundProps) {
         <div className="flex grow items-center justify-center text-4xl">
           <Amicon icon={icon} {...iconProperties} style={playgroundCssVariable} />
         </div>
-        <pre className="hljs">
+        <pre className="th-code overflow-hidden rounded-sm border border-zinc-200 p-3 text-sm/6 dark:border-zinc-800">
           <code dangerouslySetInnerHTML={{ __html: html }} />
         </pre>
       </div>

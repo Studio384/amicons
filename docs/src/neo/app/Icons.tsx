@@ -2,11 +2,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router";
 
 import { Input } from "@base-ui/react";
-import Amicon, { aiHouse, aiXmark, aiMagnifyingGlass } from "@studio384/amicons";
+import Amicon, { aiHouse, aiMagnifyingGlass } from "@studio384/amicons";
 import { useDebouncedCallback } from "@tanstack/react-pacer";
 
 import categories from "@/data/categories";
 import icons from "@/data/icons";
+import IconDetails from "@/neo/design/blocks/IconDetails";
 import { Drawer } from "@/neo/design/components/Drawer";
 import { IconCard } from "@/neo/design/components/IconCard";
 import { type ILibraryIcon } from "@/types";
@@ -201,61 +202,15 @@ export default function NeoIcons() {
             <Drawer.Viewport>
               <Drawer.Popup>
                 {selectedIcon && (
-                  <Drawer.Content className="flex flex-col gap-6 p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <Amicon
-                          icon={selectedIcon.icon}
-                          className="mb-4 text-5xl text-violet-600 dark:text-violet-400"
-                        />
-                        <h2 className="font-display text-2xl font-medium text-zinc-900 dark:text-white">
-                          {selectedIcon.slug}
-                        </h2>
-                      </div>
-                      <Drawer.Close className="flex size-8 items-center justify-center rounded-md text-zinc-400 hover:bg-zinc-200 hover:text-zinc-900 dark:hover:bg-zinc-800 dark:hover:text-white">
-                        <Amicon icon={aiXmark} className="text-lg" />
-                      </Drawer.Close>
-                    </div>
-
-                    {selectedIcon.categories.length > 0 && (
-                      <div>
-                        <h3 className="mb-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Categories</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {selectedIcon.categories.map((category) => (
-                            <button
-                              key={category}
-                              onClick={() => toggleCategory(category)}
-                              className="rounded-full bg-violet-100 px-3 py-1 text-sm text-violet-600 hover:bg-violet-200 dark:bg-violet-900 dark:text-violet-300 dark:hover:bg-violet-800"
-                            >
-                              {category}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {selectedIcon.tags.length > 0 && (
-                      <div>
-                        <h3 className="mb-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Tags</h3>
-                        <div className="flex flex-wrap gap-2">
-                          {selectedIcon.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full border border-zinc-300 bg-zinc-50 px-3 py-1 text-sm text-zinc-600 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    <div>
-                      <h3 className="mb-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">Component</h3>
-                      <code className="rounded bg-zinc-900 px-3 py-2 font-mono text-xs text-zinc-100">
-                        {selectedIcon.component}
-                      </code>
-                    </div>
+                  <Drawer.Content>
+                    <IconDetails
+                      icon={selectedIcon}
+                      onClose={() => {
+                        updateParams((params) => {
+                          params.delete("icon");
+                        });
+                      }}
+                    />
                   </Drawer.Content>
                 )}
               </Drawer.Popup>
