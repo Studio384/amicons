@@ -38,7 +38,16 @@ function Viewport({ className, ...props }: DrawerPrimitive.Viewport.Props) {
   );
 }
 
-function Popup({ className, ...props }: DrawerPrimitive.Popup.Props) {
+const widthClasses = {
+  sm: cn("w-80 max-w-[calc(100dvw-1.25rem)]"),
+  md: cn("w-[min(34rem,calc(100dvw-20px))]"),
+  lg: cn("w-[min(44rem,calc(100dvw-20px))]"),
+  full: cn("w-[min(100dvw-1.25rem,100dvw)]"),
+} as const;
+
+type PopupWidth = keyof typeof widthClasses;
+
+function Popup({ className, width = "md", ...props }: DrawerPrimitive.Popup.Props & { width?: PopupWidth }) {
   return (
     <DrawerPrimitive.Popup
       className={cn(
@@ -47,7 +56,8 @@ function Popup({ className, ...props }: DrawerPrimitive.Popup.Props) {
         // Background
         "bg-zinc-100 dark:bg-zinc-900",
         // Styling
-        "h-dvh w-[min(44rem,calc(100dvw-20px))] touch-auto overflow-y-auto overscroll-contain outline-1 outline-zinc-200 dark:outline-zinc-800",
+        "h-dvh touch-auto overflow-y-auto overscroll-contain outline-1 outline-zinc-200 dark:outline-zinc-800",
+        widthClasses[width],
         "[--bleed:0rem]",
         "transform-[translateX(var(--drawer-swipe-movement-x))]",
         "data-ending-style:transform-[translateX(calc(100%-var(--bleed)+var(--viewport-padding)+2px))]",

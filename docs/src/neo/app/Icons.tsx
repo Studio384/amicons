@@ -200,7 +200,7 @@ export default function NeoIcons() {
         <Drawer.Root open={Boolean(selectedIcon)} onOpenChange={handleDrawerOpenChange}>
           <Drawer.Portal>
             <Drawer.Viewport>
-              <Drawer.Popup>
+              <Drawer.Popup width="lg">
                 {selectedIcon && (
                   <Drawer.Content>
                     <IconDetails

@@ -20,12 +20,12 @@ export default function NeoLayout({ children }: PropsWithChildren) {
           </NavLink>
 
           <Drawer.Root swipeDirection="right">
-            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 dark:hover:bg-zinc-50/10">
+            <Drawer.Trigger className="-my-1 flex size-9 shrink-0 items-center justify-center rounded-sm transition-all select-none hover:cursor-pointer hover:bg-zinc-950/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-indigo-600 active:bg-white/15 md:hidden dark:hover:bg-zinc-50/10">
               <Amicon icon={aiBarsUneven} /> <span className="sr-only">Open navigation menu</span>
             </Drawer.Trigger>
             <Drawer.Portal>
               <Drawer.Viewport>
-                <Drawer.Popup>
+                <Drawer.Popup width="sm">
                   <Drawer.Content className="flex h-dvh flex-col overflow-y-auto max-md:items-center max-md:justify-between dark:scheme-dark">
                     <div className="flex w-full items-center justify-between border-b border-zinc-950/5 bg-zinc-100 p-4 dark:border-white/10 dark:bg-zinc-900">
                       <Drawer.Title>

@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 import Amicon, { aiXmark } from "@studio384/amicons";
 
-import icons from "@/data/icons";
 import { type ILibraryIcon } from "@/types";
 import { cn } from "@/utils/cn";
 import { formatSvg } from "@/utils/formatSvg";
