@@ -8,6 +8,7 @@ import { useDebouncedCallback } from "@tanstack/react-pacer";
 import categories from "@/data/categories";
 import icons from "@/data/icons";
 import IconDetails from "@/neo/design/blocks/IconDetails";
+import PageHeader from "@/neo/design/blocks/PageHeader";
 import { Drawer } from "@/neo/design/components/Drawer";
 import { IconCard } from "@/neo/design/components/IconCard";
 import { type ILibraryIcon } from "@/types";
@@ -129,59 +130,53 @@ export default function NeoIcons() {
 
   return (
     <>
-      <div className="sticky -top-18 isolate z-10 overflow-hidden bg-zinc-100/80 bg-origin-border p-4 shadow-sm backdrop-blur-xs dark:border-b dark:border-zinc-800 dark:bg-zinc-900/80">
-        <div className="z-10 container mx-auto max-w-7xl">
-          <div className="flex h-6 flex-row items-center gap-2">
-            <Amicon icon={aiMagnifyingGlass} className="text-zinc-400" />
-            <Input
-              placeholder="Search icons by name or tag..."
-              value={searchInput}
-              onChange={(e) => handleSearchChange(e.target.value)}
-              className="w-full border-0 bg-transparent px-0 outline-0"
-            />
-          </div>
+      <PageHeader
+        icon={aiHouse}
+        title="Icons"
+        subtitle={`${filteredIcons.length} icon${filteredIcons.length !== 1 ? "s" : ""}`}
+        width="lg"
+      />
 
-          <div className="mt-12 flex flex-row items-center gap-3">
-            <div className="flex size-12 items-center justify-center rounded-sm bg-violet-500 text-2xl text-white shadow-sm">
-              <Amicon icon={aiHouse} />
-            </div>
-            <div className="flex flex-col gap-1">
-              <h1 className="font-display -mb-1 text-3xl font-bold">Icons</h1>
-              <p className="font-display -mt-1 mb-0.5 text-sm font-medium tracking-widest text-violet-700 uppercase">
-                {filteredIcons.length} icon{filteredIcons.length !== 1 ? "s" : ""}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="flex flex-col gap-4 p-4">
         <div className="neo-docs neo-doc-page container mx-auto grid max-w-7xl grid-cols-[240px_auto] items-start gap-3">
-          <div className="flex flex-col gap-0.5">
-            {categories.map((category) => (
-              <button
-                key={category.slug}
-                onClick={() => toggleCategory(category.slug)}
-                className={cn(
-                  "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
-                  selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
-                  categoryCounts.get(category.slug) === 0 &&
-                    "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
-                )}
-                data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
-              >
-                <Amicon
-                  icon={category.icon}
-                  className="text-base text-violet-800 group-hover:text-white group-data-active:text-white"
-                />
-                <span className="font-display truncate">{category.title}</span>
-                <span
-                  className="font-display text-violet-600 tabular-nums group-hover:text-white group-data-active:text-white group-not-data-active:data-zero:text-zinc-400 group-hover:group-not-data-active:data-zero:text-violet-200"
-                  data-zero={categoryCounts.get(category.slug) === 0 ? "true" : undefined}
+          <div className="flex flex-col gap-2">
+            <div className="flex h-9 flex-row items-center gap-2 rounded-sm border border-zinc-950/10 bg-zinc-50 px-2 outline-0 transition-all focus-within:border-violet-700/15 focus-within:bg-violet-100 dark:border-white/10 dark:bg-zinc-950 dark:focus-within:bg-violet-600/20">
+              <Amicon icon={aiMagnifyingGlass} className="shrink-0 text-zinc-400" />
+              <Input
+                placeholder="Search icons by name or tag..."
+                value={searchInput}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                className="h-full w-full border-0 bg-transparent px-0 outline-0"
+              />
+            </div>
+
+            <div className="flex flex-col gap-0.5">
+              {categories.map((category) => (
+                <button
+                  key={category.slug}
+                  onClick={() => toggleCategory(category.slug)}
+                  className={cn(
+                    "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
+                    selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
+                    categoryCounts.get(category.slug) === 0 &&
+                      "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
+                  )}
+                  data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
                 >
-                  {categoryCounts.get(category.slug) ?? 0}
-                </span>
-              </button>
-            ))}
+                  <Amicon
+                    icon={category.icon}
+                    className="text-base text-violet-800 group-hover:text-white group-data-active:text-white"
+                  />
+                  <span className="font-display truncate">{category.title}</span>
+                  <span
+                    className="font-display text-violet-600 tabular-nums group-hover:text-white group-data-active:text-white group-not-data-active:data-zero:text-zinc-400 group-hover:group-not-data-active:data-zero:text-violet-200"
+                    data-zero={categoryCounts.get(category.slug) === 0 ? "true" : undefined}
+                  >
+                    {categoryCounts.get(category.slug) ?? 0}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {filteredIcons.length > 0 ? (

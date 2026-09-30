@@ -315,16 +315,43 @@
     font-size: var(--text-4xl);
     font-weight: var(--font-weight-bold);
     font-family: var(--font-display);
-    margin-bottom: 0.25rem;
-    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
   }
 
   h2 {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     font-weight: var(--font-weight-bold);
     font-family: var(--font-display);
-    margin-bottom: 0.25rem;
-    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h5,
+  h6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   :is(h1, h2, h3, h4, h5, h6):first-child {
@@ -346,6 +373,7 @@
   p {
     margin-bottom: 0.75rem;
     line-height: var(--leading-relaxed);
+    font-size: var(--text-lg);
 
     &:last-child {
       margin-bottom: 0;

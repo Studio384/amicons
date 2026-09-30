@@ -28,14 +28,7 @@ export default function NewsPost() {
         icon={aiMegaphone}
         title={post.title}
         subtitle={format(parse(post.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
-      >
-        <Link
-          to="/neo/news"
-          className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900 dark:text-white dark:hover:text-violet-300"
-        >
-          <Amicon icon={aiArrowLeft} /> All news
-        </Link>
-      </PageHeader>
+      />
 
       <div className="flex flex-col gap-4 p-4">
         <article className="neo-docs container mx-auto max-w-4xl">

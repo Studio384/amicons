@@ -29,14 +29,7 @@ export default function Release() {
         icon={aiAmicons}
         title={release.name}
         subtitle={format(parse(release.publishDate, "yyyy-MM-dd", new Date()), "d MMMM yyyy")}
-      >
-        <Link
-          to="/neo/releases"
-          className="font-display inline-flex items-center gap-1 text-violet-700 transition-colors hover:text-violet-900 dark:text-white dark:hover:text-violet-300"
-        >
-          <Amicon icon={aiArrowLeft} /> All releases
-        </Link>
-      </PageHeader>
+      />
 
       <div className="flex flex-col gap-4 p-4">
         <article className="container mx-auto max-w-4xl">
