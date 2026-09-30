@@ -17,7 +17,6 @@ import Icon from "./app/Icon";
 import Icons from "./app/Icons";
 import Releases from "./app/Releases";
 import Layout from "./design/layout/Layout";
-import NeoPageAbout from "./neo/app/docs/About.mdx";
 import NeoPageBeat from "./neo/app/docs/Beat.mdx";
 import NeoPageBounce from "./neo/app/docs/Bounce.mdx";
 import NeoPageFade from "./neo/app/docs/Fade.mdx";
@@ -28,8 +27,6 @@ import NeoPageSpin from "./neo/app/docs/Spin.mdx";
 import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
 import NeoIcons from "./neo/app/Icons";
-import NeoNews from "./neo/app/News";
-import NeoNewsPost from "./neo/app/NewsPost";
 import NeoReleasePage from "./neo/app/Release";
 import NeoReleases from "./neo/app/Releases";
 import NeoLayout from "./neo/design/layouts/Layout";
@@ -85,14 +82,6 @@ export const router = createHashRouter([
       { index: true, Component: NeoIcons },
       { path: "icons", Component: NeoIcons },
       {
-        path: "news",
-        errorElement: <NeoError />,
-        children: [
-          { index: true, Component: NeoNews },
-          { path: ":slug", Component: NeoNewsPost },
-        ],
-      },
-      {
         path: "releases",
         errorElement: <NeoError />,
         children: [
@@ -106,7 +95,6 @@ export const router = createHashRouter([
         errorElement: <NeoError />,
         children: [
           { index: true, element: <Navigate to="installation" replace /> },
-          { path: "about", Component: NeoPageAbout },
           { path: "installation", Component: NeoPageInstallation },
           { path: "spin", Component: NeoPageSpin },
           { path: "bounce", Component: NeoPageBounce },

@@ -1,19 +1,21 @@
-import { Outlet, Link, useLocation } from "react-router";
+import { useLocation, Link, Outlet } from "react-router";
 
 import { Separator } from "@base-ui/react";
 import Amicon, { aiBook, aiArrowLeft, aiArrowRight } from "@studio384/amicons";
 
+import { DOC_PAGES } from "@/neo/navigation";
 import { cn } from "@/utils/cn";
 
 import PageHeader from "../design/blocks/PageHeader";
-import { DOC_PAGES } from "./docs/navigation";
+import NeoError from "./Error";
 
 export default function NeoDocumentation() {
   const location = useLocation();
+  const isIndexRoute = location.pathname === "/neo/documentation" || location.pathname === "/neo/documentation/";
   const currentPage = DOC_PAGES.find((page) => page.path === location.pathname);
   const currentIndex = DOC_PAGES.findIndex((page) => page.path === location.pathname);
 
-  if (currentIndex === -1) return null;
+  if (currentIndex === -1 && !isIndexRoute) return <NeoError />;
 
   const prev = currentIndex > 0 ? DOC_PAGES[currentIndex - 1] : null;
   const next = currentIndex < DOC_PAGES.length - 1 ? DOC_PAGES[currentIndex + 1] : null;
