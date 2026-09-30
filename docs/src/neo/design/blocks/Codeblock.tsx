@@ -33,7 +33,7 @@ export default function Codeblock({ code, lang = "plaintext", title, className }
       )}
     >
       {title && (
-        <figcaption className="flex items-center border-b border-zinc-200 px-4 py-2 font-mono text-xs text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+        <figcaption className="flex items-center border-b border-zinc-200 px-4 py-2.5 font-mono text-xs/4 text-zinc-600 dark:border-zinc-800 dark:text-zinc-200">
           {title}
         </figcaption>
       )}
@@ -44,7 +44,7 @@ export default function Codeblock({ code, lang = "plaintext", title, className }
         onClick={copy}
         type="button"
         aria-label="Copy code"
-        className="absolute top-2 right-2 flex size-7 items-center justify-center rounded-sm bg-zinc-100 text-zinc-500 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-zinc-200 hover:text-zinc-900 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-600 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-white"
+        className="absolute top-1 right-1 flex size-7 items-center justify-center rounded-sm bg-zinc-100 text-zinc-500 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-zinc-200 hover:text-zinc-900 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-600 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-white"
       >
         <Amicon icon={copied ? aiCheck : aiCopy} className="text-sm" />
       </button>
