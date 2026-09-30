@@ -12,6 +12,8 @@ export interface ILibraryIcon {
   component: string;
   categories: string[];
   tags: string[];
+  created: string | null;
+  updated: string | null;
   slug: string;
   icon: IAmicon;
 }

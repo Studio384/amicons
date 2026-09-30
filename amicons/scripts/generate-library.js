@@ -40,6 +40,8 @@ async function main(file) {
     component: '${iconTitle}',
     categories: ${JSON.stringify(iconJson.categories || [])},
     tags: ${JSON.stringify(iconJson.tags || [])},
+    created: ${JSON.stringify(iconJson.created || null)},
+    updated: ${JSON.stringify(iconJson.updated || null)},
     slug: '${iconBasename}',
     icon: ${iconTitle}
   }`;
@@ -69,6 +71,7 @@ async function main(file) {
       cats.forEach((cat) => categoriesSet.add(cat));
     });
 
+    // oxlint-disable-next-line no-unused-vars
     const categories = Array.from(categoriesSet).sort();
 
     const importsLine = names.join(", ");

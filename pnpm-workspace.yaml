@@ -1,0 +1,9 @@
+packages:
+  - docs
+  - amicons
+
+minimumReleaseAge: 0
+
+allowBuilds:
+  "@swc/core": true
+  esbuild: true

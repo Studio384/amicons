@@ -3,7 +3,9 @@ import { createSearchParams, NavLink, useNavigate, useParams } from "react-route
 
 import { Input } from "@base-ui/react";
 import Amicon, { aiArrowLeft, aiXmark } from "@studio384/amicons";
-import { codeToHtml } from "shiki";
+import hljs from "highlight.js/lib/core";
+import javascript from "highlight.js/lib/languages/javascript";
+import xml from "highlight.js/lib/languages/xml";
 
 import icons from "@/data/icons";
 import { Button } from "@/design/components/Button";
@@ -13,13 +15,14 @@ import Header from "@/design/layout/LayoutElements/Header";
 import { type IIcon, type ILibraryIcon } from "@/types";
 import { formatSvg } from "@/utils/formatSvg";
 
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("xml", xml);
+
 export default function Icon() {
   const navigate = useNavigate();
   const { slug } = useParams();
 
   const [icon, setIcon] = useState<IIcon | null>(null);
-  const [html, setHtml] = useState<string>("");
-  const [svg, setSvg] = useState<string>("");
   const firstCategory = icon?.categories?.[0];
 
   useEffect(() => {
@@ -53,16 +56,8 @@ return (
   <Amicon icon={${reactImport}} />
 );`;
 
-  useEffect(() => {
-    codeToHtml(importCode, {
-      lang: "javascript",
-      theme: "dark-plus",
-    }).then((result) => setHtml(result));
-    codeToHtml(formatSvg(viIcon.icon.data), {
-      lang: "javascript",
-      theme: "dark-plus",
-    }).then((result) => setSvg(result));
-  }, [importCode, viIcon.icon.data]);
+  const html = useMemo(() => hljs.highlight(importCode, { language: "javascript" }).value, [importCode]);
+  const svg = useMemo(() => hljs.highlight(formatSvg(viIcon.icon.data), { language: "xml" }).value, [viIcon.icon.data]);
 
   return (
     <>
@@ -122,11 +117,15 @@ return (
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Usage</h3>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <pre className="hljs">
+              <code dangerouslySetInnerHTML={{ __html: html }} />
+            </pre>
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">SVG</h3>
-            <div dangerouslySetInnerHTML={{ __html: svg }} />
+            <pre className="hljs">
+              <code dangerouslySetInnerHTML={{ __html: svg }} />
+            </pre>
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-display text-2xl font-medium">Examples</h3>

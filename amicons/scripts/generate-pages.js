@@ -30,8 +30,8 @@ async function main(file) {
   "title": "${iconTitle}",
   "categories": [],
   "tags": [],
-  "created": "${pkg.version.substring(0, pkg.version.indexOf("-"))}",
-  "updated": "${pkg.version.substring(0, pkg.version.indexOf("-"))}"
+  "created": "${pkg.version}",
+  "updated": "${pkg.version}"
 }`;
 
   try {

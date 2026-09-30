@@ -1,0 +1,49 @@
+import { aiAmicons, aiCircleHalfInner, aiMusic } from "@studio384/amicons";
+
+import ApiTable from "../../design/blocks/ApiTable";
+import Playground from "../../design/blocks/Playground";
+
+export const playgroundConfig = {
+  icons: [aiAmicons, aiMusic, aiCircleHalfInner],
+  properties: [
+    {
+      label: "Fade",
+      type: "chip",
+      name: "fade",
+      values: [true, false],
+      default: true,
+    },
+  ],
+  cssVariables: [
+    {
+      name: "--ai-animation-duration",
+      default: "1.5s",
+      description: "Time for a full play through of the animation.",
+    },
+    {
+      name: "--ai-animation-timing-function",
+      default: "ease-in-out",
+      description: "The timing function used for the animation.",
+    },
+    {
+      name: "--ai-animation-iteration-count",
+      default: "infinite",
+      description: "Number of times the animation is repeated.",
+    },
+    {
+      name: "--ai-animation-opacity",
+      default: ".4",
+      description: "The lowest opacity of the icon.",
+    },
+  ],
+};
+
+# Fade
+
+With the `fade` property gives you a basic fade animation.
+
+<Playground config={playgroundConfig} />
+
+## API
+
+<ApiTable cssVariables={playgroundConfig.cssVariables} />
