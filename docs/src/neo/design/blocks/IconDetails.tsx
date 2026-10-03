@@ -12,10 +12,11 @@ import IconExamples from "./IconExamples";
 
 interface IconDetailsProps {
   icon: ILibraryIcon;
-  onClose: () => void;
+  onClose?: () => void;
+  title?: string;
 }
 
-export default function IconDetails({ icon, onClose }: IconDetailsProps) {
+export default function IconDetails({ icon, onClose, title }: IconDetailsProps) {
   const svg = useMemo(
     () => (typeof DOMParser === "undefined" ? icon.icon.data : formatSvg(icon.icon.data)),
     [icon.icon.data],
@@ -39,16 +40,20 @@ export default function App() {
         <header className="sticky top-0 z-10 flex flex-col gap-5 border-b border-violet-600/10 bg-violet-50 p-6 backdrop-blur-sm dark:bg-violet-800/90">
           <div className="flex items-center justify-between gap-3">
             <h2 className="font-display -mt-1 text-3xl leading-tight font-bold wrap-break-word text-zinc-900 dark:text-white">
-              {icon.slug}
+              {title ?? icon.slug}
             </h2>
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close icon details"
-              className="flex size-8 shrink-0 items-center justify-center rounded-sm text-violet-400 transition-colors hover:bg-violet-200 hover:text-violet-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-600 dark:hover:bg-violet-700 dark:hover:text-white"
-            >
-              <Amicon icon={aiXmark} className="text-xl" />
-            </button>
+            <div className="flex shrink-0 items-center gap-1">
+              {onClose && (
+                <button
+                  type="button"
+                  onClick={onClose}
+                  aria-label="Close icon details"
+                  className="flex size-8 shrink-0 items-center justify-center rounded-sm text-violet-400 transition-colors hover:bg-violet-200 hover:text-violet-900 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-600 dark:hover:bg-violet-700 dark:hover:text-white"
+                >
+                  <Amicon icon={aiXmark} className="text-xl" />
+                </button>
+              )}
+            </div>
           </div>
         </header>
 
@@ -95,7 +100,6 @@ export default function App() {
                     {category}
                   </Link>
                 ))}
-
                 {icon.tags.map((tag) => (
                   <span
                     key={tag}

@@ -67,10 +67,31 @@
 @theme {
   --font-display: "Space Grotesk", sans-serif;
   --font-dev: "Century Gothic", "Segoe UI Variable Display", var(--font-sans);
+
+  --animate-drawer-enter: ai-drawer-enter 450ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  --animate-drawer-exit: ai-drawer-exit 350ms cubic-bezier(0.32, 0, 0.67, 0) both;
+
+  @keyframes ai-drawer-enter {
+    from {
+      transform: translateX(calc(100% - var(--bleed, 0rem) + var(--viewport-padding, 0px) + 2px));
+    }
+
+    to {
+      transform: translateX(var(--drawer-swipe-movement-x, 0px));
+    }
+  }
+
+  @keyframes ai-drawer-exit {
+    from {
+      transform: translateX(var(--drawer-swipe-movement-x, 0px));
+    }
+
+    to {
+      transform: translateX(calc(100% - var(--bleed, 0rem) + var(--viewport-padding, 0px) + 2px));
+    }
+  }
 }
 
-/* Slim, themed scrollbars. Firefox uses the thumb/border properties while
-   Chromium and WebKit use the ::-webkit-* pseudo elements. */
 * {
   scrollbar-width: thin;
 }

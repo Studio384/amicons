@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "react-router";
+import { Outlet, useLocation, useSearchParams } from "react-router";
 
 import { Input } from "@base-ui/react";
 import Amicon, { aiFilterXmark, aiHouse, aiMagnifyingGlass } from "@studio384/amicons";
@@ -7,23 +7,21 @@ import { useDebouncer } from "@tanstack/react-pacer";
 
 import categories from "@/data/categories";
 import icons from "@/data/icons";
-import IconDetails from "@/neo/design/blocks/IconDetails";
 import PageHeader from "@/neo/design/blocks/PageHeader";
-import { Drawer } from "@/neo/design/components/Drawer";
 import { IconCard } from "@/neo/design/components/IconCard";
 import { Pagination } from "@/neo/design/components/Pagination";
-import { type ILibraryIcon } from "@/types";
+import { getOpenedFromGridSlug, getSlugFromPath } from "@/neo/routes";
 import { cn } from "@/utils/cn";
 
 const PAGE_SIZE = 98;
 
 export default function NeoIcons() {
+  const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
 
   const searchQuery = searchParams.get("search") ?? "";
   const selectedCategories = searchParams.getAll("categories");
-  const openedIconSlug = searchParams.get("icon");
   const page = Math.max(1, Number(searchParams.get("page") ?? 1) || 1);
 
   useEffect(() => {
@@ -150,130 +148,101 @@ export default function NeoIcons() {
     return counts;
   }, [searchedIcons, selectedCategories]);
 
-  const selectedIcon: ILibraryIcon | null = useMemo(
-    () => icons.find((icon) => icon.slug === openedIconSlug) ?? null,
-    [openedIconSlug],
-  );
-
-  const handleDrawerOpenChange = useCallback(
-    (open: boolean) => {
-      if (!open) {
-        updateParams((params) => {
-          params.delete("icon");
-        });
-      }
-    },
-    [updateParams],
-  );
+  const openedSlug = getSlugFromPath(location.pathname);
+  const showGrid = !openedSlug || getOpenedFromGridSlug() === openedSlug;
 
   return (
     <>
-      <PageHeader
-        icon={aiHouse}
-        title="Icons"
-        subtitle={`${filteredIcons.length} icon${filteredIcons.length !== 1 ? "s" : ""}`}
-        width="lg"
-      />
+      {showGrid && (
+        <>
+          <PageHeader
+            icon={aiHouse}
+            title="Icons"
+            subtitle={`${filteredIcons.length} icon${filteredIcons.length !== 1 ? "s" : ""}`}
+            width="lg"
+          />
 
-      <div className="flex flex-col gap-4 p-4">
-        <div className="neo-docs neo-doc-page container mx-auto grid max-w-7xl grid-cols-[240px_auto] items-start gap-3">
-          <div className="flex flex-col gap-2">
-            <div className="flex flex-row items-center gap-2">
-              <div className="flex h-9 flex-1 flex-row items-center gap-2 rounded-sm border border-zinc-950/10 bg-zinc-50 px-2 outline-0 transition-all focus-within:border-violet-700/15 focus-within:bg-violet-100 dark:border-white/10 dark:bg-zinc-950 dark:focus-within:bg-violet-600/20">
-                <Amicon icon={aiMagnifyingGlass} className="shrink-0 text-zinc-400" />
-                <Input
-                  placeholder="Search icons by name or tag..."
-                  value={searchInput}
-                  onChange={(e) => handleSearchChange(e.target.value)}
-                  className="h-full w-full border-0 bg-transparent px-0 outline-0"
-                />
+          <div className="flex flex-col gap-4 p-4">
+            <div className="neo-docs neo-doc-page container mx-auto grid max-w-7xl grid-cols-[240px_auto] items-start gap-3">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-row items-center gap-2">
+                  <div className="flex h-9 flex-1 flex-row items-center gap-2 rounded-sm border border-zinc-950/10 bg-zinc-50 px-2 outline-0 transition-all focus-within:border-violet-700/15 focus-within:bg-violet-100 dark:border-white/10 dark:bg-zinc-950 dark:focus-within:bg-violet-600/20">
+                    <Amicon icon={aiMagnifyingGlass} className="shrink-0 text-zinc-400" />
+                    <Input
+                      placeholder="Search icons by name or tag..."
+                      value={searchInput}
+                      onChange={(e) => handleSearchChange(e.target.value)}
+                      className="h-full w-full border-0 bg-transparent px-0 outline-0"
+                    />
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={resetFilters}
+                    disabled={!hasActiveFilters}
+                    title="Reset filters"
+                    className={cn(
+                      "font-display grid size-9 shrink-0 place-items-center rounded-sm border border-zinc-950/10 bg-zinc-50",
+                      "outline-0 -outline-offset-2 outline-violet-600 transition-all",
+                      "hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
+                      "disabled:pointer-events-none disabled:opacity-40",
+                      "dark:border-white/10 dark:bg-zinc-950",
+                    )}
+                  >
+                    <Amicon icon={aiFilterXmark} />
+                    <span className="sr-only">Reset filters</span>
+                  </button>
+                </div>
+
+                <div className="flex flex-col gap-0.5">
+                  {categories.map((category) => (
+                    <button
+                      key={category.slug}
+                      onClick={() => toggleCategory(category.slug)}
+                      className={cn(
+                        "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
+                        selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
+                        categoryCounts.get(category.slug) === 0 &&
+                          "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
+                      )}
+                      data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
+                    >
+                      <Amicon
+                        icon={category.icon}
+                        className="text-base text-violet-800 group-hover:text-white group-data-active:text-white"
+                      />
+                      <span className="font-display truncate">{category.title}</span>
+                      <span
+                        className="font-display text-violet-600 tabular-nums group-hover:text-white group-data-active:text-white group-not-data-active:data-zero:text-zinc-400 group-hover:group-not-data-active:data-zero:text-violet-200"
+                        data-zero={categoryCounts.get(category.slug) === 0 ? "true" : undefined}
+                      >
+                        {categoryCounts.get(category.slug) ?? 0}
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
 
-              <button
-                type="button"
-                onClick={resetFilters}
-                disabled={!hasActiveFilters}
-                title="Reset filters"
-                className={cn(
-                  "font-display grid size-9 shrink-0 place-items-center rounded-sm border border-zinc-950/10 bg-zinc-50",
-                  "outline-0 -outline-offset-2 outline-violet-600 transition-all",
-                  "hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
-                  "disabled:pointer-events-none disabled:opacity-40",
-                  "dark:border-white/10 dark:bg-zinc-950",
-                )}
-              >
-                <Amicon icon={aiFilterXmark} />
-                <span className="sr-only">Reset filters</span>
-              </button>
-            </div>
+              {filteredIcons.length > 0 ? (
+                <div className="flex flex-col gap-4">
+                  <div className="icon-grid grid grid-cols-[repeat(auto-fill,minmax(min(8rem,100%),1fr))] gap-1">
+                    {paginatedIcons.map((icon) => (
+                      <IconCard key={icon.slug} icon={icon} openAsDrawer />
+                    ))}
+                  </div>
 
-            <div className="flex flex-col gap-0.5">
-              {categories.map((category) => (
-                <button
-                  key={category.slug}
-                  onClick={() => toggleCategory(category.slug)}
-                  className={cn(
-                    "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
-                    selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
-                    categoryCounts.get(category.slug) === 0 &&
-                      "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
-                  )}
-                  data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
-                >
-                  <Amicon
-                    icon={category.icon}
-                    className="text-base text-violet-800 group-hover:text-white group-data-active:text-white"
-                  />
-                  <span className="font-display truncate">{category.title}</span>
-                  <span
-                    className="font-display text-violet-600 tabular-nums group-hover:text-white group-data-active:text-white group-not-data-active:data-zero:text-zinc-400 group-hover:group-not-data-active:data-zero:text-violet-200"
-                    data-zero={categoryCounts.get(category.slug) === 0 ? "true" : undefined}
-                  >
-                    {categoryCounts.get(category.slug) ?? 0}
-                  </span>
-                </button>
-              ))}
+                  <Pagination page={currentPage} count={pageCount} onChange={setPage} />
+                </div>
+              ) : (
+                <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300 dark:border-zinc-700">
+                  <p className="font-display text-3xl text-zinc-700 dark:text-zinc-500">No icons found</p>
+                </div>
+              )}
             </div>
           </div>
-
-          {filteredIcons.length > 0 ? (
-            <div className="flex flex-col gap-4">
-              <div className="icon-grid grid grid-cols-[repeat(auto-fill,minmax(min(8rem,100%),1fr))] gap-1">
-                {paginatedIcons.map((icon) => (
-                  <IconCard key={icon.slug} icon={icon} />
-                ))}
-              </div>
-
-              <Pagination page={currentPage} count={pageCount} onChange={setPage} />
-            </div>
-          ) : (
-            <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300 dark:border-zinc-700">
-              <p className="font-display text-3xl text-zinc-700 dark:text-zinc-500">No icons found</p>
-            </div>
-          )}
-        </div>
-
-        <Drawer.Root open={Boolean(selectedIcon)} onOpenChange={handleDrawerOpenChange}>
-          <Drawer.Portal>
-            <Drawer.Viewport>
-              <Drawer.Popup width="lg">
-                {selectedIcon && (
-                  <Drawer.Content>
-                    <IconDetails
-                      icon={selectedIcon}
-                      onClose={() => {
-                        updateParams((params) => {
-                          params.delete("icon");
-                        });
-                      }}
-                    />
-                  </Drawer.Content>
-                )}
-              </Drawer.Popup>
-            </Drawer.Viewport>
-          </Drawer.Portal>
-        </Drawer.Root>
-      </div>
+        </>
+      )}
+      <Outlet />
     </>
   );
 }

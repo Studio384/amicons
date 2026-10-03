@@ -1,5 +1,5 @@
 {
-  "title": "Notification",
+  "title": "Toast",
   "categories": ["alerts"],
   "tags": ["toast"],
   "created": "1.0.0",

@@ -2,7 +2,7 @@ import { Drawer as DrawerPrimitive } from "@base-ui/react";
 
 import { cn } from "@/utils/cn";
 
-function Portal({ children, ...props }: DrawerPrimitive.Portal.Props) {
+function Portal({ children, closing, ...props }: DrawerPrimitive.Portal.Props & { closing?: boolean }) {
   return (
     <DrawerPrimitive.Portal {...props}>
       <DrawerPrimitive.Backdrop
@@ -19,6 +19,9 @@ function Portal({ children, ...props }: DrawerPrimitive.Portal.Props) {
           "data-ending-style:duration-[calc(var(--drawer-swipe-strength)*400ms)]",
           "data-starting-style:opacity-0",
           "data-swiping:duration-0",
+          // The drawer is unmounted by our own exit animation rather than by
+          // base-ui, so the backdrop has to fade out alongside it
+          closing && "opacity-0 duration-350 ease-[cubic-bezier(0.32,0,0.67,0)]",
         )}
       />
       {children}

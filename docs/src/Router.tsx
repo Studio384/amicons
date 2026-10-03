@@ -26,6 +26,7 @@ import NeoPageRotate from "./neo/app/docs/Rotate.mdx";
 import NeoPageSpin from "./neo/app/docs/Spin.mdx";
 import NeoDocumentation from "./neo/app/Documentation";
 import NeoError from "./neo/app/Error";
+import NeoIcon from "./neo/app/Icon";
 import NeoIcons from "./neo/app/Icons";
 import NeoReleasePage from "./neo/app/Release";
 import NeoReleases from "./neo/app/Releases";
@@ -80,7 +81,11 @@ export const router = createHashRouter([
     Component: NeoLayout,
     children: [
       { index: true, Component: NeoIcons },
-      { path: "icons", Component: NeoIcons },
+      {
+        path: "icons",
+        Component: NeoIcons,
+        children: [{ path: ":slug", Component: NeoIcon }],
+      },
       {
         path: "releases",
         errorElement: <NeoError />,
