@@ -7,10 +7,10 @@ import { useDebouncer } from "@tanstack/react-pacer";
 
 import categories from "@/data/categories";
 import icons from "@/data/icons";
-import PageHeader from "@/neo/design/blocks/PageHeader";
-import { IconCard } from "@/neo/design/components/IconCard";
-import { Pagination } from "@/neo/design/components/Pagination";
-import { getOpenedFromGridSlug, getSlugFromPath } from "@/neo/routes";
+import PageHeader from "@/design/blocks/PageHeader";
+import { IconCard } from "@/design/components/IconCard";
+import { Pagination } from "@/design/components/Pagination";
+import { getOpenedFromGridSlug, getSlugFromPath } from "@/routes";
 import { cn } from "@/utils/cn";
 
 const PAGE_SIZE = 98;

@@ -34,7 +34,8 @@
     "./amicons.css": "./dist/amicons.css"
   },
   "scripts": {
-    "build": "tsup && node scripts/copy-css.js",
+    "build": "tsup && pnpm build:types && node scripts/finalize-dist.js",
+    "build:types": "tsc --emitDeclarationOnly",
     "build:watch": "tsup --watch",
     "fix": "oxfmt && oxlint --fix",
     "format": "oxfmt --check",

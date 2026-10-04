@@ -7,9 +7,10 @@ import * as path from "path";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { visualizer } from "rollup-plugin-visualizer";
+import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
 
-import { rehypeCodeBlocks } from "./src/neo/design/blocks/rehypeCodeBlocks";
+import { rehypeCodeBlocks } from "./src/design/blocks/rehypeCodeBlocks.ts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,7 +33,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "./src"),
     },
   },
   base: "/amicons/",

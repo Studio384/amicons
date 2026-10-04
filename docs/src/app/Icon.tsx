@@ -4,10 +4,10 @@ import { useLocation, useNavigate, useParams } from "react-router";
 import Amicon from "@studio384/amicons";
 
 import icons from "@/data/icons";
-import IconDetails from "@/neo/design/blocks/IconDetails";
-import PageHeader from "@/neo/design/blocks/PageHeader";
-import { Drawer } from "@/neo/design/components/Drawer";
-import { ICONS_PATH, clearOpenedFromGrid, getOpenedFromGridSlug } from "@/neo/routes";
+import IconDetails from "@/design/blocks/IconDetails";
+import PageHeader from "@/design/blocks/PageHeader";
+import { Drawer } from "@/design/components/Drawer";
+import { ICONS_PATH, clearOpenedFromGrid, getOpenedFromGridSlug } from "@/routes";
 import { type IIcon, type ILibraryIcon } from "@/types";
 
 function IconDrawer({ icon, title, onClose }: { icon: ILibraryIcon; title: string; onClose: () => void }) {

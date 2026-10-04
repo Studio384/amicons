@@ -93,7 +93,7 @@ export default function App() {
                 {icon.categories.map((category) => (
                   <Link
                     key={category}
-                    to={`/neo/icons?categories=${category}`}
+                    to={`/icons?categories=${category}`}
                     onClick={onClose}
                     className="rounded-sm bg-violet-100 px-2.5 py-1 text-xs text-violet-700 transition-colors hover:bg-violet-200 dark:bg-violet-950 dark:text-violet-300 dark:hover:bg-violet-900"
                   >

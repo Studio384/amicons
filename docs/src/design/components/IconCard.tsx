@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 
 import Amicon from "@studio384/amicons";
 
-import { iconPath, markOpenedFromGrid } from "@/neo/routes";
+import { iconPath, markOpenedFromGrid } from "@/routes";
 import { type ILibraryIcon } from "@/types";
 
 type IconCardProps = {

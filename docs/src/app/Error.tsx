@@ -1,6 +1,6 @@
 import Amicon from "@studio384/amicons";
 
-export default function NeoError() {
+export default function Error() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
       <div className="max-w-120">

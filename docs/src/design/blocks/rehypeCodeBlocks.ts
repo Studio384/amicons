@@ -37,7 +37,7 @@ function collectText(node: HastNode): string {
 /**
  * A rehype plugin that turns fenced code blocks into `<CodeBlock />` elements, so
  * MDX pages get the same TanStack Highlight output and copy button as the rest
- * of the Neo documentation.
+ * of the documentation.
  *
  * The document must import `CodeBlock`; documents that don't are left alone so
  * a missing import degrades gracefully instead of breaking the page.

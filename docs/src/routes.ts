@@ -1,7 +1,7 @@
-export const ROOT_PATH = "/neo";
-export const ICONS_PATH = "/neo/icons";
-export const RELEASES_PATH = "/neo/releases";
-export const DOCUMENTATION_PATH = "/neo/documentation";
+export const ROOT_PATH = "/";
+export const ICONS_PATH = "/icons";
+export const RELEASES_PATH = "/releases";
+export const DOCUMENTATION_PATH = "/documentation";
 
 export function iconPath(slug: string): string {
   return `${ICONS_PATH}/${slug}`;

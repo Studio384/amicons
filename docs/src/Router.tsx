@@ -1,59 +1,59 @@
 import { createHashRouter, Navigate } from "react-router";
 
-import NeoPageAbout from "./neo/app/docs/About.mdx";
-import NeoPageBeat from "./neo/app/docs/Beat.mdx";
-import NeoPageBounce from "./neo/app/docs/Bounce.mdx";
-import NeoPageFade from "./neo/app/docs/Fade.mdx";
-import NeoPageFlip from "./neo/app/docs/Flip.mdx";
-import NeoPageInstallation from "./neo/app/docs/Installation.mdx";
-import NeoPageRotate from "./neo/app/docs/Rotate.mdx";
-import NeoPageSpin from "./neo/app/docs/Spin.mdx";
-import NeoDocumentation from "./neo/app/Documentation";
-import NeoError from "./neo/app/Error";
-import NeoIcon from "./neo/app/Icon";
-import NeoIcons from "./neo/app/Icons";
-import NeoReleasePage from "./neo/app/Release";
-import NeoReleases from "./neo/app/Releases";
-import NeoLayout from "./neo/design/layouts/Layout";
+import PageAbout from "./app/docs/About.mdx";
+import PageBeat from "./app/docs/Beat.mdx";
+import PageBounce from "./app/docs/Bounce.mdx";
+import PageFade from "./app/docs/Fade.mdx";
+import PageFlip from "./app/docs/Flip.mdx";
+import PageInstallation from "./app/docs/Installation.mdx";
+import PageRotate from "./app/docs/Rotate.mdx";
+import PageSpin from "./app/docs/Spin.mdx";
+import Documentation from "./app/Documentation";
+import Error from "./app/Error";
+import Icon from "./app/Icon";
+import Icons from "./app/Icons";
+import ReleasePage from "./app/Release";
+import Releases from "./app/Releases";
+import Layout from "./design/layouts/Layout";
 
 export const router = createHashRouter([
   {
-    path: "/neo",
-    Component: NeoLayout,
+    path: "/",
+    Component: Layout,
     children: [
-      { index: true, Component: NeoIcons },
+      { index: true, Component: Icons },
       {
         path: "icons",
-        Component: NeoIcons,
-        children: [{ path: ":slug", Component: NeoIcon }],
+        Component: Icons,
+        children: [{ path: ":slug", Component: Icon }],
       },
       {
         path: "releases",
-        errorElement: <NeoError />,
+        errorElement: <Error />,
         children: [
-          { index: true, Component: NeoReleases },
-          { path: ":slug", Component: NeoReleasePage },
+          { index: true, Component: Releases },
+          { path: ":slug", Component: ReleasePage },
         ],
       },
       {
         path: "documentation",
-        Component: NeoDocumentation,
-        errorElement: <NeoError />,
+        Component: Documentation,
+        errorElement: <Error />,
         children: [
           { index: true, element: <Navigate to="installation" replace /> },
-          { path: "about", Component: NeoPageAbout },
-          { path: "installation", Component: NeoPageInstallation },
-          { path: "spin", Component: NeoPageSpin },
-          { path: "bounce", Component: NeoPageBounce },
-          { path: "rotate", Component: NeoPageRotate },
-          { path: "flip", Component: NeoPageFlip },
-          { path: "beat", Component: NeoPageBeat },
-          { path: "fade", Component: NeoPageFade },
+          { path: "about", Component: PageAbout },
+          { path: "installation", Component: PageInstallation },
+          { path: "spin", Component: PageSpin },
+          { path: "bounce", Component: PageBounce },
+          { path: "rotate", Component: PageRotate },
+          { path: "flip", Component: PageFlip },
+          { path: "beat", Component: PageBeat },
+          { path: "fade", Component: PageFade },
         ],
       },
-      { path: "*", Component: NeoError },
+      { path: "*", Component: Error },
     ],
   },
   // The legacy routes have been retired, so send anything else back home
-  { path: "*", element: <Navigate to="/neo" replace /> },
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);

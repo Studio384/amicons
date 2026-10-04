@@ -4,7 +4,7 @@ import { Separator } from "@base-ui/react";
 import Amicon, { aiAmicons, aiArrowLeft, aiArrowRight } from "@studio384/amicons";
 import { format, parse } from "date-fns";
 
-import ReleaseCard from "@/neo/design/blocks/ReleaseCard";
+import ReleaseCard from "@/design/blocks/ReleaseCard";
 import { cn } from "@/utils/cn";
 
 import PageHeader from "../design/blocks/PageHeader";
@@ -15,7 +15,7 @@ export default function Release() {
   const release = getReleaseBySlug(slug);
 
   if (!release) {
-    return <Navigate to="/neo/releases" replace />;
+    return <Navigate to="/releases" replace />;
   }
 
   const ReleaseComponent = release.Component;
@@ -54,7 +54,7 @@ export default function Release() {
             <nav className="@xl2/main:grid-cols-3 grid grid-cols-1 grid-rows-2 gap-1 @md/main:grid-cols-2 @md/main:grid-rows-1">
               {nextRelease && (
                 <Link
-                  to={`/neo/releases/${nextRelease.slug}`}
+                  to={`/releases/${nextRelease.slug}`}
                   className={cn(
                     "group grid grid-cols-[min-content_auto] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
                     "col-start-1 hover:bg-violet-600 hover:text-white hover:shadow-sm",
@@ -72,7 +72,7 @@ export default function Release() {
               )}
               {previousRelease && (
                 <Link
-                  to={`/neo/releases/${previousRelease.slug}`}
+                  to={`/releases/${previousRelease.slug}`}
                   className={cn(
                     "group grid grid-cols-[auto_min-content] flex-col gap-2 rounded-sm px-3 py-2 transition-all duration-150",
                     "@xl2/main:col-start-3 hover:bg-violet-600 hover:text-white hover:shadow-sm @md/main:col-start-2",
