@@ -1,6 +1,5 @@
-import { type IIconCssVariables } from "@/app/Docs/playground/Playground";
-
 import Code from "../components/Code";
+import { type IIconCssVariables } from "./Playground";
 
 interface IApiTableProps {
   cssVariables: IIconCssVariables[];

@@ -1,4 +1,5 @@
 import {
+  aiAmicons,
   aiArrowRotateRight,
   aiArrowsDownLeftRightUpCenter,
   aiArrowUp,
@@ -38,7 +39,10 @@ export const MAIN_NAV: NavSection[] = [
 export const DOC_NAV: NavSection[] = [
   {
     title: "Documentation",
-    items: [{ title: "Installation", path: "/neo/documentation/installation", icon: aiFlag }],
+    items: [
+      { title: "Installation", path: "/neo/documentation/installation", icon: aiFlag },
+      { title: "About", path: "/neo/documentation/about", icon: aiAmicons },
+    ],
   },
   {
     title: "React component",

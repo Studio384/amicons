@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @import "@studio384/amicons/amicons.css";
-@import "highlight.js/styles/github.css";
-@import "highlight.js/styles/github-dark.css" (prefers-color-scheme: dark);
 
 .root {
   isolation: isolate;
@@ -128,19 +126,6 @@
   }
 }
 
-.hljs {
-  line-height: 1.25;
-  padding: 0.5em !important;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--color-zinc-200);
-}
-
-@media (prefers-color-scheme: dark) {
-  .hljs {
-    border-color: var(--color-zinc-800);
-  }
-}
-
 /* TanStack Highlight (th-*) token colours. The theme file supplies the
    --th-* custom properties for both colour schemes. */
 .th-code {
@@ -236,76 +221,6 @@
 
 .th-token.th-deleted {
   color: var(--th-deleted);
-}
-
-.docs {
-  h2 {
-    font-size: var(--text-4xl);
-    font-weight: var(--font-weight-medium);
-    font-family: var(--font-display);
-    margin-bottom: 0.25rem;
-    margin-top: 1rem;
-  }
-
-  h3 {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-weight-medium);
-    font-family: var(--font-display);
-    margin-bottom: 0.25rem;
-    margin-top: 0.75rem;
-  }
-
-  :is(h1, h2, h3, h4, h5, h6):first-child {
-    margin-top: 0;
-  }
-
-  :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: 0;
-  }
-
-  figure {
-    margin-bottom: 0.75rem;
-  }
-
-  p {
-    margin-bottom: 0.75rem;
-    line-height: var(--leading-relaxed);
-  }
-
-  & > a,
-  p > a {
-    text-decoration-line: underline;
-    text-decoration-color: var(--color-violet-400);
-    text-decoration-thickness: 1.5px;
-    text-underline-offset: 2px;
-
-    &:hover {
-      text-decoration-color: var(--color-violet-500);
-    }
-  }
-
-  li > p {
-    margin-bottom: 0;
-  }
-
-  p code {
-    font-size: var(--text-sm);
-    background-color: var(--color-violet-100);
-    color: var(--color-violet-600);
-    font-family: var(--font-mono);
-    border-radius: var(--radius-sm);
-    padding-inline: 0.25rem;
-    padding-block: 1px;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color-violet-950);
-      color: var(--color-violet-300);
-    }
-  }
-
-  & > .icon-grid {
-    margin-bottom: 0.75rem;
-  }
 }
 
 .neo-doc-page {
