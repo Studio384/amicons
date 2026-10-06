@@ -1,38 +1,43 @@
 import { createHashRouter, Navigate } from "react-router";
 
-import Blog from "./app/blog/Blog";
-import BlogPost from "./app/blog/BlogPost";
-import Docs from "./app/Docs";
-import PageAbout from "./app/Docs/pages/About.mdx";
-import PageBeat from "./app/Docs/pages/Beat.mdx";
-import PageBounce from "./app/Docs/pages/Bounce.mdx";
-import PageFade from "./app/Docs/pages/Fade.mdx";
-import PageFlip from "./app/Docs/pages/Flip.mdx";
-import PageInstallation from "./app/Docs/pages/Installation.mdx";
-import PageReleases from "./app/Docs/pages/Releases.mdx";
-import PageRotate from "./app/Docs/pages/Rotate.mdx";
-import PageSpin from "./app/Docs/pages/Spin.mdx";
+import PageAbout from "./app/docs/About.mdx";
+import PageBeat from "./app/docs/Beat.mdx";
+import PageBounce from "./app/docs/Bounce.mdx";
+import PageFade from "./app/docs/Fade.mdx";
+import PageFlip from "./app/docs/Flip.mdx";
+import PageInstallation from "./app/docs/Installation.mdx";
+import PageRotate from "./app/docs/Rotate.mdx";
+import PageSpin from "./app/docs/Spin.mdx";
+import Documentation from "./app/Documentation";
 import Error from "./app/Error";
 import Icon from "./app/Icon";
 import Icons from "./app/Icons";
+import ReleasePage from "./app/Release";
 import Releases from "./app/Releases";
-import Layout from "./design/layout/Layout";
+import Layout from "./design/layouts/Layout";
 
 export const router = createHashRouter([
   {
+    path: "/",
     Component: Layout,
-    errorElement: (
-      <Layout>
-        <Error />
-      </Layout>
-    ),
     children: [
-      { path: "/", Component: Icons },
-      { path: "/icons", Component: Icons },
-      { path: "/icons/:slug", Component: Icon },
+      { index: true, Component: Icons },
       {
-        path: "/docs",
-        Component: Docs,
+        path: "icons",
+        Component: Icons,
+        children: [{ path: ":slug", Component: Icon }],
+      },
+      {
+        path: "releases",
+        errorElement: <Error />,
+        children: [
+          { index: true, Component: Releases },
+          { path: ":slug", Component: ReleasePage },
+        ],
+      },
+      {
+        path: "documentation",
+        Component: Documentation,
         errorElement: <Error />,
         children: [
           { index: true, element: <Navigate to="installation" replace /> },
@@ -46,20 +51,9 @@ export const router = createHashRouter([
           { path: "fade", Component: PageFade },
         ],
       },
-      {
-        path: "/blog",
-        errorElement: <Error />,
-        children: [
-          { index: true, Component: Blog },
-          { path: ":slug", Component: BlogPost },
-        ],
-      },
-      {
-        path: "/releases",
-        Component: Releases,
-        errorElement: <Error />,
-        children: [{ index: true, Component: PageReleases }],
-      },
+      { path: "*", Component: Error },
     ],
   },
+  // The legacy routes have been retired, so send anything else back home
+  { path: "*", element: <Navigate to="/" replace /> },
 ]);

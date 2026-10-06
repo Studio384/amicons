@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 @import "@studio384/amicons/amicons.css";
 
@@ -6,61 +7,311 @@
   isolation: isolate;
 }
 
+/* Follow the system colour scheme so scrollbars don't stay light in dark mode. */
+:root {
+  color-scheme: light dark;
+
+  --th-token: var(--color-accent-900);
+  --th-attr: var(--color-blue-600);
+  --th-background: var(--color-white);
+  --th-code-inline: var(--color-blue-600);
+  --th-command: var(--color-orange-500);
+  --th-comment: var(--color-accent-600);
+  --th-deleted: var(--color-red-700);
+  --th-function: var(--color-violet-500);
+  --th-heading: var(--color-sky-500);
+  --th-inserted: var(--color-green-600);
+  --th-keyword: var(--color-rose-500);
+  --th-link: var(--color-orange-600);
+  --th-literal: var(--color-blue-600);
+  --th-meta: var(--color-yellow-600);
+  --th-number: var(--color-lime-600);
+  --th-operator: var(--color-accent-600);
+  --th-property: var(--color-violet-500);
+  --th-selector: var(--color-blue-400);
+  --th-string: var(--color-blue-400);
+  --th-tag: var(--color-lime-600);
+  --th-type: var(--color-teal-500);
+  --th-variable: var(--color-blue-600);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --th-attr: var(--color-blue-400);
+    --th-background: var(--color-zinc-950);
+    --th-code-inline: var(--color-blue-400);
+    --th-command: var(--color-orange-400);
+    --th-comment: var(--color-accent-100);
+    --th-deleted: var(--color-red-400);
+    --th-function: var(--color-violet-400);
+    --th-heading: var(--color-sky-400);
+    --th-inserted: var(--color-green-400);
+    --th-keyword: var(--color-rose-400);
+    --th-link: var(--color-orange-500);
+    --th-literal: var(--color-blue-400);
+    --th-meta: var(--color-yellow-500);
+    --th-number: var(--color-lime-500);
+    --th-operator: var(--color-accent-100);
+    --th-property: var(--color-violet-400);
+    --th-selector: var(--color-blue-300);
+    --th-string: var(--color-blue-300);
+    --th-tag: var(--color-lime-500);
+    --th-token: var(--color-accent-300);
+    --th-type: var(--color-teal-400);
+    --th-variable: var(--color-blue-400);
+  }
+}
+
 @theme {
-  --font-display: "Lexend", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
   --font-dev: "Century Gothic", "Segoe UI Variable Display", var(--font-sans);
+
+  --animate-drawer-enter: ai-drawer-enter 450ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  --animate-drawer-exit: ai-drawer-exit 350ms cubic-bezier(0.32, 0, 0.67, 0) both;
+
+  @keyframes ai-drawer-enter {
+    from {
+      transform: translateX(calc(100% - var(--bleed, 0rem) + var(--viewport-padding, 0px) + 2px));
+    }
+
+    to {
+      transform: translateX(var(--drawer-swipe-movement-x, 0px));
+    }
+  }
+
+  @keyframes ai-drawer-exit {
+    from {
+      transform: translateX(var(--drawer-swipe-movement-x, 0px));
+    }
+
+    to {
+      transform: translateX(calc(100% - var(--bleed, 0rem) + var(--viewport-padding, 0px) + 2px));
+    }
+  }
 }
 
-.shiki {
-  overflow-x: auto;
-  padding: 0.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-zinc-800);
+* {
+  scrollbar-width: thin;
 }
 
-pre {
-  overflow-x: auto;
-  padding: 0.5rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-zinc-800);
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-zinc-300);
+    border: 2px solid transparent;
+    border-radius: 9999px;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-zinc-400);
+  }
 }
 
-.docs {
-  h2 {
-    font-size: var(--text-4xl);
-    font-weight: var(--font-weight-medium);
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-zinc-700);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-zinc-600);
+  }
+}
+
+/* TanStack Highlight (th-*) token colours. The theme file supplies the
+   --th-* custom properties for both colour schemes. */
+.th-code {
+  color: var(--th-token);
+  background-color: var(--th-background);
+}
+
+/* Wrap long lines instead of scrolling horizontally, and keep the whitespace
+   inside inline decorations (ins/del) from collapsing. */
+.th-code code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.th-token {
+  color: var(--th-token);
+}
+
+.th-token.th-keyword,
+.th-token.th-command {
+  color: var(--th-keyword);
+}
+
+.th-token.th-string,
+.th-token.th-code-inline {
+  color: var(--th-string);
+}
+
+.th-token.th-comment {
+  color: var(--th-comment);
+}
+
+.th-token.th-number,
+.th-token.th-literal {
+  color: var(--th-number);
+}
+
+.th-token.th-function {
+  color: var(--th-function);
+}
+
+.th-token.th-type {
+  color: var(--th-type);
+}
+
+.th-token.th-property {
+  color: var(--th-property);
+}
+
+.th-token.th-variable {
+  color: var(--th-variable);
+}
+
+.th-token.th-attr {
+  color: var(--th-attr);
+}
+
+.th-token.th-tag {
+  color: var(--th-tag);
+}
+
+.th-token.th-selector {
+  color: var(--th-selector);
+}
+
+.th-token.th-meta {
+  color: var(--th-meta);
+}
+
+.th-token.th-operator {
+  color: var(--th-operator);
+}
+
+.th-token.th-link {
+  color: var(--th-link);
+}
+
+.th-token.th-heading {
+  color: var(--th-heading);
+}
+
+/* Line decorations (ins / del) span the full block. */
+.th-token.th-inserted,
+.th-token.th-deleted {
+  display: inline-block;
+  width: 100%;
+}
+
+.th-token.th-inserted {
+  color: var(--th-inserted);
+}
+
+.th-token.th-deleted {
+  color: var(--th-deleted);
+}
+
+.neo-docs {
+  :is(ul, ol) {
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  li {
+    line-height: var(--leading-relaxed);
+  }
+
+  h1 {
+    font-size: var(--text-5xl);
+    font-weight: var(--font-weight-bold);
     font-family: var(--font-display);
-    margin-bottom: 0.25rem;
-    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
   }
 
   h3 {
-    font-size: var(--text-3xl);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
     font-family: var(--font-display);
-    margin-bottom: 0.25rem;
-    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h4 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h5,
+  h6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    font-family: var(--font-display);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   :is(h1, h2, h3, h4, h5, h6):first-child {
     margin-top: 0;
   }
 
-  :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+  :is(h1, h2, h3, h4, h5, h6)+ :is(h1, h2, h3, h4, h5, h6) {
     margin-top: 0;
   }
 
   figure {
     margin-bottom: 0.75rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   p {
     margin-bottom: 0.75rem;
     line-height: var(--leading-relaxed);
+    font-size: var(--text-lg);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  & > a,
-  p > a {
+  &>a,
+  p>a {
     text-decoration-line: underline;
     text-decoration-color: var(--color-violet-400);
     text-decoration-thickness: 1.5px;
@@ -71,11 +322,12 @@ pre {
     }
   }
 
-  li > p {
+  li>p {
     margin-bottom: 0;
   }
 
-  p code {
+  p code,
+  li code {
     font-size: var(--text-sm);
     background-color: var(--color-violet-100);
     color: var(--color-violet-600);
@@ -90,7 +342,7 @@ pre {
     }
   }
 
-  & > .icon-grid {
+  &>.icon-grid:not(:last-child) {
     margin-bottom: 0.75rem;
   }
 }

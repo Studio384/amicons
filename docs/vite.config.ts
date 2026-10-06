@@ -4,11 +4,13 @@ import { devtools } from "@tanstack/devtools-vite";
 import react from "@vitejs/plugin-react-swc";
 import ReactCompiler from "babel-plugin-react-compiler";
 import * as path from "path";
-import rehypePrettyCode from "rehype-pretty-code";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 import { visualizer } from "rollup-plugin-visualizer";
+import { fileURLToPath } from "url";
 import { defineConfig } from "vite";
+
+import { rehypeCodeBlocks } from "./src/design/blocks/rehypeCodeBlocks.ts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,7 +18,7 @@ export default defineConfig({
     [ReactCompiler],
     mdx({
       remarkPlugins: [remarkFrontmatter, [remarkMdxFrontmatter, { name: "frontmatter" }]],
-      rehypePlugins: [[rehypePrettyCode, { theme: "dark-plus" }]],
+      rehypePlugins: [rehypeCodeBlocks],
     }),
     tailwindcss(),
     react(),
@@ -31,7 +33,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "./src"),
     },
   },
   base: "/amicons/",

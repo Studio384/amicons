@@ -4,7 +4,7 @@ export default defineConfig({
   entry: ["src/index.ts"],
   format: ["esm", "cjs"],
   outDir: "dist",
-  dts: true,
+  dts: false,
   sourcemap: true,
   external: ["react"],
   clean: true,

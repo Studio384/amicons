@@ -1,49 +1,44 @@
 import { NavLink } from "react-router";
 
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react";
-import Amicon, { type IAmicon } from "@studio384/amicons";
+import { cn } from "cn";
 
-import { cn } from "@/utils/cn";
-
-function Item({ label, to, active }: { label: string; to: string; active?: boolean }) {
-  return (
-    <NavigationMenuPrimitive.Item>
-      <NavLink
-        to={to}
-        className={cn(
-          "font-display flex h-8 items-center justify-center rounded-sm px-2.5 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500",
-          {
-            "bg-violet-500 hover:bg-violet-600 focus-visible:outline-violet-700": active,
-          },
-        )}
-      >
-        {label}
-      </NavLink>
-    </NavigationMenuPrimitive.Item>
-  );
-}
-
-function Social({ label, to, icon }: { label: string; to: string; icon: IAmicon }) {
-  return (
-    <NavigationMenuPrimitive.Item>
-      <a
-        href={to}
-        target="_blank"
-        rel="noreferrer"
-        className="flex size-8 items-center justify-center rounded-sm text-white hover:bg-violet-500 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500"
-      >
-        <Amicon icon={icon} /> <span className="sr-only">{label}</span>
-      </a>
-    </NavigationMenuPrimitive.Item>
-  );
+function Root(props: NavigationMenuPrimitive.Root.Props) {
+  return <NavigationMenuPrimitive.Root {...props} />;
 }
 
 function List({ className, ...props }: NavigationMenuPrimitive.List.Props) {
-  return <NavigationMenuPrimitive.List className={cn(className, "flex gap-1")} {...props} />;
+  return <NavigationMenuPrimitive.List className={cn("flex flex-col gap-1", className)} {...props} />;
+}
+
+function Item({ to, ...props }: { to: string } & NavigationMenuPrimitive.Link.Props) {
+  return (
+    <NavigationMenuPrimitive.Item>
+      <NavigationMenuPrimitive.Link
+        render={<NavLink to={to} />}
+        className={cn(
+          // Text
+          "font-display text-start",
+          // Spacing
+          "grid grid-cols-[min-content_auto_min-content] items-center",
+          "gap-2.5 px-4 py-2",
+          // Styling
+          "w-full rounded-sm",
+          // Hover
+          "hover:cursor-pointer hover:bg-violet-600 hover:text-white",
+          // Active
+          "data-active:bg-violet-600 data-active:text-white data-active:shadow-sm",
+          // Transition
+          "transition-all duration-150",
+        )}
+        {...props}
+      />
+    </NavigationMenuPrimitive.Item>
+  );
 }
 
 export const NavigationMenu = {
-  Item,
-  Social,
+  Root,
   List,
+  Item,
 };

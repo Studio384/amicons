@@ -1,145 +1,238 @@
-import { useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { Outlet, useLocation, useSearchParams } from "react-router";
 
-import Amicon, { aiFilterXmark, aiXmark } from "@studio384/amicons";
-import clsx from "clsx";
+import { Input } from "@base-ui/react";
+import Amicon, { aiFilterXmark, aiMagnifyingGlass } from "@studio384/amicons";
+import { useDebouncer } from "@tanstack/react-pacer";
+import { cn } from "cn";
 
 import categories from "@/data/categories";
 import icons from "@/data/icons";
-import { Button } from "@/design/components/Button";
 import { IconCard } from "@/design/components/IconCard";
 import { Pagination } from "@/design/components/Pagination";
-import { Search } from "@/design/components/Search";
-import Header from "@/design/layout/LayoutElements/Header";
-import { useFilters } from "@/hooks/useFilters";
-import useSearch from "@/hooks/useSearch";
-import { type ILibraryIcon } from "@/types";
+import { getOpenedFromGridSlug, getSlugFromPath } from "@/routes";
 
-export default function Icons() {
-  const filters = useFilters();
+const PAGE_SIZE = 98;
 
-  const searchableList = useMemo(() => {
-    if (filters.query.categories.length >= 1) {
-      return icons.filter((icon) =>
-        filters.query.categories.every((_searchCategory) => icon.categories.includes(_searchCategory as never)),
-      );
+export default function NeoIcons() {
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchInput, setSearchInput] = useState(searchParams.get("search") ?? "");
+
+  const searchQuery = searchParams.get("search") ?? "";
+  const selectedCategories = searchParams.getAll("categories");
+  const page = Math.max(1, Number(searchParams.get("page") ?? 1) || 1);
+
+  useEffect(() => {
+    setSearchInput(searchQuery);
+  }, [searchQuery]);
+
+  const updateParams = useCallback(
+    (updater: (params: URLSearchParams) => void) => {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        updater(next);
+        return next;
+      });
+    },
+    [setSearchParams],
+  );
+
+  const searchDebouncer = useDebouncer(
+    (value: string) => {
+      updateParams((params) => {
+        if (value.trim()) {
+          params.set("search", value.trim());
+        } else {
+          params.delete("search");
+        }
+      });
+    },
+    { wait: 250 },
+  );
+
+  const handleSearchChange = useCallback(
+    (value: string) => {
+      setSearchInput(value);
+      searchDebouncer.maybeExecute(value);
+    },
+    [searchDebouncer],
+  );
+
+  const toggleCategory = useCallback(
+    (category: string) => {
+      updateParams((params) => {
+        const current = params.getAll("categories");
+        const exists = current.includes(category);
+        const next = exists ? current.filter((item) => item !== category) : [...current, category];
+
+        params.delete("categories");
+        next.forEach((item) => params.append("categories", item));
+        params.delete("page");
+      });
+    },
+    [updateParams],
+  );
+
+  const hasActiveFilters = searchQuery.trim().length > 0 || selectedCategories.length > 0;
+
+  const resetFilters = useCallback(() => {
+    setSearchInput("");
+    searchDebouncer.cancel();
+
+    updateParams((params) => {
+      params.delete("search");
+      params.delete("categories");
+      params.delete("page");
+    });
+  }, [searchDebouncer, updateParams]);
+
+  const searchedIcons = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) {
+      return icons;
     }
 
-    return icons;
-  }, [filters.query.categories]);
+    return icons.filter((icon) => {
+      const searchable = [icon.slug, icon.slug.replaceAll("-", " "), icon.component, ...icon.tags, ...icon.categories];
+      return searchable.some((value) => value.toLowerCase().includes(query));
+    });
+  }, [searchQuery]);
 
-  const { result } = useSearch(searchableList, filters.query.search);
+  const filteredIcons = useMemo(() => {
+    if (selectedCategories.length === 0) {
+      return searchedIcons;
+    }
+
+    return searchedIcons.filter((icon) =>
+      selectedCategories.every((category) => (icon.categories as string[]).includes(category)),
+    );
+  }, [searchedIcons, selectedCategories]);
+
+  const pageCount = Math.max(1, Math.ceil(filteredIcons.length / PAGE_SIZE));
+  const currentPage = Math.min(page, pageCount);
+  const paginatedIcons = useMemo(
+    () => filteredIcons.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE),
+    [filteredIcons, currentPage],
+  );
+
+  const setPage = useCallback(
+    (next: number) => {
+      updateParams((params) => {
+        if (next <= 1) {
+          params.delete("page");
+        } else {
+          params.set("page", String(next));
+        }
+      });
+    },
+    [updateParams],
+  );
+
+  const categoryCounts = useMemo(() => {
+    const counts = new Map<string, number>();
+
+    categories.forEach((category) => {
+      const requiredCategories = selectedCategories.includes(category.slug)
+        ? selectedCategories
+        : [...selectedCategories, category.slug];
+
+      const count = searchedIcons.filter((icon) =>
+        requiredCategories.every((required) => (icon.categories as string[]).includes(required)),
+      ).length;
+
+      counts.set(category.slug, count);
+    });
+
+    return counts;
+  }, [searchedIcons, selectedCategories]);
+
+  const openedSlug = getSlugFromPath(location.pathname);
+  const showGrid = !openedSlug || getOpenedFromGridSlug() === openedSlug;
 
   return (
     <>
-      <Header>
-        <h1 className="font-display py-2 text-5xl font-medium">Icons</h1>
-      </Header>
-      <div className="container m-auto my-8 max-w-7xl px-4">
-        <div className="grid grid-cols-[220px_auto] gap-4">
-          <div className="sticky top-18.5 max-h-[calc(100dvh-74px)] self-start overflow-auto">
-            <div className="my-2 flex flex-col gap-0.5">
-              {categories.map((_category) => {
-                const categoryIcons = searchableList.filter((icon) =>
-                  icon.categories.includes(_category.slug as never),
-                );
+      {showGrid && (
+        <div className="flex flex-col gap-4 px-4 py-6">
+          <div className="neo-docs neo-doc-page container mx-auto grid max-w-7xl grid-cols-[240px_auto] items-start gap-3">
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-row items-center gap-2">
+                <div className="flex h-9 flex-1 flex-row items-center gap-2 rounded-sm border border-zinc-950/10 bg-zinc-50 px-2 outline-0 transition-all focus-within:border-violet-700/15 focus-within:bg-violet-100 dark:border-white/10 dark:bg-zinc-950 dark:focus-within:bg-violet-600/20">
+                  <Amicon icon={aiMagnifyingGlass} className="shrink-0 text-zinc-400" />
+                  <Input
+                    placeholder="Search icons by name or tag..."
+                    value={searchInput}
+                    onChange={(e) => handleSearchChange(e.target.value)}
+                    className="h-full w-full border-0 bg-transparent px-0 outline-0"
+                  />
+                </div>
 
-                return (
-                  <button
-                    key={_category.slug}
-                    onClick={() => filters.toggleCategory(_category.slug)}
-                    data-selected={filters.query.categories.includes(_category.slug) || undefined}
-                    data-noicons={categoryIcons.length === 0 ? true : undefined}
-                    className={clsx(
-                      "group grid h-8 grid-cols-[min-content_auto_min-content] items-center gap-2 rounded-sm px-2.5 text-start text-sm hover:cursor-pointer hover:bg-violet-200 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-500 data-selected:focus-visible:outline-violet-700 dark:hover:bg-violet-600",
-                      {
-                        "bg-violet-500 text-white hover:bg-violet-600 dark:bg-violet-800":
-                          filters.query.categories.includes(_category.slug),
-                      },
-                    )}
-                  >
-                    <Amicon
-                      icon={_category.icon}
-                      className="text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white dark:group-hover:text-white"
-                    />
-                    <span className="truncate group-data-noicons:opacity-50">{_category.title}</span>
-                    <span className="font-display text-violet-600 group-data-noicons:opacity-50 group-data-selected:text-white dark:group-hover:text-white">
-                      {categoryIcons.length}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-baseline gap-2">
-                <h2 className="font-display text-3xl font-medium">{result.length} icons</h2>
-                <span className="text-zinc-600">
-                  Page {filters.query.page} of {Math.ceil(result.length / 96)}
-                </span>
-              </div>
-
-              <div className="flex gap-1">
-                <Search
-                  placeholder="Search"
-                  value={filters.searchValue}
-                  onValueChange={(value) => filters.setSearch(value)}
-                />
-                <Button
-                  icon
-                  variant="secondary"
-                  disabled={filters.searchValue === "" && filters.query.categories.length === 0}
-                  onClick={() => filters.resetQuery()}
+                <button
+                  type="button"
+                  onClick={resetFilters}
+                  disabled={!hasActiveFilters}
+                  title="Reset filters"
+                  className={cn(
+                    "font-display grid size-9 shrink-0 place-items-center rounded-sm border border-zinc-950/10 bg-zinc-50",
+                    "outline-0 -outline-offset-2 outline-violet-600 transition-all",
+                    "hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
+                    "disabled:pointer-events-none disabled:opacity-40",
+                    "dark:border-white/10 dark:bg-zinc-950",
+                  )}
                 >
                   <Amicon icon={aiFilterXmark} />
-                </Button>
+                  <span className="sr-only">Reset filters</span>
+                </button>
               </div>
-            </div>
-            {(filters.query.search || filters.query.categories.length >= 1) && (
-              <div className="flex gap-1">
-                {filters.query.search && (
-                  <div className="font-display flex items-center gap-1 rounded-full bg-zinc-100 py-1 ps-2.5 pe-1 text-sm dark:bg-zinc-950">
-                    "{filters.query.search}"
-                    <button
-                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300 dark:hover:bg-zinc-800"
-                      onClick={() => filters.setSearch("")}
-                    >
-                      <Amicon icon={aiXmark} /> <span className="sr-only">Delete category</span>
-                    </button>
-                  </div>
-                )}
-                {filters.query.categories.map((category) => (
-                  <div
-                    key={category}
-                    className="font-display flex items-center gap-1 rounded-full bg-zinc-100 py-1 ps-2.5 pe-1 text-sm dark:bg-zinc-950"
+
+              <div className="flex flex-col gap-0.5">
+                {categories.map((category) => (
+                  <button
+                    key={category.slug}
+                    onClick={() => toggleCategory(category.slug)}
+                    className={cn(
+                      "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
+                      selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
+                      categoryCounts.get(category.slug) === 0 &&
+                      "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
+                    )}
+                    data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
                   >
-                    {category}
-                    <button
-                      className="text-md flex size-6 cursor-pointer items-center justify-center rounded-full bg-transparent hover:bg-zinc-300 dark:hover:bg-zinc-800"
-                      onClick={() => filters.toggleCategory(category)}
+                    <Amicon
+                      icon={category.icon}
+                      className="text-base text-violet-800 group-hover:text-white group-data-active:text-white"
+                    />
+                    <span className="font-display truncate">{category.title}</span>
+                    <span
+                      className="font-display text-violet-600 tabular-nums group-hover:text-white group-data-active:text-white group-not-data-active:data-zero:text-zinc-400 group-hover:group-not-data-active:data-zero:text-violet-200"
+                      data-zero={categoryCounts.get(category.slug) === 0 ? "true" : undefined}
                     >
-                      <Amicon icon={aiXmark} /> <span className="sr-only">Delete category</span>
-                    </button>
-                  </div>
+                      {categoryCounts.get(category.slug) ?? 0}
+                    </span>
+                  </button>
                 ))}
               </div>
-            )}
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(min(9rem,100%),1fr))] gap-2">
-              {result.slice((filters.query.page - 1) * 96, filters.query.page * 96).map((icon: ILibraryIcon) => (
-                <IconCard key={icon.slug} icon={icon} />
-              ))}
             </div>
 
-            {result.length > 0 && (
-              <Pagination
-                count={Math.ceil(result.length / 96)}
-                page={filters.query.page}
-                onChange={(_, page) => filters.setPage(page)}
-              />
+            {filteredIcons.length > 0 ? (
+              <div className="flex flex-col relative gap-4">
+                <div className="icon-grid grid grid-cols-[repeat(auto-fill,minmax(min(8rem,100%),1fr))] gap-1">
+                  {paginatedIcons.map((icon) => (
+                    <IconCard key={icon.slug} icon={icon} openAsDrawer />
+                  ))}
+                </div>
+
+                <Pagination page={currentPage} count={pageCount} onChange={setPage} />
+              </div>
+            ) : (
+              <div className="flex h-64 items-center justify-center rounded-sm border-2 border-dashed border-zinc-300 dark:border-zinc-700">
+                <p className="font-display text-3xl text-zinc-700 dark:text-zinc-500">No icons found</p>
+              </div>
             )}
           </div>
         </div>
-      </div>
+      )}
+      <Outlet />
     </>
   );
 }

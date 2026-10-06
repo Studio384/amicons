@@ -1,15 +1,13 @@
-import Header from "@/design/layout/LayoutElements/Header";
+import Amicon from "@studio384/amicons";
 
 export default function Error() {
   return (
-    <>
-      <Header>
-        <h1 className="font-display py-2 text-5xl font-medium">Error 404</h1>
-      </Header>
-      <div className="container m-auto my-16 max-w-7xl px-4">
-        <h1 className="font-display text-5xl font-medium">Where am I?</h1>
-        <p className="text-medium text-lg">The page you're trying to reach cannot be found.</p>
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <div className="max-w-120">
+        <Amicon className="pb-4 text-8xl text-violet-600" />
+        <h1 className="font-display text-lg font-medium tracking-tight text-zinc-500">Error 404</h1>
+        <p className="text-4xl font-semibold">And I still haven't found what I'm looking for...</p>
       </div>
-    </>
+    </div>
   );
 }

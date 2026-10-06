@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "dist/esm",
+    "outDir": "dist",
+    "rootDir": "src",
     "module": "esnext",
     "target": "es2021",
     "lib": ["es2021", "DOM"],
     "jsx": "react-jsx",
     "declaration": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "esModuleInterop": true,
@@ -16,8 +17,7 @@
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "skipLibCheck": true,
-    "ignoreDeprecations": "6.0"
+    "skipLibCheck": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]
