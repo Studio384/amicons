@@ -43,7 +43,10 @@ export default function Codeblock({ code, lang = "plaintext", title, className }
         onClick={copy}
         type="button"
         aria-label="Copy code"
-        className="absolute top-1 right-1 flex size-7 items-center justify-center rounded-sm bg-zinc-100 text-zinc-500 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-zinc-200 hover:text-zinc-900 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-600 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700 dark:hover:text-white"
+        className={cn("absolute top-1 right-1 flex size-7 items-center justify-center rounded-sm bg-zinc-100 0  hover:bg-zinc-200 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-violet-600   dark:bg-zinc-900 dark:hover:bg-zinc-800 ", {
+          "text-green-600": copied,
+          "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white": !copied
+        })}
       >
         <Amicon icon={copied ? aiCheck : aiCopy} className="text-sm" />
       </button>
