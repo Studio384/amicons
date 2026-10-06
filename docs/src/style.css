@@ -223,12 +223,6 @@
   color: var(--th-deleted);
 }
 
-.neo-doc-page {
-  & > h1:first-child {
-    display: none;
-  }
-}
-
 .neo-docs {
   :is(ul, ol) {
     margin-bottom: 0.75rem;
@@ -248,7 +242,7 @@
   }
 
   h1 {
-    font-size: var(--text-4xl);
+    font-size: var(--text-5xl);
     font-weight: var(--font-weight-bold);
     font-family: var(--font-display);
     margin-bottom: 0.5rem;
@@ -294,7 +288,7 @@
     margin-top: 0;
   }
 
-  :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6) {
+  :is(h1, h2, h3, h4, h5, h6)+ :is(h1, h2, h3, h4, h5, h6) {
     margin-top: 0;
   }
 
@@ -316,8 +310,8 @@
     }
   }
 
-  & > a,
-  p > a {
+  &>a,
+  p>a {
     text-decoration-line: underline;
     text-decoration-color: var(--color-violet-400);
     text-decoration-thickness: 1.5px;
@@ -328,7 +322,7 @@
     }
   }
 
-  li > p {
+  li>p {
     margin-bottom: 0;
   }
 
@@ -348,7 +342,7 @@
     }
   }
 
-  & > .icon-grid:not(:last-child) {
+  &>.icon-grid:not(:last-child) {
     margin-bottom: 0.75rem;
   }
 }

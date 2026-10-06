@@ -102,10 +102,12 @@ export default function IconViewer() {
 
   return (
     <>
-      <PageHeader icon={icon.icon} title={title} subtitle="Icon" />
 
-      <div className="flex flex-col gap-4 p-4">
-        <article className="container mx-auto max-w-4xl overflow-hidden rounded-sm border border-zinc-950/10 dark:border-white/10">
+      <div className="flex flex-col gap-4 px-4 py-6">
+
+        <article className="container mx-auto max-w-4xl overflow-hidden rounded-sm ">
+          <PageHeader title={title} subtitle="Icon" />
+
           <IconDetails icon={icon} title={title} />
         </article>
 

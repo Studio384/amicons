@@ -3,9 +3,9 @@ import { useLocation } from "react-router";
 
 import { Separator } from "@base-ui/react";
 import Amicon, { aiBluesky, aiGithub, aiPatreon, aiTwitter } from "@studio384/amicons";
+import { cn } from "cn";
 
 import { NAV, isNavItemActive } from "@/navigation";
-import { cn } from "cn";
 
 import { NavigationMenu } from "../components/NavigationMenu";
 

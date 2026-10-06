@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import { Link } from "react-router";
 
 import Amicon, { aiXmark } from "@studio384/amicons";
+import { cn } from "cn";
 
 import { type ILibraryIcon } from "@/types";
-import { cn } from "cn";
 import { formatSvg } from "@/utils/formatSvg";
 
 import Codeblock from "./Codeblock";
@@ -68,7 +68,7 @@ export default function App() {
           />
         </div>
 
-        <div className="flex flex-col gap-6 p-6">
+        <div className={cn("flex flex-col gap-6", onClose ? "p-6" : "py-6")}>
           {(created || updated) && (
             <dl className="grid grid-cols-2 gap-2">
               {created && (

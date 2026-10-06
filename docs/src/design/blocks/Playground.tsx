@@ -2,9 +2,9 @@ import { type ReactNode, useMemo, useState } from "react";
 
 import { Field, Toggle, ToggleGroup } from "@base-ui/react";
 import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
+import { cn } from "cn";
 
 import { highlightToTokens } from "./highlight";
-import { cn } from "cn";
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -114,12 +114,13 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [config.cssVariables, iconVariables]);
 
   const importCode = `<Amicon
-  icon={${iconName}}${propertyParser}${variableParser !== ""
+  icon={${iconName}}${propertyParser}${
+    variableParser !== ""
       ? `
   style={{${variableParser}
   }}`
       : ""
-    }
+  }
 />`;
 
   const html = useMemo(() => {
