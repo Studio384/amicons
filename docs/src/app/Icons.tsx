@@ -11,7 +11,7 @@ import PageHeader from "@/design/blocks/PageHeader";
 import { IconCard } from "@/design/components/IconCard";
 import { Pagination } from "@/design/components/Pagination";
 import { getOpenedFromGridSlug, getSlugFromPath } from "@/routes";
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 const PAGE_SIZE = 98;
 
@@ -203,7 +203,7 @@ export default function NeoIcons() {
                         "group grid grid-cols-[min-content_auto_min-content] items-center gap-2.5 rounded-sm px-2.5 py-1.5 text-start text-sm font-medium outline-0 -outline-offset-2 outline-violet-600 transition-[color,background-color,box-shadow] hover:cursor-pointer hover:bg-violet-600 hover:text-white hover:shadow-sm focus-visible:outline-2",
                         selectedCategories.includes(category.slug) && "bg-violet-600 text-white",
                         categoryCounts.get(category.slug) === 0 &&
-                          "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
+                        "not-data-active:text-zinc-400 not-data-active:hover:text-violet-200",
                       )}
                       data-active={selectedCategories.includes(category.slug) ? "true" : undefined}
                     >

@@ -5,7 +5,7 @@ import Amicon, { aiAmicons, aiArrowLeft, aiArrowRight } from "@studio384/amicons
 import { format, parse } from "date-fns";
 
 import ReleaseCard from "@/design/blocks/ReleaseCard";
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 import PageHeader from "../design/blocks/PageHeader";
 import { getReleaseBySlug, releases } from "./releases/releaseEntries";

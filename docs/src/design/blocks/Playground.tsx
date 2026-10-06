@@ -2,9 +2,9 @@ import { type ReactNode, useMemo, useState } from "react";
 
 import { Field, Toggle, ToggleGroup } from "@base-ui/react";
 import Amicon, { aiBroom, type IAmicon } from "@studio384/amicons";
-import clsx from "clsx";
 
 import { highlightToTokens } from "./highlight";
+import { cn } from "cn";
 
 export interface IPlaygroundConfig {
   icons: IAmicon[];
@@ -114,13 +114,12 @@ export default function Playground({ config }: IPlaygroundProps) {
   }, [config.cssVariables, iconVariables]);
 
   const importCode = `<Amicon
-  icon={${iconName}}${propertyParser}${
-    variableParser !== ""
+  icon={${iconName}}${propertyParser}${variableParser !== ""
       ? `
   style={{${variableParser}
   }}`
       : ""
-  }
+    }
 />`;
 
   const html = useMemo(() => {
@@ -189,7 +188,7 @@ export default function Playground({ config }: IPlaygroundProps) {
                               [property.name as string]: value as string | number,
                             }))
                           }
-                          className={clsx(
+                          className={cn(
                             "flex rounded-full border border-zinc-200 px-2 py-0.75 text-sm/4 select-none hover:cursor-pointer hover:border-violet-300 hover:bg-violet-200 focus-visible:bg-none focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-violet-800 active:bg-violet-600 active:text-white dark:border-zinc-700 dark:hover:border-violet-800 dark:hover:bg-violet-600/50",
                             {
                               "border-violet-600! bg-violet-500 text-white hover:bg-violet-500":

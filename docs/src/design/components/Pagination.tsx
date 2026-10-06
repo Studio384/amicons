@@ -1,6 +1,6 @@
 import Amicon, { aiArrowLeft, aiArrowRight, aiEllipsisH } from "@studio384/amicons";
 
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 type PageItem = number | "ellipsis";
 

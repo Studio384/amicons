@@ -5,7 +5,7 @@ import { Separator } from "@base-ui/react";
 import Amicon, { aiBluesky, aiGithub, aiPatreon, aiTwitter } from "@studio384/amicons";
 
 import { NAV, isNavItemActive } from "@/navigation";
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 import { NavigationMenu } from "../components/NavigationMenu";
 

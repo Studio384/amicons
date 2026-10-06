@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 import { NavigationMenu as NavigationMenuPrimitive } from "@base-ui/react";
 
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 function Root(props: NavigationMenuPrimitive.Root.Props) {
   return <NavigationMenuPrimitive.Root {...props} />;

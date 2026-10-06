@@ -2,7 +2,7 @@ import { type PropsWithChildren } from "react";
 
 import Amicon, { type IAmicon } from "@studio384/amicons";
 
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 const widthClasses = {
   md: "max-w-4xl",
@@ -18,8 +18,8 @@ export default function PageHeader({
   width = "md",
   className,
 }: { icon: IAmicon; title: string; subtitle: string; width?: PageHeaderWidth } & PropsWithChildren & {
-    className?: string;
-  }) {
+  className?: string;
+}) {
   return (
     <div
       className={cn(

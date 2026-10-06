@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from "react";
 
 import Amicon, { aiCheck, aiCopy } from "@studio384/amicons";
 
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 import { highlightToTokens } from "./highlight";
 

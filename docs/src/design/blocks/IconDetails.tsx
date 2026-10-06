@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import Amicon, { aiXmark } from "@studio384/amicons";
 
 import { type ILibraryIcon } from "@/types";
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 import { formatSvg } from "@/utils/formatSvg";
 
 import Codeblock from "./Codeblock";

@@ -4,7 +4,7 @@ import { Separator } from "@base-ui/react";
 import Amicon, { aiBook, aiArrowLeft, aiArrowRight } from "@studio384/amicons";
 
 import { DOC_PAGES } from "@/navigation";
-import { cn } from "@/utils/cn";
+import { cn } from "cn";
 
 import PageHeader from "../design/blocks/PageHeader";
 import Error from "./Error";
